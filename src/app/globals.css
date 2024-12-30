@@ -1,6 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"); /*Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap");
+/*Inter */
 @import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.vertical-text {
+  writing-mode: vertical-lr;
+}
+
+.link:hover {
+  .arrow {
+    margin-left: 15px;
+    transition: .5s ease-in;
+  }
+}
