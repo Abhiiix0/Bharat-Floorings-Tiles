@@ -187,7 +187,7 @@ const Header = ({ textColor }) => {
                   nlink.name === navlinks[navlinks.length - 1].name
                     ? " pr-[20px] lg:pr-[100px]"
                     : " lg:pr-[150px] xl:pr-[200px] 3xl:pr-[290px]"
-                } flex  items-center `}
+                } flex  items-center ${textColor} `}
               >
                 <a href="#">{nlink?.name}</a>
               </li>

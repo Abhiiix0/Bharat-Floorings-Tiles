@@ -4,35 +4,35 @@ import blackLogo from "../../../public/svgs/bftLogoBlack.svg";
 
 const Footer = () => {
   const colorPalettes = [
-    { colorCode: "#b95485", colorName: "Pink", textColor: "#FFFFFF" },
-    { colorCode: "#24a482", colorName: "Teal", textColor: "#FFFFFF" },
-    { colorCode: "#da5f69", colorName: "Salmon", textColor: "#000000" },
-    { colorCode: "#35e86a", colorName: "Lime Green", textColor: "#000000" },
-    { colorCode: "#5c4372", colorName: "Purple", textColor: "#FFFFFF" },
-    { colorCode: "#fde2ae", colorName: "Peach", textColor: "#000000" },
-    { colorCode: "#94e682", colorName: "Light Green", textColor: "#000000" },
-    { colorCode: "#a738e6", colorName: "Violet", textColor: "#FFFFFF" },
-    { colorCode: "#54acb2", colorName: "Turquoise", textColor: "#000000" },
-    { colorCode: "#ca3c30", colorName: "Red", textColor: "#FFFFFF" },
-    { colorCode: "#39825a", colorName: "Forest Green", textColor: "#FFFFFF" },
-    { colorCode: "#a341f1", colorName: "Indigo", textColor: "#FFFFFF" },
-    { colorCode: "#8c6c55", colorName: "Brown", textColor: "#FFFFFF" },
-    { colorCode: "#9d639e", colorName: "Lavender", textColor: "#FFFFFF" },
-    { colorCode: "#c5af56", colorName: "Olive", textColor: "#000000" },
-    { colorCode: "#e35713", colorName: "Orange", textColor: "#FFFFFF" },
-    { colorCode: "#b45502", colorName: "Copper", textColor: "#FFFFFF" },
-    { colorCode: "#426e0b", colorName: "Dark Green", textColor: "#FFFFFF" },
-    { colorCode: "#d70571", colorName: "Magenta", textColor: "#FFFFFF" },
-    { colorCode: "#9de436", colorName: "Lime", textColor: "#000000" },
-    { colorCode: "#49be64", colorName: "Mint", textColor: "#000000" },
-    { colorCode: "#5f9e8e", colorName: "Sea Green", textColor: "#000000" },
-    { colorCode: "#7e8b39", colorName: "Moss Green", textColor: "#FFFFFF" },
-    { colorCode: "#7a9ad9", colorName: "Sky Blue", textColor: "#000000" },
-    { colorCode: "#565583", colorName: "Midnight Blue", textColor: "#FFFFFF" },
-    { colorCode: "#e7376c", colorName: "Fuchsia", textColor: "#FFFFFF" },
-    { colorCode: "#74b49c", colorName: "Aqua", textColor: "#000000" },
-    { colorCode: "#df064d", colorName: "Crimson", textColor: "#FFFFFF" },
-    { colorCode: "#b4d2c4", colorName: "Pale Blue", textColor: "#000000" },
+    { colorCode: "#f0e7dc", colorName: "White", textColor: "#aaa196" },
+    { colorCode: "#fffcf3", colorName: "Light Cream", textColor: "#b9b6ad" },
+    { colorCode: "#eed6ca", colorName: "Sicilia", textColor: "#a89084" },
+    { colorCode: "#f4c090", colorName: "Buttercup", textColor: "#ae7a4b" },
+    { colorCode: "#d79677", colorName: "Jaisalmer Yellow", textColor: "#915031" },
+    { colorCode: "#f7b960", colorName: "Sunshine Yellow", textColor: "#b1731a" },
+    { colorCode: "#b88276", colorName: "Mushroom", textColor: "#723c30" },
+    { colorCode: "#96796e", colorName: "Fawn", textColor: "#503328" },
+    { colorCode: "#e29792", colorName: "Nursery  Pink", textColor: "#9c514c" },
+    { colorCode: "#e18e8c", colorName: "Dusky Rose", textColor: "#9b4846" },
+    { colorCode: "#e59c8d", colorName: "Peach", textColor: "#9f5647" },
+    { colorCode: "#ac6158", colorName: "Terracotta", textColor: "#7a2f29" },
+    { colorCode: "#9a6362", colorName: "Deep Red", textColor: "#5e2726" },
+    { colorCode: "#544546", colorName: "Chocolate", textColor: "#867878" },
+    { colorCode: "#baa489", colorName: "Macao", textColor: "#745e43" },
+    { colorCode: "#92a997", colorName: "Crazy Green", textColor: "#4c6351" },
+    { colorCode: "#76786d", colorName: "Kotah Green", textColor: "#303227" },
+    { colorCode: "#62846b", colorName: "Mint", textColor: "#26482f" },
+    { colorCode: "#63796d", colorName: "Dark Green", textColor: "#273d31" },
+    { colorCode: "#9bc1a6", colorName: "Jade Green", textColor: "#557b60" },
+    { colorCode: "#77bae5", colorName: "Sea Blue", textColor: "#31749f" },
+    { colorCode: "#7da3b0", colorName: "Blue Lagoon", textColor: "#375d6a" },
+    { colorCode: "#3e5984", colorName: "Chinese Blue", textColor: "#142752" },
+    { colorCode: "#424d59", colorName: "Dark Blue", textColor: "#747f8b" },
+    { colorCode: "#afa9aa", colorName: "Silver Grey", textColor: "#696364" },
+    { colorCode: "#96918e", colorName: "Grey", textColor: "#504b48" },
+    { colorCode: "#535353", colorName: "Solomen Grey", textColor: "#858585" },
+    { colorCode: "#f1ebed", colorName: "Light Silver", textColor: "#aba5a7" },
+    { colorCode: "#414047", colorName: "Black", textColor: "#737279" },
   ];
 
   const footerLinks = [
@@ -87,12 +87,12 @@ const Footer = () => {
             }}
             className={`bg-[#b4d2c4] text-[${cPalettes.textColor}] group flex items-start justify-center w-full `}
           >
-            <p className=" w-fit hidden group-hover:flex flex-col gap-0">
+            <p className=" pt-5 w-fit hidden group-hover:flex vertical-text">
               {cPalettes.colorName
                 .split("")
                 .reverse()
                 .map((letter, index) => (
-                  <span key={index} className="w-fit m-0 p-0  rotate-[-90deg] ">
+                  <span key={index} className="w-fit m-0 p-0 rotate-[180deg] font-medium">
                     {letter}
                   </span>
                 ))}
