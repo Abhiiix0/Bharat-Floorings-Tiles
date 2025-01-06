@@ -21,8 +21,12 @@ const Header = ({ textColor }) => {
                 img: "../../../public/images/headerlinkimg1.jpg",
               },
               { name: "Heritage collection", link: "/home" },
-              { name: "Link1.3", link: "/home" },
-              { name: "Link1.4", link: "/home" },
+              { name: "Centenary Range", link: "/home" },
+              { name: "Made in India", link: "/home" },
+              { name: "International Range", link: "/home" },
+              { name: "Unitinta", link: "/home" },
+              { name: "Borders", link: "/home" },
+              { name: "Other Shapes", link: "/home" },
             ],
           },
           { name: "tarrazzo tiles", link: "/home" },
@@ -34,14 +38,21 @@ const Header = ({ textColor }) => {
             name: "Wall Tiles 4",
             qty: 4,
             links: [
-              { name: "Link2.1", link: "/home" },
-              { name: "Link2.2", link: "/home" },
-              { name: "Link2.3", link: "/home" },
-              { name: "Link2.4", link: "/home" },
+              { name: "Alfresco Terrazzo", link: "/home" },
+              { name: "Checkered tiles", link: "/home" },
+              { name: "Anti slip Tiles", link: "/home" },
+              { name: "Cement stamps", link: "/home" },
             ],
           },
           { name: "Outdoor Flooring", link: "/home" },
-          { name: "BFT Surfaces", qty: 2, link: "/home" },
+          {
+            name: "BFT Surfaces",
+            qty: 2,
+            links: [
+              { name: "BFT Subway Tiles 11", link: "/home" },
+              { name: "Wallpapers", link: "/home" },
+            ],
+          },
           { name: "BFT Home", link: "/home" },
         ],
       ],
@@ -100,20 +111,22 @@ const Header = ({ textColor }) => {
                 {currentSubLinks?.map((row, idx) => (
                   <div
                     key={idx}
-                    className="flex mb-  border-yellow-300 mb-[52px] h-full justify-between w-full"
+                    className={`flex mb-  ${
+                      idx === 0 && "border-b-[1px] pb-[52px]"
+                    } border-white mb-[52px] h-full justify-between w-full`}
                   >
                     {Array?.isArray(row) ? (
                       row?.map((link, subIdx) => (
-                        <li key={subIdx} className=" flex flex-col gap-5">
+                        <li key={subIdx} className=" flex flex-col  gap-5">
                           <a
                             href={link?.link}
-                            className="text-white h-full text-base xl:text-lg 3xl:text-xl uppercase font-semibold font-Inter hover:underline"
+                            className="text-white   text-base xl:text-lg 3xl:text-xl uppercase font-semibold font-Inter hover:underline"
                             onClick={hideOverlay}
                           >
                             {link?.name}
                           </a>
                           {link?.links && (
-                            <ul className="">
+                            <ul className=" ">
                               {link?.links?.map((sublink, subLinkIdx) => (
                                 <li
                                   key={subLinkIdx}
@@ -123,7 +136,7 @@ const Header = ({ textColor }) => {
                                 >
                                   <a
                                     href={sublink.link}
-                                    className="text-gray-700  hover:underline"
+                                    className=" text-base xl:text-lg font-medium mb-1 text-white  hover:underline"
                                   >
                                     {sublink.name}
                                   </a>
