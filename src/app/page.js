@@ -7,13 +7,7 @@ const page = () => {
   return (
     <div>
       <section
-        // className=" bg-red-300"
-        style={{
-          backgroundImage: `url(${bgImg.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "100vh",
-        }}
+      // className=" bg-red-300"
       >
         <Header home={true} title="home"></Header>
       </section>

@@ -5,7 +5,7 @@ import Menu from "../../../public/icons/menu";
 import BftLogo from "../../../public/icons/bftLogo";
 // import vds from "../../../public/videos/headerBgVd.mp4";
 import { useState } from "react";
-const Header = ({ bgImg, title, home = false }) => {
+const Header = ({ textColor }) => {
   const navlinks = [
     {
       name: "Product",
@@ -67,6 +67,10 @@ const Header = ({ bgImg, title, home = false }) => {
   const [hoverLinkImg, sethoverLinkImg] = useState("");
   // Function to show overlay
   const showOverlay = (HName, links = []) => {
+    const bodys = document.getElementsByTagName("body");
+    //scroll to top
+    window.scrollTo(0, 0);
+    bodys[0].style.overflow = "hidden";
     setOverlayVisible(true);
     setHoveredLink(HName);
     setCurrentSubLinks(links);
@@ -74,21 +78,16 @@ const Header = ({ bgImg, title, home = false }) => {
 
   // Function to hide overlay
   const hideOverlay = () => {
+    const bodys = document.getElementsByTagName("body");
+
+    bodys[0].style.overflow = "auto";
     setCurrentSubLinks([]);
     setOverlayVisible(false);
     setHoveredLink("");
   };
   return (
     <header
-      style={{
-        backgroundImage: `url(${bgImg?.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px] border-black  h-fit  ${
-        !home &&
-        "md:h-[300px] lg:h-[350px] xl:h-[400px] 2xl:h-[600px] 3xl:h-[727px] 2xl:pb-[50px] xl:pb-[40px] pb-[15px] 3xl:pb-[95px]"
-      }   mx-auto bg-cover flex flex-col justify-between bg-center `}
+      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center `}
     >
       {isOverlayVisible && (
         <div
@@ -176,7 +175,7 @@ const Header = ({ bgImg, title, home = false }) => {
           <ul
             className={` ${
               isOverlayVisible && " border-b-2 border-white"
-            } text-white z-30  h-[89px] font-Inter  font-semibold mt-[2rem] items-center hidden lg:flex `}
+            }  ${textColor} z-30  h-[89px] font-Inter  font-semibold mt-[2rem] items-center hidden lg:flex `}
           >
             {navlinks?.map((nlink) => (
               <li
@@ -202,11 +201,6 @@ const Header = ({ bgImg, title, home = false }) => {
           </div>
         </div>
       </nav>
-      {!home && (
-        <h1 className="  font-Gloock text-xl sm:text-[6vw] 3xl:text-[9rem] mt-[40px] md:leading-[90px] lg:leading-[143px] text-black">
-          {title}
-        </h1>
-      )}
     </header>
   );
 };
