@@ -6,6 +6,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.header-about-links {
+  margin-bottom: -80px;
+  height: 25px;
+}
+
+.header-about-links:nth-child(1) {
+  /* margin-top: 0px; */
+  /* background-color: aqua; */
+}
+
+#vd-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
 .big-heading {
   @apply 2xl:text-[143px] xl:text-9xl lg:text-8xl md:text-7xl text-6xl font-Gloock font-normal my-10 md:my-14 xl:my-20 2xl:my-24
 }
@@ -51,7 +70,7 @@
   transition: .5s ease-out;
 }
 
-.effect{
+.effect {
   transition: .5s ease-out;
 }
 

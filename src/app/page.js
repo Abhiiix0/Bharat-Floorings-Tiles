@@ -1,9 +1,5 @@
-import OurServicesCard from "./components/OurServicesCard";
-
 const page = () => {
-  return <div>
-<h1>Home</h1>
-    </div>;
+  return <div>Home page</div>;
 };
 
 export default page;
