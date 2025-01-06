@@ -1,17 +1,21 @@
 import { DESIGNER_IMAGES, PROJECT_PAGE_IMAGES } from '@/utils'
 import React from 'react'
 import ProjectsCard from './ProjectsCard'
+import LinesComp from './LinesComp'
 
-const ProjectsPage = () => {
+const ProjectsPage = ({projects}) => {
   return (
-    <section className='md:mb-28 lg:mb-36 xl:mb-44 2xl:mb-52 max-w-[1920px] mx-auto'>
-       <h1 className='font-Gloock text-[10vw] 2xl:text-[9rem] my-10 md:my-14 xl:my-20 2xl:my-24'>Projects</h1>
-       <div className='grid grid-cols-2 grid-row-4 md:gap-x-11 md:gap-y-20 lg:gap-x-14 lg:gap-y-24 xl:gap-x-16 xl:gap-y-32 2xl:gap-x-[90px] 2xl:gap-y-40'>
+    <section className='relative overflow-hidden'>
+      <LinesComp height={'570vh'} />
+      <div className='mb-20 md:mb-28 lg:mb-36 xl:mb-44 2xl:mb-52 max-w-[1920px] mx-auto xl:px-[100px] md:px-16 sm:px-10 px-8 relative'>
+       <h1 className='big-heading'>Projects</h1>
+       <div className='grid md:grid-cols-2 md:gap-x-11 md:gap-y-20 lg:gap-x-14 lg:gap-y-24 xl:gap-x-16 xl:gap-y-32 2xl:gap-x-[90px] 2xl:gap-y-40 gap-y-10'>
      {
-      PROJECT_PAGE_IMAGES.map(({id, publicity, image, designer1, designer2})=>(
+      projects.map(({id, publicity, image, designer1, designer2})=>(
         <ProjectsCard key={id} publicity={publicity} image={image} designer1={designer1} designer2={designer2} designerImage={DESIGNER_IMAGES} />
       ))
      }
+     </div>
      </div>
     </section>
   )
