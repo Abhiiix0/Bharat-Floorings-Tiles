@@ -11,7 +11,7 @@ const ProjectsDetail = () => {
   return (
     <section className='relative overflow-hidden'> 
       <LinesComp height={'130vh'} />
-    <div className='xl:px-[100px] md:px-16 sm:px-10 px-8 relative'>
+    <div className='xl:px-[100px] md:px-16 sm:px-10 px-8 relative my-20 md:my-28 lg:my-36 xl:my-44 2xl:mb-52'>
     <h1 className='big-heading'>Project</h1>
       <div className='flex items-center justify-between 2xl:mb-10'>
       <div onClick={()=>history.back()} className='w-32 xl:w-36 2xl:w-40 flex justify-end gap-1 items-center 2xl:text-base xl:text-sm text-xs cursor-pointer link'>

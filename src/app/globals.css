@@ -39,12 +39,16 @@
   @apply xl:text-base md:text-sm text-xs font-medium font-Inter
 }
 
-.vertical-text {
-  writing-mode: vertical-lr;
-}
-
 .side-padding {
   padding: 0 100px;
+}
+
+.effect {
+  transition: .3s ease-out;
+}
+
+.scroll {
+  scrollbar-width: none;
 }
 
 @media (max-width: 1024px) {

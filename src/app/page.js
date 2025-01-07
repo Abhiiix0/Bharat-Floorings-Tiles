@@ -23,7 +23,7 @@ const page = () => {
         }}
         className=" h-screen"
       >
-        <Header textColor="text-white"></Header>
+        <Header textColor="text-white" iconsColor="text-black"></Header>
         <section className=" text-white side-padding h-[calc(100vh-65px)] md:h-[calc(100vh-112px)] lg:h-[calc(100vh-125px)]  flex flex-col  border-red-500 justify-between ">
           <div className="  pt-20 3xl:pt-64  h-full flex lg:block flex-col justify-center items-center  border-red-400 text-center md:text-start">
             <p className=" heading-text text-[2rem]  md:text-[5.5vw] 2xl:text-[87px] ">
@@ -111,8 +111,3 @@ const page = () => {
 };
 export default page;
 
-const page = () => {
-  return <div>Home page</div>;
-};
-
-export default page;

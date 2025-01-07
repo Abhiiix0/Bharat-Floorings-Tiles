@@ -1,9 +1,11 @@
 'use client'
+import { useState } from 'react'
 import ImageClickModal from './ImageClickModal'
 
-const PastEventsCard = ({eventImg, eventDate, eventName, close, setClose}) => {
+const PastEventsCard = ({eventImg, eventDate, eventName}) => {
+  const [close, setClose] = useState(false)
   return (
-<div>
+<div className='max-w-[1920px]'>
   {close ? <ImageClickModal close={close} setClose={setClose} /> : null}
 <img onClick={()=>setClose(true)} src={eventImg.src}
 className='2xl:min-h-[309px] xl:min-h-64 lg:min-h-52 md:min-h-40 w-full'

@@ -12,7 +12,6 @@ const Events = ({upcomingEvents, tags, events, years, loctaion, pastEvents}) => 
   <section className='max-w-[1920px] mx-auto z-0 relative overflow-hidden'>
     <LinesComp height={'450vh'} />
     <div className='relative z-10'>
-      {close ? <ImageClickModal close={close} setClose={setClose} /> : null}
       <div className='2xl:my-16 2xl:text-xl xl:my-14 lg:my-12 md:my-8 my-6 font-semibold relative xl:px-[100px] md:px-16 sm:px-10 px-8'>
       UPCOMING EVENTS
       <span className='absolute text-xs font-semibold'>2</span>

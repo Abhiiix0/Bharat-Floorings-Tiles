@@ -9,7 +9,8 @@ import { useState } from "react";
 
 const page = () => {
   return (
-    <div className="flex flex-col gap-4 my-10 ml-10">
+    <div className="flex flex-col gap-4 my-20 md:my-28 lg:my-36 xl:my-44 2xl:mb-52 ml-10">
+      <div className="mt-40"></div>
       <a href="about/careers">Career</a>
       <a href="about/events">Events</a>
       <a href="about/gallery">Gallery</a>

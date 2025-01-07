@@ -7,11 +7,6 @@ import LinesComp from './LinesComp'
 
 const Careers = ({jobs}) => {
   return (
-    <>
-       <section 
-   style={{backgroundImage : `url(${careerImg})`}}
-   className='h-screen z-10'
-   ></section>
     <section className='max-w-[1920px] mx-auto relative overflow-hidden'>
     <LinesComp height={'500vh'} />
     <div className='relative xl:mb-36 2xl:mb-44 2xl:mt-20 mt-14 mb-28  '>
@@ -87,7 +82,6 @@ className='underline md:mb-0'
     </div>
     </div>
     </section>
-    </>
   )
 }
 

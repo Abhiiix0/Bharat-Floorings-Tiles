@@ -6,7 +6,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header title="Press releases" />
+        {/* <Header title="Press releases" /> */}
         <main className=" max-w-[1920px] mx-auto">
           {children}
         </main>

@@ -7,7 +7,7 @@ const ProjectsPage = ({projects}) => {
   return (
     <section className='relative overflow-hidden'>
       <LinesComp height={'570vh'} />
-      <div className='mb-20 md:mb-28 lg:mb-36 xl:mb-44 2xl:mb-52 max-w-[1920px] mx-auto xl:px-[100px] md:px-16 sm:px-10 px-8 relative'>
+      <div className='my-20 md:my-28 lg:my-36 xl:my-44 2xl:mb-52 max-w-[1920px] mx-auto xl:px-[100px] md:px-16 sm:px-10 px-8 relative'>
        <h1 className='big-heading'>Projects</h1>
        <div className='grid md:grid-cols-2 md:gap-x-11 md:gap-y-20 lg:gap-x-14 lg:gap-y-24 xl:gap-x-16 xl:gap-y-32 2xl:gap-x-[90px] 2xl:gap-y-40 gap-y-10'>
      {

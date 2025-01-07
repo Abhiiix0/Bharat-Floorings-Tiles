@@ -7,7 +7,7 @@ const GalleryPage = ({gallery}) => {
   return (
     <section className='max-w-[1920px] mx-auto relative overflow-hidden'>
       <LinesComp height={'60vh'} />
-      <div className='relative'>
+      <div className='relative my-20 md:my-28 lg:my-36 xl:my-44 2xl:mb-52'>
        <h1 className='big-heading xl:px-[100px] md:px-16 sm:px-10 px-8 '>Gallery</h1>
        <div className='grid-col md:min-h-[3200px] grid md:grid-cols-2 lg:grid-cols-3 overflow-hidden '>
       {
