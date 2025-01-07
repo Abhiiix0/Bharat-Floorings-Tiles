@@ -77,3 +77,7 @@
 .scroll {
   scrollbar-width: none;
 }
+
+.filter{
+  filter: grayscale(0) !important;
+}

@@ -11,8 +11,8 @@ const OurServices = ({services}) => {
   <h1 className='font-Gloock text-[10vw] 2xl:text-[9rem] my-10 md:my-14 xl:my-20 2xl:my-24'>Projects</h1>
   <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 gap-y-10'>
 {
-  services.map(({id, image, designType, designInfo})=>(
-    <OurServicesCard key={id} image={image} designType={designType} designInfo={designInfo} />
+  services.map((res)=>(
+    <OurServicesCard key={res.id} image={res.image} designType={res.designType} designInfo={res.designInfo} />
   ))
 }
   </div>

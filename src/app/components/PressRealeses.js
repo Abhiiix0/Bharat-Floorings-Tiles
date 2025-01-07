@@ -1,5 +1,3 @@
-import { PRESS_RELEASES } from '@/utils'
-import React from 'react'
 import PressReleasesCard from './PressReleasesCard'
 import LinesComp from './LinesComp'
 
@@ -13,8 +11,8 @@ const PressRealeses = ({press}) => {
     </div>
    <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-x-6 gap-y-6 2xl:mb-80 xl:mb-60 lg:mb-48 md:mb-36 mb-20'>
   {
-    press.map(({id, pressImg, pressDate, pressName})=>(
-      <PressReleasesCard key={id} pressImg={pressImg} pressDate={pressDate} pressName={pressName} />
+    press.map((res)=>(
+      <PressReleasesCard key={res.id} pressImg={res.pressImg} pressDate={res.pressDate} pressName={res.pressName} />
     ))
   }
    </div>

@@ -75,8 +75,8 @@ className='underline md:mb-0'
    </div>
     <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 xl:px-[100px] md:px-16 sm:px-10 px-8'>
       {
-        jobs.map(({id, jobRole, location, experience, qualification, jobDescription})=>(
-          <JobsCard key={id} jobRole={jobRole} location={location} experience={experience} qualification={qualification} jobDescription={jobDescription} />
+        jobs.map((res)=>(
+          <JobsCard key={res.id} jobRole={res.jobRole} location={res.location} experience={res.experience} qualification={res.qualification} jobDescription={res.jobDescription} />
         ))
       }
     </div>

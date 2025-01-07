@@ -51,99 +51,99 @@ const OurCompany = ({journey, management, awards, press, events }) => {
       </div>
     <div className='mt-40 sticky'>
     {
-      journey.filter((el) => el.year === '1922').map(({id, year, heading, para, image, top, left})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} />
+      journey.filter((el) => el.year === '1922').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} />
       ))
     }
     </div>
     <div className='-mt-[500px] z-[2]'>
     {
-      journey.filter((el) => el.year === '1923').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '1923').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[250px] z-[3]'>
     {
-      journey.filter((el) => el.year === '1923-1935').map(({id, year, heading, para, image, top, left})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} />
+      journey.filter((el) => el.year === '1923-1935').map((res)=>(
+       <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} />
       ))
     }
     </div>
     <div className='-mt-[450px] z-[4]'>
     {
-      journey.filter((el) => el.year === '1935-1940').map(({id, year, heading, para, image, top, left,sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '1935-1940').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[300px] z-[5]'>
     {
-      journey.filter((el) => el.year === '1940').map(({id, year, heading, para, image, top, left})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} />
+      journey.filter((el) => el.year === '1940').map((res)=>(
+       <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} />
       ))
     }
     </div>
     <div className='-mt-[450px] z-[6]'>
     {
-      journey.filter((el) => el.year === '1950-1970').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '1950-1970').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '1960').map(({id, year, heading, para, image, top, left})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} />
+      journey.filter((el) => el.year === '1960').map((res)=>(
+       <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '1999').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '1999').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '2000').map(({id, year, heading, para, image, top, left})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} />
+      journey.filter((el) => el.year === '2000').map((res)=>(
+       <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '2010').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '2010').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '2013').map(({id, year, heading, para, image, top, left})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} />
+      journey.filter((el) => el.year === '2013').map((res)=>(
+       <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '2014').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '2014').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === '2015').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === '2015').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
     <div className='-mt-[450px]'>
     {
-      journey.filter((el) => el.year === 'TODAY').map(({id, year, heading, para, image, top, left, sectionLeft})=>(
-        <OurJourneyCard key={id} year={year} heading={heading} para={para} image={image} top={top} left={left} sectionLeft={sectionLeft} />
+      journey.filter((el) => el.year === 'TODAY').map((res)=>(
+        <OurJourneyCard key={res.id} year={res.year} heading={res.heading} para={res.para} image={res.image} top={res.top} left={res.left} sectionLeft={res.sectionLeft} />
       ))
     }
     </div>
@@ -154,8 +154,8 @@ const OurCompany = ({journey, management, awards, press, events }) => {
     <div className='grid md:grid-cols-3 md:gap-x-9 gap-y-10 my-20'>
 
       {
-        management.map(({id, image, name, designation, info})=>(
-          <ManagementCard key={id} image={image} name={name} designation={designation} info={info} />
+        management.map((res)=>(
+          <ManagementCard key={res.id} image={res.image} name={res.name} designation={res.designation} info={res.info} />
         ))
       }
     </div>
@@ -165,13 +165,13 @@ const OurCompany = ({journey, management, awards, press, events }) => {
     <h1 className="2xl:text-[100px] font-Gloock font-normal 2xl:mt-20 lg:text-7xl xl:mt-16 lg:mt-14 md:text-6xl md:mt-10 text-5xl text-center">Awards</h1>
     <div className='flex overflow-x-scroll gap-11 scroll xl:my-16 lg:y-12 md:my-9 my-7'>
       {
-        awards.map(({id, image, date, awardedFor, awardName})=>(
-          <AwardsCard key={id} image={image} date={date} awardedFor={awardedFor} awardName={awardName} />
+        awards.map((res)=>(
+          <AwardsCard key={res.id} image={res.image} date={res.date} awardedFor={res.awardedFor} awardName={res.awardName} />
         ))
       }
         {
-        awards.map(({id, image, date, awardedFor, awardName})=>(
-          <AwardsCard key={id} image={image} date={date} awardedFor={awardedFor} awardName={awardName} />
+        awards.map((res)=>(
+          <AwardsCard key={res.id} image={res.image} date={res.date} awardedFor={res.awardedFor} awardName={res.awardName} />
         ))
       }
     </div>
@@ -188,22 +188,22 @@ const OurCompany = ({journey, management, awards, press, events }) => {
      <div className="xl:mt-20 xl:mb-36 lg:mt-16 lg:mb-28 md:mt-12 md:mb-20 mt-10 mb-16">
       <div className='hidden xl:grid xl:grid-cols-4 gap-4'>
       {
-        press.slice(0,4).map(({id, pressImg, pressDate, pressName})=>(
-          <PressReleasesCard key={id} pressImg={pressImg} pressDate={pressDate} pressName={pressName} />
+        press.slice(0,4).map((res)=>(
+          <PressReleasesCard key={res.id} pressImg={res.pressImg} pressDate={res.pressDate} pressName={res.pressName} />
         ))
       }
       </div>
       <div className='xl:hidden lg:grid hidden grid-cols-3 gap-4'>
       {
-        press.slice(0,3).map(({id, pressImg, pressDate, pressName})=>(
-          <PressReleasesCard key={id} pressImg={pressImg} pressDate={pressDate} pressName={pressName} />
+        press.slice(0,3).map((res)=>(
+          <PressReleasesCard key={res.id} pressImg={res.pressImg} pressDate={res.pressDate} pressName={res.pressName} />
         ))
       }
       </div>
       <div className='lg:hidden grid grid-cols-2 gap-4'>
       {
-        press.slice(0,2).map(({id, pressImg, pressDate, pressName})=>(
-          <PressReleasesCard key={id} pressImg={pressImg} pressDate={pressDate} pressName={pressName} />
+        press.slice(0,2).map((res)=>(
+          <PressReleasesCard key={res.id} pressImg={res.pressImg} pressDate={res.pressDate} pressName={res.pressName} />
         ))
       }
       </div>
@@ -223,22 +223,22 @@ const OurCompany = ({journey, management, awards, press, events }) => {
      <div className="xl:mt-20 xl:mb-36 lg:mt-16 lg:mb-28 md:mt-12 md:mb-20 mt-10 mb-16">
       <div className='hidden xl:grid xl:grid-cols-4 gap-4'>
       {
-        events.slice(0,4).map(({id,eventImg, eventDate, eventName})=>(
-          <PastEventsCard key={id} eventDate={eventDate} eventImg={eventImg} eventName={eventName} />
+        events.slice(0,4).map((res)=>(
+          <PastEventsCard key={res.id} eventDate={res.eventDate} eventImg={res.eventImg} eventName={res.eventName} />
         ))
       }
       </div>
       <div className='xl:hidden lg:grid hidden grid-cols-3 gap-4'>
       {
-        events.slice(0,3).map(({id, eventImg, eventDate, eventName})=>(
-          <PastEventsCard key={id} eventDate={eventDate} eventImg={eventImg} eventName={eventName} />
+        events.slice(0,3).map((res)=>(
+             <PastEventsCard key={res.id} eventDate={res.eventDate} eventImg={res.eventImg} eventName={res.eventName} />
         ))
       }
       </div>
       <div className='lg:hidden grid grid-cols-2 gap-4'>
       {
-        events.slice(0,2).map(({id, eventImg, eventDate, eventName})=>(
-          <PastEventsCard key={id} eventDate={eventDate} eventImg={eventImg} eventName={eventName} />
+        events.slice(0,2).map((res)=>(
+             <PastEventsCard key={res.id} eventDate={res.eventDate} eventImg={res.eventImg} eventName={res.eventName} />
         ))
       }
       </div>
