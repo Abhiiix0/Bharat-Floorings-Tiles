@@ -5,7 +5,8 @@ import Menu from "../../../public/icons/menu";
 import BftLogo from "../../../public/icons/bftLogo";
 // import vds from "../../../public/videos/headerBgVd.mp4";
 import { useState } from "react";
-const Header = ({ textColor, iconsColor }) => {
+import LinesComp from "./LinesComp";
+const Header = ({ textColor, iconsColor, lines }) => {
   const navlinks = [
     {
       name: "Product",
@@ -98,8 +99,10 @@ const Header = ({ textColor, iconsColor }) => {
   };
   return (
     <header
-      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center absolute min-w-full `}
+      className={`max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center overflow-hidden relative`}
     >
+      {lines ? <LinesComp height={'50vh'} /> : null}
+      <div className={`${"pl-[20px] lg:pl-[100px]"} `}>
       {isOverlayVisible && (
         <div
           className="fixed top-0 left-0 w-full h-full  pointer-events-auto z-10"
@@ -216,6 +219,8 @@ const Header = ({ textColor, iconsColor }) => {
           </div>
         </div>
       </nav>
+      </div>
+     
     </header>
   );
 };

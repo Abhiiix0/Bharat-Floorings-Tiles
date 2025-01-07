@@ -1,13 +1,22 @@
-import BackgoundImageLayout from '@/app/components/BackgoundImageLayout'
 import OurClients from '@/app/components/OurClients'
 import { HERITAGE_HOTELS, HERITAGE_RESTUARANTS, RESOURCES_IMAGES } from '@/utils'
 import React from 'react'
 import clientsPageImage from '../../../../public/images/our_client.jpg'
+import Header from '@/app/components/Header'
 
 const page = () => {
   return (
 <>
-<BackgoundImageLayout image={clientsPageImage} heading={'Our Clients'} />
+<div
+       style={{backgroundImage : `url(${clientsPageImage.src})`,
+               backgroundPosition: 'center',
+               backgroundSize: 'cover'
+      }}
+       className='2xl:h-[727px] lg:h-[450px] h-screen  relative'
+       >
+        <Header textColor="text-white" />
+        <h1 className="big-heading text-white absolute xl:top-[55%] lg:top-2/4 top-[80%] left-[7%]">Our Clients</h1>
+        </div>
 <OurClients resource={RESOURCES_IMAGES} hotels={HERITAGE_HOTELS} resturants={HERITAGE_RESTUARANTS} />
 </>
   )

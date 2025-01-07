@@ -10,7 +10,7 @@ const Careers = ({jobs}) => {
     <section className='max-w-[1920px] mx-auto relative overflow-hidden'>
     <LinesComp height={'500vh'} />
     <div className='relative xl:mb-36 2xl:mb-44 2xl:mt-20 mt-14 mb-28  '>
-    <div className='xl:px-[100px] md:px-16 sm:px-10 px-8'>
+    <div className='lg:px-[100px] px-[20px]'>
     <Intro intro1={'Who we are'} intro2={'100 years old'} />
     </div>
    <div className='flex lg:flex-row flex-col md:gap-10 lg:gap-14 2xl:gap-20 2xl:mt-20 lg:mt-16 2xl:my-20 lg:my-14 md:my-10 lg:pr-0 xl:pl-[100px] md:px-16 px-10'>
@@ -40,7 +40,7 @@ className='underline md:mb-0'
    </div> 
    <div className='bg-[#FFFEF2] relative overflow-hidden'>
     <LinesComp height={'100vh'} />
-  <div className='relative py-7 2xl:py-12 xl:py-10 lg:py-8 2xl:mb-14 xl:mb-11 lg:mb-8 md:mb-6 mb-5 xl:px-[100px] md:px-16 sm:px-10 px-8'>
+  <div className='relative py-7 2xl:py-12 xl:py-10 lg:py-8 2xl:mb-14 xl:mb-11 lg:mb-8 md:mb-6 mb-5 lg:px-[100px] px-[20px]'>
    <span className='xl:text-base md:text-sm text-xs font-medium font-Inter'>
     Benefits of working with us
    </span>
@@ -69,11 +69,11 @@ className='underline md:mb-0'
    </div>
    </div>
    </div>
-   <div className='title-el relative 2xl:mb-40 xl:mb-32 lg:mb-24 md:mb-20 mb-14 xl:pl-[100px] md:pl-16 sm:pl-10 pl-8'>
+   <div className='title-el relative 2xl:mb-40 xl:mb-32 lg:mb-24 md:mb-20 mb-14 lg:px-[100px] px-[20px]'>
     Open Positions
     <span className='absolute text-xs ml-1'>6</span>
    </div>
-    <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 xl:px-[100px] md:px-16 sm:px-10 px-8'>
+    <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 lg:px-[100px] px-[20px]'>
       {
         jobs.map((res)=>(
           <JobsCard key={res.id} jobRole={res.jobRole} location={res.location} experience={res.experience} qualification={res.qualification} jobDescription={res.jobDescription} />
