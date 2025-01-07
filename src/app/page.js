@@ -110,3 +110,9 @@ const page = () => {
   );
 };
 export default page;
+
+const page = () => {
+  return <div>Home page</div>;
+};
+
+export default page;
