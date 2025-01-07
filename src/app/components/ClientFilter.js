@@ -2,7 +2,7 @@
 import { AiOutlineAlignLeft } from "react-icons/ai";
 import { CgMenuGridR } from "react-icons/cg";
 import DropDowns from './DropDowns'
-import gridLogo from "../../../public/icons/gridLogo";
+import gridLogo from "../../../public/icons/GridLogo";
 const allCleints = [
   {id: 1, subs: 'ALL CLIENTS'}
 ]

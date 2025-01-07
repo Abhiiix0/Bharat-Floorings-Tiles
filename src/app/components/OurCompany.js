@@ -10,7 +10,6 @@ import { RiArrowRightLine } from "react-icons/ri";
 import { useEffect, useRef } from "react"
 
 const OurCompany = ({journey, management, awards, press, events }) => {
-  const sectionRef = useRef()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +18,6 @@ const OurCompany = ({journey, management, awards, press, events }) => {
           const rect = sectionRef.current.getBoundingClientRect();
           if (rect.top <= 0) {
             sectionRef.current.style.overflowY = 'scroll'
-            // sectionRef.current.style.position = 'fixed'
           }
           else if (rect.top > 0) {
             sectionRef.current.style.overflow = 'hidden'

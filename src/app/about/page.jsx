@@ -4,7 +4,6 @@ import bgImg from "../../../public/images/image.jpg";
 import RootLayout from "../layout";
 import Header from "../components/Header";
 import { useState } from "react";
-import OurServicesSubSection from "../components/ourServicesSubSection";
 // import RootLayout from "../layout";
 // import RootLayout from "../layout";
 
@@ -12,7 +11,6 @@ import OurServicesSubSection from "../components/ourServicesSubSection";
 const page = () => {
   return (
     <div>
-      <Header iconsColor="black" />
       <h1>About</h1>
     </div>
   );
