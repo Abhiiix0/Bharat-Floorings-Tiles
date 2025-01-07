@@ -18,9 +18,9 @@ import product1 from "../../public/images/home/product1.jpg";
 import ProductCard from "./components/home/ProductCard";
 
 // Manufracture
-import manufracture1 from "../../public/images/home/manufracture.jpg";
+// import manufracture1 from "../../public/images/home/manufracture.jpg";
 import Manufacture from "../../public/images/home/Manufracture";
-import RotatingTextEffect from "./components/home/RotatingTextEffect";
+// import RotatingTextEffect from "./components/home/RotatingTextEffect";
 const page = () => {
   const project = {
     year: "100 years of",
