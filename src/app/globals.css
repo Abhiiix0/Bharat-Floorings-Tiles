@@ -16,7 +16,7 @@
 }
 
 .big-heading {
-  @apply 2xl:text-[143px] xl:text-9xl lg:text-8xl md:text-7xl text-6xl font-Gloock font-normal my-10 md:my-14 xl:my-20 2xl:my-24
+  @apply 2xl:text-[143px] xl:text-9xl lg:text-8xl md:text-7xl text-6xl font-Gloock font-normal my-10 md:my-14 xl:my-20 2xl:my-24;
 }
 
 /* .medium-heading {
@@ -24,27 +24,28 @@
 } */
 
 .para-medium {
-  @apply sm:text-sm sm:leading-[26px] text-xs leading-[20px] md:text-base md:leading-[28px] xl:text-lg xl:leading-[30px] 2xl:text-xl 2xl:leading-[32px] font-Inter
+  @apply sm:text-sm sm:leading-[26px] text-xs leading-[20px] md:text-base md:leading-[28px] xl:text-lg xl:leading-[30px] 2xl:text-xl 2xl:leading-[32px] font-Inter;
 }
 
 .link-el {
-  @apply 2xl:text-base xl:text-sm text-xs flex gap-1 items-center 2xl:h-14 h-8 xl:h-11 lg:h-9 font-Inter
+  @apply 2xl:text-base xl:text-sm text-xs flex gap-1 items-center 2xl:h-14 h-8 xl:h-11 lg:h-9 font-Inter;
 }
 
 .para-big {
-  @apply xl:text-2xl md:text-xl md:leading-[36px] text-base leading-[34px] xl:leading-[38px] font-medium 2xl:text-3xl 2xl:leading-[42px] font-Inter
+  @apply xl:text-2xl md:text-xl md:leading-[36px] text-base leading-[34px] xl:leading-[38px] font-medium 2xl:text-3xl 2xl:leading-[42px] font-Inter;
 }
 
 .title-el {
-  @apply xl:text-base md:text-sm text-xs font-medium font-Inter
+  @apply xl:text-base md:text-sm text-xs font-medium font-Inter;
 }
 
 .side-padding {
-  padding: 0 100px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 .effect {
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .scroll {
@@ -53,8 +54,8 @@
 
 @media (max-width: 1024px) {
   .side-padding {
-    padding: 0 20px;
-    /* Padding for smaller screens */
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -96,5 +97,30 @@
   .arrow {
     margin-left: 15px;
     transition: 0.5s ease-in;
+  }
+}
+
+.manufractureImg {
+  background: linear-gradient(
+      221deg,
+      rgba(0, 0, 0, 0) 54.03%,
+      rgba(0, 0, 0, 0.6) 94.39%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    url("/images/home/manufracture.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.text-container {
+  animation: scrollText 6s linear infinite; /* Adjust duration based on total words */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150%);
   }
 }
