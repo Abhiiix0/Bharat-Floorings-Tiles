@@ -5,7 +5,7 @@ import Menu from "../../../public/icons/menu";
 import BftLogo from "../../../public/icons/bftLogo";
 // import vds from "../../../public/videos/headerBgVd.mp4";
 import { useState } from "react";
-const Header = ({ textColor }) => {
+const Header = ({ textColor, iconsColor }) => {
   const navlinks = [
     {
       name: "Product",
@@ -21,8 +21,12 @@ const Header = ({ textColor }) => {
                 img: "../../../public/images/headerlinkimg1.jpg",
               },
               { name: "Heritage collection", link: "/home" },
-              { name: "Link1.3", link: "/home" },
-              { name: "Link1.4", link: "/home" },
+              { name: "Centenary Range", link: "/home" },
+              { name: "Made in India", link: "/home" },
+              { name: "International Range", link: "/home" },
+              { name: "Unitinta", link: "/home" },
+              { name: "Borders", link: "/home" },
+              { name: "Other Shapes", link: "/home" },
             ],
           },
           { name: "tarrazzo tiles", link: "/home" },
@@ -53,11 +57,11 @@ const Header = ({ textColor }) => {
         ],
       ],
     },
-    { name: "Service", link: "/about/our-company" },
+    { name: "Service", link: "/about" },
     {
       name: "About",
       links: [
-        { name: "About us", link: "/about/events" },
+        { name: "About us", link: "/about" },
         { name: "Our Team", link: "/about" },
         { name: "Our Story", link: "/about" },
         { name: "Contact us", link: "/about" },
@@ -94,11 +98,11 @@ const Header = ({ textColor }) => {
   };
   return (
     <header
-      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center  relative`}
-    > 
+      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center `}
+    >
       {isOverlayVisible && (
         <div
-          className="fixed top-0 left-0 w-full h-full pointer-events-auto z-20"
+          className="fixed top-0 left-0 w-full h-full  pointer-events-auto z-10"
           onClick={hideOverlay} // Click on overlay hides it
         >
           <div className="max-w-[1920px] h-full bg-red-300 flex-col pt-[180px] hidden lg:flex items-end justify-between  mx-auto">

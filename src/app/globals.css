@@ -6,18 +6,66 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<<<< Temporary merge branch 1 .vertical-text {
+/* root */
+:root {
+  --primary-color: #1a1d23;
+  --secondary-color: #f7f7f7;
+
+  /* font */
+  --font-heading: "Gloock";
+}
+
+.big-heading {
+  @apply 2xl:text-[143px] xl:text-9xl lg:text-8xl md:text-7xl text-6xl font-Gloock font-normal my-10 md:my-14 xl:my-20 2xl:my-24
+}
+
+/* .medium-heading {
+  @apply 2xl:text-[100px] 2xl:leading-[100px] md:text-5xl text-4xl xl:text-7xl lg:text-6xl font-Gloock font-normal
+} */
+
+.para-medium {
+  @apply sm:text-sm sm:leading-[26px] text-xs leading-[20px] md:text-base md:leading-[28px] xl:text-lg xl:leading-[30px] 2xl:text-xl 2xl:leading-[32px] font-Inter
+}
+
+.link-el {
+  @apply 2xl:text-base xl:text-sm text-xs flex gap-1 items-center 2xl:h-14 h-8 xl:h-11 lg:h-9 font-Inter
+}
+
+.para-big {
+  @apply xl:text-2xl md:text-xl md:leading-[36px] text-base leading-[34px] xl:leading-[38px] font-medium 2xl:text-3xl 2xl:leading-[42px] font-Inter
+}
+
+.title-el {
+  @apply xl:text-base md:text-sm text-xs font-medium font-Inter
+}
+
+.vertical-text {
   writing-mode: vertical-lr;
 }
 
-.link:hover {
-  .arrow {
-    margin-left: 15px;
-    transition: .5s ease-in;
+.side-padding {
+  padding: 0 100px;
+}
+
+@media (max-width: 1024px) {
+  .side-padding {
+    padding: 0 20px;
+    /* Padding for smaller screens */
   }
 }
 
-=========.header-about-links {
+.normal-text {
+  font-family: "Inter";
+}
+
+.heading-text {
+  font-family: Gloock;
+  line-height: 88.38%;
+  /* 77.691px */
+  letter-spacing: -0.879px;
+}
+
+.header-about-links {
   margin-bottom: -80px;
   height: 25px;
 }
@@ -36,4 +84,13 @@
   z-index: 100;
 }
 
->>>>>>>>>Temporary merge branch 2
+.vertical-text {
+  writing-mode: vertical-lr;
+}
+
+.link:hover {
+  .arrow {
+    margin-left: 15px;
+    transition: 0.5s ease-in;
+  }
+}
