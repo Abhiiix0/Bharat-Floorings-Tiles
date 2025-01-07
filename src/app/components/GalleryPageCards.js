@@ -1,12 +1,12 @@
 import React from 'react'
 const GalleryPageCards = ({designerImg, galleryImg}) => {
   return (
-    <div className='min-h-64 min-w-64 relative'>
+    <div className='min-h-64 min-w-64 sm:h-[600px] lg:h-auto relative'>
       <img src={galleryImg.src} className='h-full w-full' />
 <div className='absolute top-[85%] lg:top-[90%] left-[10%] flex w-full gap-4'>
 {
   designerImg.map(({id, image})=>(
-    <img className='cursor-pointer 2xl:h-10 2xl:w-10 xl:h-8 xl:w-8 hover:scale-150 transition-transform h-6 w-6' key={id} src={image.src} />
+    <img className='cursor-pointer xl:h-10 xl:w-10 h-8 w-8 hover:scale-150 effect' key={id} src={image.src} />
   ))
 }
 </div>      

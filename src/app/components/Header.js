@@ -98,7 +98,7 @@ const Header = ({ textColor, iconsColor }) => {
   };
   return (
     <header
-      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center `}
+      className={` ${"pl-[20px] lg:pl-[100px]"} max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center absolute min-w-full `}
     >
       {isOverlayVisible && (
         <div

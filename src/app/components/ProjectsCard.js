@@ -3,21 +3,21 @@ import { RiArrowRightLine } from "react-icons/ri";
 
 const ProjectsCard = ({image, publicity, designer1, designer2, designerImage}) => {
   return (
-    <div className='md:h-[550px] lg:h-[690px] xl:h-[830px] 2xl:h-[1039px] font-Inter 2xl:text-base xl:text-sm lg:text-xs md:text-xs'>
+    <div className='md:h-[550px] lg:h-[690px] xl:h-[830px] 2xl:h-[1039px] font-Inter'>
       <img src={image.src} 
-      className='md:h-[415px] lg:h-[520px] xl:h-[620px] 2xl:h-[780px] md:mb-5 lg:mb-6 xl:mb-8 w-full 2xl:mb-10'
+      className='md:h-[415px] lg:h-[520px] xl:h-[620px] 2xl:h-[780px] mb-5 lg:mb-6 xl:mb-8 w-full 2xl:mb-10'
       />
-     <div className='flex items-center lg:mb-4 xl:mb-5 justify-between 2xl:mb-7'>
+     <div className='flex items-center lg:mb-4 xl:mb-5 justify-between 2xl:mb-7 lg:text-base sm:text-sm text-xs'>
       <p>
         {publicity}
       </p>
-      <Link href='#' className='border-black border-[1px] md:h-8  lg:h-9 w-28 xl:h-11 xl:w-[130px] 2xl:h-14 2xl:w-[165px] flex xl:pl-3 pl-2 2xl:pl-6 gap-1 items-center link'>View project <RiArrowRightLine className='arrow' />
+      <Link href='#' className='border-black border-[1px] md:h-8  lg:h-9 h-7 w-32 lg:text-base sm:text-sm text-xs xl:h-11 xl:w-[130px] 2xl:h-14 2xl:w-[165px] flex xl:pl-3 pl-2 2xl:pl-6 gap-1 items-center link'>View project <RiArrowRightLine className='arrow' />
       </Link>
      </div>
-     <p>
+     <p className='lg:text-base sm:text-sm text-xs'>
      {designer1}
      </p>
-     <p>
+     <p className='lg:text-base sm:text-sm text-xs'>
       {designer2}
      </p>
      <div className='flex md:mt-3 lg:mt-4 xl:mt-5 2xl:mt-7'>
