@@ -5,7 +5,7 @@ import Menu from "../../../public/icons/menu";
 import BftLogo from "../../../public/icons/bftLogo";
 // import vds from "../../../public/videos/headerBgVd.mp4";
 import { useState } from "react";
-const Header = ({ textColor }) => {
+const Header = ({ textColor, iconsColor }) => {
   const navlinks = [
     {
       name: "Product",
@@ -179,6 +179,7 @@ const Header = ({ textColor }) => {
             className="hidden z-30 lg:block"
           ></Image>
           <BftLogo
+            color={iconsColor}
             onClick={hideOverlay}
             size={46}
             className=" h-[46px] w-[46px] lg:hidden md:h-20 md:w-20 mt-5 md:mt-8"
@@ -208,6 +209,7 @@ const Header = ({ textColor }) => {
           </ul>
           <div className=" mt-[2.36rem] md:mt-10 lg:hidden">
             <Menu
+              color={iconsColor}
               size={40}
               className=" w-[24px] h-[24px] mr-5 md:w-[40px] md:h-[40px]"
             ></Menu>
