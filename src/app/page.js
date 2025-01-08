@@ -16,10 +16,11 @@ import workbench2 from "../../public/images/home/Workbench2.jpg";
 //products
 import product1 from "../../public/images/home/product1.jpg";
 import ProductCard from "./components/home/ProductCard";
+import Manufacture from "./components/home/Manufracture";
 
 // Manufracture
 // import manufracture1 from "../../public/images/home/manufracture.jpg";
-import Manufacture from "../../public/images/home/Manufracture";
+// import Manufacture from "./components/home/Manufracture";
 // import RotatingTextEffect from "./components/home/RotatingTextEffect";
 const page = () => {
   const project = {

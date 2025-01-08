@@ -1,8 +1,6 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import manufracture1 from "../../images/home/manufracture.jpg";
-import BigArrowRight from "../../icons/bigArrowRIght";
+import manufracture1 from "../../../../public/images/home/manufracture.jpg";
+import BigArrowRight from "../../../../public/icons/bigArrowRIght";
 export default function Manufacture() {
   return (
     <div className="relative">
