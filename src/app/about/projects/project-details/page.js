@@ -1,9 +1,9 @@
-import ProjectsDetail from "@/app/components/ProjectsDetail"
+// import ProjectsDetail from "@/app/components/ProjectsDetail"
+
+import ProjectsDetail from "../../../components/ProjectsDetail";
 
 const page = () => {
-  return (
-    <ProjectsDetail />
-  )
-}
+  return <ProjectsDetail />;
+};
 
-export default page
+export default page;
