@@ -102,13 +102,15 @@ const Header = ({ textColor, iconsColor, lines }) => {
       className={`max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center overflow-hidden relative`}
     >
       {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        src={require("../../../public/videos/headerBgVd.mp4")}
-        autoPlay
-        muted
-        loop
-      />
+      {isOverlayVisible && (
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+          src={require("../../../public/videos/headerBgVd.mp4")}
+          autoPlay
+          muted
+          loop
+        />
+      )}
 
       {lines ? <LinesComp height={"50vh"} /> : null}
       <div className={`${"pl-[20px] lg:pl-[100px]"} `}>
@@ -223,7 +225,9 @@ const Header = ({ textColor, iconsColor, lines }) => {
                     nlink.name === navlinks[navlinks.length - 1].name
                       ? " pr-[20px] lg:pr-[100px]"
                       : " lg:pr-[150px] xl:pr-[200px] 3xl:pr-[290px]"
-                  } flex  items-center ${textColor} `}
+                  } flex  items-center ${
+                    isOverlayVisible && "text-white"
+                  } ${textColor} `}
                 >
                   <a href="#">{nlink?.name}</a>
                 </li>
