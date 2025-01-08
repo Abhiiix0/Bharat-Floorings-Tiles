@@ -109,17 +109,17 @@ const page = () => {
       >
         <Header textColor="text-white"></Header>
         <section className=" text-white side-padding  h-[calc(100vh-70px)] md:h-[calc(100vh-120px)] lg:h-[calc(100vh-130px)]  flex flex-col justify-between   border-red-500  ">
-          <div className="    h-full flex flex-col justify-center md:justify-end pb-[50px] lg:pb-[100px] 3xl:pb-[210px]   border-red-400 text-center md:text-start">
+          <div className="    h-full flex flex-col justify-center md:justify-end pb-[50px] lg:pb-[70px] 3xl:pb-[214px]   border-red-400 text-center md:text-start">
             <p className=" heading-text text-[2rem]  md:text-[5.5vw] 2xl:text-[87px] ">
               {project?.year}
             </p>
             {/* <RotatingTextEffect words={project.titles} /> */}
-            <p className=" text-[2.6rem] md:text-[7.4vw] 3xl:text-[142px] lg:leading-[185px] font-Gloock uppercase">
+            <p className=" text-[2.6rem] md:text-[7.3vw] 3xl:text-[142px] lg:leading-[185px] font-Gloock uppercase">
               {project?.titles[1]}
             </p>
           </div>
           <div className=" normal-text mb-6  lg:mb-10   flex w-full">
-            <div className="gap-9 flex flex-col w-full ">
+            <div className=" gap-7 3xl:gap-9 flex flex-col w-full ">
               <div className=" flex gap-5">
                 {project?.tilesImg.map((img, i) => (
                   <Image
