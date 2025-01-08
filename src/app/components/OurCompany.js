@@ -10,6 +10,7 @@ import { RiArrowRightLine } from "react-icons/ri";
 import { useEffect, useRef } from "react";
 
 const OurCompany = ({ journey, management, awards, press, events }) => {
+  const sectionRef = useRef(null);
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerWidth > 900) {
