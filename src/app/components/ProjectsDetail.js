@@ -10,62 +10,17 @@ import Image from "next/image";
 
 const ProjectsDetail = () => {
   return (
-    <section className="relative overflow-hidden">
-      <LinesComp height={"130vh"} />
-      <div className="xl:px-[100px] md:px-16 sm:px-10 px-8 relative my-20 md:my-28 lg:my-36 xl:my-44 2xl:mb-52">
-        <h1 className="big-heading">Project</h1>
-        <div className="flex items-center justify-between 2xl:mb-10">
-          <div
-            onClick={() => history.back()}
-            className="w-32 xl:w-36 2xl:w-40 flex justify-end gap-1 items-center 2xl:text-base xl:text-sm text-xs cursor-pointer link"
-          >
-            <RiArrowLeftLine className="arrow-left" />
-            Back to projects
-          </div>
-          <Link
-            href="about/press"
-            className="w-40  xl:w-[180px] 2xl:w-52  flex  gap-1 items-center 2xl:text-base xl:text-sm text-xs link"
-          >
-            up next: HOTEL NAHAR
-            <RiArrowRightLine className="arrow" />
-          </Link>
-        </div>
-        <p className="xl:text-[38.35px] xl:leading-[84.84px] lg:text-3xl lg:leading-[75px] md:text-2xl md:leading-[68px] text-xl leading-[60px] font-medium">
-          Fabien Charuai
-        </p>
-        <p className="xl:text-[38.35px] xl:leading-[84.84px] lg:text-3xl lg:leading-[75px] md:text-2xl md:leading-[68px] text-xl leading-[60px] font-medium">
-          Les Bouchons
-        </p>
-        <p className="xl:text-base md:text-sm text-xs leading-[18px] md:leading-[22px] xl:leading-[25.6px] md:w-96 w-full">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
-        <div className="flex items-center justify-between my-14">
-          <div className="w-[40%] flex gap-4 flex-wrap">
-            <div className="xl:h-[60.14px] lg:h-12 h-10 flex gap-2">
-              <Image
-                alt="Image"
-                className="h-full"
-                src={DESIGNER_IMAGES[0].image.src}
-              />
-              <div className="flex items-center">
-                <span className="xl:text-base md:text-sm text-xs">
-                  Anulom Type A
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="w-[40%] flex flex-wrap justify-end xl:h-[60.14px] lg:h-12 h-10">
-            <img src={tajLogo.src} className="h-full" />
-          </div>
-        </div>
-        <Intro
-          intro1={"July 1998"}
-          intro2={"3 products"}
-          intro3={"client TAJ HOTELS"}
-        />
+    <section className='relative overflow-hidden'> 
+      <LinesComp height={'130vh'} />
+    <div className='lg:px-[100px] px-[20px] relative'>
+    <h1 className='big-heading'>Project</h1>
+      <div className='flex items-center justify-between 2xl:mb-10'>
+      <div onClick={()=>history.back()} className='w-32 xl:w-36 2xl:w-40 flex justify-end gap-1 items-center 2xl:text-base xl:text-sm text-xs cursor-pointer link'>
+     <RiArrowLeftLine className="arrow-left" />Back to projects
+     </div>
+     <Link href='about/press' className='w-40  xl:w-[180px] 2xl:w-52  flex  gap-1 items-center 2xl:text-base xl:text-sm text-xs link'>up next: HOTEL NAHAR
+     <RiArrowRightLine className="arrow" />
+     </Link>
       </div>
       <div
         style={{

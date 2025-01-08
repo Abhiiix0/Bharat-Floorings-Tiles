@@ -1,9 +1,13 @@
-// import ProjectsDetail from "@/app/components/ProjectsDetail"
-
-import ProjectsDetail from "../../../components/ProjectsDetail";
+import Header from "@/app/components/Header";
+import ProjectsDetail from "@/app/components/ProjectsDetail";
 
 const page = () => {
-  return <ProjectsDetail />;
+  return (
+    <div>
+      <Header iconsColor="balck" lines={true} />
+      <ProjectsDetail />
+    </div>
+  );
 };
 
 export default page;
