@@ -1137,7 +1137,7 @@ export const RESOURCES_IMAGES = [
   },
 ];
 
-export const EVENTS_SUB_IMAGES = [
+export const   EVENTS_SUB_IMAGES = [
   { id: 1, image: eventSub1 },
   { id: 2, image: eventSub2 },
   { id: 3, image: eventSub3 },
@@ -1330,3 +1330,150 @@ export const AWARDS = [
     awardName: "UNESCO 2014 - Cultural Heritage Conservation Award",
   },
 ];
+
+export const ABOUT_CONTACTS = [
+  {
+    id: 1,
+    location: 'NEW DELHI SHOWROOM',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 2,
+    location: 'GOA SHOWROOM',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 3,
+    location: 'AHMEDABAD SHOWROOM',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 4,
+    location: 'HYDERABAD',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 5,
+    location: 'CHENNAI',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 6,
+    location: 'KOLKATA',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 7,
+    location: 'INDORE',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 8,
+    location: 'NAVI MUMBAI',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 9,
+    location: 'SHIVAAY LUXURY LIVING LLP',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 10,
+    location: 'ELITE SPACE',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 11,
+    location: 'KERALA',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 12,
+    location: 'UTTARAKHAND',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 13,
+    location: 'KOCHI',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 14,
+    location: 'TAMIL NADU',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 15,
+    location: 'PONDICHERRY',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 16,
+    location: 'CHANDIGARH PUNJAB',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+]

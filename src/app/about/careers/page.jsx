@@ -5,7 +5,7 @@ import Header from "@/app/components/Header"
 
 const page = () => {
   return (
-    <>
+    <div>
       <div
         style={{
           backgroundImage: `url(${careerPageIMage.src})`,
@@ -18,7 +18,7 @@ const page = () => {
         <h1 className="big-heading text-white absolute xl:top-[55%] lg:top-2/4 top-[80%] left-[7%]">Careers</h1>
       </div>
       <Careers jobs={ALL_JOBS} />
-    </>
+    </div>
   )
 }
 
