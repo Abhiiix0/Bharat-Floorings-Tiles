@@ -6,7 +6,7 @@ import gallery5 from "../public/images/galleryImg-5.jpg";
 import gallery6 from "../public/images/galleryImg-6.jpg";
 import gallery7 from "../public/images/galleryImg-7.jpg";
 import gallery8 from "../public/images/galleryImg-8.jpg";
-import gallery9 from "../public/images//galleryImg-9.jpg";
+import gallery9 from "../public/images/galleryImg-9.jpg";
 import gallery10 from "../public/images/galleryImg-10.jpg";
 import gallery11 from "../public/images/galleryImg-11.jpg";
 import gallery12 from "../public/images/galleryImg-12.jpg";
