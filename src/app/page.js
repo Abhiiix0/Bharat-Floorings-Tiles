@@ -10,8 +10,8 @@ import tiles3 from "../../public/images/tiles/tiles3.jpg";
 import years100 from "../../public/images/home/100years.jpg";
 import RightArrow from "../../public/icons/RightArrow";
 
-import workbench1 from "../../public/images/home/Workbench1.jpg";
-import workbench2 from "../../public/images/home/Workbench2.jpg";
+import workbench1 from "../../public/images/home/workbench1.jpg";
+import workbench2 from "../../public/images/home/workbench2.jpg";
 
 //products
 import product1 from "../../public/images/home/product1.jpg";
