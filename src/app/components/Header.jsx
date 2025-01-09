@@ -104,7 +104,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
       {/* Background Video */}
       {isOverlayVisible && (
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover z-[100]"
+          className="absolute top-0 left-0 w-full h-full object-cover z-[2000]"
           src={require("../../../public/videos/headerBgVd.mp4")}
           autoPlay
           muted
@@ -116,7 +116,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
       <div className={`${"pl-[20px] lg:pl-[100px]"} `}>
         {isOverlayVisible && (
           <div
-            className="fixed top-0 left-0 w-full h-full  pointer-events-auto z-[120]"
+            className="fixed top-0 left-0 w-full h-full  pointer-events-auto z-[2000]"
             onClick={hideOverlay} // Click on overlay hides it
           >
             <div className="max-w-[1920px] h-full relative flex-col pt-[180px] hidden lg:flex items-end justify-between  mx-auto">
@@ -129,7 +129,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-40"></div>
               {currentSubLinks.length > 0 ? (
-                <ul className=" relative z-[50] flex justify-between flex-col lg:w-[800px] xl:w-[945px] 3xl:w-[1215px] pr-[20px] lg:pr-[100px] items-center ">
+                <ul className=" relative z-[2150] flex justify-between flex-col lg:w-[800px] xl:w-[945px] 3xl:w-[1215px] pr-[20px] lg:pr-[100px] items-center ">
                   {currentSubLinks?.map((row, idx) => (
                     <div
                       key={idx}
@@ -193,12 +193,12 @@ const Header = ({ textColor, iconsColor, lines }) => {
           </div>
         )}
         <nav className=" flex justify-between">
-          <div className=" lg:bg-black w-fit z-[120] lg:pt-[36px] lg:pb-[19px] lg:px-[16px]">
+          <div className=" lg:bg-black w-fit z-[2200] lg:pt-[36px] lg:pb-[19px] lg:px-[16px]">
             <Image
               onClick={hideOverlay}
               src={Logo}
               alt=" Bft logo"
-              className="hidden z-[120] lg:block"
+              className="hidden z-[2200] lg:block"
             ></Image>
             <BftLogo
               color={iconsColor}
@@ -207,7 +207,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
               className=" h-[46px] w-[46px] lg:hidden md:h-20 md:w-20 mt-5 md:mt-8"
             />
           </div>
-          <div className="z-[120]">
+          <div className="z-[2100]">
             <ul
               className={` ${
                 isOverlayVisible && " border-b-2 border-white"

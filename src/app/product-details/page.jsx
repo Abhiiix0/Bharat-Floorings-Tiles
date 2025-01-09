@@ -43,6 +43,76 @@ const page = () => {
     "https://plus.unsplash.com/premium_photo-1684508638760-72ad80c0055f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
   const [SelectedImg, setSelectedImg] = useState(products?.tiles[0]);
+
+  const [openIndex, setOpenIndex] = useState(null);
+  const [hoveredSubLink, setHoveredSubLink] = useState(null);
+
+  const titles = [
+    {
+      name: "Designer tiles 7",
+      links: [
+        {
+          name: "BFT + Designer",
+          url: "https://www.google.com",
+          links: [
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+          ],
+        },
+        {
+          name: "Heritage collection",
+          url: "https://www.google.com",
+          links: [
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+          ],
+        },
+        { name: "Heritage collection", url: "https://www.google.com" },
+        { name: "Centenary Range ", url: "https://www.google.com" },
+        { name: "Made in India", url: "https://www.google.com" },
+        { name: "International Range", url: "https://www.google.com" },
+        { name: "Unitinta", url: "https://www.google.com" },
+        { name: "Borders", url: "https://www.google.com" },
+      ],
+    },
+
+    {
+      name: "Terrazo 73",
+      links: [],
+    },
+    {
+      name: "MICRO-CEMENT",
+      links: [],
+    },
+    {
+      name: "EPOXY TERRAZO",
+      links: [],
+    },
+    {
+      name: "WALL TILES 4",
+      links: [],
+    },
+    {
+      name: "OUTDOOR FLOORING 7",
+      links: [],
+    },
+    {
+      name: "BFT SURFACES 2",
+      links: [],
+    },
+    {
+      name: "tile 3",
+      links: [
+        { name: "link 3", url: "https://www.google.com" },
+        { name: "link 4", url: "https://www.google.com" },
+      ],
+    },
+  ];
+
+  const toggleLinks = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+  const [menuBtn, setmenuBtn] = useState(true);
   return (
     <div>
       <section className=" relative">
@@ -52,13 +122,79 @@ const page = () => {
           <div className=" w-full border-x border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
         </div>
+
+        <section
+          onMouseLeave={() => setmenuBtn(false)}
+          className={`${
+            !menuBtn && " left-[-100%]"
+          } absolute top-0 left-0 w-full transition-all  duration-1000 ease-in-out sm:w-[400px] lg:w-[600px] border pt-40 lg:pt-72 h-full bg-white`}
+        >
+          <div className=" relative z-[1400] px-5 lg:pl-[100px]  lg:pr-0 h-fit  border-red-400">
+            <div className=" w-full sm:w-[310px] 3xl:w-[380px] mt 3xl:mt-[45px] pr-5  lg:ml-[12px]">
+              {titles.map((t, i) => (
+                <div key={i} className="border-b-2 border-black">
+                  <p
+                    onClick={() => toggleLinks(i)}
+                    className=" h-[50px] 3xl:h-[70px] flex uppercase justify-between items-center cursor-pointer font-Inter text-xl font-semibold"
+                  >
+                    {t.name}
+                    {t?.links?.length > 0 && (
+                      <span>{openIndex === i ? "-" : "+"}</span>
+                    )}
+                  </p>
+                  {openIndex === i && t.links?.length > 0 && (
+                    <ul className=" mt-[18px] mb-[58px]">
+                      {t.links.map((link, j) => (
+                        <li
+                          key={j}
+                          className="  "
+                          onMouseEnter={() => setHoveredSubLink(j)}
+                          onMouseLeave={() => setHoveredSubLink(null)}
+                        >
+                          <a
+                            className="h-9 flex items-center  text-lg uppercase font-medium"
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.name}
+                          </a>
+                          {hoveredSubLink === j && link.links?.length > 0 && (
+                            <ul className=" bg-white mt-1 mb-[50px] text-black ">
+                              {link.links.map((sublink, k) => (
+                                <li key={k} className="mb-1">
+                                  <a
+                                    className=" text-[13px] leading-4 font-semibold text-decoration-none no-underline "
+                                    href={sublink.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    {sublink.name}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <div
+          onMouseEnter={() => setmenuBtn(true)}
+          className=" absolute top-0 left-0 w-[210px] h-[100vh] md:h-[150vh] "
+        ></div>
         <div className="  px-5 lg:px-[88px] mt-[30px] md:mt-[60px] lg:mt-[128px]">
-          <div className=" flex lg:hidden gap-2 text-[8px] md:text-sm mb-[25px]">
+          <div className=" flex lg:hidden gap-2 text-[8px] md:text-sm font-semibold text-gray-500 mb-[25px]">
             <p>DESIGNER TILES</p>
             {">"}
             <p>BFT+DESIGNER</p> {">"}
             <p>VIRTUOSO</p>
-            {">"} <p>CONTEMPORARY TERRAZO</p>
+            {">"} <p className=" text-black">CONTEMPORARY TERRAZO</p>
           </div>
           <div className=" flex lg:flex-row flex-col  gap-4 md:gap-8 lg:gap-12 2xl:gap-16 3xl:gap-[90px]">
             <div className=" lg:ml-[12px] 2xl:ml-[100px] 3xl:ml-[157px]">
@@ -71,14 +207,14 @@ const page = () => {
                 {products.tiles.map((tile, index) => (
                   <Image
                     key={index}
-                    className="h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
+                    className="h-[55px] cursor-pointer w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
                     src={tile}
                     onClick={() => setSelectedImg(imgs)}
                     //   onClick={() => setSelectedImg(tile)}
                     alt="Image"
                   ></Image>
                 ))}
-                <div className=" border ml-[10px] border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
+                <div className=" border ml-[10px] hover:bg-green-400 relative z-[800] cursor-pointer border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
                   <Remix
                     size={40}
                     className="lg:w-[25px] h-[40px] w-[40px] lg:h-[25px] 2xl:h-[40px] 2xl:w-[40px]"
@@ -90,12 +226,12 @@ const page = () => {
               </p>
             </div>
             <div className="">
-              <div className=" hidden lg:flex gap-2 text-sm xl:text-base mb-0 sm:mb-[48px]">
+              <div className=" hidden lg:flex gap-2 text-sm xl:text-base font-semibold text-gray-500 mb-0 sm:mb-[48px]">
                 <p>DESIGNER TILES</p>
                 {">"}
                 <p>BFT+DESIGNER</p> {">"}
                 <p>VIRTUOSO</p>
-                {">"} <p>CONTEMPORARY TERRAZO</p>
+                {">"} <p className=" text-black">CONTEMPORARY TERRAZO</p>
               </div>
               <p className=" font-Gloock text-lg sm:text-2xl md:text-4xl 3xl:text-[70px] 3xl:leading-[80px] lg:w-[150px]">
                 {products.name}
@@ -146,7 +282,7 @@ const page = () => {
               <button className=" h-[50px] sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]">
                 Get a quote
               </button>
-              <button className="h-[50px] sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 border-black text-sm md:text-xl items-center ">
+              <button className="h-[50px]  sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 border-black text-sm md:text-xl items-center ">
                 Remix in Workbench{" "}
                 <Remix size={31} className="h-4 w-4 md:h-8 md:w-8" />
               </button>
