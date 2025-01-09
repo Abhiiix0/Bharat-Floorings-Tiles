@@ -1,5 +1,4 @@
-// import Header from "@/app/components/Header";
-import Header from "../../../../app/components/Header.jsx";
+import Header from "@/app/components/Header";
 import ProjectsDetail from "@/app/components/ProjectsDetail";
 
 const page = () => {

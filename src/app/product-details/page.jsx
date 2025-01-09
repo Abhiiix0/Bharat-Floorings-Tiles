@@ -1,5 +1,5 @@
 "use client";
-import Header from "../components/Header";
+import Header from "../../app/components/Header";
 import PImage from "../../../public/images/products/product.jpg";
 import tiles1 from "../../../public/images/products/Stiles1.png";
 import tiles2 from "../../../public/images/products/Stiles2.jpg";
@@ -9,6 +9,8 @@ import Remix from "../../../public/icons/remix";
 import ImageGallery from "../components/ImageGallery";
 import ImageGallery2 from "../components/ImageGallery2";
 import ProductCard from "../components/products/ProductCard";
+
+import kitchen from "../../../public/images/product-details/kitchen.jpg";
 const page = () => {
   const products = {
     name: "Contemporary Terrazo ",
@@ -138,9 +140,9 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div className=" flex  pb-[208px]">
+          <div className=" flex pb-14 md:pb-24 lg:pb-[150px] xl:pb-[208px]">
             <div className="  hidden lg:block w-[33.3%] lg:h-[246px]  "></div>
-            <div className=" w-full lg:w-[66.6%] lg:border-t  h-fit sm::h-[150px] lg:h-[246px] flex items-center gap-4  lg:pl-[30px] 2xl:pl-[240px]">
+            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm::h-[150px] lg:h-[246px] flex items-center gap-4  lg:pl-[30px] 2xl:pl-[240px]">
               <button className=" h-[50px] sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]">
                 Get a quote
               </button>
@@ -151,12 +153,24 @@ const page = () => {
             </div>
           </div>
         </div>
+        <div className=" flex flex-row items-center gap-3 md:gap-7 px-5 mb-14 md:mb-24 lg:mb-[150px] xl:mb-[233px] lg:px-[100px]">
+          <Image
+            alt="Image"
+            src={kitchen}
+            className=" h-[250px] md:h-[450px] lg:h-[650px] xl:h-[884px] w-[50%] object-cover"
+          ></Image>
+          <Image
+            alt="Image"
+            src={kitchen}
+            className=" h-[120px] md:h-[250px] lg:h-[360px] xl:h-[512px] w-[50%] object-cover"
+          ></Image>
+        </div>
         <ImageGallery2 images={imgArray} />
-        <div className=" lg:px-[100px] px-[20px] border">
-          <p className="mt-44 mb-12 text-[45px] xl:text-[70px] heading-gloock">
+        <div className=" lg:px-[88px] px-[20px] ">
+          <p className=" mt-16 md:mt-44 mb-12 text-3xl sm:text-[45px] xl:text-[70px] heading-gloock">
             COMPLEMENTING PATTERNS
           </p>
-          <div className=" grid grid-cols-1 place-content-center md:grid-cols-2 2xl:grid-cols-3   pb-[200px]  w-full">
+          <div className=" grid grid-cols-1 place-content-center md:grid-cols-2 xl:grid-cols-3   pb-[200px]  w-full">
             {productsArray.map((prd, i) => (
               <ProductCard key={i} Product={prd} />
             ))}
