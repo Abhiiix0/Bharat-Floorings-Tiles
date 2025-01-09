@@ -1,16 +1,16 @@
-import gallery1 from "../public/images/galleryImg-1.jpg";
-import gallery2 from "../public/images/galleryImg-2.jpg";
-import gallery3 from "../public/images/galleryImg-3.jpg";
-import gallery4 from "../public/images/galleryImg-4.jpg";
-import gallery5 from "../public/images/galleryImg-5.jpg";
-import gallery6 from "../public/images/galleryImg-6.jpg";
-import gallery7 from "../public/images/galleryImg-7.jpg";
-import gallery8 from "../public/images/galleryImg-8.jpg";
-import gallery9 from "../public/images/galleryImg-5.jpg";
-import gallery10 from "../public/images/galleryImg-10.jpg";
-import gallery11 from "../public/images/galleryImg-11.jpg";
-import gallery12 from "../public/images/galleryImg-12.jpg";
-import gallery13 from "../public/images/galleryImg-13.jpg";
+import gallery1 from "../public/images/gallery/galleryImg-1.jpg";
+import gallery2 from "../public/images/gallery/galleryImg-2.jpg";
+import gallery3 from "../public/images/gallery/galleryImg-3.jpg";
+import gallery4 from "../public/images/gallery/galleryImg-4.jpg";
+import gallery5 from "../public/images/gallery/galleryImg-5.jpg";
+import gallery6 from "../public/images/gallery/galleryImg-6.jpg";
+import gallery7 from "../public/images/gallery/galleryImg-7.jpg";
+import gallery8 from "../public/images/gallery/galleryImg-8.jpg";
+import gallery9 from "../public/images/gallery/galleryImg-9.jpg";
+import gallery10 from "../public/images/gallery/galleryImg-10.jpg";
+import gallery11 from "../public/images/gallery/galleryImg-11.jpg";
+import gallery12 from "../public/images/gallery/galleryImg-12.jpg";
+import gallery13 from "../public/images/gallery/galleryImg-13.jpg";
 import design1 from "../public/svgs/design-1.svg";
 import design2 from "../public/svgs/design-2.svg";
 import design3 from "../public/svgs/design-3.svg";
@@ -18,67 +18,67 @@ import floorDesign from "../public/images/floor_design_layout.jpg";
 import customDesign from "../public/images/custom_tile_design.jpg";
 import tileInstallation from "../public/images/tile_installation_services.jpg";
 import eventImage1 from "../public/images/india_design.jpg";
-import eventImg1 from "../public/images/eventImg-1.jpg";
-import eventImg2 from "../public/images/eventImg-2.jpg";
-import eventImg3 from "../public/images/eventImg-3.jpg";
-import eventImg4 from "../public/images/eventImg-4.jpg";
-import press1 from "../public/images/press-1.jpg";
-import press2 from "../public/images/press-2.jpg";
-import press3 from "../public/images/press-3.jpg";
-import press4 from "../public/images/press-4.jpg";
-import press5 from "../public/images/press-5.jpg";
-import press6 from "../public/images/press-6.jpg";
-import press7 from "../public/images/press-7.jpg";
-import press8 from "../public/images/press-8.jpg";
-import resource1 from "../public/images/resource_page-1.jpg";
-import resource2 from "../public/images/resource_page-2.jpg";
-import resource3 from "../public/images/resource_page-3.jpg";
-import resource4 from "../public/images/resource_page-4.jpg";
-import resource5 from "../public/images/resource_page-5.jpg";
-import resource6 from "../public/images/resource_page-6.jpg";
-import resource7 from "../public/images/resource_page-7.jpg";
-import resource8 from "../public/images/resource_page-8.jpg";
-import resource9 from "../public/images/resource_page-9.jpg";
-import resource10 from "../public/images/resource_page-10.jpg";
-import resource11 from "../public/images/resource_page-11.jpg";
-import resource12 from "../public/images/resource_page-12.jpg";
+import eventImg1 from "../public/images/events/eventImg-1.jpg";
+import eventImg2 from "../public/images/events/eventImg-2.jpg";
+import eventImg3 from "../public/images/events/eventImg-3.jpg";
+import eventImg4 from "../public/images/events/eventImg-4.jpg";
+import press1 from "../public/images/press/press-1.jpg";
+import press2 from "../public/images/press/press-2.jpg";
+import press3 from "../public/images/press/press-3.jpg";
+import press4 from "../public/images/press/press-4.jpg";
+import press5 from "../public/images/press/press-5.jpg";
+import press6 from "../public/images/press/press-6.jpg";
+import press7 from "../public/images/press/press-7.jpg";
+import press8 from "../public/images/press/press-8.jpg";
+import resource1 from "../public/images/resources/resource_page-1.jpg";
+import resource2 from "../public/images/resources/resource_page-2.jpg";
+import resource3 from "../public/images/resources/resource_page-3.jpg";
+import resource4 from "../public/images/resources/resource_page-4.jpg";
+import resource5 from "../public/images/resources/resource_page-5.jpg";
+import resource6 from "../public/images/resources/resource_page-6.jpg";
+import resource7 from "../public/images/resources/resource_page-7.jpg";
+import resource8 from "../public/images/resources/resource_page-8.jpg";
+import resource9 from "../public/images/resources/resource_page-9.jpg";
+import resource10 from "../public/images/resources/resource_page-10.jpg";
+import resource11 from "../public/images/resources/resource_page-11.jpg";
+import resource12 from "../public/images/resources/resource_page-12.jpg";
 import product from "../public/images/product-img1.png";
-import client1 from "../public/images/our_clients-1.jpg";
-import client2 from "../public/images/our_client-2.jpg";
-import client3 from "../public/images/our_client-3.jpg";
-import client4 from "../public/images/our_client-4.jpg";
-import client5 from "../public/images/our_client-5.jpg";
-import client6 from "../public/images/our_client-6.jpg";
-import client7 from "../public/images/our_client-7.jpg";
-import client8 from "../public/images/our_client-8.jpg";
-import client9 from "../public/images/our_client-9.jpg";
-import client10 from "../public/images/our_client-10.jpg";
-import client11 from "../public/images/our_client-11.jpg";
-import client12 from "../public/images/our_client-12.jpg";
-import eventSub1 from "../public/images/sub_event-1.png";
-import eventSub2 from "../public/images/sub_event-2.png";
-import eventSub3 from "../public/images/sub_event-3.png";
-import eventSub4 from "../public/images/sub_event-4.png";
-import ourJourney1922 from "../public/images/our_journey-1922.jpg";
-import ourJourney1923 from "../public/images/our_journey-1923.jpg";
-import ourJourney1924 from "../public/images/our_journey-1923-1935.jpg";
-import ourJourney1935 from "../public/images/our_journey-1935-1940.jpg";
-import ourJourney1940 from "../public/images/our_journey-1940.jpg";
-import ourJourney1950 from "../public/images/our_journey-1950-1970.jpg";
-import ourJourney1960 from "../public/images/our_journey-1960.jpg";
-import ourJourney1999 from "../public/images/our_journey-1999.jpg";
-import ourJourney2000 from "../public/images/our_journey-2000.jpg";
-import ourJourney2010 from "../public/images/our_journey-2010.jpg";
-import ourJourney2013 from "../public/images/our_journey-2013.jpg";
-import ourJourney2014 from "../public/images/our_journey-2014.jpg";
-import ourJourney2015 from "../public/images/our_journey-2015.jpg";
-import ourJourneyToday from "../public/images/our_journey-today.jpg";
-import chairperson from "../public/images/Dilnavaz_Variava.jpg";
-import viceChairperson from "../public/images/Firdaus_Variava.jpg";
-import ceo from "../public/images/Faiyaz_Mukhtiar.jpg";
-import dnaAward from "../public/images/award_dna.jpg";
-import edidaAward from "../public/images/award_edida.jpg";
-import unescoAward from "../public/images/award_unesco.jpg";
+import client1 from "../public/images/our-clients/our_clients-1.jpg";
+import client2 from "../public/images/our-clients/our_client-2.jpg";
+import client3 from "../public/images/our-clients/our_client-3.jpg";
+import client4 from "../public/images/our-clients/our_client-4.jpg";
+import client5 from "../public/images/our-clients/our_client-5.jpg";
+import client6 from "../public/images/our-clients/our_client-6.jpg";
+import client7 from "../public/images/our-clients/our_client-7.jpg";
+import client8 from "../public/images/our-clients/our_client-8.jpg";
+import client9 from "../public/images/our-clients/our_client-9.jpg";
+import client10 from "../public/images/our-clients/our_client-10.jpg";
+import client11 from "../public/images/our-clients/our_client-11.jpg";
+import client12 from "../public/images/our-clients/our_client-12.jpg";
+import eventSub1 from "../public/images/events/sub_event-1.png";
+import eventSub2 from "../public/images/events/sub_event-2.png";
+import eventSub3 from "../public/images/events/sub_event-3.png";
+import eventSub4 from "../public/images/events/sub_event-4.png";
+import ourJourney1922 from "../public/images/our-company/our_journey-1922.jpg";
+import ourJourney1923 from "../public/images/our-company/our_journey-1923.jpg";
+import ourJourney1924 from "../public/images/our-company/our_journey-1923-1935.jpg";
+import ourJourney1935 from "../public/images/our-company/our_journey-1935-1940.jpg";
+import ourJourney1940 from "../public/images/our-company/our_journey-1940.jpg";
+import ourJourney1950 from "../public/images/our-company/our_journey-1950-1970.jpg";
+import ourJourney1960 from "../public/images/our-company/our_journey-1960.jpg";
+import ourJourney1999 from "../public/images/our-company/our_journey-1999.jpg";
+import ourJourney2000 from "../public/images/our-company/our_journey-2000.jpg";
+import ourJourney2010 from "../public/images/our-company/our_journey-2010.jpg";
+import ourJourney2013 from "../public/images/our-company/our_journey-2013.jpg";
+import ourJourney2014 from "../public/images/our-company/our_journey-2014.jpg";
+import ourJourney2015 from "../public/images/our-company/our_journey-2015.jpg";
+import ourJourneyToday from "../public/images/our-company/our_journey-today.jpg";
+import chairperson from "../public/images/our-company/Dilnavaz_Variava.jpg";
+import viceChairperson from "../public/images/our-company/Firdaus_Variava.jpg";
+import ceo from "../public/images/our-company/Faiyaz_Mukhtiar.jpg";
+import dnaAward from "../public/images/our-company/award_dna.jpg";
+import edidaAward from "../public/images/our-company/award_edida.jpg";
+import unescoAward from "../public/images/our-company/award_unesco.jpg";
 
 export const GALLERY_PAGE_IMAGES = [
   { id: 1, galleryImg: gallery1 },
@@ -1137,7 +1137,7 @@ export const RESOURCES_IMAGES = [
   },
 ];
 
-export const EVENTS_SUB_IMAGES = [
+export const   EVENTS_SUB_IMAGES = [
   { id: 1, image: eventSub1 },
   { id: 2, image: eventSub2 },
   { id: 3, image: eventSub3 },
@@ -1153,7 +1153,7 @@ export const OUR_JOURNEY = [
     Pherozesha borrowed money, and started a tile manufacturing unit along with nephew Rustom, and friend Jamshed. This, in 1922, was born The Bharat Flooring Tile Company. In the fishing village of Mora, Uran, where the family once made liquers from fruits and flowers. Without electricity, water or telephone service. With only fishing boats to carry goods and people - when the weather was fair!`,
     image: ourJourney1922,
     left: "20%",
-    top: "8%",
+    top: "10%",
   },
   {
     id: 2,
@@ -1210,8 +1210,8 @@ export const OUR_JOURNEY = [
     heading: "STILAN® Defining Heavy Duty",
     para: `Stilan - a heavy duty tile, with ingredients next to diamonds in hardness, have taken millions of footfalls at CST and Flora Fountain`,
     image: ourJourney1960,
-    top: "60%",
-    left: "35%",
+    top: "13%",
+    left: "33%",
   },
   {
     id: 8,
@@ -1229,13 +1229,15 @@ export const OUR_JOURNEY = [
     heading: "Heritage Conservation",
     para: `Architects were delighted. Bharat first florred the Salar Jung Museum and then Bhau Daji Lad Museum, which got a UNESCO Award.`,
     image: ourJourney2000,
+    top: '15%',
+    left: '50%'
   },
   {
     id: 10,
     year: "2010",
     heading: "Reviving `In Situ` Floors",
     para: `A skill for which Bharat was once famous, is being taught to new craftsmen for restoring old floors and creating new ones..`,
-    image: ourJourney1935,
+    image: ourJourney2010,
     sectionLeft: "55%",
     top: "13%",
     left: "-5",
@@ -1246,6 +1248,8 @@ export const OUR_JOURNEY = [
     heading: "Recreating beauty. Winnig Awards",
     para: `The UNESCO and EDIDA Awards were received for The Yacht Club (Arch. Vikas Dilawari) and The Library House (Arch. Sanjeev Khosla)`,
     image: ourJourney2013,
+    top: '13%',
+    left: '35%'
   },
   {
     id: 12,
@@ -1263,6 +1267,8 @@ export const OUR_JOURNEY = [
     heading: "Cutting edge innovations",
     para: `Bharat is ever young in design and innovation.3D and Micro Topping are its latest offerings.`,
     image: ourJourney2015,
+    top: '10%',
+    left: '35%'
   },
   {
     id: 14,
@@ -1271,7 +1277,7 @@ export const OUR_JOURNEY = [
     para: `As we keep improving our designs and technologies, we remember our roots and our journey`,
     image: ourJourneyToday,
     sectionLeft: "55%",
-    top: "13%",
+    top: "15%",
     left: "-5",
   },
 ];
@@ -1324,3 +1330,150 @@ export const AWARDS = [
     awardName: "UNESCO 2014 - Cultural Heritage Conservation Award",
   },
 ];
+
+export const ABOUT_CONTACTS = [
+  {
+    id: 1,
+    location: 'NEW DELHI SHOWROOM',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 2,
+    location: 'GOA SHOWROOM',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 3,
+    location: 'AHMEDABAD SHOWROOM',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 4,
+    location: 'HYDERABAD',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 5,
+    location: 'CHENNAI',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 6,
+    location: 'KOLKATA',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 7,
+    location: 'INDORE',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 8,
+    location: 'NAVI MUMBAI',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 9,
+    location: 'SHIVAAY LUXURY LIVING LLP',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 10,
+    location: 'ELITE SPACE',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 11,
+    location: 'KERALA',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 12,
+    location: 'UTTARAKHAND',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 13,
+    location: 'KOCHI',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 14,
+    location: 'TAMIL NADU',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 15,
+    location: 'PONDICHERRY',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+  {
+    id: 16,
+    location: 'CHANDIGARH PUNJAB',
+    city: 'Mumbai', 
+    address: '86/B , 2nd floor, Village Shahpur Jat,' , pincode: '110049', 
+    dealerName: 'Rahul Raj', 
+    contact: '+91 95997 66305, +91 70427 54670', 
+    mailId: 'rahul.raj@bharatfloorings.com'
+  },
+]
