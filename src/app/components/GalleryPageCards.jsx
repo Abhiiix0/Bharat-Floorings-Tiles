@@ -1,17 +1,31 @@
-import React from 'react'
+import React from "react";
+import imgs from "../../../public/images/gallery/galleryImg-1.jpg";
+import Image from "next/image";
 const GalleryPageCards = ({ designerImg, galleryImg }) => {
+  console.log("2", designerImg, galleryImg);
   return (
-    <div className='min-h-64 min-w-64 sm:h-[600px] lg:h-auto relative'>
-      <img alt={`gallery image ${id}`} src={galleryImg.src} className='h-full w-full' />
-      <div className='absolute top-[85%] lg:top-[90%] left-[10%] flex w-full gap-4'>
-        {
-          designerImg.map(({ id, image }) => (
-            <img alt={`designer image ${id}`} className='cursor-pointer xl:h-10 xl:w-10 h-8 w-8 hover:scale-150 effect' key={id} src={image.src} />
-          ))
-        }
+    <div className="min-h-64 min-w-64 sm:h-[600px] lg:h-auto relative">
+      <Image
+        width={100}
+        height={100}
+        src={imgs?.src}
+        alt="gallery image 1"
+        className="h-full w-full"
+      />
+      <div className="absolute top-[85%] lg:top-[90%] left-[10%] flex w-full gap-4">
+        {designerImg.map((imgss, i) => (
+          <Image
+            width={100}
+            height={100}
+            alt={`designer image ${i}`}
+            className="cursor-pointer xl:h-10 xl:w-10 h-8 w-8 hover:scale-150 effect"
+            key={i}
+            src={imgss.image?.src}
+          />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GalleryPageCards
+export default GalleryPageCards;
