@@ -281,22 +281,22 @@ const page = () => {
               <input
                 type="text"
                 placeholder="Full name"
-                className=" bg-transparent border-y-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
               <input
                 type="text"
                 placeholder="Phone"
-                className=" bg-transparent border-y-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
               <input
                 type="text"
                 placeholder="email"
-                className=" bg-transparent  text-[20px] outline-none text border-y-2 pt-[31px] text-white "
+                className=" bg-transparent  text-[20px] outline-none text border-b-2 pt-[31px] text-white "
               />
               <input
                 type="text"
                 placeholder="City"
-                className=" bg-transparent border-y-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
             </div>
             <div className=" w-full pt-[59px]  flex flex-col gap-7 justify-center items-center mb-[19px]">

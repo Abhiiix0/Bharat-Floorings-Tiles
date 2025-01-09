@@ -1,9 +1,9 @@
-'use client'
+"use client";
 import { AiOutlineAlignLeft } from "react-icons/ai";
 import { CgMenuGridR } from "react-icons/cg";
-import GridLogo from '../../../../public/icons/GridLogo'
+import GridLogo from "../../../../public/icons/GridLogo";
 import DropDowns from "../DropDowns";
-import LinesLogo from "../../../../public/icons/LinesLogo";
+import LinesLogo from "../../../../public/icons/LinesLogo.jsx";
 const allCleints = [{ id: 1, subs: "ALL CLIENTS" }];
 const ClientFilter = ({ changeView, setChangeView }) => {
   return (
@@ -11,8 +11,9 @@ const ClientFilter = ({ changeView, setChangeView }) => {
       <din className="flex lg:items-center lg:gap-0 gap-4 lg:flex-row flex-col w-full lg:justify-between lg:w-1/5">
         <div className="effect gap-2 flex relative ">
           <div
-            className={`absolute effect h-9 w-[38px] z-0 mt-[2px] ${changeView ? "bg-[#949291]" : "bg-[#2A2523]"
-              } ${changeView ? "ml-[50px]" : null}`}
+            className={`absolute effect h-9 w-[38px] z-0 mt-[2px] ${
+              changeView ? "bg-[#949291]" : "bg-[#2A2523]"
+            } ${changeView ? "ml-[50px]" : null}`}
           ></div>
           <div
             onClick={() => setChangeView(false)}
