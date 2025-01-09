@@ -155,16 +155,16 @@ const Page = () => {
           </div>
           <div className="flex relative z-[20] ">
             {/* Left Sidebar */}
-            <div className=" w-[33.3%]  border-red-400">
+            <div className=" w-[33.3%] sticky top-4 z-[99] h-fit  border-red-400">
               <p className="font-Inter text-[13px]  lg:pl-[12px] flex items-center  h-[121px]">
                 COLLECTIONS
               </p>
-              <div className=" w-[310px] 3xl:w-[412px] mt-[45px]  lg:ml-[12px]">
+              <div className=" w-[310px] 3xl:w-[412px] mt 3xl:mt-[45px]  lg:ml-[12px]">
                 {titles.map((t, i) => (
                   <div key={i} className="border-b-2 border-black">
                     <p
                       onClick={() => toggleLinks(i)}
-                      className="h-[70px] flex uppercase justify-between items-center cursor-pointer font-Inter text-xl font-semibold"
+                      className=" h-[50px] 3xl:h-[70px] flex uppercase justify-between items-center cursor-pointer font-Inter text-xl font-semibold"
                     >
                       {t.name}
                       {t?.links?.length > 0 && (
