@@ -9,7 +9,7 @@ const OurJourneyCard = ({ year, heading, para, image, left, top, sectionLeft }) 
         <p className='font-Inter xl:text-base xl:leading-[25.6px] xl:mb-14 text-sm leading-[22px] mb-9 xl:w-4/5 w-full'>
           {para}
         </p>
-        <img src={image.src} className="h-auto" />
+        <img alt={`${heading} image`} src={image.src} className="h-auto" />
       </div>
       <h1
         style={{

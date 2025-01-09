@@ -15,12 +15,12 @@ const OurClientGridComp2 = ({ industryName, industry, tradeMark, domain, clientN
                 <Link href={`${link}`} className='font-bold underline' >View tile detail</Link>
               </div>
               <div className='w-[50%] h-full flex justify-center items-center overflow-hidden p-5'>
-                <img src={productImg.src} className='h-full' />
+                <img alt='product image' src={productImg.src} className='h-full' />
               </div>
             </div> :
             null
         }
-        <img src={image.src} className='h-full w-full hover:scale-150 z-0 zoom-in absolute effect' />
+        <img alt={`${clientName} image`} src={image.src} className='h-full w-full hover:scale-150 z-0 zoom-in absolute effect' />
       </div>
     </div>
   );

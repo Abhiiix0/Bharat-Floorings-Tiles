@@ -37,7 +37,7 @@ const OurServicesSubSection = () => {
               Start your floor journey now! <RiArrowRightLine className="arrow" />
             </Link>
           </div>
-          <img className="lg:min-h-full lg:w-[40%] w-full rounded-md" src={layout.image.src} />
+          <img alt={`${layout.designType} image`} className="lg:min-h-full lg:w-[40%] w-full rounded-md" src={layout.image.src} />
         </div>
       </div>
     </section>
