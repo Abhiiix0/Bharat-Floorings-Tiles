@@ -9,7 +9,7 @@ import Remix from "../../../public/icons/remix";
 import ImageGallery from "../components/ImageGallery";
 import ImageGallery2 from "../components/ImageGallery2";
 import ProductCard from "../components/products/ProductCard";
-
+import tilsDesign from "../../../public/images/product-details/tiles.png";
 import kitchen from "../../../public/images/product-details/kitchen.jpg";
 const page = () => {
   const products = {
@@ -112,7 +112,8 @@ const page = () => {
   const toggleLinks = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
-  const [menuBtn, setmenuBtn] = useState(true);
+  const [menuBtn, setmenuBtn] = useState(false);
+  const [Inquery, setInquery] = useState(true);
   return (
     <div>
       <section className=" relative">
@@ -184,6 +185,135 @@ const page = () => {
             </div>
           </div>
         </section>
+        <section
+          onMouseLeave={() => setInquery(true)}
+          className={`${
+            Inquery && " right-[-100%]"
+          } absolute top-0 right-0 z-[151] w-full transition-all  duration-1000 ease-in-out sm:w-[558px] border h-full bg-[#2A2523]`}
+        >
+          <div className=" grid grid-cols-4 grid-rows-2">
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+            <Image
+              className=" h-[141px] w-[141px] object-cover"
+              src={tilsDesign}
+              alt="img"
+            ></Image>
+          </div>
+          <div className=" normal-text px-10 pt-10">
+            <div className=" flex items-start justify-between">
+              <p className=" text-3xl md:text-[2.5rem] leading-[48pz] pb-[52px] normal-text text-white">
+                Contemporary <br /> Terrazo
+              </p>
+              <Remix color="white" className=" h-[43px] w-[40px]"></Remix>
+            </div>
+            <div className=" font-medium leading-[35px] flex gap-4 text-white">
+              <p>Tile size</p>
+              <p>20cm x 20cm</p>
+            </div>
+            <div className=" font-medium leading-[35px] flex gap-4 text-white">
+              <p className=" text-white/30">Starts from</p>
+              <p className="text-[#8FDEAA]">600 per sqft.</p>
+            </div>
+            <div className=" flex w-full flex-col sm:flex-row mt-12">
+              <div className=" flex w-full flex-col  ">
+                <label
+                  htmlFor=""
+                  className=" font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
+                >
+                  TOTAL AREA IN SQFT
+                </label>
+                <input
+                  type="text"
+                  className=" text-xl h-[52px] border-b-2 bg-transparent text-white outline-none"
+                />
+              </div>
+              <div className=" w-full flex flex-col">
+                <label
+                  htmlFor=""
+                  className=" font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
+                >
+                  ESTIMATED COST
+                </label>
+                <input
+                  type="text"
+                  className=" text-xl h-[52px] pl-2 border-b-2 bg-transparent text-white outline-none"
+                />
+              </div>
+            </div>
+            <div className=" w-[197px] text-white/30 mt-3 mb-[56px]">
+              12 Tiles are required to cover this area
+            </div>
+            <div className=" grid grid-cols-1 sm:grid-cols-2 items-start">
+              <input
+                type="text"
+                placeholder="Full name"
+                className=" bg-transparent border-y-2 outline-none text-[20px]  text-white pt-[31px]  "
+              />
+              <input
+                type="text"
+                placeholder="Phone"
+                className=" bg-transparent border-y-2 outline-none text-[20px]  text-white pt-[31px]  "
+              />
+              <input
+                type="text"
+                placeholder="email"
+                className=" bg-transparent  text-[20px] outline-none text border-y-2 pt-[31px] text-white "
+              />
+              <input
+                type="text"
+                placeholder="City"
+                className=" bg-transparent border-y-2 outline-none text-[20px]  text-white pt-[31px]  "
+              />
+            </div>
+            <div className=" w-full pt-[59px]  flex flex-col gap-7 justify-center items-center mb-[19px]">
+              <button className=" bg-white   h-[64px] flex justify-between align-self-center  items-center w-full">
+                <p className=" mx-auto font-medium">Get a quote</p>
+              </button>
+              <p className=" text-center text-xl font-Inter leading-[32px] text-white">
+                Cancel
+              </p>
+            </div>
+            <p className=" mt-[69px] font-Inter text-white/30">
+              Estimated cost has been calculated based on the square footage
+              provided. A final quotation will be provided once we have detailed
+              information.
+            </p>
+          </div>
+        </section>
         <div
           onMouseEnter={() => setmenuBtn(true)}
           className=" absolute top-0 left-0 w-[210px] h-[100vh] md:h-[150vh] "
@@ -214,11 +344,19 @@ const page = () => {
                     alt="Image"
                   ></Image>
                 ))}
-                <div className=" border ml-[10px] hover:bg-green-400 relative z-[800] cursor-pointer border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
+                <div className="group border ml-[10px] hover:bg-[#516756] relative z-[800] cursor-pointer border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
+                  {/* Black Remix (default state) */}
                   <Remix
                     size={40}
-                    className="lg:w-[25px] h-[40px] w-[40px] lg:h-[25px] 2xl:h-[40px] 2xl:w-[40px]"
-                  ></Remix>
+                    color="black"
+                    className="lg:w-[25px] h-[40px] w-[40px] text-black lg:h-[25px] 2xl:h-[40px] 2xl:w-[40px] group-hover:hidden"
+                  />
+                  {/* White Remix (hover state) */}
+                  <Remix
+                    size={40}
+                    color="white"
+                    className="lg:w-[25px] h-[40px] w-[40px] text-white lg:h-[25px] 2xl:h-[40px] 2xl:w-[40px] hidden group-hover:block"
+                  />
                 </div>
               </div>
               <p className=" normal-text text-sm md:text-xl mt-5 md:mt-[42px]">
@@ -276,13 +414,18 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div className=" flex pb-14 md:pb-24 lg:pb-[150px] xl:pb-[208px]">
+          <div className=" flex relative z-[150] pb-14 md:pb-24 lg:pb-[150px] xl:pb-[208px]">
             <div className="  hidden lg:block w-[33.3%] lg:h-[246px]  "></div>
             <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm::h-[150px] lg:h-[246px] flex items-center gap-4  lg:pl-[30px] 2xl:pl-[240px]">
-              <button className=" h-[50px] sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]">
+              <button
+                onClick={() => {
+                  setInquery(false);
+                }}
+                className=" h-[50px] cursor-pointer sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]"
+              >
                 Get a quote
               </button>
-              <button className="h-[50px]  sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 border-black text-sm md:text-xl items-center ">
+              <button className="h-[50px] cursor-pointer  sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 border-black text-sm md:text-xl items-center ">
                 Remix in Workbench{" "}
                 <Remix size={31} className="h-4 w-4 md:h-8 md:w-8" />
               </button>
