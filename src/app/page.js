@@ -360,7 +360,7 @@ const page = () => {
                   className=" border  justify-center items-center flex gap-3 border-black text-[14px] md:text-base  md:w-fit md:px-5 md:py-[15px] "
                   href="#"
                 >
-                  View Projects <RightArrow color="black" />
+                  View Projects<RightArrow color="black" />
                 </a>
               </p>
             </div>
