@@ -117,14 +117,14 @@ const page = () => {
             <RotatingTextEffect words={project?.titles} />
           </div>
           <div className=" normal-text mb-6  lg:mb-10   flex w-full">
-            <div className=" gap-2 md:gap-7 3xl:gap-9 flex flex-col w-full ">
+            <div className=" gap-2 md:gap-7 3xl:gap-9 flex flex-col-reverse md:flex-col w-full ">
               <div className=" flex gap-5">
                 {project?.tilesImg.map((img, i) => (
                   <Image
                     src={img}
                     key={i}
                     alt=" img"
-                    className=" h-6 w-6 md:w-[30px] md:h-[30px] 3xl:w-[60px] 3xl:h-[60px] "
+                    className=" h-[50px] w-[50px] md:w-[30px] md:h-[30px] 3xl:w-[60px] 3xl:h-[60px] "
                   ></Image>
                 ))}
               </div>
@@ -214,7 +214,7 @@ const page = () => {
           <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
         </div>
-        <div className=" md:text-base text-[12px]   md:pt-14  flex justify-between items-start  md:items-start side-padding">
+        <div className=" md:text-base text-[12px]   md:pt-14  flex justify-between items-end   md:items-start side-padding">
           <div className="  w-full text-start">
             <p>{project?.location}</p>
             <p>{project?.designBy}</p>
@@ -222,7 +222,7 @@ const page = () => {
               {project?.tilesImg.map((img, i) => (
                 <Image
                   alt="img"
-                  className=" h-6 w-6 md:w-[30px] md:h-[30px] 3xl:w-[60px] 3xl:h-[60px] "
+                  className=" w-[50px] h-[50px] 3xl:w-[60px] 3xl:h-[60px] "
                   src={img}
                   key={i}
                 ></Image>
@@ -232,8 +232,11 @@ const page = () => {
           <p className="  w-full text-center hidden lg:block">
             {project?.featured}
           </p>
-          <a className="  w-[150px] mb-4   md:w-full text-end" href="">
-            View Projects
+          <a
+            className="  w-[150px] md:mb-4  flex gap-2 justify-end items-center  md:w-full text-end"
+            href=""
+          >
+            View Projects <RightArrow size={16} color="black" />
           </a>
         </div>
         <div className=" mt-[105px] lg:mt-56  side-padding ">
@@ -360,7 +363,8 @@ const page = () => {
                   className=" border  justify-center items-center flex gap-3 border-black text-[14px] md:text-base  md:w-fit md:px-5 md:py-[15px] "
                   href="#"
                 >
-                  View Projects<RightArrow color="black" />
+                  View Projects
+                  <RightArrow color="black" />
                 </a>
               </p>
             </div>
@@ -401,7 +405,7 @@ const page = () => {
               className=" md:border  justify-center items-center flex gap-3 border-black text-[14px] md:text-base  md:w-fit md:px-5 md:py-[15px] "
               href="#"
             >
-              View Projects <RightArrow color="black" />
+              View Projects <RightArrow size={16} color="black" />
             </a>
           </p>
         </div>

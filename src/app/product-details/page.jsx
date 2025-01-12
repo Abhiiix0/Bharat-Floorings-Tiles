@@ -112,6 +112,17 @@ const page = () => {
   const toggleLinks = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
+
+  const openQuote = () => {
+    setInquery(false);
+    const bodyDiv = document.getElementsByTagName("body");
+    bodyDiv[0].style.overflow = "hidden";
+  };
+  const closeQuote = () => {
+    setInquery(true);
+    const bodyDiv = document.getElementsByTagName("body");
+    bodyDiv[0].style.overflow = "auto";
+  };
   const [menuBtn, setmenuBtn] = useState(false);
   const [Inquery, setInquery] = useState(true);
   return (
@@ -186,59 +197,71 @@ const page = () => {
           </div>
         </section>
         <section
-          onMouseLeave={() => setInquery(true)}
+          onClick={() => closeQuote()}
+          className={` ${
+            !Inquery ? "block" : "hidden"
+          }  w-full h-full z-[2251] absolute top-0 left-0 bg-black/30`}
+        >
+          {" "}
+        </section>
+        {/* <section className=" fixed h-screen w-full top-0 left-0"></section> */}
+        <section
+          onMouseLeave={() => closeQuote()}
           className={`${
             Inquery && " right-[-100%]"
-          } absolute top-0 right-0 z-[151] w-full transition-all  duration-1000 ease-in-out sm:w-[558px] border h-full bg-[#2A2523]`}
+          }  fixed top-0 pb-14 right-0 z-[2251] w-full transition-all  duration-1000 ease-in-out sm:w-[440px] 3xl:w-[558px]  h-screen overflow-y-scroll bg-[#2A2523]`}
         >
           <div className=" grid grid-cols-4 grid-rows-2">
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
             <Image
-              className=" h-[141px] w-[141px] object-cover"
+              className=" h-[110px] w-[110px] 3xl:h-[141px] 3xl:w-[141px] object-cover"
               src={tilsDesign}
               alt="img"
             ></Image>
           </div>
-          <div className=" normal-text px-10 pt-10">
-            <div className=" flex items-start justify-between">
-              <p className=" text-3xl md:text-[2.5rem] leading-[48pz] pb-[52px] normal-text text-white">
-                Contemporary <br /> Terrazo
+          <div className=" normal-text px-7 3xl:px-10 pt-7 3xl:pt-10">
+            <div className=" flex items-start justify-between mb-9 3xl:mb-[52px]">
+              <p className=" text-3xl 3xl:text-[2.5rem] flex items-start leading-[48px]  normal-text text-white">
+                Contemporary Terrazo
               </p>
-              <Remix color="white" className=" h-[43px] w-[40px]"></Remix>
+              <Remix
+                color="white"
+                className=" h-[35px] w-[35px] 3xl:h-[43px] 3xl:w-[40px]"
+              ></Remix>
             </div>
             <div className=" font-medium leading-[35px] flex gap-4 text-white">
               <p>Tile size</p>
@@ -248,45 +271,45 @@ const page = () => {
               <p className=" text-white/30">Starts from</p>
               <p className="text-[#8FDEAA]">600 per sqft.</p>
             </div>
-            <div className=" flex w-full flex-col sm:flex-row mt-12">
-              <div className=" flex w-full flex-col  ">
+            <div className=" flex overflow-hidden w-full flex-col sm:flex-row mt-8 3xl:mt-12">
+              <div className=" flex w-[50%] flex-col  ">
                 <label
                   htmlFor=""
-                  className=" font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
+                  className=" text-[12px] 3xl:text-base font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
                 >
                   TOTAL AREA IN SQFT
                 </label>
                 <input
                   type="text"
-                  className=" text-xl h-[52px] border-b-2 bg-transparent text-white outline-none"
+                  className=" text-xl h-12 3xl:h-[52px] border-b-2 bg-transparent text-white outline-none"
                 />
               </div>
-              <div className=" w-full flex flex-col">
+              <div className=" w-[50%] flex flex-col">
                 <label
                   htmlFor=""
-                  className=" font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
+                  className=" text-[12px] 3xl:text-base font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
                 >
                   ESTIMATED COST
                 </label>
                 <input
                   type="text"
-                  className=" text-xl h-[52px] pl-2 border-b-2 bg-transparent text-white outline-none"
+                  className=" text-xl h-12 3xl:h-[52px] pl-2 border-b-2 bg-transparent text-white outline-none"
                 />
               </div>
             </div>
-            <div className=" w-[197px] text-white/30 mt-3 mb-[56px]">
+            <div className=" w-[197px] text-white/30 mt-3 mb-8 3xl:mb-[56px]">
               12 Tiles are required to cover this area
             </div>
             <div className=" grid grid-cols-1 sm:grid-cols-2 items-start">
               <input
                 type="text"
                 placeholder="Full name"
-                className=" bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" bg-transparent border-b-2 outline-none  text-[20px]  text-white pt-[31px]  "
               />
               <input
                 type="text"
                 placeholder="Phone"
-                className=" bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" pl-2 bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
               <input
                 type="text"
@@ -296,16 +319,14 @@ const page = () => {
               <input
                 type="text"
                 placeholder="City"
-                className=" bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" pl-2 bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
             </div>
-            <div className=" w-full pt-[59px]  flex flex-col gap-7 justify-center items-center mb-[19px]">
-              <button className=" bg-white   h-[64px] flex justify-between align-self-center  items-center w-full">
+            <div className=" w-full pt-[59px] xl:text-xl font-Inter leading-[32px]  flex flex-col gap-7 justify-center items-center mb-[19px]">
+              <button className=" bg-white   h-14 3xl:h-[64px] flex justify-between align-self-center  items-center w-full">
                 <p className=" mx-auto font-medium">Get a quote</p>
               </button>
-              <p className=" text-center text-xl font-Inter leading-[32px] text-white">
-                Cancel
-              </p>
+              <p className=" text-center  text-white">Cancel</p>
             </div>
             <p className=" mt-[69px] font-Inter text-white/30">
               Estimated cost has been calculated based on the square footage
@@ -314,6 +335,7 @@ const page = () => {
             </p>
           </div>
         </section>
+
         <div
           onMouseEnter={() => setmenuBtn(true)}
           className=" absolute top-0 left-0 w-[210px] h-[100vh] md:h-[150vh] "
@@ -337,14 +359,14 @@ const page = () => {
                 {products.tiles.map((tile, index) => (
                   <Image
                     key={index}
-                    className="h-[55px] cursor-pointer w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
+                    className="h-[55px]  z-[100] cursor-pointer w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
                     src={tile}
-                    onClick={() => setSelectedImg(imgs)}
+                    onClick={() => setSelectedImg(tile)}
                     //   onClick={() => setSelectedImg(tile)}
                     alt="Image"
                   ></Image>
                 ))}
-                <div className="group border ml-[10px] hover:bg-[#516756] relative z-[800] cursor-pointer border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
+                <div className="group border hover:border-[#516756] ml-[10px] hover:bg-[#516756] relative z-[800] cursor-pointer border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
                   {/* Black Remix (default state) */}
                   <Remix
                     size={40}
@@ -395,7 +417,7 @@ const page = () => {
                 theme, suitable for a low-lit room or one which basks in the
                 sunlight
               </div>
-              <div className=" mt-6 md:mt-[50px] lg:mt-[135px] pb-[20px]  lg:pb-[77px]">
+              <div className=" mt-6 md:mt-[50px] lg:mt-24 3xl:mt-[135px] pb-[20px]  lg:pb-[77px]">
                 <div className=" flex gap-16">
                   <p className="  md:text-lg max-w-[133px]">Color</p>
                   <div className=" flex gap-5">
@@ -414,20 +436,29 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div className=" flex relative z-[150] pb-14 md:pb-24 lg:pb-[150px] xl:pb-[208px]">
+          <div className=" flex relative z-[150] pb-14 md:pb-24 lg:pb-[120px] xl:pb-[150px] 3xl:pb-[208px]">
             <div className="  hidden lg:block w-[33.3%] lg:h-[246px]  "></div>
-            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm::h-[150px] lg:h-[246px] flex items-center gap-4  lg:pl-[30px] 2xl:pl-[240px]">
+            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px] lg:h-48 3xl:h-[246px] flex items-center gap-4  lg:pl-[30px] 2xl:pl-[240px]">
               <button
                 onClick={() => {
-                  setInquery(false);
+                  openQuote();
                 }}
-                className=" h-[50px] cursor-pointer sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]"
+                className=" h-[50px] cursor-pointer hover:bg-[#516756] sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]"
               >
                 Get a quote
               </button>
-              <button className="h-[50px] cursor-pointer  sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 border-black text-sm md:text-xl items-center ">
+              <button className="h-[50px] cursor-pointer hover:bg-[#516756] hover:text-white group  sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 hover:border-[#516756] border-black text-sm md:text-xl items-center ">
                 Remix in Workbench{" "}
-                <Remix size={31} className="h-4 w-4 md:h-8 md:w-8" />
+                <Remix
+                  size={31}
+                  color="black"
+                  className="h-4 w-4 group-hover:hidden md:h-8 md:w-8"
+                />
+                <Remix
+                  size={31}
+                  color="white"
+                  className="h-4 w-4 hidden group-hover:block md:h-8 md:w-8"
+                />
               </button>
             </div>
           </div>
@@ -449,7 +480,7 @@ const page = () => {
           <p className=" mt-16 md:mt-44 mb-12 text-3xl sm:text-[45px] xl:text-[70px] heading-gloock">
             COMPLEMENTING PATTERNS
           </p>
-          <div className=" grid grid-cols-1 place-content-center md:grid-cols-2 xl:grid-cols-3   pb-[200px]  w-full">
+          <div className=" grid z-[100] relative grid-cols-1 place-content-center md:grid-cols-2 xl:grid-cols-3   pb-[200px]  w-full">
             {productsArray.map((prd, i) => (
               <ProductCard key={i} Product={prd} />
             ))}
