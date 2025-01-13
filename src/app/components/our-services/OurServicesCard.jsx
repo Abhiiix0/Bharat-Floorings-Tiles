@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import { RiArrowRightLine } from "react-icons/ri";
 
@@ -23,11 +24,11 @@ const OurServicesCard = ({ image, designType, designInfo }) => {
           ))
         }
       </div>
-      <Link href='#' className='border-black border-[1px] w-52 lg:w-52 xl:w-60 2xl:w-72 2xl:mt-16 xl:mt-12 lg:mt-8 mt-6 xl:pl-3 pl-3 2xl:pl-7 link link-el'>
+      <Link
+        className='border-black border-[1px] w-52 lg:w-52 xl:w-60 2xl:w-72 2xl:mt-16 xl:mt-12 lg:mt-8 mt-6 xl:pl-3 pl-3 2xl:pl-7 link link-el'>
         Start your floor journey now! <RiArrowRightLine className="arrow" />
       </Link>
-    </div>
+    </div >
   )
 }
-
 export default OurServicesCard

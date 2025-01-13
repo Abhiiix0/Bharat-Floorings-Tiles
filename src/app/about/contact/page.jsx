@@ -11,10 +11,12 @@ const page = () => {
           backgroundPosition: 'center',
           backgroundSize: 'cover'
         }}
-        className='2xl:h-[727px] lg:h-[450px] h-screen  relative'
+        className='3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative'
       >
         <Header textColor="text-white" />
-        <h1 className="big-heading text-white absolute xl:top-[55%] lg:top-2/4 top-[80%] left-[7%]">Contact</h1>
+        <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
+          <h1 className="big-heading text-white">Contact</h1>
+        </div>
       </div>
       <Contact />
     </div>

@@ -1,6 +1,4 @@
 'use client'
-import { AiOutlineAlignLeft } from "react-icons/ai";
-import { CgMenuGridR } from "react-icons/cg";
 import GridLogo from '../../../../public/icons/GridLogo'
 import DropDowns from "../DropDowns";
 import LinesLogo from "../../../../public/icons/LinesLogo";
@@ -31,7 +29,7 @@ const ClientFilter = ({ changeView, setChangeView }) => {
           <DropDowns section={"Client type"} subsection={allCleints} />
         </div>
       </din>
-      <div className="lg:text-base text-xs">Showing 299 clients</div>
+      <div className="lg:text-base text-xs font-Inter">Showing 299 clients</div>
     </div>
   );
 };
