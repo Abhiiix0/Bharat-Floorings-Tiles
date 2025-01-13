@@ -82,7 +82,7 @@ const OurClientsGridComp = ({
             transition={{ duration: 0.5 }}
             className={`absolute top-0 ${
               expandLeft ? "right-0" : "left-0"
-            } w-[200%] z-[2500] h-[200px] sm:h-[274px]  text-white border border-red-500 `}
+            } w-[200%] z-[2500] h-[200px] sm:h-[274px]  text-white `}
           >
             <div
               onClick={() => handleClickOutside()}
@@ -105,7 +105,7 @@ const OurClientsGridComp = ({
                 height={100}
                 alt="img"
                 src={productImg.src}
-                className=" w-[50%] h-[150px] my-auto md:h-[220px] 2xl:h-auto text-[11px] md:text-base object-cover m-2 md:m-3"
+                className=" w-[50%] h-[150px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
               ></Image>
             </div>
           </motion.div>

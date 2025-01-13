@@ -13,7 +13,7 @@ const ProjectsDetail = () => {
     <section className='relative overflow-hidden'>
       <LinesComp height={'130vh'} />
       <div className='lg:px-[100px] px-[20px] relative'>
-        <h1 className='big-heading'>Project</h1>
+        <h1 className='big-heading 3xl:mt-[146.4px] 3xl:mb-[164px] 2xl:mt-20 2xl:mb-36 xl:mt-16 xl:mb-28 lg:mb-24 md:mt-14 md:mb-20 mt-14 mb-16'>Project</h1>
         <div className='flex items-center justify-between 2xl:mb-10'>
           <div onClick={() => history.back()} className='w-32 xl:w-36 2xl:w-40 flex justify-end gap-1 items-center 2xl:text-base xl:text-sm text-xs cursor-pointer link'>
             <RiArrowLeftLine className="arrow-left" />Back to projects
