@@ -1,5 +1,5 @@
 "use client";
-import GridLogo from "../../../../public/icons/GridLogo.jsx";
+import GridLogo from "../../../../public/icons/gridLogo.jsx";
 import DropDowns from "../DropDowns";
 import LinesLogo from "../../../../public/icons/LinesLogo.jsx";
 const allCleints = [{ id: 1, subs: "ALL CLIENTS" }];
