@@ -1,7 +1,14 @@
-import { AWARDS, EVENTS_SUB_IMAGES, EVENTS_SUB_SECTION, MANAGEMENT, OUR_JOURNEY, PRESS_RELEASES } from "@/utils"
-import ourCompanyImage from '../../../../public/images/our-company/our_company.jpg'
-import Header from "@/app/components/Header"
-import OurCompany from "@/app/components/our-company/OurCompany"
+import {
+  AWARDS,
+  EVENTS_SUB_IMAGES,
+  EVENTS_SUB_SECTION,
+  MANAGEMENT,
+  OUR_JOURNEY,
+  PRESS_RELEASES,
+} from "@/utils";
+import ourCompanyImage from "../../../../public/images/our-company/our_company.jpg";
+import Header from "@/app/components/Header";
+import OurCompany from "@/app/components/our-company/OurCompany";
 
 const page = () => {
   return (
@@ -9,19 +16,25 @@ const page = () => {
       <div
         style={{
           backgroundImage: `url(${ourCompanyImage.src})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
-        className='3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative'
+        className="2xl:h-[727px] lg:h-[450px] h-screen  relative"
       >
         <Header textColor="text-white" />
-        <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
-          <h1 className="big-heading text-white">Our Company</h1>
-        </div>
+        <h1 className="big-heading text-white absolute xl:top-[55%] lg:top-2/4 top-[80%] left-[7%]">
+          Events
+        </h1>
       </div>
-      <OurCompany journey={OUR_JOURNEY} management={MANAGEMENT} awards={AWARDS} press={PRESS_RELEASES} events={EVENTS_SUB_SECTION} />
+      <OurCompany
+        journey={OUR_JOURNEY}
+        management={MANAGEMENT}
+        awards={AWARDS}
+        press={PRESS_RELEASES}
+        events={EVENTS_SUB_SECTION}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
