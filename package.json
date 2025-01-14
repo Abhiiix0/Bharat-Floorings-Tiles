@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "framer-motion": "^11.16.4",
+    "motion": "^11.16.4",
     "next": "15.1.2",
     "next-video": "^2.0.0",
     "next-videos": "^1.4.1",

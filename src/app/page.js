@@ -17,6 +17,7 @@ import workbench2 from "../../public/images/home/workbench2.jpg";
 import product1 from "../../public/images/home/product1.jpg";
 import ProductCard from "./components/home/ProductCard";
 import Manufacture from "./components/home/Manufracture";
+import RotatingTextEffect from "./components/home/RotatingTextEffect";
 
 // Manufracture
 // import manufracture1 from "../../public/images/home/manufracture.jpg";
@@ -109,39 +110,41 @@ const page = () => {
       >
         <Header textColor="text-white"></Header>
         <section className=" text-white side-padding  h-[calc(100vh-70px)] md:h-[calc(100vh-120px)] lg:h-[calc(100vh-130px)]  flex flex-col justify-between   border-red-500  ">
-          <div className="    h-full flex flex-col justify-center md:justify-end pb-[50px] lg:pb-[70px] 3xl:pb-[214px]   border-red-400 text-center md:text-start">
-            <p className=" heading-text text-[2rem]  md:text-[5.5vw] 2xl:text-[87px] ">
+          <div className="    h-full flex flex-col justify-center md:justify-end pb-[50px] lg:pb-[70px]  3xl:pb-[214px]   border-red-400 text-center md:text-start">
+            <p className=" heading-text mb-1 text-[1.6rem] sm:text-[2rem]  md:text-[5.5vw] 2xl:text-[87px] ">
               {project?.year}
             </p>
-            {/* <RotatingTextEffect words={project.titles} /> */}
-            <p className=" text-[2.6rem] md:text-[7.3vw] 3xl:text-[142px] lg:leading-[185px] font-Gloock uppercase">
-              {project?.titles[1]}
-            </p>
+            <RotatingTextEffect words={project?.titles} />
           </div>
           <div className=" normal-text mb-6  lg:mb-10   flex w-full">
-            <div className=" gap-7 3xl:gap-9 flex flex-col w-full ">
+            <div className=" gap-2 md:gap-7 3xl:gap-9 flex flex-col-reverse md:flex-col w-full ">
               <div className=" flex gap-5">
                 {project?.tilesImg.map((img, i) => (
                   <Image
                     src={img}
                     key={i}
                     alt=" img"
-                    className=" rounded-xl"
+                    className=" h-[50px] w-[50px] md:w-[30px] md:h-[30px] 3xl:w-[60px] 3xl:h-[60px] "
                   ></Image>
                 ))}
               </div>
-              <div className="  border-red-400 md:text-base text-[12px]    w-full">
+              <div className="  border-red-400 lg:text-base text-[10px] sm:text-[12px]    w-full">
                 <p>{project.location}</p>
                 <p>{project.designBy}</p>
               </div>
             </div>
 
-            <p className=" w-full hidden md:flex text-center justify-center items-end ">
+            <p className=" w-full hidden md:flex text-[12px] lg:text-base text-center justify-center items-end ">
               {project.featured}
             </p>
 
-            <p className=" text-[12px] md:text-base  md:w-full w-[140px] text-right gap-4 flex justify-end items-end">
-              View Projects <RightArrow size={20} color="white" />
+            <p className=" text-[10px] sm:text-[12px] lg:text-base  md:w-full w-[180px] text-right gap-2 md:gap-4 flex justify-end items-end">
+              View Projects{" "}
+              <RightArrow
+                size={20}
+                color="white"
+                className=" w-4 h-4 md:h-5 md:w-5"
+              />
             </p>
           </div>
         </section>
@@ -211,21 +214,29 @@ const page = () => {
           <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
         </div>
-        <div className=" md:text-base text-[12px]  md:pt-14  flex justify-between items-end md:items-start side-padding">
+        <div className=" md:text-base text-[12px]   md:pt-14  flex justify-between items-end   md:items-start side-padding">
           <div className="  w-full text-start">
             <p>{project?.location}</p>
             <p>{project?.designBy}</p>
             <div className=" flex gap-4 mt-5">
               {project?.tilesImg.map((img, i) => (
-                <Image alt="img" src={img} key={i}></Image>
+                <Image
+                  alt="img"
+                  className=" w-[50px] h-[50px] 3xl:w-[60px] 3xl:h-[60px] "
+                  src={img}
+                  key={i}
+                ></Image>
               ))}
             </div>
           </div>
           <p className="  w-full text-center hidden lg:block">
             {project?.featured}
           </p>
-          <a className="  w-[150px] mb-4  md:w-full text-end" href="">
-            View Projects
+          <a
+            className="  w-[150px] md:mb-4  flex gap-2 justify-end items-center  md:w-full text-end"
+            href=""
+          >
+            View Projects <RightArrow size={16} color="black" />
           </a>
         </div>
         <div className=" mt-[105px] lg:mt-56  side-padding ">
@@ -352,13 +363,14 @@ const page = () => {
                   className=" border  justify-center items-center flex gap-3 border-black text-[14px] md:text-base  md:w-fit md:px-5 md:py-[15px] "
                   href="#"
                 >
-                  View Projects <RightArrow color="black" />
+                  View Projects
+                  <RightArrow color="black" />
                 </a>
               </p>
             </div>
           </div>
           <div className=" pb-[97px] xl:pb-[200px]">
-            <div className=" flex flex-row z-30 overflow-x-auto gap-5 lg:gap-8 whitespace-nowrap  pt-[65px] md:pt-[100px]">
+            <div className=" flex flex-row z-30 custom-scrollbar overflow-x-auto gap-5 lg:gap-8 whitespace-nowrap  pt-[65px] md:pt-[100px]">
               {products.map((product, index) => (
                 <div className=" w-[573px]" key={product.id}>
                   <ProductCard product={product} />
@@ -393,7 +405,7 @@ const page = () => {
               className=" md:border  justify-center items-center flex gap-3 border-black text-[14px] md:text-base  md:w-fit md:px-5 md:py-[15px] "
               href="#"
             >
-              View Projects <RightArrow color="black" />
+              View Projects <RightArrow size={16} color="black" />
             </a>
           </p>
         </div>

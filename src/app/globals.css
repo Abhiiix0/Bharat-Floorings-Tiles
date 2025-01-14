@@ -54,7 +54,7 @@
 
 .zoom-img {
   width: 200%;
-  transition: .5s ease-out;
+  transition: 0.5s ease-out;
 }
 
 @media (max-width: 1024px) {
@@ -73,6 +73,10 @@
   line-height: 88.38%;
   /* 77.691px */
   letter-spacing: -0.879px;
+}
+
+.heading-gloock {
+  font-family: Gloock;
 }
 
 .header-about-links {

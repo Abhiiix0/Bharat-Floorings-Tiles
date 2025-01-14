@@ -8,8 +8,16 @@ const Footer = () => {
     { colorCode: "#fffcf3", colorName: "Light Cream", textColor: "#b9b6ad" },
     { colorCode: "#eed6ca", colorName: "Sicilia", textColor: "#a89084" },
     { colorCode: "#f4c090", colorName: "Buttercup", textColor: "#ae7a4b" },
-    { colorCode: "#d79677", colorName: "Jaisalmer Yellow", textColor: "#915031" },
-    { colorCode: "#f7b960", colorName: "Sunshine Yellow", textColor: "#b1731a" },
+    {
+      colorCode: "#d79677",
+      colorName: "Jaisalmer Yellow",
+      textColor: "#915031",
+    },
+    {
+      colorCode: "#f7b960",
+      colorName: "Sunshine Yellow",
+      textColor: "#b1731a",
+    },
     { colorCode: "#b88276", colorName: "Mushroom", textColor: "#723c30" },
     { colorCode: "#96796e", colorName: "Fawn", textColor: "#503328" },
     { colorCode: "#e29792", colorName: "Nursery  Pink", textColor: "#9c514c" },
@@ -87,12 +95,15 @@ const Footer = () => {
             }}
             className={`bg-[#b4d2c4] text-[${cPalettes.textColor}] group flex items-start justify-center w-full `}
           >
-            <p className=" pt-5 w-fit hidden group-hover:flex vertical-text">
+            <p className="  pt-5 w-fit hidden md:group-hover:flex vertical-text">
               {cPalettes.colorName
                 .split("")
                 .reverse()
                 .map((letter, index) => (
-                  <span key={index} className="w-fit m-0 p-0 rotate-[180deg] font-medium">
+                  <span
+                    key={index}
+                    className="w-fit m-0 p-0  rotate-[180deg] font-medium"
+                  >
                     {letter}
                   </span>
                 ))}

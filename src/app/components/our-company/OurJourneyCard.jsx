@@ -4,7 +4,7 @@ const OurJourneyCard = ({ year, heading, para, image, left, top, sectionLeft, bg
       <div
         style={{ left: sectionLeft }}
         className={`2xl:max-w-[715px] xl:w-[550px] lg:w-[450px] absolute z-10`}>
-        <h2 className='font-Gloock xl:text-[73px] font-normal text-5xl'>{year}</h2>
+        <h2 className='font-Gloock xl:text-[70px] font-normal text-5xl'>{year}</h2>
         <h3 className='para-big my-3'>{heading}</h3>
         <p className='font-Inter xl:text-base xl:leading-[25.6px] xl:mb-14 text-sm leading-[22px] mb-9 xl:w-4/5 w-full'>
           {para}

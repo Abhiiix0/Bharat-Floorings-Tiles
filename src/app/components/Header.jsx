@@ -102,19 +102,21 @@ const Header = ({ textColor, iconsColor, lines }) => {
       className={`max-w-[1920px]  border-black  h-fit mx-auto bg-cover flex flex-col justify-between bg-center overflow-hidden relative`}
     >
       {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        src={require("../../../public/videos/headerBgVd.mp4")}
-        autoPlay
-        muted
-        loop
-      />
+      {isOverlayVisible && (
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover z-[2000]"
+          src={require("../../../public/videos/headerBgVd.mp4")}
+          autoPlay
+          muted
+          loop
+        />
+      )}
 
       {lines ? <LinesComp height={"50vh"} /> : null}
       <div className={`${"pl-[20px] lg:pl-[100px]"} `}>
         {isOverlayVisible && (
           <div
-            className="fixed top-0 left-0 w-full h-full  pointer-events-auto z-10"
+            className="fixed top-0 left-0 w-full h-full  pointer-events-auto z-[2000]"
             onClick={hideOverlay} // Click on overlay hides it
           >
             <div className="max-w-[1920px] h-full relative flex-col pt-[180px] hidden lg:flex items-end justify-between  mx-auto">
@@ -127,7 +129,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-40"></div>
               {currentSubLinks.length > 0 ? (
-                <ul className=" relative z-[50] flex justify-between flex-col lg:w-[800px] xl:w-[945px] 3xl:w-[1215px] pr-[20px] lg:pr-[100px] items-center ">
+                <ul className=" relative z-[2150] flex justify-between flex-col lg:w-[800px] xl:w-[945px] 3xl:w-[1215px] pr-[20px] lg:pr-[100px] items-center ">
                   {currentSubLinks?.map((row, idx) => (
                     <div
                       key={idx}
@@ -191,12 +193,12 @@ const Header = ({ textColor, iconsColor, lines }) => {
           </div>
         )}
         <nav className=" flex justify-between">
-          <div className=" lg:bg-black w-fit z-30 lg:pt-[36px] lg:pb-[19px] lg:px-[16px]">
+          <div className=" lg:bg-black w-fit z-[2200] lg:pt-[36px] lg:pb-[19px] lg:px-[16px]">
             <Image
               onClick={hideOverlay}
               src={Logo}
               alt=" Bft logo"
-              className="hidden z-30 lg:block"
+              className="hidden z-[2200] lg:block"
             ></Image>
             <BftLogo
               color={iconsColor}
@@ -205,11 +207,11 @@ const Header = ({ textColor, iconsColor, lines }) => {
               className=" h-[46px] w-[46px] lg:hidden md:h-20 md:w-20 mt-5 md:mt-8"
             />
           </div>
-          <div className="z-30">
+          <div className="z-[2100]">
             <ul
               className={` ${
                 isOverlayVisible && " border-b-2 border-white"
-              }  ${textColor} z-30  h-[89px] font-Inter  font-semibold mt-[2rem] items-center hidden lg:flex `}
+              }  ${textColor} z-[120]  h-[89px] font-Inter  font-semibold mt-[2rem] items-center hidden lg:flex `}
             >
               {navlinks?.map((nlink) => (
                 <li
@@ -223,7 +225,9 @@ const Header = ({ textColor, iconsColor, lines }) => {
                     nlink.name === navlinks[navlinks.length - 1].name
                       ? " pr-[20px] lg:pr-[100px]"
                       : " lg:pr-[150px] xl:pr-[200px] 3xl:pr-[290px]"
-                  } flex  items-center ${textColor} `}
+                  } flex  items-center ${
+                    isOverlayVisible && "text-white"
+                  } ${textColor} `}
                 >
                   <a href="#">{nlink?.name}</a>
                 </li>
