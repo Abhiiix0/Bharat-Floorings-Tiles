@@ -108,7 +108,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
       </div>
       <div className="bg-[#FFFFFF] lg:px-[100px] px-5">
         {/* Progress Bar */}
-        <div className=" z-10 hidden lg:block  mb-20 xl:mb-36 bg-white pt-6 pb-[18px] sticky top-0">
+        <div className="  hidden lg:block z-[100]   mb-20 xl:mb-36 bg-white pt-6 pb-[18px] sticky top-0">
           <div className=" border-t border-black">
             <div
               className="bg-black h-[3px]  transition-all duration-300"
@@ -119,7 +119,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             {journey.map((res, i) => (
               <span
                 key={res.year}
-                className={` font-Inter text-xl leading-8 ${
+                className={` font-Inter  xl:text-xl leading-8 ${
                   currentYearIndex === i ? "font-bold text-black" : ""
                 }`}
               >
@@ -130,8 +130,13 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
         </div>
 
         {/* Journey Timeline Section with Masonry */}
-        <div className=" mx-auto w-fit mt-10 lg:mt-0 pb-20 md:pb-48 lg:pb-[259px] flex">
-          <div className="flex   lg:hidden  flex-col gap-16">
+        <div className=" mx-auto w-fit relative mt-10 lg:mt-0 pb-20 md:pb-48 lg:pb-[259px] flex">
+          <div className=" hidden lg:flex justify-center pt-5 absolute top-0 z-[9] w-full ">
+            <h3 className=" font-Inter text-[25rem] 3xl:text-[556px] text-[#F5F5F5] ">
+              {journey[0].year}
+            </h3>
+          </div>
+          <div className="flex   lg:hidden  relative z-10 flex-col gap-16">
             {journey.map((res, i) => (
               <div
                 key={res.id}
@@ -148,7 +153,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
               </div>
             ))}
           </div>
-          <div className=" hidden lg:flex flex-col gap-32 2xl:gap-[204px]">
+          <div className=" hidden lg:flex relative z-10 flex-col gap-32 2xl:gap-[204px]">
             {journey.map((res, i) => {
               if ((i + 1) % 2 !== 0) {
                 return (
@@ -169,7 +174,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
               }
             })}
           </div>
-          <div className=" hidden lg:flex flex-col mt-96 2xl:mt-[580px] gap-32 2xl:gap-[204px]">
+          <div className=" hidden lg:flex flex-col relative z-10 mt-96 2xl:mt-[580px] gap-32 2xl:gap-[204px]">
             {journey.map((res, i) => {
               if ((i + 1) % 2 === 0) {
                 return (
