@@ -1,7 +1,5 @@
 "use client";
-import { AiOutlineAlignLeft } from "react-icons/ai";
-import { CgMenuGridR } from "react-icons/cg";
-import GridLogo from "../../../../public/icons/gridLogo";
+import GridLogo from "../../../../public/icons/gridLogo.jsx";
 import DropDowns from "../DropDowns";
 import LinesLogo from "../../../../public/icons/LinesLogo.jsx";
 const allCleints = [{ id: 1, subs: "ALL CLIENTS" }];

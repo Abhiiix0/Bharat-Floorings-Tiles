@@ -1,19 +1,13 @@
-'use client'
-import imgs from "../../../public/images/gallery/galleryImg-1.jpg";
+"use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import React from "react";
+
 const GalleryPageCards = ({ designerImg, galleryImg }) => {
-  const router = useRouter()
-  console.log("2", designerImg, galleryImg);
+  const router = useRouter();
   return (
     <div className="min-h-64 min-w-64 sm:h-[600px] lg:h-auto relative">
-      <Image
-        width={100}
-        height={100}
-        src={imgs?.src}
-        alt="gallery image 1"
-        className="h-full w-full"
-      />
+      <img alt="gallery image" src={galleryImg.src} className="h-full w-full" />
       <div className="absolute top-[85%] lg:top-[90%] left-[10%] flex w-full gap-4">
         {designerImg.map((imgss, i) => (
           <Image

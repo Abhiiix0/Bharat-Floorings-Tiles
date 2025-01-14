@@ -32,15 +32,15 @@ const ProjectsDetail = () => {
           className="xl:mt-10 lg:mt-8 mt-7 2xl:h-[1265px] xl:h-[950px] lg:h-[700px] h-screen w-full relative"
         >
           <img
-            className="absolute top-[20%] left-1/4 2xl:h-[104px] xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14"
+            className="absolute top-[20%] left-1/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14"
             src={DESIGNER_IMAGES[1].image.src}
           />
           <img
-            className="absolute top-[80%]  2xl:h-[104px] xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[18%]"
+            className="absolute top-[80%]  2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[18%]"
             src={DESIGNER_IMAGES[0].image.src}
           />
           <img
-            className="absolute top-2/4 2xl:h-[104px] xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[70%]"
+            className="absolute top-2/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[70%]"
             src={DESIGNER_IMAGES[2].image.src}
           />
         </div>

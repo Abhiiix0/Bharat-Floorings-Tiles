@@ -150,7 +150,7 @@ const page = () => {
         </section>
       </section>
       <section className="relative ">
-        <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px]  top-0 left-0  justify-between">
+        <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[-1]  top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
@@ -209,7 +209,7 @@ const page = () => {
 
       <ImageGallery images={imgArray} />
       <section className="relative font-Inter pt-9 pb-10">
-        <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px]  top-0 left-0  justify-between">
+        <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[-1]  top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
@@ -259,12 +259,12 @@ const page = () => {
       </section>
 
       <section className=" bg-[#F4F4F4] relative">
-        <div className="absolute hidden z-10 lg:flex w-full h-full px-[4px] lg:px-[88px] top-0 left-0  justify-between">
+        <div className="absolute hidden z-10 lg:flex w-full h-full px-[4px]   lg:px-[88px] top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-x border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
         </div>
-        <div className=" md:side-padding ">
+        <div className=" md:side-padding relative z-20 ">
           <div className="side-padding ">
             <p className=" heading-text text-[40px] lg:text-[100px] leading-[40px] lg:leading-[100px] lg:text-center pt-20 lg:pt-32 pb-2">
               Workbench
@@ -382,7 +382,7 @@ const page = () => {
       </section>
       <ImageGallery images={imgArray} />
       <section className="relative font-Inter pt-9 md:pt-0 pb-24 md:pb-[199px]">
-        <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px]  top-0 left-0  justify-between">
+        <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[-1] top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>

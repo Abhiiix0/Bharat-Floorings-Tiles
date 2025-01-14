@@ -1,36 +1,118 @@
-'use client'
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
+"use client";
 
-const OurClientsGridComp = ({ industryName, industry, tradeMark, domain, clientName, link, productImg, image }) => {
-  const [click, setClick] = useState(false)
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+
+const OurClientsGridComp = ({
+  industryName,
+  tradeMark,
+  domain,
+  clientName,
+  industry,
+  productImg,
+  image,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [expandLeft, setExpandLeft] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    document.addEventListener('mousedown', () => {
-      setClick(false)
-    })
-  }, [])
-  return (
-    <div className='h-[274px]'>
-      <div onClick={() => setClick(!click)} className={`mb-20 h-full w-full overflow-hidden relative ${click ? 'zoom-img' : null}`}>
-        {
-          click ?
-            <div className='absolute bg-[#00000099] text-white h-full min-w-full z-10 flex'>
-              <div className='2xl:py-10 2xl:px-5 flex flex-col justify-between lg:py-7 px-4 py-5 w-[50%]'>
-                <h3 className='font-bold 2xl:mb-9 lg:mb-8 mb-7'>{industryName} <sup>{tradeMark}</sup> {industry} ({domain})</h3>
-                <p className='2xl:mb-16 lg:mb-14 mb-12 text-lg'>{clientName}</p>
-                <Link href={`${link}`} className='font-bold underline' >View tile detail</Link>
-              </div>
-              <div className='w-[50%] h-full flex justify-center items-center overflow-hidden p-5'>
-                <img alt='product image' src={productImg.src} className='h-full' />
-              </div>
-            </div> :
-            null
-        }
-        <img alt={`${clientName} image`} src={image.src} className='h-full w-full hover:scale-150 z-0 zoom-in absolute effect' />
-      </div>
-    </div>
-  )
-}
+    if (isExpanded && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setExpandLeft(rect.right > window.innerWidth - 100);
+    }
+  }, [isExpanded]);
 
-export default OurClientsGridComp
+  const handleClickOutside = (event) => {
+    // if (containerRef.current && !containerRef.current.contains(event.target)) {
+    // }
+    setIsExpanded(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <motion.div
+      ref={containerRef}
+      className={`relative h-[200px] sm:h-[274px]  group`}
+      layoutId="modal"
+    >
+      {/* Image and Click Handler */}
+      <motion.div
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="relative h-full w-full cursor-pointer overflow-hidden"
+        // whileHover={{ scale: 1.1 }}
+        // animate={isExpanded ? { scale: 1.2 } : { scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="group relative h-full w-full cursor-pointer overflow-hidden">
+          <Image
+            src={image.src}
+            alt={`${clientName} image`}
+            layout="fill"
+            objectFit="cover"
+            className="transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+        <div
+          className={`absolute top-0 left-0 w-full h-full bg-black/30 ${
+            isExpanded ? "opacity-70" : "opacity-0 group-hover:opacity-30"
+          }`}
+        />
+      </motion.div>
+
+      {/* Overlay Info with AnimatePresence */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            onClick={() => handleClickOutside()}
+            style={{
+              backgroundImage: `url(${image.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            initial={{ opacity: 0, x: expandLeft ? 48 : -48 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: expandLeft ? 48 : -48 }}
+            transition={{ duration: 0.5 }}
+            className={`absolute top-0 ${
+              expandLeft ? "right-0" : "left-0"
+            } w-[200%] z-[2500] h-[200px] sm:h-[274px]  text-white `}
+          >
+            <div
+              onClick={() => handleClickOutside()}
+              className="flex bg-black/50"
+            >
+              <div
+                // onClick={() => handleClickOutside()}
+                className=" w-[50%] gap-3 md:gap-9 flex justify-center p-3 md:px-7 flex-col h-[200px] sm:h-[274px]"
+              >
+                <h3 className="font-bold text-[11px] md:text-base">
+                  {industryName} <sup>{tradeMark}</sup> {industry} ({domain})
+                </h3>
+                <p className=" text-[12px] md:text-lg">{clientName}</p>
+                <Link href="#" className="font-bold underline">
+                  View tile detail
+                </Link>
+              </div>
+              <Image
+                width={100}
+                height={100}
+                alt="img"
+                src={productImg.src}
+                className=" w-[50%] h-[150px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
+              ></Image>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+export default OurClientsGridComp;
