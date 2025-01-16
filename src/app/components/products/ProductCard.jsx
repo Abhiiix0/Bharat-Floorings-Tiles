@@ -11,11 +11,13 @@ const ProductCard = ({ Product }) => {
       <p className="mt-[52px] mb-[18px] text-xl normal-text font-medium tracking-[0.4px]">
         BFT + Designer 2
       </p>
-      <Image
-        alt="img"
-        className=" 3xl:w-[462px] 3xl:h-[473px] w-full mx-auto  md:w-auto md:h-[350px] object-cover"
-        src={selectImg}
-      />
+      <div className="3xl:w-[28.9rem] 3xl:h-[473px] w-full mx-auto  md:w-auto md:h-[350px]">
+        <Image
+          alt="img"
+          className=" w-full h-full  object-cover"
+          src={selectImg}
+        />
+      </div>
       <div className="flex ">
         {Product?.tiles?.map((imgs, i) => (
           <Image

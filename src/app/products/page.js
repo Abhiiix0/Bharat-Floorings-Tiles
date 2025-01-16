@@ -149,7 +149,7 @@ const Page = () => {
               </p>
             </div>
             <div className=" w-[64.6%]  pt-[120px] pl-[68px]">
-              <p className="max-w-[648px] font-medium text-xl w-[648px] 3xl:max-w-[848px] 3xl:w-[848px]">
+              <p className="max-w-[648px] font-Inter font-medium text-xl w-[648px] 3xl:max-w-[848px] 3xl:w-[848px]">
                 For over a century, Bharat Floorings & Tiles has been the
                 epitome of quality in handmade tile manufacturers in India. Our
                 dedicated commitment to innovation ensures you&apos;re choosing

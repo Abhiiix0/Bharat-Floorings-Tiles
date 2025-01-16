@@ -338,13 +338,13 @@ const page = () => {
           <div className=" w-full border-x border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
         </div>
-        <div className=" side-padding relative  z-20">
-          <div className=" hidden md:flex pt-[45px] pb-28  justify-between font-Inter font-medium">
+        <div className=" relative  z-20">
+          <div className=" hidden  side-padding md:flex pt-[45px] pb-28  justify-between font-Inter font-medium">
             <p>60 Products</p>
             <p>30 colors</p>
             <p>100 Years</p>
           </div>
-          <div className=" flex gap-9 2xl:gap-[70px] flex-col xl:flex-row">
+          <div className="  side-padding flex gap-9 2xl:gap-[70px] flex-col xl:flex-row">
             <p className=" pt-[74px] md:pt-0 text-[40px] leading-[40px] lg:text-[100px] 3xl:w-full lg:leading-[100px] font-Gloock">
               Products
             </p>
