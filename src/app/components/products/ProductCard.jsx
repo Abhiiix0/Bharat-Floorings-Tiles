@@ -13,7 +13,7 @@ const ProductCard = ({ Product }) => {
       </p>
       <Image
         alt="img"
-        className=" 3xl:h-[462px] 3xl:w-full w-full mx-auto  md:w-auto md:h-[350px] object-cover"
+        className=" 3xl:w-[462px] 3xl:h-[473px] w-full mx-auto  md:w-auto md:h-[350px] object-cover"
         src={selectImg}
       />
       <div className="flex ">

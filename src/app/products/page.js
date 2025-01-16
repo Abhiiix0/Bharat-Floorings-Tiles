@@ -20,8 +20,16 @@ const Page = () => {
           name: "BFT + Designer",
           url: "https://www.google.com",
           links: [
-            { name: "sublink 1", url: "https://www.google.com" },
-            { name: "sublink 2", url: "https://www.google.com" },
+            { name: "ANANTA", url: "https://www.google.com" },
+            { name: "Japanese Line", url: "https://www.google.com" },
+            { name: "WOVEN ABODES", url: "https://www.google.com" },
+            { name: "ORIGAMETES", url: "https://www.google.com" },
+            { name: "ANGEL EYE", url: "https://www.google.com" },
+            { name: "AVB BESPOKE 5", url: "https://www.google.com" },
+            { name: "FARSH ", url: "https://www.google.com" },
+            { name: "ARMS", url: "https://www.google.com" },
+            { name: "DASHDASHDOT", url: "https://www.google.com" },
+            { name: "SHIBORI TILES", url: "https://www.google.com" },
           ],
         },
         {
@@ -141,7 +149,7 @@ const Page = () => {
               </p>
             </div>
             <div className=" w-[64.6%]  pt-[120px] pl-[68px]">
-              <p className="max-w-[648px] w-[648px] 3xl:max-w-[848px] 3xl:w-[848px]">
+              <p className="max-w-[648px] font-medium text-xl w-[648px] 3xl:max-w-[848px] 3xl:w-[848px]">
                 For over a century, Bharat Floorings & Tiles has been the
                 epitome of quality in handmade tile manufacturers in India. Our
                 dedicated commitment to innovation ensures you&apos;re choosing
@@ -189,7 +197,7 @@ const Page = () => {
                               {link.name}
                             </a>
                             {hoveredSubLink === j && link.links?.length > 0 && (
-                              <ul className=" bg-white mt-1 mb-[50px] text-black ">
+                              <ul className=" bg-white mt-1 grid grid-cols-2 mb-[50px] text-black ">
                                 {link.links.map((sublink, k) => (
                                   <li key={k} className="mb-1">
                                     <a

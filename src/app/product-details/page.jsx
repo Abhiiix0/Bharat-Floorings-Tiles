@@ -57,6 +57,18 @@ const page = () => {
           links: [
             { name: "sublink 1", url: "https://www.google.com" },
             { name: "sublink 2", url: "https://www.google.com" },
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
+            { name: "sublink 1", url: "https://www.google.com" },
+            { name: "sublink 2", url: "https://www.google.com" },
           ],
         },
         {
@@ -139,9 +151,9 @@ const page = () => {
           onMouseLeave={() => setmenuBtn(false)}
           className={`${
             !menuBtn && " left-[-100%]"
-          } absolute top-0 left-0 w-full transition-all  duration-1000 ease-in-out sm:w-[400px] lg:w-[600px] border pt-40 lg:pt-72 h-full bg-white`}
+          } absolute top-0 left-0 w-full z-[1500] transition-all  duration-1000 ease-in-out sm:w-[400px] lg:w-[600px] border pt-40 lg:pt-72 h-full bg-white`}
         >
-          <div className=" relative z-[1400] px-5 lg:pl-[100px]  lg:pr-0 h-fit  border-red-400">
+          <div className=" relative z-[100] px-5 lg:pl-[100px]  lg:pr-0 h-fit  border-red-400">
             <div className=" w-full sm:w-[310px] 3xl:w-[380px] mt 3xl:mt-[45px] pr-5  lg:ml-[12px]">
               {titles.map((t, i) => (
                 <div key={i} className="border-b-2 border-black">
@@ -359,7 +371,7 @@ const page = () => {
                 {products.tiles.map((tile, index) => (
                   <Image
                     key={index}
-                    className="h-[55px]  z-[100] cursor-pointer w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
+                    className="h-[55px]  z-[20] cursor-pointer w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
                     src={tile}
                     onClick={() => setSelectedImg(tile)}
                     //   onClick={() => setSelectedImg(tile)}
@@ -386,7 +398,7 @@ const page = () => {
               </p>
             </div>
             <div className="">
-              <div className=" hidden lg:flex gap-2 text-sm xl:text-base font-semibold text-gray-500 mb-0 sm:mb-[48px]">
+              <div className=" hidden lg:flex gap-2 text-sm xl:text-base font-Inter font-semibold text-gray-500 mb-0 sm:mb-[48px]">
                 <p>DESIGNER TILES</p>
                 {">"}
                 <p>BFT+DESIGNER</p> {">"}
@@ -396,7 +408,7 @@ const page = () => {
               <p className=" font-Gloock text-lg sm:text-2xl md:text-4xl 3xl:text-[70px] 3xl:leading-[80px] lg:w-[150px]">
                 {products.name}
               </p>
-              <div className=" flex items-center font-medium text md:text-xl gap-2 sm:gap-5 mt-5 mb-5 md:mt-[37px] md:mb-[28px] lg:mb-[37px] lg:mt-[47]">
+              <div className=" flex items-center font-Inter font-medium text md:text-xl gap-2 sm:gap-5 mt-5 mb-5 md:mt-[37px] md:mb-[28px] lg:mb-[37px] lg:mt-[47]">
                 <Image
                   src={products.tiles[3]}
                   alt="Image"
@@ -418,7 +430,7 @@ const page = () => {
                 sunlight
               </div>
               <div className=" mt-6 md:mt-[50px] lg:mt-24 3xl:mt-[135px] pb-[20px]  lg:pb-[77px]">
-                <div className=" flex gap-16">
+                <div className=" flex font-Inter gap-16">
                   <p className="  md:text-lg max-w-[133px]">Color</p>
                   <div className=" flex gap-5">
                     <div className=" h-[33px] w-[33px] rounded-full bg-red-400"></div>
@@ -427,7 +439,7 @@ const page = () => {
                     <div className=" h-[33px] w-[33px] rounded-full bg-yellow-400"></div>
                   </div>
                 </div>
-                <div className=" flex gap-16 mt-[15px] md:mt-[38px]">
+                <div className=" flex gap-16  font-Inter mt-[15px] md:mt-[39px]">
                   <p className=" md:text-lg max-w-[133px]">Tile size</p>
                   <div className=" font-semibold text-lg md:text-xl">
                     20cm x 20cm
@@ -438,12 +450,12 @@ const page = () => {
           </div>
           <div className=" flex relative z-[150] pb-14 md:pb-24 lg:pb-[120px] xl:pb-[150px] 3xl:pb-[208px]">
             <div className="  hidden lg:block w-[33.3%] lg:h-[246px]  "></div>
-            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px] lg:h-48 3xl:h-[246px] flex items-center gap-4  lg:pl-[30px] 2xl:pl-[240px]">
+            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px] lg:h-48 3xl:h-[246px] flex items-center gap-[0.65rem]  lg:pl-[30px] 2xl:pl-[240px]">
               <button
                 onClick={() => {
                   openQuote();
                 }}
-                className=" h-[50px] cursor-pointer hover:bg-[#516756] sm:h-[64px] text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]"
+                className=" h-[50px] cursor-pointer hover:bg-[#516756] sm:h-[64px] font-medium text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]"
               >
                 Get a quote
               </button>

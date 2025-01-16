@@ -165,16 +165,16 @@ const page = () => {
               100 years old
             </p>
           </div>
-          <div className="lg:flex gap-5 mt-[6.7rem] lg:pb-[186px] md:mt-[4.5rem] lg:mt-[7.5rem]">
+          <div className="lg:flex gap-5 mt-[6.7rem] lg:pb-[200px] md:mt-[4.5rem] lg:mt-[7.5rem]">
             <div className=" w-full ">
-              <p className=" heading-text text-[2.5rem] lg:text-[4.5rem] xl:text-[5.2rem] 3xl:text-[6.2rem] xl:w-[500px] md:leading-[100px]">
+              <p className=" heading-text text-[2.5rem] lg:text-[4.5rem] xl:text-[5.2rem] 3xl:text-[6.3rem] xl:w-[500px] md:leading-[100px]">
                 Bharat Flooring and Tiles
               </p>
               <p className=" text-xl lg:text-[26px] 3xl:text-[30px] leading-7 lg:leading-10 mt-2 lg:mt-6 w-full 3xl:max-w-[680px]  ">
                 For over a century, Bharat Floorings & Tiles has been the
                 epitome of quality in handmade tile manufacturers in India.
               </p>
-              <p className=" mt-8 lg:mt-16 mb-7 leading-7 lg:text-xl lg:max-w-[640px] lg:leading-8">
+              <p className=" mt-8 lg:mt-20 leading-7 lg:text-xl lg:max-w-[640px] lg:leading-8">
                 Our dedicated commitment to innovation ensures you&apos;re
                 choosing the best handcrafted cement tiles in the market.
                 Heritage buildings and prestigious locations across the country
@@ -247,7 +247,7 @@ const page = () => {
           </p>
           <Image
             alt="img"
-            className=" mx-auto w-40 mt-16 lg:mt-[72px]"
+            className=" mx-auto  h-[7.5rem] w-[5.66rem] mt-16 lg:mt-[72px]"
             src={years100}
           ></Image>
           <div className=" hidden lg:flex justify-between mt-[135px]">
@@ -349,7 +349,7 @@ const page = () => {
               Products
             </p>
             <div className=" w-full flex items-start justify-between">
-              <p className=" leading-6 w-[550px]   text-base ">
+              <p className=" leading-6 w-[550px] font-Inter  text-base ">
                 From exquisite handcrafted cement tiles that bring timeless
                 beauty to your space, to elegant terrazzo floors that exude
                 grandeur, our collection of decorative concrete, outdoor floors,
