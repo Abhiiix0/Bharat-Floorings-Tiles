@@ -3,9 +3,6 @@ const OurJourneyCard = ({
   heading,
   para,
   image,
-  left,
-  top,
-  sectionLeft,
 }) => {
   return (
     <div className="2xl:h-fit  overflow-hidden  xl:h-[900px] lg:h-[750px] h-fit w-full">

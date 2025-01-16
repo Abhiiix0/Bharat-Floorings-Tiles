@@ -7,7 +7,7 @@ import LinesComp from './LinesComp'
 const Careers = ({ jobs }) => {
   return (
     <section className='max-w-[1920px] mx-auto relative overflow-hidden'>
-      <LinesComp height={'530vh'} />
+      <LinesComp />
       <div className='relative xl:mb-56 lg:mb-48 md:mb-40 mb-32 2xl:mb-[245px] 2xl:mt-[59px] xl:mt-14 lg:mt-12 md:mt-10 mt-8  '>
         <div className='lg:px-[100px] px-[20px]'>
           <Intro intro1={'Who we are'} intro3={'100 years old'} />

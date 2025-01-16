@@ -65,7 +65,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
         <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
         <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
       </div>
-      <div className="lg:px-[100px] px-[20px] py-10 bg-[#fefef2]">
+      <div className="lg:px-[100px] px-[20px] py-10 bg-[#fefef2] relative">
         <Intro intro1={"Who we are"} intro3={"100 years old"} />
         <h1 className="2xl:text-[100px] 2xl:leading-[100px] md:text-5xl text-4xl xl:text-7xl lg:text-6xl font-Gloock font-normal 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-10">
           Our Journey
@@ -119,9 +119,8 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             {journey.map((res, i) => (
               <span
                 key={res.year}
-                className={` font-Inter  xl:text-xl leading-8 ${
-                  currentYearIndex === i ? "font-bold text-black" : ""
-                }`}
+                className={` font-Inter  xl:text-xl leading-8 ${currentYearIndex === i ? "font-bold text-black" : ""
+                  }`}
               >
                 {res.year}
               </span>
@@ -222,7 +221,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             intro3={"2013 2014 2015 2017"}
           />
         </div>
-        <h1 className="small-heading 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-10 text-center">
+        <h1 className="small-heading 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-10 text-center 2xl:pr-[10%] pr-[15%]">
           Awards
         </h1>
         <div className="flex overflow-x-scroll 2xl:gap-[27px] xl:gap-6 lg:gap-5 gap-4 scroll xl:my-16 lg:y-12 md:my-9 my-7">
@@ -246,15 +245,16 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
           ))}
         </div>
       </div>
-      <div className="lg:px-[100px] px-[20px] py-10">
+      <div className="lg:px-[100px] px-[20px]">
+        <Intro intro1={'ELLE'} intro3={'Dec 2023'} />
         <div className="flex sm:flex-row flex-col items-center justify-between">
-          <h1 className="small-heading 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-10">
+          <h1 className="small-heading">
             Latest press releases
           </h1>
           <div className=" flex justify-end sm:w-auto w-full">
             <Link
-              href="press"
-              className="link-el border-black border-[1px] w-[175px] xl:w-[200px] 2xl:w-56 2xl:mt-28 xl:mt-24 lg:mt-20 md:mt-16 mt-5 xl:pl-3 pl-2 link"
+              href="/press"
+              className="link-el border-black border-[1px] w-[175px] xl:w-[200px] 2xl:w-56 xl:pl-3 pl-2 link"
             >
               View all press releases
               <RiArrowRightLine className="arrow" />

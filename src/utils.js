@@ -1259,8 +1259,8 @@ export const OUR_JOURNEY = [
     heading: "Recreating beauty. Winnig Awards",
     para: `The UNESCO and EDIDA Awards were received for The Yacht Club (Arch. Vikas Dilawari) and The Library House (Arch. Sanjeev Khosla)`,
     image: ourJourney2013,
-    top: "5%",
-    left: "35%",
+    top: '5%',
+    left: '35%'
   },
   {
     id: 12,
@@ -1280,8 +1280,8 @@ export const OUR_JOURNEY = [
     heading: "Cutting edge innovations",
     para: `Bharat is ever young in design and innovation.3D and Micro Topping are its latest offerings.`,
     image: ourJourney2015,
-    top: "5%",
-    left: "35%",
+    top: '5%',
+    left: '35%'
   },
   {
     id: 14,
