@@ -4,7 +4,7 @@ import LinesComp from './LinesComp'
 const PressRealeses = ({ press }) => {
   return (
     <section className='relative overflow-hidden'>
-      <LinesComp height={'450vh'} />
+      <LinesComp />
       <div className='max-w-[1920px] mx-auto lg:px-[100px] px-[20px] relative'>
         <div className='flex items-center justify-end 2xl:my-14 xl:my-12 lg:my-10 my-7 font-Inter'>
           Showing 55 of 55 releases

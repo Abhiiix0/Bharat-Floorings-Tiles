@@ -9,7 +9,7 @@ const OurServices = () => {
   const [layout, setLayout] = useState(OUR_SERVICES_PAGE[0])
   return (
     <section className='relative overflow-hidden'>
-      <LinesComp height={'300vh'} />
+      <LinesComp />
       <div className="relative lg:px-[100px] px-[20px]">
         <h1 className='big-heading 3xl:mt-[275.4px] 3xl:mb-[82px] 2xl:mt-52 2xl:mb-16 xl:mt-40 xl:mb-14 lg:mb-12 md:mt-28 md:mb-10 mt-20 mb-8'>Our Services</h1>
         <div className='hidden grid-cols-3 bg-[#EBEBEB] h-10 cursor-pointer relative lg:grid'>

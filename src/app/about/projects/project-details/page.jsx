@@ -4,7 +4,7 @@ import ProjectsDetail from "@/app/components/ProjectsDetail";
 const page = () => {
   return (
     <div>
-      <Header iconsColor="balck" lines={true} />
+      <Header iconsColor="black" lines={true} />
       <ProjectsDetail />
     </div>
   );

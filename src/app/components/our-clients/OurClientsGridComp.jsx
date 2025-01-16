@@ -60,9 +60,8 @@ const OurClientsGridComp = ({
           />
         </div>
         <div
-          className={`absolute top-0 left-0 w-full h-full bg-black/30 ${
-            isExpanded ? "opacity-70" : "opacity-0 group-hover:opacity-30"
-          }`}
+          className={`absolute top-0 left-0 w-full h-full bg-black/30 ${isExpanded ? "opacity-70" : "opacity-0 group-hover:opacity-30"
+            }`}
         />
       </motion.div>
 
@@ -80,9 +79,8 @@ const OurClientsGridComp = ({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: expandLeft ? 48 : -48 }}
             transition={{ duration: 0.5 }}
-            className={`absolute top-0 ${
-              expandLeft ? "right-0" : "left-0"
-            } w-[200%] z-[2500] h-[200px] sm:h-[274px]  text-white `}
+            className={`absolute top-0 ${expandLeft ? "right-0" : "left-0"
+              } w-[200%] z-[2500] h-[200px] sm:h-[274px]  text-white `}
           >
             <div
               onClick={() => handleClickOutside()}
@@ -96,7 +94,7 @@ const OurClientsGridComp = ({
                   {industryName} <sup>{tradeMark}</sup> {industry} ({domain})
                 </h3>
                 <p className=" text-[12px] md:text-lg">{clientName}</p>
-                <Link href="#" className="font-bold underline">
+                <Link href="/product-details" className="font-bold underline">
                   View tile detail
                 </Link>
               </div>

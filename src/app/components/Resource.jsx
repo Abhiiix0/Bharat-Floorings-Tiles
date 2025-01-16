@@ -3,17 +3,19 @@ import LinesComp from './LinesComp'
 
 const Resource = ({ resource }) => {
   return (
-    <section className='relative overflow-hidden'>
-      <LinesComp height={'500vh'} />
-      <div className='lg:px-[100px] px-[20px] xl:my-14 md:my-10 sm:my-7 my-5 relative h-[120vh] overflow-y-scroll scroll'>
+    <section className='relative'>
+      <div className='overflow-hidden'>
+        <LinesComp />
+      </div>
+      <div className='lg:px-[100px] px-[20px] xl:my-14 md:my-10 sm:my-7 my-5'>
         <div className='flex items-center justify-end xl:mb-16 md:mb-12 sm:mb-9 mb-7 font-Inter xl:text-base md:text-sm text-xs'>
           Showing 55 of 55 releases
         </div>
-        <div className='flex  gap-4 xl:mb-40  md:flex-row flex-col lg:mb-32 md:mb-24 mb-16 sticky top-10'>
-          <div className='xl:w-[25%] md:w-[30%] w-full xl:text-base text-sm'>
-            <div className='sticky top-[0%] '>
+        <div className='flex gap-4 xl:mb-40 md:flex-row flex-col lg:mb-32 md:mb-24 mb-16 items-start shrink-0 relative'>
+          <div className='xl:w-[25%] md:w-[30%] sticky top-0 w-full xl:text-base text-sm'>
+            <div>
               <u>
-                <h3 className='mb-4 title-el sticky font-semibold'>
+                <h3 className='mb-4 title-el font-semibold'>
                   ALL RESOURCES <sup className='text-xs'>64</sup>
                 </h3>
               </u>
@@ -48,6 +50,9 @@ const Resource = ({ resource }) => {
             }
           </div>
         </div>
+      </div>
+      <div className='overflow-hidden relative'>
+        <LinesComp />
       </div>
     </section>
   )

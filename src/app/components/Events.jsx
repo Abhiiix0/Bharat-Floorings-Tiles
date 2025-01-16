@@ -10,7 +10,7 @@ const Events = ({ upcomingEvents, tags, events, years, loctaion, pastEvents }) =
   const [close, setClose] = useState(false)
   return (
     <section className='max-w-[1920px] mx-auto z-0 relative overflow-hidden'>
-      <LinesComp height={'450vh'} />
+      <LinesComp />
       <div className='relative z-10'>
         <div className='2xl:my-16 2xl:text-xl xl:my-14 lg:my-12 md:my-8 my-6 font-semibold relative lg:px-[100px] px-[20px]'>
           UPCOMING EVENTS

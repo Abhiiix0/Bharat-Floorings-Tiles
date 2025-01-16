@@ -112,7 +112,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
         />
       )}
 
-      {lines ? <LinesComp height={"50vh"} /> : null}
+      {lines ? <LinesComp /> : null}
       <div className={`${"pl-[20px] lg:pl-[100px]"} `}>
         {isOverlayVisible && (
           <div
@@ -133,9 +133,8 @@ const Header = ({ textColor, iconsColor, lines }) => {
                   {currentSubLinks?.map((row, idx) => (
                     <div
                       key={idx}
-                      className={`flex mb-  ${
-                        idx === 0 && "border-b-[1px] pb-[20px] 3xl:pb-[52px]"
-                      } border-white 3xl:mb-[52px] mb-[20px] h-full justify-between w-full`}
+                      className={`flex mb-  ${idx === 0 && "border-b-[1px] pb-[20px] 3xl:pb-[52px]"
+                        } border-white 3xl:mb-[52px] mb-[20px] h-full justify-between w-full`}
                     >
                       {Array?.isArray(row) ? (
                         row?.map((link, subIdx) => (
@@ -209,9 +208,8 @@ const Header = ({ textColor, iconsColor, lines }) => {
           </div>
           <div className="z-[2100]">
             <ul
-              className={` ${
-                isOverlayVisible && " border-b-2 border-white"
-              }  ${textColor} z-[120]  h-[89px] font-Inter  font-semibold mt-[2rem] items-center hidden lg:flex `}
+              className={` ${isOverlayVisible && " border-b-2 border-white"
+                }  ${textColor} z-[120]  h-[89px] font-Inter  font-semibold mt-[2rem] items-center hidden lg:flex `}
             >
               {navlinks?.map((nlink) => (
                 <li
@@ -219,15 +217,12 @@ const Header = ({ textColor, iconsColor, lines }) => {
                   onMouseEnter={() =>
                     showOverlay(nlink.name, nlink.links || [])
                   }
-                  className={`${
-                    hoveredLink === nlink?.name && "border-b-4 border-white"
-                  }  h-full ${
-                    nlink.name === navlinks[navlinks.length - 1].name
+                  className={`${hoveredLink === nlink?.name && "border-b-4 border-white"
+                    }  h-full ${nlink.name === navlinks[navlinks.length - 1].name
                       ? " pr-[20px] lg:pr-[100px]"
                       : " lg:pr-[150px] xl:pr-[200px] 3xl:pr-[290px]"
-                  } flex  items-center ${
-                    isOverlayVisible && "text-white"
-                  } ${textColor} `}
+                    } flex  items-center ${isOverlayVisible && "text-white"
+                    } ${textColor} `}
                 >
                   <a href="#">{nlink?.name}</a>
                 </li>
