@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import Phone from "../../../../public/icons/phone";
-import Mail from "../../../../public/icons/mail";
+import Mail from "../../../../public/icons/Mail";
 import { BsPerson } from "react-icons/bs";
 
 // Map options
