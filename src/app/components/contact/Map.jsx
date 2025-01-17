@@ -12,60 +12,101 @@ const mapOptions = {
   zoomControl: true, // Enable zoom control
   mapTypeControl: false, // Hides the map type (satellite/roadmap) control
   minZoom: 2, // Allows zooming out to see the whole world
+  restriction: {
+    latLngBounds: {
+      north: 37.5, // Northernmost latitude of India
+      south: 6.5, // Southernmost latitude of India
+      west: 68.7, // Westernmost longitude of India
+      east: 97.25, // Easternmost longitude of India
+    },
+    strictBounds: true,
+  },
+  styles: [
+    {
+      featureType: "water",
+      elementType: "geometry.fill",
+      stylers: [{ color: "#9BC1A6" }],
+    },
+    {
+      featureType: "landscape",
+      elementType: "geometry.fill",
+      stylers: [{ color: "#EFF7F1" }],
+    },
+    {
+      featureType: "administrative",
+      elementType: "geometry.stroke",
+      stylers: [{ color: "#C5D9CB" }],
+    },
+  ],
 };
 
-// Stores with addresses
-const stores = [
-  {
-    id: 1,
-    name: "NEW DELHI SHOWROOM",
-    address:
-      "Bharat Floorings & Tiles, 86/B, 2nd floor, Village Shahpur Jat, New Delhi - 110049",
-  },
-  {
-    id: 2,
-    name: "MUMBAI : HEAD OFFICE",
-    address: `
-    Bharat Floorings & Tiles (Mumbai) Pvt. Ltd
-32, Mumbai Samachar Marg,
-Ground Floor, Next to Stock Exchange,
-Fort, Mumbai - 400 023
-    `,
-  },
-
-  {
-    id: 3,
-    name: "GOA SHOWROOM",
-    address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
-Shop No. GF 1/2, Block 8, Techno Park,
-Chogam Road, Porvorim,
-Bardez, Goa - 403521`,
-  },
-  {
-    id: 4,
-    name: "BENGALURU : BRANCH OFFICE",
-    address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
-D-15, 2nd Floor, Devatha Plaza,
-Residency Road, Bengaluru -560025
-Landmark: Opp. Bishop Cotton School`,
-  },
-  {
-    id: 5,
-    name: "AHMEDABAD SHOWROOM",
-    address: `F004 S.G.Business Hub,
-Near. Gota Overbridge, Next to Bhagwat Vidhyapith, S.G.Highway
-Ahmedabad-380060`,
-    storePerson: "Vatsal Parekh",
-    PhoneNumber: ["91 93219 41024"],
-    email: " vatsal.parekh@bharatfloorings.com",
-  },
-];
-
 const Map = () => {
+  // Stores with addresses
+  const showrooms = [
+    {
+      id: 1,
+      name: "NEW DELHI SHOWROOM",
+      address:
+        "Bharat Floorings & Tiles, 86/B, 2nd floor, Village Shahpur Jat, New Delhi - 110049",
+    },
+    {
+      id: 2,
+      name: "MUMBAI : HEAD OFFICE",
+      address: `
+      Bharat Floorings & Tiles (Mumbai) Pvt. Ltd
+  32, Mumbai Samachar Marg,
+  Ground Floor, Next to Stock Exchange,
+  Fort, Mumbai - 400 023
+      `,
+    },
+
+    {
+      id: 3,
+      name: "GOA SHOWROOM",
+      address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
+  Shop No. GF 1/2, Block 8, Techno Park,
+  Chogam Road, Porvorim,
+  Bardez, Goa - 403521`,
+    },
+    {
+      id: 4,
+      name: "BENGALURU : BRANCH OFFICE",
+      address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
+  D-15, 2nd Floor, Devatha Plaza,
+  Residency Road, Bengaluru -560025
+  Landmark: Opp. Bishop Cotton School`,
+    },
+    {
+      id: 5,
+      name: "AHMEDABAD SHOWROOM",
+      address: `F004 S.G.Business Hub,
+  Near. Gota Overbridge, Next to Bhagwat Vidhyapith, S.G.Highway
+  Ahmedabad-380060`,
+      storePerson: "Vatsal Parekh",
+      PhoneNumber: ["91 93219 41024"],
+      email: " vatsal.parekh@bharatfloorings.com",
+    },
+  ];
+
+  const dealer = [
+    {
+      id: 1,
+      name: "ELITE SPACE - DEALER",
+      address: `2nd Floor, Millenium Square,
+  Adj. to IOCL Petrol Pump,
+  Near Cyberabad Police Commissionarate,
+  Gachibowli, Hyderabad – 500032`,
+      storePerson: "Mr. Sumanta Hota",
+      PhoneNumber: ["7993343750"],
+      email: " sumanta.hota@bharatfloorings.com",
+    },
+  ];
+
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY, // Replace with your API key
   });
 
+  const [mapDatas, setmapDatas] = useState(showrooms);
   const [map, setMap] = useState(null);
   const [visibleStores, setVisibleStores] = useState([]);
   const [geocodedStores, setGeocodedStores] = useState([]); // Store geocoded stores
@@ -87,7 +128,7 @@ const Map = () => {
     const fetchCoordinates = async () => {
       try {
         const updatedStores = await Promise.all(
-          stores.map(async (store) => {
+          mapDatas.map(async (store) => {
             const location = await geocodeAddress(store.address);
             return {
               ...store,
@@ -96,6 +137,7 @@ const Map = () => {
             };
           })
         );
+        console.log("stores data : ", updatedStores);
         setGeocodedStores(updatedStores);
         setVisibleStores(updatedStores); // Initially show all stores
       } catch (error) {
@@ -106,7 +148,7 @@ const Map = () => {
     if (isLoaded) {
       fetchCoordinates();
     }
-  }, [isLoaded, geocodeAddress]);
+  }, [isLoaded, geocodeAddress, mapDatas]);
 
   const handleMapLoad = useCallback((mapInstance) => {
     setMap(mapInstance);
@@ -136,8 +178,13 @@ const Map = () => {
   }, [map, handleBoundsChange]);
 
   const [openStore, setopenStore] = useState(0);
-  const [storeType, setStoreType] = useState("dealer");
+  const [storeType, setStoreType] = useState("showroom");
   const selectBtnType = (type) => {
+    if (type === "dealer") {
+      setmapDatas(dealer);
+    } else {
+      setmapDatas(showrooms);
+    }
     setStoreType(type);
   };
 
@@ -149,10 +196,10 @@ const Map = () => {
     }
   };
   return isLoaded ? (
-    <div className="relative h-screen w-full">
+    <div className="relative h-screen 3xl:h-[1469px] w-full">
       {/* Sidebar */}
-      <div className="absolute top-5 left-5 w-[606px] font-Inter  bg-white p-[4.25rem] rounded-3xl shadow-lg z-10">
-        <div className=" bg-[#EBEBEB] flex h-[52px] rounded-lg mb-10 overflow-hidden ">
+      <div className="absolute top-5 left-5 w-[400px] 3xl:w-[606px] font-Inter  bg-white p-8 3xl:p-[4.25rem] rounded-xl shadow-lg z-10">
+        <div className=" bg-[#EBEBEB] flex h-11 3xl:h-[52px] rounded-lg mb-10 overflow-hidden ">
           <button
             onClick={() => selectBtnType("showroom")}
             className={`${
@@ -176,7 +223,7 @@ const Map = () => {
               key={store.id}
               className="cursor-pointer flex flex-col  font-Inter  py-4 3xl:py-5 border-t-2 border-[#2A2523] "
             >
-              <div className=" flex items-start uppercase font-semibold text-md 3xl:text-xl justify-between">
+              <div className=" flex items-start uppercase font-semibold text-base 3xl:text-xl justify-between">
                 <p className=" " onClick={() => handleStoreClick(store)}>
                   {store.name}
                 </p>
@@ -222,10 +269,10 @@ const Map = () => {
       {/* Map */}
       <GoogleMap
         mapContainerStyle={{ width: "100%", height: "100%" }}
-        // center={{ lat: 22.5, lng: 80.0 }}
-        // zoom={5}
         options={mapOptions}
         onLoad={handleMapLoad}
+        // center={{ lat: 22.5, lng: 80.0 }} // Center of India
+        zoom={5}
       >
         {/* Markers */}
         {geocodedStores.map((store) => (

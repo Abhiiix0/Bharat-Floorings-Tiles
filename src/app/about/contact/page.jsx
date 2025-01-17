@@ -7,7 +7,7 @@ const page = () => {
     <div>
       <div
         style={{
-          backgroundImage: `url(${contactImg})`,
+          backgroundImage: `url(${contactImg.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -15,7 +15,7 @@ const page = () => {
       >
         <Header textColor="text-white" />
         <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
-          <h1 className="big-heading text-black">Contact</h1>
+          <h1 className="big-heading text-white">Contact</h1>
         </div>
       </div>
       {/* <Contact /> */}
