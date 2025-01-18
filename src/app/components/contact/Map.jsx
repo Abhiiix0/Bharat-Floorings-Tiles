@@ -1,9 +1,15 @@
 "use client";
 import React, { useState, useCallback, useEffect } from "react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  Marker,
+  OverlayView,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 import Phone from "../../../../public/icons/phone";
 import Mail from "../../../../public/icons/Mail";
 import { BsPerson } from "react-icons/bs";
+import BFTMapPin from "../../../../public/icons/BFTMapPin";
 
 // Map options
 const mapOptions = {
@@ -12,15 +18,6 @@ const mapOptions = {
   zoomControl: true, // Enable zoom control
   mapTypeControl: false, // Hides the map type (satellite/roadmap) control
   minZoom: 2, // Allows zooming out to see the whole world
-  restriction: {
-    latLngBounds: {
-      north: 37.5, // Northernmost latitude of India
-      south: 6.5, // Southernmost latitude of India
-      west: 68.7, // Westernmost longitude of India
-      east: 97.25, // Easternmost longitude of India
-    },
-    strictBounds: true,
-  },
   styles: [
     {
       featureType: "water",
@@ -40,24 +37,30 @@ const mapOptions = {
   ],
 };
 
+const indiaCenter = { lat: 22.5, lng: 80.0 }; // Center of India
+
 const Map = () => {
-  // Stores with addresses
   const showrooms = [
     {
       id: 1,
       name: "NEW DELHI SHOWROOM",
       address:
         "Bharat Floorings & Tiles, 86/B, 2nd floor, Village Shahpur Jat, New Delhi - 110049",
+      storePerson: "Rahul Raj",
+      PhoneNumber: ["91 70427 54670"],
+      email: " rahul.raj@bharatfloorings.com",
     },
     {
       id: 2,
       name: "MUMBAI : HEAD OFFICE",
-      address: `
-      Bharat Floorings & Tiles (Mumbai) Pvt. Ltd
+      address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd
   32, Mumbai Samachar Marg,
   Ground Floor, Next to Stock Exchange,
   Fort, Mumbai - 400 023
       `,
+      storePerson: "Ankush Gawai",
+      PhoneNumber: ["91 81697 41134"],
+      email: "ankush.gawai@bharatfloorings.com",
     },
 
     {
@@ -67,6 +70,9 @@ const Map = () => {
   Shop No. GF 1/2, Block 8, Techno Park,
   Chogam Road, Porvorim,
   Bardez, Goa - 403521`,
+      storePerson: "Jawahar Naik",
+      PhoneNumber: ["91 98224 23211"],
+      email: "jawahar.naik@bharatfloorings.com",
     },
     {
       id: 4,
@@ -75,6 +81,9 @@ const Map = () => {
   D-15, 2nd Floor, Devatha Plaza,
   Residency Road, Bengaluru -560025
   Landmark: Opp. Bishop Cotton School`,
+      storePerson: "Mr. Raghavendra Bande",
+      PhoneNumber: ["91 98459 96206"],
+      email: "raghavendra.bande@bharatfloorings.com",
     },
     {
       id: 5,
@@ -100,6 +109,14 @@ const Map = () => {
       PhoneNumber: ["7993343750"],
       email: " sumanta.hota@bharatfloorings.com",
     },
+    {
+      id: 2,
+      name: "TROPICAL - DEALER",
+      address: `34/136 A,C,H Florence, NH Ln, Edappally, Kochi, Kerala 682024`,
+      storePerson: " Mr. Raghavendra Bande",
+      PhoneNumber: ["91 98459 96206"],
+      email: "raghavendra.bande@bharatfloorings.com",
+    },
   ];
 
   const { isLoaded } = useJsApiLoader({
@@ -109,7 +126,8 @@ const Map = () => {
   const [mapDatas, setmapDatas] = useState(showrooms);
   const [map, setMap] = useState(null);
   const [visibleStores, setVisibleStores] = useState([]);
-  const [geocodedStores, setGeocodedStores] = useState([]); // Store geocoded stores
+  const [geocodedStores, setGeocodedStores] = useState([]);
+  const [mapCenter, setMapCenter] = useState(indiaCenter); // Default to India center
 
   const geocodeAddress = useCallback((address) => {
     const geocoder = new window.google.maps.Geocoder();
@@ -137,7 +155,6 @@ const Map = () => {
             };
           })
         );
-        console.log("stores data : ", updatedStores);
         setGeocodedStores(updatedStores);
         setVisibleStores(updatedStores); // Initially show all stores
       } catch (error) {
@@ -177,8 +194,9 @@ const Map = () => {
     }
   }, [map, handleBoundsChange]);
 
-  const [openStore, setopenStore] = useState(0);
+  const [openStore, setOpenStore] = useState(0);
   const [storeType, setStoreType] = useState("showroom");
+
   const selectBtnType = (type) => {
     if (type === "dealer") {
       setmapDatas(dealer);
@@ -190,11 +208,12 @@ const Map = () => {
 
   const handleOpenStore = (index) => {
     if (openStore === index) {
-      setopenStore(0);
+      setOpenStore(0);
     } else {
-      setopenStore(index);
+      setOpenStore(index);
     }
   };
+
   return isLoaded ? (
     <div className="relative h-screen 3xl:h-[1469px] w-full">
       {/* Sidebar */}
@@ -221,43 +240,39 @@ const Map = () => {
           visibleStores.map((store) => (
             <div
               key={store.id}
-              className="cursor-pointer flex flex-col  font-Inter  py-4 3xl:py-5 border-t-2 border-[#2A2523] "
+              className="cursor-pointer flex flex-col font-Inter py-4 3xl:py-5 border-t-2 border-[#2A2523]"
             >
-              <div className=" flex items-start uppercase font-semibold text-base 3xl:text-xl justify-between">
-                <p className=" " onClick={() => handleStoreClick(store)}>
-                  {store.name}
-                </p>
+              <div className="flex items-start uppercase font-semibold text-base 3xl:text-xl justify-between">
+                <p onClick={() => handleStoreClick(store)}>{store.name}</p>
                 <span
-                  onClick={() => handleOpenStore(store?.id)}
-                  className=" font-normal text-2xl 3xl:text-3xl h-full items-start flex "
+                  onClick={() => handleOpenStore(store.id)}
+                  className="font-normal text-2xl 3xl:text-3xl h-full items-start flex"
                 >
                   {openStore === store.id ? "-" : "+"}
                 </span>
               </div>
               <div
-                className={` ${
+                className={`${
                   openStore == store?.id ? "block" : "hidden"
-                } w-80 leading-7  flex flex-col mt-3 3xl:mt-3 justify-between gap-4`}
+                } w-80 leading-7 flex flex-col mt-3 3xl:mt-3 justify-between gap-4`}
               >
-                <p className=" mb-1">{store.address}</p>
-                <>
-                  <p className=" flex items-center gap-2">
-                    <BsPerson />
-                    {store?.storePerson}
-                  </p>
-                  <p className=" flex items-center gap-2">
-                    <Phone color="black" size={15}></Phone>+{store?.PhoneNumber}
-                  </p>
-                  <p className=" flex items-center gap-2">
-                    <Mail color="black" className=" h-3 w-4" />
-                    <a
-                      href="mailto:"
-                      className=" border-b leading-4 border-black"
-                    >
-                      {store?.email}
-                    </a>
-                  </p>
-                </>
+                <p className="mb-1">{store.address}</p>
+                <p className="flex items-center gap-2">
+                  <BsPerson />
+                  {store?.storePerson}
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone color="black" size={15} />+{store?.PhoneNumber}
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail color="black" className="h-3 w-4" />
+                  <a
+                    href="mailto:store?.email"
+                    className="border-b leading-4 border-black"
+                  >
+                    {store?.email}
+                  </a>
+                </p>
               </div>
             </div>
           ))
@@ -271,21 +286,26 @@ const Map = () => {
         mapContainerStyle={{ width: "100%", height: "100%" }}
         options={mapOptions}
         onLoad={handleMapLoad}
-        // center={{ lat: 22.5, lng: 80.0 }} // Center of India
         zoom={5}
+        center={mapCenter} // Dynamic map center
       >
-        {/* Markers */}
         {geocodedStores.map((store) => (
-          <Marker
+          <OverlayView
             key={store.id}
             position={{ lat: store.lat, lng: store.lng }}
-            title={store.name}
-          />
+            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+          >
+            <div style={{ transform: "translate(-50%, -100%)" }}>
+              <BFTMapPin />
+            </div>
+          </OverlayView>
         ))}
       </GoogleMap>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div className=" h-screen flex justify-center items-center ">
+      Loading...
+    </div>
   );
 };
 
