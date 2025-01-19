@@ -216,7 +216,6 @@ const Map = () => {
 
   return isLoaded ? (
     <div className="relative h-screen 3xl:h-[1469px] w-full">
-      {/* Sidebar */}
       <div className="absolute top-5 left-5 w-[400px] 3xl:w-[606px] font-Inter  bg-white p-8 3xl:p-[4.25rem] rounded-xl shadow-lg z-10">
         <div className=" bg-[#EBEBEB] flex h-11 3xl:h-[52px] rounded-lg mb-10 overflow-hidden ">
           <button
@@ -281,7 +280,6 @@ const Map = () => {
         )}
       </div>
 
-      {/* Map */}
       <GoogleMap
         mapContainerStyle={{ width: "100%", height: "100%" }}
         options={mapOptions}
