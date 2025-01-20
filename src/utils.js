@@ -79,6 +79,23 @@ import ceo from "../public/images/our-company/Faiyaz_Mukhtiar.jpg";
 import dnaAward from "../public/images/our-company/award_dna.jpg";
 import edidaAward from "../public/images/our-company/award_edida.jpg";
 import unescoAward from "../public/images/our-company/award_unesco.jpg";
+import designerTile1 from '../public/svgs/designer-tile1.svg'
+import designerTile2 from '../public/svgs/designer-tile2.svg'
+import designerTile3 from '../public/svgs/designer-tile3.svg'
+import designerTile4 from '../public/svgs/designer-tile4.svg'
+import designerTile5 from '../public/svgs/designer-tile5.svg'
+import borderDesign1 from '../public/svgs/border-design-1.svg'
+import borderDesign2 from '../public/svgs/border-design-2.svg'
+import borderDesign3 from '../public/svgs/border-design-3.svg'
+import borderDesign4 from '../public/svgs/border-design-4.svg'
+import borderDesign5 from '../public/svgs/border-design-5.svg'
+import borderDesign6 from '../public/svgs/border-design-6.svg'
+import borderDesign7 from '../public/svgs/border-design-7.svg'
+import borderDesign8 from '../public/svgs/border-design-8.svg'
+import borderDesign9 from '../public/svgs/border-design-9.svg'
+import visualiseBed from "../public/images/workbench/visualiseBed.jpg";
+import visualiseChair from "../public/images/workbench/visualiseChair.jpg";
+import visualiseSofa from "../public/images/workbench/visualiseSofa.jpg";
 
 export const GALLERY_PAGE_IMAGES = [
   { id: 1, galleryImg: gallery1 },
@@ -1507,3 +1524,58 @@ export const ABOUT_CONTACTS = [
     mailId: "rahul.raj@bharatfloorings.com",
   },
 ];
+
+export const DESIGNER_NAME =[
+  {id:1, name: 'BFT+DESIGNER', number: '13',
+    subs: [
+      {id:1, name: 'ANATA', number: '2'},
+      {id:2, name: 'WOVEN ABODES', number: '6'},
+      {id:3, name: 'ANGEL EYE', number: '7'},
+      {id:4, name: 'FARSH', number: '5'},
+      {id:5, name: 'DASHDASHDOT', number: '4'},
+      {id:6, name: 'SHIBORI TILES', number: '4'},
+      {id:7, name: 'JAPANESE LINE', number: '10',
+        design:[
+          {id:1, image: designerTile1},
+          {id:2, image: designerTile2},
+          {id:3, image: designerTile3},
+          {id:4, image: designerTile4},
+          {id:5, image: designerTile5},
+          {id:6, image: designerTile1}
+        ] 
+      },
+      {id:8, name: 'ORIGAMETES', number: '6'},
+      {id:9, name: 'AVB BESPOKE', number: '5'},
+      {id:10, name: 'ARMS', number: '4'},
+      {id:11, name: 'ARANYA RANGE', number: '7'},
+      {id:12, name: 'VIRTUOSO', number: '9'},
+    ]
+  },
+  {id:2, name: 'HERITAGE COLLECTION', number: '8'},
+  {id:3, name: 'CENTENARY RANGE', number: '12'},
+  {id:4, name: 'MADE IN INDIA', number: '13'},
+  {id:5, name: 'INTERNATIONLA RANGE', number: '9'},
+  {id:6, name: 'UNITINTA', number: '4'},
+]
+
+export const BORDER_DESIGN_1 =[
+  {id:1, image: borderDesign1},
+  {id:2, image: borderDesign2},
+  {id:3, image: borderDesign3},
+]
+export const BORDER_DESIGN_2 =[
+  {id:1, image: borderDesign4},
+  {id:2, image: borderDesign5},
+  {id:3, image: borderDesign6},
+]
+export const BORDER_DESIGN_3 =[
+  {id:1, image: borderDesign7},
+  {id:2, image: borderDesign8},
+  {id:3, image: borderDesign9},
+]
+
+export const WORKBENCH = [
+  {id: 1, image: visualiseChair}, 
+  {id: 2, image: visualiseBed}, 
+  {id: 3, image: visualiseSofa}, 
+]

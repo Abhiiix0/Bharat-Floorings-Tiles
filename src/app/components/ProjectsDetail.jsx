@@ -32,37 +32,49 @@ const ProjectsDetail = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
           </p>
         </div>
+        <div className="flex justify-between 3xl:mb-[57.86px]">
+          <div className="flex gap-2">
+            <div className="h-[60.141px] w-52 gap-2 flex">
+              <img alt="designer image 1" src={DESIGNER_IMAGES[0].image.src} />
+              <div className="flex items-center">
+                Anulom Type A
+              </div>
+            </div>
+            <div className="h-[60.141px] w-52 gap-2 flex">
+              <img alt="designer image 1" src={DESIGNER_IMAGES[2].image.src} />
+              <div className="flex items-center">
+                The CrossGrain
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Intro intro1={'1998'} intro2={'3 products'} intro3={'client TAJ HOTELS'} />
+        </div>
       </div>
-    </div>
-          </div >
-        </div >
-  <div>
-    <Intro intro1={'1998'} intro2={'3 products'} intro3={'client TAJ HOTELS'} />
-  </div>
-      </div >
-  <div
-    style={{
-      backgroundImage: `url(${product.src})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}
-    className="3xl:h-[1265px] 2xl:h-[950px] xl:h-[800px] lg:h-[700px] h-screen w-full relative"
-  >
-    <img
-      className="absolute top-[20%] left-1/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14"
-      src={DESIGNER_IMAGES[1].image.src}
-    />
-    <img
-      className="absolute top-[80%]  2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[18%]"
-      src={DESIGNER_IMAGES[0].image.src}
-    />
-    <img
-      className="absolute top-2/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[70%]"
-      src={DESIGNER_IMAGES[2].image.src}
-    />
-  </div>
-    </section >
+      <div
+        style={{
+          backgroundImage: `url(${product.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="3xl:h-[1265px] 2xl:h-[950px] xl:h-[800px] lg:h-[700px] h-screen w-full relative"
+      >
+        <img
+          className="absolute top-[20%] left-1/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14"
+          src={DESIGNER_IMAGES[1].image.src}
+        />
+        <img
+          className="absolute top-[80%]  2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[18%]"
+          src={DESIGNER_IMAGES[0].image.src}
+        />
+        <img
+          className="absolute top-2/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[70%]"
+          src={DESIGNER_IMAGES[2].image.src}
+        />
+      </div>
+    </section>
   );
 };
 
