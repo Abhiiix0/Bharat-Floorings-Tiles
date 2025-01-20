@@ -1,5 +1,5 @@
 "use client";
-import { DESIGNER_IMAGES } from "@/utils";
+import { DESIGNER_IMAGES } from "../../utils";
 import Link from "next/link";
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
 import tajLogo from "../../../public/svgs/tajLogo.svg";

@@ -6,7 +6,7 @@ import {
   TAG_SECTION,
   UPCOMING_EVENTS,
   YEAR_SECTION,
-} from "@/utils";
+} from "../../../utils";
 import eventsPageImage from "../../../../public/images/events/events_image.jpg";
 import Header from "../../components/Header";
 
