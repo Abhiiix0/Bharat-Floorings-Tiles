@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header";
-import ProjectsDetail from "@/app/components/ProjectsDetail";
+import Header from "../../../components/Header";
+import ProjectsDetail from "../../../components/ProjectsDetail";
 
 const page = () => {
   return (

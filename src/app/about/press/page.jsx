@@ -1,7 +1,7 @@
-import PressRealeses from "@/app/components/PressRealeses"
-import { PRESS_RELEASES } from "@/utils"
-import pressPageImage from '../../../../public/images/press/press_releases.jpg'
-import Header from "@/app/components/Header"
+import PressRealeses from "../../components/PressRealeses";
+import { PRESS_RELEASES } from "../../../utils";
+import pressPageImage from "../../../../public/images/press/press_releases.jpg";
+import Header from "../../components/Header";
 
 const page = () => {
   return (
@@ -9,10 +9,10 @@ const page = () => {
       <div
         style={{
           backgroundImage: `url(${pressPageImage.src})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
-        className='3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative'
+        className="3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative"
       >
         <Header textColor="text-white" />
         <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
@@ -21,7 +21,7 @@ const page = () => {
       </div>
       <PressRealeses press={PRESS_RELEASES} />
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

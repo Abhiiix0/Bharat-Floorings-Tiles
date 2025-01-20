@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header"
-import OurServices from "@/app/components/OurServices"
+import Header from "../../components/Header";
+import OurServices from "../../components/OurServices";
 
 const page = () => {
   return (
@@ -7,7 +7,7 @@ const page = () => {
       <Header iconsColor="black" lines={true} />
       <OurServices />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

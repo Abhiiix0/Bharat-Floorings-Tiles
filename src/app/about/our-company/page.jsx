@@ -5,10 +5,10 @@ import {
   MANAGEMENT,
   OUR_JOURNEY,
   PRESS_RELEASES,
-} from "@/utils";
+} from "../../../utils";
 import ourCompanyImage from "../../../../public/images/our-company/our_company.jpg";
-import Header from "@/app/components/Header";
-import OurCompany from "@/app/components/our-company/OurCompany";
+import Header from "../../components/Header";
+import OurCompany from "../../components/our-company/OurCompany";
 
 const page = () => {
   return (
