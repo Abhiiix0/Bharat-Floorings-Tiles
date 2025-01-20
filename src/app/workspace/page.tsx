@@ -275,11 +275,14 @@ export default function Home() {
         <main className=" bg-yellow-100 overflow-hidden relative h-screen">
 
           <div className={`${TileColorPannelBtn ? " block" : " hidden"} transition-opacity duration-300 ease-in-out absolute top-0 left-0 w-full h-full bg-gray-400/30 z-[50] `} >
-            <div className=" absolute left-[28%] top-4 shadow-md gap-5 w-fit h-fit px-0 overflow-hidden">
-              <div className=" bg-white pb-4 h-[560px] flex flex-col justify-between">
+            <div className=" absolute left-[28%] top-4  gap-5 w-[330px] 3xl:w-fit h-fit px-0 overflow-hidden">
+              <div className=" bg-white pb-4 h-[450px] 3xl:h-[560px] flex flex-col justify-between">
                 
-             
-              <div>
+              <div className=" 3xl:hidden border ml-[-2px] mt-[18px]">
+
+                  <SingleTile height={332} width={332} svgString={tile.image} />
+              </div>
+              <div className=" hidden 3xl:block">
 
                   <SingleTile height={500} width={500} svgString={tile.image} />
               </div>
@@ -288,16 +291,16 @@ export default function Home() {
             <ColorPalette />
                 </div>
                 </div>
-              <div className=" flex mt-6 gap-3">
-              <button   onClick={() => handleButtonClickGrid(tile.image, tile.size)} className=" border-[5px] h-20 w-20 rounded-full border-white bg-black flex justify-center items-center">
+              <div className=" flex mt-3 3xl:mt-6 gap-3">
+              <button   onClick={() => handleButtonClickGrid(tile.image, tile.size)} className="border-[4px] 3xl:border-[5px] h-16 w-16 3xl:h-20 3xl:w-20 rounded-full border-white bg-black flex justify-center items-center">
 
 <CircleRight  color="white" className=""/>
                 </button>
-                <button className=" border-[5px] h-20 w-20 rounded-full border-white bg-black flex justify-center items-center">
+                <button className=" border-[4px] 3xl:border-[5px] h-16 w-16 3xl:h-20 3xl:w-20 rounded-full border-white bg-black flex justify-center items-center">
 
 <CircleBack color="white" className=""/>
   </button>
-                <button onClick={()=>setTileColorPannelBtn(false)} className=" border-[5px] h-20 w-20 rounded-full border-white bg-black flex justify-center items-center">
+                <button onClick={()=>setTileColorPannelBtn(false)} className=" border-[4px] 3xl:border-[5px] h-16 w-16 3xl:h-20 3xl:w-20 rounded-full border-white bg-black flex justify-center items-center">
 
               <CircleClose size={38} color="white" className=""/>
                 </button>
@@ -306,7 +309,7 @@ export default function Home() {
           </div>
 
           {/* bottom bar  */}
-          <div className=" h-[100px] w-full z-50   absolute bottom-0 left-0">
+          <div className=" h-[100px] shadow-md w-full z-50   absolute bottom-0 left-0">
             <div className=" h-[87px] flex justify-between rounded-md mx-28 bg-white border">
               <div className=" flex items-center gap-[60px] ml-12">
                 <button>Rotate</button>
@@ -327,7 +330,7 @@ export default function Home() {
            <motion.div
            className="flex items-center justify-center cursor-grab"
            drag
-          //  dragConstraints={false}
+           dragConstraints={false}
            dragMomentum={false}
            whileTap={{ cursor: "grabbing" }}
            style={{
