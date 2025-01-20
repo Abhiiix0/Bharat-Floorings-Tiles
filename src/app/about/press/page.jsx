@@ -1,7 +1,7 @@
-import PressRealeses from "@/app/components/PressRealeses"
 import { PRESS_RELEASES } from "@/utils"
 import pressPageImage from '../../../../public/images/press/press_releases.jpg'
-import Header from "@/app/components/Header"
+import Header from "@/components/Header"
+import PressRealeses from "@/components/PressRealeses"
 
 const page = () => {
   return (

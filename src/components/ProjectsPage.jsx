@@ -1,4 +1,4 @@
-import { DESIGNER_IMAGES, PROJECT_PAGE_IMAGES } from '@/utils'
+import { DESIGNER_IMAGES } from '@/utils'
 import React from 'react'
 import ProjectsCard from './ProjectsCard'
 import LinesComp from './LinesComp'

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import RightArrow from "../../../../public/icons/RightArrow";
-import tiles from "../../../../public/images/home/tiles.jpg";
+import RightArrow from "../../../public/icons/RightArrow";
+import tiles from "../../../public/images/home/tiles.jpg";
 const ProductCard = ({ product }) => {
   return (
-    <div className="  w-[296px] xl:w-[28rem] group border 3xl:h-[934px] 3xl:w-[34.8rem]  ">
+    <div className="  w-[296px] xl:w-[28rem] group 3xl:w-[35rem]  ">
       <div className=" bg-[#EAEAEA] overflow-hidden  h-[420px] xl:h-[650px] 3xl:h-[809px]">
         <Image
           alt="img"
@@ -77,8 +77,8 @@ const ProductCard = ({ product }) => {
           ></RightArrow>
         </p>
         <div className=" flex gap-6  font-Inter text-[9px] xl:text-base font-medium">
-          <p>{product.designs} designs</p>
-          <p>{product.color} Colors</p>
+          <p>{product?.designs} designs</p>
+          <p>{product?.color} Colors</p>
         </div>
       </div>
     </div>

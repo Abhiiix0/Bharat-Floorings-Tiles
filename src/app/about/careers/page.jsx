@@ -1,7 +1,8 @@
-import Careers from "@/app/components/Careers"
 import { ALL_JOBS } from "@/utils"
 import careerPageIMage from '../../../../public/images/career_page.jpg'
-import Header from "@/app/components/Header"
+import Header from "@/components/Header"
+import Careers from "@/components/Careers"
+
 
 const page = () => {
   return (

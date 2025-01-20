@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import RightArrow from "../../../../public/icons/RightArrow";
+import RightArrow from "../../../public/icons/RightArrow";
 import Image from "next/image";
-import Remix from "../../../../public/icons/remix";
+import Remix from "../../../public/icons/remix";
 
 const ProductCard = ({ Product }) => {
   const [selectImg, setselectImg] = useState(Product?.tiles[0]);
@@ -11,13 +11,11 @@ const ProductCard = ({ Product }) => {
       <p className="mt-[52px] mb-[18px] text-xl normal-text font-medium tracking-[0.4px]">
         BFT + Designer 2
       </p>
-      <div className="3xl:w-[28.9rem] 3xl:h-[473px] w-full mx-auto  md:w-auto md:h-[350px]">
-        <Image
-          alt="img"
-          className=" w-full h-full  object-cover"
-          src={selectImg}
-        />
-      </div>
+      <Image
+        alt="img"
+        className=" 3xl:h-[462px] 3xl:w-full w-full mx-auto  md:w-auto md:h-[350px] object-cover"
+        src={selectImg}
+      />
       <div className="flex ">
         {Product?.tiles?.map((imgs, i) => (
           <Image

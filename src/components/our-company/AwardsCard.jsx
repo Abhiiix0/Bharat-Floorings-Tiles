@@ -1,4 +1,3 @@
-import React from 'react'
 
 const AwardsCard = ({ image, date, awardedFor, awardName }) => {
   return (

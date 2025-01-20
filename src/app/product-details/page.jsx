@@ -1,16 +1,15 @@
 "use client";
-import Header from "../../app/components/Header";
+import Header from "../../components/Header";
 import PImage from "../../../public/images/products/product.jpg";
 import tiles1 from "../../../public/images/products/Stiles1.png";
 import tiles2 from "../../../public/images/products/Stiles2.jpg";
 import Image from "next/image";
 import { useState } from "react";
 import Remix from "../../../public/icons/remix";
-import ImageGallery from "../components/ImageGallery";
-import ImageGallery2 from "../components/ImageGallery2";
-import ProductCard from "../components/products/ProductCard";
 import tilsDesign from "../../../public/images/product-details/tiles.png";
 import kitchen from "../../../public/images/product-details/kitchen.jpg";
+import ImageGallery2 from "@/components/ImageGallery2";
+import ProductCard from "@/components/home/ProductCard";
 const page = () => {
   const products = {
     name: "Contemporary Terrazo ",
@@ -149,9 +148,8 @@ const page = () => {
 
         <section
           onMouseLeave={() => setmenuBtn(false)}
-          className={`${
-            !menuBtn && " left-[-100%]"
-          } absolute top-0 left-0 w-full z-[1500] transition-all  duration-1000 ease-in-out sm:w-[400px] lg:w-[600px] border pt-40 lg:pt-72 h-full bg-white`}
+          className={`${!menuBtn && " left-[-100%]"
+            } absolute top-0 left-0 w-full z-[1500] transition-all  duration-1000 ease-in-out sm:w-[400px] lg:w-[600px] border pt-40 lg:pt-72 h-full bg-white`}
         >
           <div className=" relative z-[100] px-5 lg:pl-[100px]  lg:pr-0 h-fit  border-red-400">
             <div className=" w-full sm:w-[310px] 3xl:w-[380px] mt 3xl:mt-[45px] pr-5  lg:ml-[12px]">
@@ -210,18 +208,16 @@ const page = () => {
         </section>
         <section
           onClick={() => closeQuote()}
-          className={` ${
-            !Inquery ? "block" : "hidden"
-          }  w-full h-full z-[2251] absolute top-0 left-0 bg-black/30`}
+          className={` ${!Inquery ? "block" : "hidden"
+            }  w-full h-full z-[2251] absolute top-0 left-0 bg-black/30`}
         >
           {" "}
         </section>
         {/* <section className=" fixed h-screen w-full top-0 left-0"></section> */}
         <section
           onMouseLeave={() => closeQuote()}
-          className={`${
-            Inquery && " right-[-100%]"
-          }  fixed top-0 pb-14 right-0 z-[2251] w-full transition-all  duration-1000 ease-in-out sm:w-[440px] 3xl:w-[558px]  h-screen overflow-y-scroll bg-[#2A2523]`}
+          className={`${Inquery && " right-[-100%]"
+            }  fixed top-0 pb-14 right-0 z-[2251] w-full transition-all  duration-1000 ease-in-out sm:w-[440px] 3xl:w-[558px]  h-screen overflow-y-scroll bg-[#2A2523]`}
         >
           <div className=" grid grid-cols-4 grid-rows-2">
             <Image

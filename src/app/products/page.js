@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
-import Header from "../components/Header";
 import Image from "next/image";
 import bgImg from "../../../public/images/products/headerbg.jpg";
 import RightArrow from "../../../public/icons/RightArrow";
-import ProductCard from "../components/products/ProductCard";
 import PImage from "../../../public/images/products/product.jpg";
 import tiles1 from "../../../public/images/products/Stiles1.png";
 import tiles2 from "../../../public/images/products/Stiles2.jpg";
+import Header from "@/components/Header";
+import ProductCard from "@/components/home/ProductCard";
 const Page = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [hoveredSubLink, setHoveredSubLink] = useState(null);

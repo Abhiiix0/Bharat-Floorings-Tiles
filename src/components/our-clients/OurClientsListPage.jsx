@@ -1,6 +1,4 @@
-import React from 'react'
 import OurClientsListComp from './OurClientsListComp'
-import { HERITAGE_HOTELS, HERITAGE_RESTUARANTS } from '@/utils'
 
 const OurClientsListPage = ({ resturants, hotels }) => {
   return (

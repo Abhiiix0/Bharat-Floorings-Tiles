@@ -1,4 +1,3 @@
-import React from "react";
 
 const Intro = ({ intro1, intro2, intro3 }) => {
   return (

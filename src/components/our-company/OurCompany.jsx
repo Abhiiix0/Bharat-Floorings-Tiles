@@ -60,7 +60,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
 
   return (
     <section className="relative">
-      <div className="absolute hidden w-full h-full px-[4px] lg:px-[88px] z-[11] top-0 left-0  justify-between">
+      <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[11] top-0 left-0  justify-between">
         <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
         <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
         <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>

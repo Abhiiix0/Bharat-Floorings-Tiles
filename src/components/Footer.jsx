@@ -1,6 +1,6 @@
 import Image from "next/image";
-import whiteLogo from "../../../public/svgs/bftLogoWhite.svg";
-import blackLogo from "../../../public/svgs/bftLogoBlack.svg";
+import whiteLogo from "../../public/svgs/bftLogoWhite.svg";
+import blackLogo from "../../public/svgs/bftLogoBlack.svg";
 
 const Footer = () => {
   const colorPalettes = [

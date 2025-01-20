@@ -6,10 +6,10 @@ import {
   OverlayView,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import Phone from "../../../../public/icons/phone";
-import Mail from "../../../../public/icons/Mail";
+import Phone from "../../../public/icons/phone";
+import Mail from "../../../public/icons/Mail";
 import { BsPerson } from "react-icons/bs";
-import BFTMapPin from "../../../../public/icons/BFTMapPin";
+import BFTMapPin from "../../../public/icons/BFTMapPin";
 
 // Map options
 const mapOptions = {
@@ -220,17 +220,15 @@ const Map = () => {
         <div className=" bg-[#EBEBEB] flex h-11 3xl:h-[52px] rounded-lg mb-10 overflow-hidden ">
           <button
             onClick={() => selectBtnType("showroom")}
-            className={`${
-              storeType === "showroom" && "bg-gray-700 text-white"
-            }  w-full uppercase font-medium h-full`}
+            className={`${storeType === "showroom" && "bg-gray-700 text-white"
+              }  w-full uppercase font-medium h-full`}
           >
             Showroom
           </button>
           <button
             onClick={() => selectBtnType("dealer")}
-            className={`${
-              storeType === "dealer" && "bg-gray-700 text-white"
-            }  w-full uppercase font-medium h-full`}
+            className={`${storeType === "dealer" && "bg-gray-700 text-white"
+              }  w-full uppercase font-medium h-full`}
           >
             Dealer
           </button>
@@ -251,9 +249,8 @@ const Map = () => {
                 </span>
               </div>
               <div
-                className={`${
-                  openStore == store?.id ? "block" : "hidden"
-                } w-80 leading-7 flex flex-col mt-3 3xl:mt-3 justify-between gap-4`}
+                className={`${openStore == store?.id ? "block" : "hidden"
+                  } w-80 leading-7 flex flex-col mt-3 3xl:mt-3 justify-between gap-4`}
               >
                 <p className="mb-1">{store.address}</p>
                 <p className="flex items-center gap-2">

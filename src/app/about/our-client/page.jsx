@@ -1,8 +1,7 @@
-import OurClients from '@/app/components/our-clients/OurClients'
 import { HERITAGE_HOTELS, HERITAGE_RESTUARANTS, RESOURCES_IMAGES } from '@/utils'
-import React from 'react'
 import clientsPageImage from '../../../../public/images/our-clients/our_client.jpg'
-import Header from '@/app/components/Header'
+import Header from '@/components/Header'
+import OurClients from '@/components/our-clients/OurClients'
 
 const page = () => {
   return (

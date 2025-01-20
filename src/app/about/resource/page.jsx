@@ -1,7 +1,7 @@
-import Resource from "@/app/components/Resource"
+import Header from '@/components/Header'
 import resourcesPageIMage from '../../../../public/images/resources/resource_image.jpg'
 import { RESOURCES } from "@/utils"
-import Header from "@/app/components/Header"
+import Resource from '@/components/Resource'
 
 const page = () => {
   return (
