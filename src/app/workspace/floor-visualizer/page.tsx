@@ -1,10 +1,10 @@
 "use client";
-import roomImage1 from "@/components/images/roomThumbnails/Sample1.png";
-import roomImage5 from "@/components/images/roomThumbnails/Sample5.png";
-import roomLayer1 from "@/components/images/roomsLayersCutout/sample1.png";
-import TopBar from "@/components/floor-visualizer/TopBar";
-import { Room, useFloorVisualizerStore } from "@/store/floorVisualizer.store";
-import RoomPhotoPannel from "@/components/floor-visualizer/RoomPhotoPannel";
+import roomImage1 from "../../../components/images/roomThumbnails/Sample1.png";
+import roomImage5 from "../../../components/images/roomThumbnails/Sample5.png";
+import roomLayer1 from "../../..components/images/roomsLayersCutout/sample1.png";
+import TopBar from "../../../components/floor-visualizer/TopBar";
+import { Room, useFloorVisualizerStore } from "../../../store/floorVisualizer.store";
+import RoomPhotoPannel from "../../../components/floor-visualizer/RoomPhotoPannel";
 import { useRouter } from "next/navigation";
 
 export default function FloorVisuaizer() {
