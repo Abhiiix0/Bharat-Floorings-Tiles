@@ -51,6 +51,7 @@ import SingleTile from "../../components/SingleTile";
 import CircleClose from "../../../public/icons/CircleClose"
 import CircleRight from "../../../public/icons/CircleRight"
 import CircleBack from "../../../public/icons/CircleBack"
+import { motion } from "framer-motion";
 export default function Home() {
   const router = useRouter();
   const [browser,setBrowser] = useState(false);
@@ -262,13 +263,19 @@ export default function Home() {
   }, [])
   
   const [TileColorPannelBtn, setTileColorPannelBtn] = useState(false)
+  const [scale, setScale] = useState(1);
+
+  // Handlers to zoom in and out
+  const handleZoomIn = () => setScale((prev) => Math.min(prev + 0.1, 3)); // Limit zoom-in to 3x
+  const handleZoomOut = () => setScale((prev) => Math.max(prev - 0.1, 0.5)); // Limit zoom-out to 0.5x
+  const [position, setPosition] = useState({ x: 0, y: 0 }); // Track position
   return (
     <DndProvider backend={HTML5Backend}>
       {browser &&
-        <main className=" bg-yellow-100 relative h-screen">
+        <main className=" bg-yellow-100 overflow-hidden relative h-screen">
 
-          <div className={`${TileColorPannelBtn ? " opacity-100" : " opacity-0"} absolute top-0 left-0 w-full h-full bg-gray-400/30 z-[50] `} >
-            <div className=" absolute left-[28%] gap-5 w-fit h-fit px-0 overflow-hidden">
+          <div className={`${TileColorPannelBtn ? " block" : " hidden"} transition-opacity duration-300 ease-in-out absolute top-0 left-0 w-full h-full bg-gray-400/30 z-[50] `} >
+            <div className=" absolute left-[28%] top-4 shadow-md gap-5 w-fit h-fit px-0 overflow-hidden">
               <div className=" bg-white pb-4 h-[560px] flex flex-col justify-between">
                 
              
@@ -282,9 +289,9 @@ export default function Home() {
                 </div>
                 </div>
               <div className=" flex mt-6 gap-3">
-              <button className=" border-[5px] h-20 w-20 rounded-full border-white bg-black flex justify-center items-center">
+              <button   onClick={() => handleButtonClickGrid(tile.image, tile.size)} className=" border-[5px] h-20 w-20 rounded-full border-white bg-black flex justify-center items-center">
 
-<CircleRight color="white" className=""/>
+<CircleRight  color="white" className=""/>
                 </button>
                 <button className=" border-[5px] h-20 w-20 rounded-full border-white bg-black flex justify-center items-center">
 
@@ -304,105 +311,41 @@ export default function Home() {
               <div className=" flex items-center gap-[60px] ml-12">
                 <button>Rotate</button>
                 <button onClick={()=>setTileColorPannelBtn(true)}>Colors</button>
-                <span>Zoom</span>
+                <span className=" flex gap-2 items-center">Zoom
+                  <button onClick={handleZoomOut} className="  border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">-</button>
+                  <button onClick={handleZoomIn} className=" border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">+</button>
+                </span>
               </div>
               <div className=" h-full flex items-center mr-3">
                 <button  className=" py-4 px-8  ">Save image</button>
-                <button className=" py-4 px-8 border border-black ">Visualise</button>
+                <button onClick={handleVisualizeClick} className=" py-4 px-8 border border-black ">Visualise</button>
                 <button className=" py-4 px-8 border border-black text-white bg-black">Get a quote</button>
               </div>
  </div>
           </div>
           {!isTilesVisualizer && (
-            <div className="flex relative z-10 gap-10">
-              {/* <div>
-                <ColorPalette />
-                <div className="flex flex-col justify-center">
-                  <TilesPair svgString={tile.image} />
-                  <Button
-                    onClick={() => handleButtonClickGrid(tile.image, tile.size)}
-                    variant="outline"
-                  >
-                    Lay the Tiles
-                  </Button>
-                  <BorderTilesPair
-                    svgStringCorner={boorderTilesSvg.corner}
-                    svgStringTopBottom={boorderTilesSvg.topBottom}
-                    svgStringLeftRight={boorderTilesSvg.leftRight}
-                  />
-                </div>
-              </div> */}
+           <motion.div
+           className="flex items-center justify-center cursor-grab"
+           drag
+          //  dragConstraints={false}
+           dragMomentum={false}
+           whileTap={{ cursor: "grabbing" }}
+           style={{
+             scale, // Apply zoom scale
+             x: position.x,
+             y: position.y,
+           }}
+           onDrag={(event, info) =>
+             setPosition({ x: info.point.x, y: info.point.y })
+           }
+         >
+           
               {showFloor && (
-                <div className="flex relative z-10 flex-col ite  w-full items-center justify-center gap-10">
-                  {/* <div className="flex items-center justify-center gap-10">
-                    <Select
-                      value={floorRow.toString()}
-                      onValueChange={handleRowChange}
-                    >
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Select rows" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>Row</SelectLabel>
-                          <SelectItem value="4">4</SelectItem>
-                          <SelectItem value="5">5</SelectItem>
-                          <SelectItem value="6">6</SelectItem>
-                          <SelectItem value="7">7</SelectItem>
-                          <SelectItem value="8">8</SelectItem>
-                          <SelectItem value="9">9</SelectItem>
-                          <SelectItem value="10">10</SelectItem>
-                          <SelectItem value="11">11</SelectItem>
-                          <SelectItem value="12">12</SelectItem>
-                          <SelectItem value="13">13</SelectItem>
-                          <SelectItem value="14">14</SelectItem>
-                          <SelectItem value="15">15</SelectItem>
-                          <SelectItem value="16">16</SelectItem>
-                          <SelectItem value="30">30</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                    <Select
-                      value={floorColumn.toString()}
-                      onValueChange={handleColumnChange}
-                    >
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Select column" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>Column</SelectLabel>
-                          <SelectItem value="4">4</SelectItem>
-                          <SelectItem value="5">5</SelectItem>
-                          <SelectItem value="6">6</SelectItem>
-                          <SelectItem value="7">7</SelectItem>
-                          <SelectItem value="8">8</SelectItem>
-                          <SelectItem value="9">9</SelectItem>
-                          <SelectItem value="10">10</SelectItem>
-                          <SelectItem value="11">11</SelectItem>
-                          <SelectItem value="12">12</SelectItem>
-                          <SelectItem value="13">13</SelectItem>
-                          <SelectItem value="14">14</SelectItem>
-                          <SelectItem value="15">15</SelectItem>
-                          <SelectItem value="16">16</SelectItem>
-                          <SelectItem value="30">30</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                  </div> */}
-                  {/* <Floor
-                tileSvgString={Tiles1}
-                borderCornerSvgString={boorderTilesSvg.corner}
-                borderTopBottomSvgString={boorderTilesSvg.topBottom}
-                borderSideSvgString={boorderTilesSvg.leftRight}
-              /> */}
-                  <FloorSecond />
-                  {/* <Button onClick={handleVisualizeClick} variant="outline">
-                    Visualize
-                  </Button> */}
-                </div>
-              )}
+               <div className=" border border-red-500">
+                <FloorSecond />
             </div>
+              )}
+              </motion.div>
           )}
 
           {isTilesVisualizer && (
