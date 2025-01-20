@@ -1,6 +1,6 @@
-import Contact from "@/app/components/Contact";
-import Header from "@/app/components/Header";
-import Map from "@/app/components/contact/Map";
+import Contact from "../..//components/Contact";
+import Header from "../../components/Header";
+import Map from "../../components/contact/Map";
 import contactImg from "../../../../public/images/contact_page.jpg";
 const page = () => {
   return (
