@@ -27,7 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../components/ui/select";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import FloorSecond from "../../components/FloorSecond";
 import { useTilesBorderStore } from "../../store/tilesBorder.store";
 import TopBar from "../../components/floor-visualizer/TopBar";
@@ -51,13 +51,20 @@ import SingleTile from "../../components/SingleTile";
 import CircleClose from "../../../public/icons/CircleClose"
 import CircleRight from "../../../public/icons/CircleRight"
 import CircleBack from "../../../public/icons/CircleBack"
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import Image from "next/image";
+import WorkSpaceSideBar from "./../../components/WorkSpaceSideBar"
+import TilesRotatePair from "../../components/TilesRotatePair";
+import { toPng } from "html-to-image";
+import RootLayout from "../layout";
 export default function Home() {
   const router = useRouter();
   const [browser,setBrowser] = useState(false);
 
-  const tile = Tiles[0];
-
+  const [tile, settile] = useState(Tiles[0])
+  const selectTiles = (data:any) => {
+  settile(data)
+}
   useEffect(()=>{
     setBrowser(true)
   },[])
@@ -108,35 +115,7 @@ export default function Home() {
   const borderLeftRight = useTilesBorderStore((state) => state.borderLeftRight);
   const borderTopBottom = useTilesBorderStore((state) => state.borderTopBottom);
 
-  // const handleButtonClick = () => {
-  //   setShowFloor(true);
-
-  //   const initialTiles: Tile[] = [];
-  //   const totalCell = floorRow * floorColumn;
-
-  //   for (let i = 0; i < 25; i++) {
-  //     initialTiles.push({
-  //       topLeft: {
-  //         rotation: manipulatedResults.topLeft.rotation,
-  //         color: manipulatedResults.topLeft.color,
-  //       },
-  //       topRight: {
-  //         rotation: manipulatedResults.topRight.rotation,
-  //         color: manipulatedResults.topRight.color,
-  //       },
-  //       bottomLeft: {
-  //         rotation: manipulatedResults.bottomLeft.rotation,
-  //         color: manipulatedResults.bottomLeft.color,
-  //       },
-  //       bottomRight: {
-  //         rotation: manipulatedResults.bottomRight.rotation,
-  //         color: manipulatedResults.bottomRight.color,
-  //       },
-  //     });
-  //   }
-
-  //   setTiles(initialTiles);
-  // };
+  
 
   const handleButtonClickGrid = (svgString: string, size: string) => {
     setShowFloor(true);
@@ -229,24 +208,6 @@ export default function Home() {
     const width = 50; // Define the width of individual tiles
     const height = 50; // Define the height of individual tiles
 
-    // const floorImageUrl = await createMainFloorCanvas(
-    //   Tiles1,
-    //   tiles,
-    //   tileSize,
-    //   gridSize,
-    //   width,
-    //   height
-    // );
-
-    // const floorImageUrl = await createMainFloorSvg(
-    //   Tiles1,
-    //   tiles,
-    //   tileSize,
-    //   gridSize,
-    //   width,
-    //   height
-    // );
-
     if (!gridLayout) return;
 
     const floorImageUrl = await createPngFromGridLayout(gridLayout, 100, 100);
@@ -257,23 +218,71 @@ export default function Home() {
     // router.push("/floor-visualizer");
   };
   useEffect(() => {
-    handleButtonClickGrid(tile.image, tile.size)
+    handleButtonClickGrid(tile?.image, tile?.size)
   
   
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tile])
   
   const [TileColorPannelBtn, setTileColorPannelBtn] = useState(false)
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(1.7);
 
   // Handlers to zoom in and out
   const handleZoomIn = () => setScale((prev) => Math.min(prev + 0.1, 3)); // Limit zoom-in to 3x
   const handleZoomOut = () => setScale((prev) => Math.max(prev - 0.1, 0.5)); // Limit zoom-out to 0.5x
-  const [position, setPosition] = useState({ x: 0, y: 0 }); // Track position
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const width = typeof window !== "undefined" ? window.innerWidth : 0;
+  const height = typeof window !== "undefined" ? window.innerHeight : 0;
+
+  const wrapX = useTransform(x, (value) => {
+    if (value > width / 2) return -width / 2;
+    if (value < -width / 2) return width / 2;
+    return value;
+  });
+
+  const wrapY = useTransform(y, (value) => {
+    if (value > height / 2) return -height / 2;
+    if (value < -height / 2) return height / 2;
+    return value;
+  });
+  const svgAsDataUri = `data:image/svg+xml;base64,${btoa(tile.image)}`;
+  const [sideBarCloseOpenBtn, setsideBarCloseOpenBtn] = useState(false)
+
+  const [RotateModal, setRotateModal] = useState(false)
+
+  const divRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadImage = async () => {
+    if (divRef.current) {
+      try {
+        const dataUrl = await toPng(divRef.current);
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = "Tiles.jpg";
+        link.click();
+      } catch (error) {
+        console.error("Error generating image:", error);
+      }
+    }
+  };
   return (
+   
+
+    
     <DndProvider backend={HTML5Backend}>
       {browser &&
-        <main className=" bg-yellow-100 overflow-hidden relative h-screen">
+        <main className=" bg-yellow-100 font-Inter overflow-hidden relative h-screen">
 
+         
+          {/* sidebar button */}
+          <Image onClick={()=>setsideBarCloseOpenBtn(true)} src={svgAsDataUri} width={100} height={100} className="filter border-[6px] border-white grayscale contrast-200 cursor-pointer h-16 w-16 absolute top-12 left-0 z-[111]" alt="tile"></Image>
+          <WorkSpaceSideBar open={sideBarCloseOpenBtn} selectTiles={selectTiles} close={setsideBarCloseOpenBtn}/>
+        
+          
+
+          {/* ColorPalate */}
           <div className={`${TileColorPannelBtn ? " block" : " hidden"} transition-opacity duration-300 ease-in-out absolute top-0 left-0 w-full h-full bg-gray-400/30 z-[50] `} >
             <div className=" absolute left-[28%] top-4  gap-5 w-[330px] 3xl:w-fit h-fit px-0 overflow-hidden">
               <div className=" bg-white pb-4 h-[450px] 3xl:h-[560px] flex flex-col justify-between">
@@ -308,11 +317,36 @@ export default function Home() {
 </div>
           </div>
 
+           {/* Rotate modal */}
+           <div className={`${RotateModal ? " block" : " hidden"} transition-opacity duration-300 ease-in-out absolute top-0 left-0 w-full h-full bg-gray-400/30 z-[50] `} >
+           <div className=" absolute left-[28%] top-4  gap-5 w-[342px] flex flex-col justify-between  ">
+              <div className=" bg-white">
+                
+              <TilesRotatePair svgString={tile.image} /> 
+             </div>
+             
+              <div className=" flex mt-2 3xl:mt-6 gap-3">
+              <button  onClick={() => handleButtonClickGrid(tile.image, tile.size)}   className="border-[4px] 3xl:border-[5px] h-16 w-16 3xl:h-20 3xl:w-20 rounded-full border-white bg-black flex justify-center items-center">
+
+<CircleRight  color="white" className=""/>
+                </button>
+                <button className=" border-[4px] 3xl:border-[5px] h-16 w-16 3xl:h-20 3xl:w-20 rounded-full border-white bg-black flex justify-center items-center">
+
+<CircleBack color="white" className=""/>
+  </button>
+                <button onClick={()=>setRotateModal(false)} className=" border-[4px] 3xl:border-[5px] h-16 w-16 3xl:h-20 3xl:w-20 rounded-full border-white bg-black flex justify-center items-center">
+
+              <CircleClose size={38} color="white" className=""/>
+                </button>
+              </div>
+</div>
+          </div>
+
           {/* bottom bar  */}
           <div className=" h-[100px] shadow-md w-full z-50   absolute bottom-0 left-0">
             <div className=" h-[87px] flex justify-between rounded-md mx-28 bg-white border">
               <div className=" flex items-center gap-[60px] ml-12">
-                <button>Rotate</button>
+                <button  onClick={()=>setRotateModal(true)}>Rotate</button>
                 <button onClick={()=>setTileColorPannelBtn(true)}>Colors</button>
                 <span className=" flex gap-2 items-center">Zoom
                   <button onClick={handleZoomOut} className="  border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">-</button>
@@ -320,7 +354,7 @@ export default function Home() {
                 </span>
               </div>
               <div className=" h-full flex items-center mr-3">
-                <button  className=" py-4 px-8  ">Save image</button>
+                <button  onClick={handleDownloadImage} className=" py-4 px-8  ">Save image</button>
                 <button onClick={handleVisualizeClick} className=" py-4 px-8 border border-black ">Visualise</button>
                 <button className=" py-4 px-8 border border-black text-white bg-black">Get a quote</button>
               </div>
@@ -328,25 +362,26 @@ export default function Home() {
           </div>
           {!isTilesVisualizer && (
            <motion.div
-           className="flex items-center justify-center cursor-grab"
+           className="flex items-center justify-center  cursor-grab"
            drag
-           dragConstraints={false}
-           dragMomentum={false}
            whileTap={{ cursor: "grabbing" }}
+          
+           dragMomentum={false} // Disable momentum for precise control
            style={{
+             x: wrapX,
+             y: wrapY,
              scale, // Apply zoom scale
-             x: position.x,
-             y: position.y,
            }}
-           onDrag={(event, info) =>
-             setPosition({ x: info.point.x, y: info.point.y })
-           }
+         
          >
            
               {showFloor && (
-               <div className=" border border-red-500">
+           
+                <div ref={divRef} className=" ">
+
                 <FloorSecond />
-            </div>
+                </div>
+      
               )}
               </motion.div>
           )}
@@ -359,7 +394,7 @@ export default function Home() {
           )}
         </main>
       }
-    </DndProvider>
+      </DndProvider>
   );
 }
 
@@ -735,7 +770,7 @@ const Tiles = [
     id: 0,
     name: "Tiles One",
     image: Tiles1,
-    size: "10*10",
+    size: "30*30",
   },
   {
     id: 1,
