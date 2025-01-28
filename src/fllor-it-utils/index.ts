@@ -9,7 +9,6 @@ export const addDataConnectToSvg = (
   rotation: number,
   colors: { [id: number]: string }
 ) => {
-  console.log(svgString, height, width)
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgString, "image/svg+xml");
   const svg = doc.querySelector("svg");

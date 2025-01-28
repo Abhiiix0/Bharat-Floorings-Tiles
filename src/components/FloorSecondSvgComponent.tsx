@@ -62,10 +62,10 @@ export default function FloorSecondSvgComponent({
     }),
   });
 
-  console.log(
-    `gridLayout ${indexRow} ${indexCol}`,
-    gridLayout[indexRow][indexCol]
-  );
+  // console.log(
+  //   `gridLayout ${indexRow} ${indexCol}`,
+  //   gridLayout[indexRow][indexCol]
+  // );
 
   const ref = useRef<HTMLDivElement>(null);
   drop(ref);

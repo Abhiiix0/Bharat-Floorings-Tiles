@@ -1,36 +1,20 @@
 "use client";
-import BorderTilesPair from "../../components/border/BorderTilesPair";
-// import ColorPalette from "../../components/ColorPalett.js";
-import Floor from "../../components/Floor";
-import TilesPair from "../../components/TilesPair";
-import { Button } from "../../components/ui/button";
 import { Tiles1, Tiles2 } from "../../data/svg";
 import { Tile, useFloorStore } from "../../store/floor.store";
 import { Room, useFloorVisualizerStore } from "../../store/floorVisualizer.store";
 import { useTilesStore } from "../../store/tiles.store";
 import {
   addDataConnectToSvg,
-  createMainFloorCanvas,
-  createMainFloorSvg,
   createPngFromGridLayout,
 } from "../../fllor-it-utils";
+import SideBar from "../../components/floor-visualizer/SideBar"
 import { useRouter } from "next/navigation";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { boorderTilesSvg } from "../../data/borders";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "../../components/ui/select";
 import { useCallback, useEffect, useRef, useState } from "react";
 import FloorSecond from "../../components/FloorSecond";
 import { useTilesBorderStore } from "../../store/tilesBorder.store";
-import TopBar from "../../components/floor-visualizer/TopBar";
 import RoomPhotoPannel from "../../components/floor-visualizer/RoomPhotoPannel";
 import roomImage1 from "../../components/images/roomThumbnails/Sample1.png";
 import roomImage5 from "../../components/images/roomThumbnails/Sample5.png";
@@ -61,27 +45,21 @@ export default function Home() {
   const router = useRouter();
   const [browser,setBrowser] = useState(false);
 
-  const [tile, settile] = useState(Tiles[0])
+  const [tile, settile] = useState(Tiles[1])
   const selectTiles = (data:any) => {
   settile(data)
 }
-  useEffect(()=>{
+  useEffect(() => {
+    selectTiles(Tiles[0])
     setBrowser(true)
   },[])
 
   const manipulatedResults = useTilesStore((state) => state.manipulatedResults);
-  const setTileSize = useTilesStore((state) => state.setTileSize);
-  const setTiles = useFloorStore((state) => state.setTiles);
-  
-
-  const floorRow = useFloorStore((state) => state.floorRow);
-  const floorColumn = useFloorStore((state) => state.floorColumn);
+  const setTileSize = useTilesStore((state) => state.setTileSize);  
   const setFloorRow = useFloorStore((state) => state.setFloorRow);
   const setFloorColumn = useFloorStore((state) => state.setFloorColumn);
-
   const showFloor = useFloorStore((state) => state.showFloor);
   const setShowFloor = useFloorStore((state) => state.setShowFloor);
-
   const isTilesVisualizer = useComponentStore(
     (state) => state.isTilesVisualizer
   );
@@ -190,37 +168,21 @@ export default function Home() {
       },
     };
 
-    // console.log("floorRowPage", floorRow);
-    // console.log("floorColumnPage", floorColumn);
 
     calculateGridLayout(
       borderSVGs,
       newManupulatedresults
-      // floorRow,
-      // floorColumn
     );
   };
-
+  const divRef = useRef<HTMLDivElement>(null);
   const handleVisualizeClick = async () => {
-    const tiles = useFloorStore.getState().tiles;
-    const tileSize = 106; // Define the tile size
-    const gridSize = 5; // Define the grid size
-    const width = 50; // Define the width of individual tiles
-    const height = 50; // Define the height of individual tiles
-
     if (!gridLayout) return;
-
     const floorImageUrl = await createPngFromGridLayout(gridLayout, 100, 100);
-
     setFloor(floorImageUrl);
-
     setIsTilesVisualizer(true);
-    // router.push("/floor-visualizer");
   };
   useEffect(() => {
     handleButtonClickGrid(tile?.image, tile?.size)
-  
-  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tile])
   
@@ -247,12 +209,12 @@ export default function Home() {
     if (value < -height / 2) return height / 2;
     return value;
   });
-  const svgAsDataUri = `data:image/svg+xml;base64,${btoa(tile.image)}`;
+  const svgAsDataUri = `data:image/svg+xml;base64,${btoa(tile?.image)}`;
   const [sideBarCloseOpenBtn, setsideBarCloseOpenBtn] = useState(false)
 
   const [RotateModal, setRotateModal] = useState(false)
 
-  const divRef = useRef<HTMLDivElement>(null);
+ 
 
   const handleDownloadImage = async () => {
     if (divRef.current) {
@@ -267,6 +229,14 @@ export default function Home() {
       }
     }
   };
+  const [VisulazationModal, setVisulazationModal] = useState(true)
+  const handelRoomSideBar = () => {
+   if (VisulazationModal) {
+    setVisulazationModal(false)
+   } else {
+    setVisulazationModal(true)
+   }
+ }
   return (
    
 
@@ -355,11 +325,13 @@ export default function Home() {
               </div>
               <div className=" h-full flex items-center mr-3">
                 <button  onClick={handleDownloadImage} className=" py-4 px-8  ">Save image</button>
-                <button onClick={handleVisualizeClick} className=" py-4 px-8 border border-black ">Visualise</button>
+                <button onClick={()=>    handelRoomSideBar()} className=" py-4 px-8 border border-black ">Visualise</button>
                 <button className=" py-4 px-8 border border-black text-white bg-black">Get a quote</button>
               </div>
  </div>
           </div>
+
+          
           {!isTilesVisualizer && (
            <motion.div
            className="flex items-center justify-center  cursor-grab"
@@ -386,12 +358,15 @@ export default function Home() {
               </motion.div>
           )}
 
-          {isTilesVisualizer && (
-            <div>
-              <TopBar rooms={rooms} />
-              <RoomPhotoPannel />
+          { VisulazationModal &&
+            <SideBar rooms={rooms} handleVisualizeClick={handleVisualizeClick} handelRoomVisual={setIsTilesVisualizer} />
+        }
+       
+            <div className={` z-[1002] transition-all duration-300 ease-in-out h-screen  w-full fixed top-0  bg-red-200 ${isTilesVisualizer ? "right-0" :  " right-[-100%]"}`}>
+             
+              <RoomPhotoPannel handleVisualizeClick={handleVisualizeClick} handelRoomVisual={setIsTilesVisualizer} />
             </div>
-          )}
+         
         </main>
       }
       </DndProvider>
@@ -770,7 +745,7 @@ const Tiles = [
     id: 0,
     name: "Tiles One",
     image: Tiles1,
-    size: "30*30",
+    size: "10*10",
   },
   {
     id: 1,
