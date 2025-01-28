@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import RightArrow from "../../../../public/icons/RightArrow";
+import RightArrow from "../../../public/icons/RightArrow";
 import Image from "next/image";
-import Remix from "../../../../public/icons/remix";
+import Remix from "../../../public/icons/remix";
 
 const ProductCard = ({ Product }) => {
   const [selectImg, setselectImg] = useState(Product?.tiles[0]);

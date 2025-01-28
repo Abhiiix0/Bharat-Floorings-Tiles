@@ -1,7 +1,7 @@
 import PressReleasesCard from './PressReleasesCard'
 import LinesComp from './LinesComp'
 
-const PressRealeses = ({ press }) => {
+const PressReleases = ({ press }) => {
   return (
     <section className='relative overflow-hidden'>
       <LinesComp />
@@ -21,4 +21,4 @@ const PressRealeses = ({ press }) => {
   )
 }
 
-export default PressRealeses
+export default PressReleases

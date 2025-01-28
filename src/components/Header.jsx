@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import Logo from "../../../public/svgs/headerLogo.svg";
-import Menu from "../../../public/icons/menu";
-import BftLogo from "../../../public/icons/bftLogo";
-// import vds from "../../../public/videos/headerBgVd.mp4";
+import Logo from "../../public/svgs/headerLogo.svg";
+import Menu from "../../public/icons/menu";
+import BftLogo from "../../public/icons/bftLogo";
+// import vds from "../../public/videos/headerBgVd.mp4";
 import { useState } from "react";
 import LinesComp from "./LinesComp";
 const Header = ({ textColor, iconsColor, lines }) => {
@@ -105,7 +105,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
       {isOverlayVisible && (
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-[2000]"
-          src={require("../../../public/videos/headerBgVd.mp4")}
+          src={require("../../public/videos/headerBgVd.mp4")}
           autoPlay
           muted
           loop
@@ -122,7 +122,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
             <div className="max-w-[1920px] h-full relative flex-col pt-[180px] hidden lg:flex items-end justify-between  mx-auto">
               <video
                 className="absolute top-0 left-0 w-full h-full object-cover z-30"
-                src={require("../../../public/videos/headerBgVd.mp4")}
+                // src={require("../../../public/videos/headerBgVd.mp4")}
                 autoPlay
                 muted
                 loop

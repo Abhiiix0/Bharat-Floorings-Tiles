@@ -1,7 +1,7 @@
-import Resource from "../../components/Resource";
+import Header from '../../../components/Header'
+import Resource from '../../../components/Resource'
+import {RESOURCES} from '../../../utils'
 import resourcesPageIMage from "../../../../public/images/resources/resource_image.jpg";
-import { RESOURCES } from "../../../utils";
-import Header from "../../components/Header";
 
 const page = () => {
   return (

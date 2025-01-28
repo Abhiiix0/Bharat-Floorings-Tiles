@@ -1,12 +1,7 @@
-import OurClients from "../../components/our-clients/OurClients";
-import {
-  HERITAGE_HOTELS,
-  HERITAGE_RESTUARANTS,
-  RESOURCES_IMAGES,
-} from "../../../utils";
-import React from "react";
+import Header from '../../../components/Header'
+import OurClients from '../../../components/our-clients/OurClients'
+import {RESOURCES_IMAGES, HERITAGE_HOTELS, HERITAGE_RESTUARANTS} from '../../../utils'
 import clientsPageImage from "../../../../public/images/our-clients/our_client.jpg";
-import Header from "../../components/Header";
 
 const page = () => {
   return (

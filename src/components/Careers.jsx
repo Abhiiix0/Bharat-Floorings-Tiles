@@ -1,5 +1,5 @@
 import React from 'react'
-import careerImg from '../../../public/images/career_page_image.jpg'
+import careerImg from '../../public/images/career_page_image.jpg'
 import Intro from './Intro'
 import JobsCard from './JobsCard'
 import LinesComp from './LinesComp'

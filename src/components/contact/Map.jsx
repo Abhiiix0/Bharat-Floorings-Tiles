@@ -6,10 +6,10 @@ import {
   OverlayView,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import Phone from "../../../../public/icons/phone";
-import Mail from "../../../../public/icons/Mail";
+import Phone from "../../../public/icons/phone";
+import Mail from "../../../public/icons/Mail";
 import { BsPerson } from "react-icons/bs";
-import BFTMapPin from "../../../../public/icons/BFTMapPin";
+import BFTMapPin from "../../../public/icons/BFTMapPin";
 
 // Map options
 const mapOptions = {

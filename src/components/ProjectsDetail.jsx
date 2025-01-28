@@ -1,10 +1,10 @@
 "use client";
-import { DESIGNER_IMAGES } from "../../utils";
+import { DESIGNER_IMAGES } from "../utils";
 import Link from "next/link";
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
-import tajLogo from "../../../public/svgs/tajLogo.svg";
+import tajLogo from "../../public/svgs/tajLogo.svg";
 import Intro from "./Intro";
-import product from "../../../public/images/gallery/galleryImg-1.jpg";
+import product from "../../public/images/gallery/galleryImg-1.jpg";
 import LinesComp from "./LinesComp";
 
 const ProjectsDetail = () => {

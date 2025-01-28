@@ -1,6 +1,6 @@
 "use client";
 import "./globals.css";
-import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 import { usePathname } from "next/navigation";
 
 export default function RootLayout({ children }) {

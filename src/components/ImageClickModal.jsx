@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { EVENTS_SUB_IMAGES } from "../../utils";
+import { EVENTS_SUB_IMAGES } from "../utils";
 
 const ImageClickModal = ({ close, setClose }) => {
   const firtIMage = EVENTS_SUB_IMAGES[0].image;

@@ -1,14 +1,7 @@
-import {
-  AWARDS,
-  EVENTS_SUB_IMAGES,
-  EVENTS_SUB_SECTION,
-  MANAGEMENT,
-  OUR_JOURNEY,
-  PRESS_RELEASES,
-} from "../../../utils";
+import Header from '../../../components/Header'
+import OurCompany from '../../../components/our-company/OurCompany'
+import { AWARDS, EVENTS_SUB_SECTION, MANAGEMENT, OUR_JOURNEY, PRESS_RELEASES,  } from '../../../utils';
 import ourCompanyImage from "../../../../public/images/our-company/our_company.jpg";
-import Header from "../../components/Header";
-import OurCompany from "../../components/our-company/OurCompany";
 
 const page = () => {
   return (

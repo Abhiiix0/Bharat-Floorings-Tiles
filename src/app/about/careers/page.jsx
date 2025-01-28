@@ -1,7 +1,7 @@
-import Careers from "../../components/Careers";
-import { ALL_JOBS } from "../../../utils";
 import careerPageIMage from "../../../../public/images/career_page.jpg";
-import Header from "../../components/Header";
+import Careers from '../../../components/Careers'
+import Header from '../../../components/Header'
+import {ALL_JOBS} from '../../../utils'
 
 const page = () => {
   return (

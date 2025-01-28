@@ -1,6 +1,6 @@
 import Image from "next/image";
-import manufracture1 from "../../../../public/images/home/manufracture.jpg";
-import BigArrowRight from "../../../../public/icons/BigArrowRIght.jsx";
+import manufracture1 from "../../../public/images/home/manufracture.jpg";
+import BigArrowRight from "../../../public/icons/BigArrowRIght.jsx";
 export default function Manufacture() {
   return (
     <div className="relative">

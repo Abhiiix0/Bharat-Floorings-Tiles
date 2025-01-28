@@ -1,4 +1,4 @@
-import { DESIGNER_IMAGES, GALLERY_PAGE_IMAGES } from "../../utils";
+import { DESIGNER_IMAGES } from "../utils";
 import React from "react";
 import GalleryPageCards from "./GalleryPageCards";
 import LinesComp from "./LinesComp";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import RightArrow from "../../../../public/icons/RightArrow";
-import tiles from "../../../../public/images/home/tiles.jpg";
+import RightArrow from "../../../public/icons/RightArrow";
+import tiles from "../../../public/images/home/tiles.jpg";
 const ProductCard = ({ product }) => {
   return (
     <div className="  w-[296px] xl:w-[28rem] group border 3xl:h-[934px] 3xl:w-[34.8rem]  ">

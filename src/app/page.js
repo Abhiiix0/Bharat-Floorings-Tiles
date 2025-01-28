@@ -1,9 +1,9 @@
 import bgImg from "../../public/images/home/home-page-bg.jpg";
-import Header from "./components/Header";
+import Header from '../components/Header'
 import projectImg1 from "../../public/images/home/projectImg2.jpg";
 import Image from "next/image";
 import PlayBtn from "../../public/icons/playBtn";
-import ImageGallery from "./components/ImageGallery";
+import ImageGallery from "../components/ImageGallery";
 import tiles1 from "../../public/images/tiles/tiles1.jpg";
 import tiles2 from "../../public/images/tiles/tiles2.jpg";
 import tiles3 from "../../public/images/tiles/tiles3.jpg";
@@ -15,9 +15,9 @@ import workbench2 from "../../public/images/home/workbench2.jpg";
 
 //products
 import product1 from "../../public/images/home/product1.jpg";
-import ProductCard from "./components/home/ProductCard";
-import Manufacture from "./components/home/Manufracture";
-import RotatingTextEffect from "./components/home/RotatingTextEffect";
+import ProductCard from "../components/home/ProductCard";
+import Manufacture from "../components/home/Manufracture";
+import RotatingTextEffect from "../components/home/RotatingTextEffect";
 
 // Manufracture
 // import manufracture1 from "../../public/images/home/manufracture.jpg";

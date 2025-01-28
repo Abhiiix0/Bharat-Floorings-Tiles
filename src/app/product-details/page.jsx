@@ -1,14 +1,14 @@
 "use client";
-import Header from "../../app/components/Header";
+import Header from '../../components/Header'
 import PImage from "../../../public/images/products/product.jpg";
 import tiles1 from "../../../public/images/products/Stiles1.png";
 import tiles2 from "../../../public/images/products/Stiles2.jpg";
 import Image from "next/image";
 import { useState } from "react";
 import Remix from "../../../public/icons/remix";
-import ImageGallery from "../components/ImageGallery";
-import ImageGallery2 from "../components/ImageGallery2";
-import ProductCard from "../components/products/ProductCard";
+import ImageGallery from "../../components/ImageGallery";
+import ImageGallery2 from "../../components/ImageGallery2";
+import ProductCard from "../../components/products/ProductCard";
 import tilsDesign from "../../../public/images/product-details/tiles.png";
 import kitchen from "../../../public/images/product-details/kitchen.jpg";
 const page = () => {

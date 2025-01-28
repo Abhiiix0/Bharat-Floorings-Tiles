@@ -1,7 +1,6 @@
-import Contact from "../..//components/Contact";
-import Header from "../../components/Header";
-import Map from "../../components/contact/Map";
 import contactImg from "../../../../public/images/contact_page.jpg";
+import Map from '../../../components/contact/Map'
+import Header from "../../../components/Header";
 const page = () => {
   return (
     <div>

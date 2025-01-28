@@ -1,7 +1,7 @@
-import PressRealeses from "../../components/PressRealeses";
-import { PRESS_RELEASES } from "../../../utils";
+import Header from '../../../components/Header';
+import PressReleases from '../../../components/PressReleases'
 import pressPageImage from "../../../../public/images/press/press_releases.jpg";
-import Header from "../../components/Header";
+import {PRESS_RELEASES} from '../../../utils'
 
 const page = () => {
   return (
@@ -19,7 +19,7 @@ const page = () => {
           <h1 className="big-heading text-white">Press Releases</h1>
         </div>
       </div>
-      <PressRealeses press={PRESS_RELEASES} />
+      <PressReleases press={PRESS_RELEASES} />
     </>
   );
 };

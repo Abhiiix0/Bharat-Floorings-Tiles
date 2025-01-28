@@ -15,7 +15,7 @@ const ProjectsCard = ({ image, publicity, designer1, designer2, designerImage })
         <p>
           {publicity}
         </p>
-        <Link href='projects/project-details' className='link-el border-black border-[1px] w-32 lg:text-base sm:text-sm text-xs xl:w-[130px] 2xl:w-[165px] xl:pl-3 pl-2 2xl:pl-6 link'>View project <RiArrowRightLine className='arrow' />
+        <Link href='projects/project-details' className='link-el border-black border-[1px] w-32 lg:text-base sm:text-sm text-xs xl:w-[145px] 2xl:w-[165px] lg:w-36 xl:pl-3 pl-2 2xl:pl-6 link'>View project <RiArrowRightLine className='arrow' />
         </Link>
       </div>
       <p className='lg:text-base sm:text-sm text-xs'>
