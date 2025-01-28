@@ -19,7 +19,7 @@ export default function FloorVisuaizer() {
   return (
     <div className="h-screen w-full ">
       <TopBar rooms={rooms} />
-      <RoomPhotoPannel />
+      <RoomPhotoPannel handelRoomVisual={undefined} handleVisualizeClick={undefined} />
     </div>
   );
 }
