@@ -229,7 +229,7 @@ export default function Home() {
       }
     }
   };
-  const [VisulazationModal, setVisulazationModal] = useState(true)
+  const [VisulazationModal, setVisulazationModal] = useState(false)
   const handelRoomSideBar = () => {
    if (VisulazationModal) {
     setVisulazationModal(false)
