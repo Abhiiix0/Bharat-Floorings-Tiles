@@ -1,23 +1,12 @@
-import { Tile, useFloorStore } from "./../store/floor.store";
+import { useFloorStore } from "./../store/floor.store";
 import React, { useEffect } from "react";
 import FloorSecondSvgComponent from "./FloorSecondSvgComponent";
 
-interface FloorSecondProps {
-  tileSvgString: string;
-  borderCornerSvgString: string;
-  borderTopBottomSvgString: string;
-  borderSideSvgString: string;
-}
-
 export default function FloorSecond() {
-  const tiles = useFloorStore((state) => state.tiles);
-  const floorColumn = useFloorStore((state) => state.floorColumn);
   const gridLayout = useFloorStore((state) => state.gridLayout);
 
   return (
     <div className="relative">
-    
-
       <div>
         {gridLayout.map((row, rowIndex) => (
           <div key={rowIndex} style={{ display: "flex" }}>
@@ -50,8 +39,6 @@ export default function FloorSecond() {
           </div>
         ))}
       </div>
-
-    
     </div>
   );
 }

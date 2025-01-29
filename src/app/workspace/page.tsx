@@ -40,11 +40,10 @@ import Image from "next/image";
 import WorkSpaceSideBar from "./../../components/WorkSpaceSideBar"
 import TilesRotatePair from "../../components/TilesRotatePair";
 import { toPng } from "html-to-image";
-import RootLayout from "../layout";
+import TilesLayoutModal from "../../components/workshop/TilesLayoutModal"
 export default function Home() {
   const router = useRouter();
   const [browser,setBrowser] = useState(false);
-
   const [tile, settile] = useState(Tiles[1])
   const selectTiles = (data:any) => {
   settile(data)
@@ -177,7 +176,7 @@ export default function Home() {
   const divRef = useRef<HTMLDivElement>(null);
   const handleVisualizeClick = async () => {
     if (!gridLayout) return;
-    const floorImageUrl = await createPngFromGridLayout(gridLayout, 100, 100);
+    const floorImageUrl = await createPngFromGridLayout(gridLayout, 100, 100, 5);
     setFloor(floorImageUrl);
     setIsTilesVisualizer(true);
   };
@@ -214,7 +213,7 @@ export default function Home() {
 
   const [RotateModal, setRotateModal] = useState(false)
 
- 
+ const [tilesLayoutModal, settilesLayoutModal] = useState(false)
 
   const handleDownloadImage = async () => {
     if (divRef.current) {
@@ -317,7 +316,8 @@ export default function Home() {
             <div className=" h-[87px] flex justify-between rounded-md mx-28 bg-white border">
               <div className=" flex items-center gap-[60px] ml-12">
                 <button  onClick={()=>setRotateModal(true)}>Rotate</button>
-                <button onClick={()=>setTileColorPannelBtn(true)}>Colors</button>
+                <button onClick={() => setTileColorPannelBtn(true)}>Colors</button>
+                <button onClick={()=>settilesLayoutModal(true)}>Tiles Layout</button>
                 <span className=" flex gap-2 items-center">Zoom
                   <button onClick={handleZoomOut} className="  border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">-</button>
                   <button onClick={handleZoomIn} className=" border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">+</button>
@@ -330,6 +330,8 @@ export default function Home() {
               </div>
  </div>
           </div>
+         
+            <TilesLayoutModal tile={tile} open={tilesLayoutModal} closeModal={settilesLayoutModal} />
 
           
           {!isTilesVisualizer && (
@@ -337,23 +339,17 @@ export default function Home() {
            className="flex items-center justify-center  cursor-grab"
            drag
            whileTap={{ cursor: "grabbing" }}
-          
            dragMomentum={false} // Disable momentum for precise control
            style={{
              x: wrapX,
              y: wrapY,
              scale, // Apply zoom scale
-           }}
-         
-         >
-           
-              {showFloor && (
-           
-                <div ref={divRef} className=" ">
-
+           }} 
+         >   
+              {showFloor && ( 
+                <div ref={divRef} className="">
                 <FloorSecond />
                 </div>
-      
               )}
               </motion.div>
           )}
@@ -362,7 +358,7 @@ export default function Home() {
             <SideBar rooms={rooms} handleVisualizeClick={handleVisualizeClick} handelRoomVisual={setIsTilesVisualizer} />
         }
        
-            <div className={` z-[1002] transition-all duration-300 ease-in-out h-screen  w-full fixed top-0  bg-red-200 ${isTilesVisualizer ? "right-0" :  " right-[-100%]"}`}>
+            <div className={` z-[1002] transition-all grid place-content-center duration-300 ease-in-out h-screen  w-full fixed top-0  bg-red-100 ${isTilesVisualizer ? "right-0" :  " right-[-100%]"}`}>
              
               <RoomPhotoPannel handleVisualizeClick={handleVisualizeClick} handelRoomVisual={setIsTilesVisualizer} />
             </div>

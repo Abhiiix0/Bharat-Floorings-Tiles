@@ -111,7 +111,16 @@ export const useFloorStore = create<FloorState>((set) => ({
   borderCorner: { color: {} },
   borderLeftRight: { color: {} },
   borderTopBottom: { color: {} },
-  setFloorRow: (row) => set((state) => ({ ...state, floorRow: row })),
+  // setFloorRow: (row) => set((state) => ({ ...state, floorRow: row })),
+  setFloorRow: (row) => {
+    console.log("setFloorRow called with:", row);
+    set((state) => {
+      console.log("Previous floorRow:", state.floorRow);
+      const newState = { ...state, floorRow: row };
+      console.log("New state:", newState);
+      return newState;
+    });
+  },
   setFloorColumn: (column) =>
     set((state) => ({ ...state, floorColumn: column })),
   setShowFloor: (show) => set((state) => ({ ...state, showFloor: show })),
