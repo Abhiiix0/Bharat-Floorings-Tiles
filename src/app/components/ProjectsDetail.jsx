@@ -47,7 +47,7 @@ const ProjectsDetail = () => {
         </div>
       </div>
 
-      <div>
+      <div className="lg:px-[100px] px-[20px]">
         <Intro
           intro1={"1998"}
           intro2={"3 products"}
