@@ -1,8 +1,7 @@
-import Header from '../../../components/Header'
 import GalleryPage from '../../../components/GalleryPage'
-import {GALLERY_PAGE_IMAGES} from '../../../utils'
+import Header from "../../../components/Header";
+import { GALLERY_PAGE_IMAGES } from "../../../utils";
 const page = () => {
-  console.log(GALLERY_PAGE_IMAGES);
   return (
     <div>
       <Header iconsColor="black" lines={true} />

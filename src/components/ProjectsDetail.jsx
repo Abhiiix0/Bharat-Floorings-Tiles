@@ -3,6 +3,9 @@ import { DESIGNER_IMAGES } from "../utils";
 import Link from "next/link";
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
 import tajLogo from "../../public/svgs/tajLogo.svg";
+import bftLogoX from  '../../public/svgs/bftLogo-x.svg'
+import design1 from '../../public/svgs/design-1.svg'
+import design3 from '../../public/svgs/design-3.svg'
 import Intro from "./Intro";
 import product from "../../public/images/gallery/galleryImg-1.jpg";
 import LinesComp from "./LinesComp";
@@ -46,8 +49,23 @@ const ProjectsDetail = () => {
           </p>
         </div>
       </div>
-
-      <div>
+       <div className="mt-[52px] flex justify-between relative lg:px-[100px] px-[20px]">
+       <div className="flex 3xl:gap-[52px] xl:gap-11 lg:gap-9 gap-8 2xl:h-[60] xl:h-14 lg:h-12 h-10 ">
+          <div className="h-full flex xxl:gap-[14px] lg:gap-3 gap-2  items-center">
+           <img src={design1.src} className="h-full xl:w-14 lg:w-12 w-10" alt="design-1" />
+           <span className="title-el">Anulom Type A</span>
+          </div>
+          <div className="h-full flex 2xl:gap-[14px] lg:gap-3 gap-2 items-center">
+           <img src={design3.src} className="h-full xl:w-14 lg:w-12 w-10" alt="design-3" />
+           <span className="title-el">The CrossGrain</span>
+          </div>
+       </div>
+       <div className="flex 3xl:gap-7 2xl:gap-5 xl:gap-4 lg:gap-3 gap-2 3xl:h-[66px] xl:h-14 lg:h-12  h-10  ">
+        <img src={bftLogoX.src} alt="Bft logo" className="h-full lg:w-12  3xl:w-[66px] w-10 xl:w-14 " />
+        <img src={tajLogo.src} alt="Taj logo" className="h-full lg:w-12  3xl:w-[66px] w-10 xl:w-14 " />
+       </div>
+       </div>
+      <div className="lg:px-[100px] px-[20px] 2xl:mt-[58px] xl:mt-12 lg:mt-10 mt-8 2xl:mb-[33px] xl:mb-7 mb-6">
         <Intro
           intro1={"1998"}
           intro2={"3 products"}
@@ -61,19 +79,20 @@ const ProjectsDetail = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          objectFit: 'cover'
         }}
-        className="3xl:h-[1265px] 2xl:h-[950px] xl:h-[800px] lg:h-[700px] h-screen w-full relative"
+        className="3xl:h-[1265px] h-screen w-full relative"
       >
         <img
-          className="absolute top-[20%] left-1/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14"
+          className="absolute top-[20%] left-1/4 3xl:h-[104px] border-4 border-white xl:h-20 lg:h-16 md:h-12 h-10 3xl:w-[104px] xl:w-20 lg:w-16 md:w-12 w-10"
           src={DESIGNER_IMAGES[1].image.src}
         />
         <img
-          className="absolute top-[80%]  2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[18%]"
+          className="absolute top-[80%]  3xl:h-[104px] border-4 border-white xl:h-20 lg:h-16 md:h-12 h-10 3xl:w-[104px] xl:w-20 lg:w-16 md:w-12 w-10 left-[18%]"
           src={DESIGNER_IMAGES[0].image.src}
         />
         <img
-          className="absolute top-2/4 2xl:h-[104px] border-4 border-white xl:h-24 lg:h-20 md:h-16 h-14 2xl:w-[104px] xl:w-24 lg:w-20 md:w-16 w-14 left-[70%]"
+          className="absolute top-2/4 3xl:h-[104px] border-4 border-white xl:h-20 lg:h-16 md:h-12 h-10 3xl:w-[104px] xl:w-20 lg:w-16 md:w-12 w-10 left-[70%]"
           src={DESIGNER_IMAGES[2].image.src}
         />
       </div>

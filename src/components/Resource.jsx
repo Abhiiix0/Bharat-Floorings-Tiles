@@ -12,7 +12,7 @@ const Resource = ({ resource }) => {
           Showing 55 of 55 releases
         </div>
         <div className='flex gap-4 xl:mb-40 md:flex-row flex-col lg:mb-32 md:mb-24 mb-16 items-start shrink-0 relative'>
-          <div className='xl:w-[25%] md:w-[30%] sticky top-0 w-full xl:text-base text-sm'>
+          <div className='xl:w-[25%] md:w-[30%] md:sticky relative top-0 w-full xl:text-base text-sm'>
             <div>
               <u>
                 <h3 className='mb-4 title-el font-semibold'>

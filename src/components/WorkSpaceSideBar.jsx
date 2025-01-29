@@ -7,7 +7,7 @@ const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
   const HandelSelectTileBorder = (type) => {
     settilesBorderBtn(type);
   };
-  console.log("TilesData", TilesData);
+
   const [levelOne, setlevelOne] = useState("");
   const [levelTwo, setlevelTwo] = useState("");
   const [levelThree, setlevelThree] = useState("");
