@@ -3,9 +3,9 @@
 import { TilePosition, useTilesStore } from "./../store/tiles.store";
 import { useRef } from "react";
 import { DragPreviewImage, useDrag } from "react-dnd";
-import { addDataConnectToSvg } from "../fllor-it-utils";
+import { addDataConnectToSvg, addDataConnectToSvgWithGrainEffect } from "../fllor-it-utils";
 
-
+import grainsEffect from "../../public/images/tiles/grains.png"
 
 
 interface SvgComponentProps {
@@ -35,20 +35,22 @@ export default function SvgComponent({
   const setManipulatedResult = useTilesStore(
     (state) => state.setManipulatedResult
   );
-  const modifiedSvgString = addDataConnectToSvg(
+  const modifiedSvgString = addDataConnectToSvgWithGrainEffect(
     svgString,
     height,
     width,
     rotation,
-    color
+    color,
+    grainsEffect
   );
 
-  const dragPreviewModifiedSvgString = addDataConnectToSvg(
+  const dragPreviewModifiedSvgString = addDataConnectToSvgWithGrainEffect(
     svgString,
     50,
     50,
     rotation,
-    color
+    color,
+    grainsEffect
   );
 
   const handleElementClick = (event: React.MouseEvent<HTMLElement>) => {

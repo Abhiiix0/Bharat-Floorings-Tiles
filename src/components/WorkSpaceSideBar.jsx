@@ -61,7 +61,7 @@ const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
             </button>
           </div>
 
-          <div className=" h-[calc(100%-160px)]  mt-7 3xl:mt-16   overflow-y-scroll">
+          <div className=" h-[calc(100%-160px)] bg-white pb-2  mt-7 3xl:mt-16   overflow-y-scroll">
             {tilesBorderBtn === "tiles" && (
               <div className=" px-7 flex flex-col gap-4">
                 {TilesData?.map((Tdata, i) => (

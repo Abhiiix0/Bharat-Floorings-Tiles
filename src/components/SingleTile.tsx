@@ -1,9 +1,6 @@
 "use client";
 import { TilePosition, useTilesStore } from "./../store/tiles.store";
-import React from "react";
-import RotateButton from "./RotationButton";
 import SvgComponent from "./SvgComponent";
-
 interface TilesPairProps {
     svgString: string;
     height: number,
@@ -17,16 +14,6 @@ export default function SingleTile({ svgString, height=50, width=50, }: TilesPai
   const setManipulatedResult = useTilesStore(
     (state) => state.setManipulatedResult
   );
-
-  const rotateTile = (position: TilePosition) => {
-    const results = manipulatedResults[position];
-    setManipulatedResult(
-      position,
-      results.rotation + 90,
-      results.color,
-      svgString
-    );
-  };
 
   const handleElementClick = (
     event: React.MouseEvent<HTMLElement>,
@@ -59,7 +46,7 @@ export default function SingleTile({ svgString, height=50, width=50, }: TilesPai
   };
 
   return (
-    <div className="h-72 w-72 flex flex-col items-stretch justify-center">
+    <div className=" flex flex-col items-stretch justify-center">
           <SvgComponent
             svgString={svgString}
             height={height}

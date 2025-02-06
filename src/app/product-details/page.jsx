@@ -1,8 +1,8 @@
 "use client";
-import Header from '../../components/Header'
-import PImage from "../../../public/images/products/product.jpg";
-import tiles1 from "../../../public/images/products/Stiles1.png";
-import tiles2 from "../../../public/images/products/Stiles2.jpg";
+import Header from "../../components/Header";
+import PImage from "../../../public/svgs/tile1.svg";
+import tiles1 from "../../../public/svgs/tile2.svg";
+import tiles2 from "../../../public/svgs/tile2.svg";
 import Image from "next/image";
 import { useState } from "react";
 import Remix from "../../../public/icons/remix";
@@ -11,6 +11,8 @@ import ImageGallery2 from "../../components/ImageGallery2";
 import ProductCard from "../../components/products/ProductCard";
 import tilsDesign from "../../../public/images/product-details/tiles.png";
 import kitchen from "../../../public/images/product-details/kitchen.jpg";
+import { useRouter } from "next/navigation";
+import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
 const page = () => {
   const products = {
     name: "Contemporary Terrazo ",
@@ -137,6 +139,30 @@ const page = () => {
   };
   const [menuBtn, setmenuBtn] = useState(false);
   const [Inquery, setInquery] = useState(true);
+  const [productInfo, setproductInfo] = useState(false);
+
+  const handelProductInfo = () => {
+    if (productInfo) {
+      setproductInfo(false);
+    } else {
+      setproductInfo(true);
+    }
+  };
+  const router = useRouter();
+  const [whoInfo, setwhoInfo] = useState(false);
+  const [loading, setloading] = useState(false);
+  const setTileData = useFloorVisualizerStore((state) => state.setTileData);
+  const ViewOnWorkShop = async () => {
+    const response = await fetch(SelectedImg?.src); // Adjust path as needed
+    const svgText = await response.text();
+    setTileData({
+      id: 0,
+      name: "Tiles One",
+      image: svgText,
+      size: "10*10",
+    });
+    router.push("/workspace");
+  };
   return (
     <div>
       <section className=" relative">
@@ -221,7 +247,7 @@ const page = () => {
           onMouseLeave={() => closeQuote()}
           className={`${
             Inquery && " right-[-100%]"
-          }  fixed top-0 pb-14 right-0 z-[2251] w-full transition-all  duration-1000 ease-in-out sm:w-[440px] 3xl:w-[558px]  h-screen overflow-y-scroll bg-[#2A2523]`}
+          }  fixed top-0 pb-14 right-0 z-[2251]  transition-all  duration-1000 ease-in-out w-full sm:w-[440px] 3xl:w-[558px]  h-screen overflow-y-scroll bg-[#2A2523]`}
         >
           <div className=" grid grid-cols-4 grid-rows-2">
             <Image
@@ -283,29 +309,30 @@ const page = () => {
               <p className=" text-white/30">Starts from</p>
               <p className="text-[#8FDEAA]">600 per sqft.</p>
             </div>
-            <div className=" flex overflow-hidden w-full flex-col sm:flex-row mt-8 3xl:mt-12">
-              <div className=" flex w-[50%] flex-col  ">
+            <div className=" flex overflow-hidden w-full flex-col md:flex-row mt-8 3xl:mt-12">
+              <div className=" flex w-full md:w-[50%] flex-col  ">
                 <label
                   htmlFor=""
-                  className=" text-[12px] 3xl:text-base font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
+                  className=" flex items-center border-b  py-5 md:py-0 justify-between text-base font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
                 >
-                  TOTAL AREA IN SQFT
+                  TOTAL AREA IN SQFT{" "}
+                  <span className=" block md:hidden">500</span>
                 </label>
                 <input
                   type="text"
-                  className=" text-xl h-12 3xl:h-[52px] border-b-2 bg-transparent text-white outline-none"
+                  className=" hidden md:block text-xl h-12 3xl:h-[52px] border-b-2 bg-transparent text-white outline-none"
                 />
               </div>
-              <div className=" w-[50%] flex flex-col">
+              <div className=" w-full md:w-[50%] flex flex-col">
                 <label
                   htmlFor=""
-                  className=" text-[12px] 3xl:text-base font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
+                  className=" flex items-center justify-between   border-b text-base py-5 md:py-0 sm:font-medium normal-text leading-[35px] text-white  sm:border-b-2 border-white"
                 >
-                  ESTIMATED COST
+                  ESTIMATED COST <span className=" block md:hidden">500</span>
                 </label>
                 <input
                   type="text"
-                  className=" text-xl h-12 3xl:h-[52px] pl-2 border-b-2 bg-transparent text-white outline-none"
+                  className=" text-xl hidden md:block h-12 3xl:h-[52px] pl-2 border-b-2 bg-transparent text-white outline-none"
                 />
               </div>
             </div>
@@ -321,7 +348,7 @@ const page = () => {
               <input
                 type="text"
                 placeholder="Phone"
-                className=" pl-2 bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" md:pl-2 bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
               <input
                 type="text"
@@ -331,14 +358,19 @@ const page = () => {
               <input
                 type="text"
                 placeholder="City"
-                className=" pl-2 bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
+                className=" md:pl-2 bg-transparent border-b-2 outline-none text-[20px]  text-white pt-[31px]  "
               />
             </div>
-            <div className=" w-full pt-[59px] xl:text-xl font-Inter leading-[32px]  flex flex-col gap-7 justify-center items-center mb-[19px]">
+            <div className=" w-full pt-[59px] xl:text-xl font-Inter leading-[32px]  flex flex-col  justify-center items-center mb-[19px]">
               <button className=" bg-white   h-14 3xl:h-[64px] flex justify-between align-self-center  items-center w-full">
                 <p className=" mx-auto font-medium">Get a quote</p>
               </button>
-              <p className=" text-center  text-white">Cancel</p>
+              <p
+                onClick={closeQuote}
+                className=" text-center py-4 w-full  border text-white"
+              >
+                Cancel
+              </p>
             </div>
             <p className=" mt-[69px] font-Inter text-white/30">
               Estimated cost has been calculated based on the square footage
@@ -353,32 +385,25 @@ const page = () => {
           className=" absolute top-0 left-0 w-[210px] h-[100vh] md:h-[150vh] "
         ></div>
         <div className="  px-5 lg:px-[88px] mt-[30px] md:mt-[60px] lg:mt-[128px]">
-          <div className=" flex lg:hidden gap-2 text-[8px] md:text-sm font-semibold text-gray-500 mb-[25px]">
-            <p>DESIGNER TILES</p>
-            {">"}
-            <p>BFT+DESIGNER</p> {">"}
-            <p>VIRTUOSO</p>
-            {">"} <p className=" text-black">CONTEMPORARY TERRAZO</p>
-          </div>
-          <div className=" flex lg:flex-row flex-col  gap-4 md:gap-8 lg:gap-12 2xl:gap-16 3xl:gap-[90px]">
-            <div className=" lg:ml-[12px] 2xl:ml-[100px] 3xl:ml-[157px]">
+          <div className=" flex lg:flex-row flex-col gap-12 md:gap-8 lg:gap-12 2xl:gap-16 3xl:gap-[90px]">
+            <div className="  lg:ml-[12px] 2xl:ml-[100px] 3xl:ml-[157px]">
               <Image
                 className=" lg:w-[400px] w-full 2xl:h-[558px] 2xl:w-[558px] object-cover"
                 src={SelectedImg}
                 alt="Image"
               ></Image>
-              <div className=" flex mt-[10px]">
+              <div className="  border-red-400 flex mt-[10px]">
                 {products.tiles.map((tile, index) => (
                   <Image
                     key={index}
-                    className="h-[55px]  z-[20] cursor-pointer w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
+                    className=" w-[25%] sm:h-[55px]  z-[20] cursor-pointer sm:w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
                     src={tile}
                     onClick={() => setSelectedImg(tile)}
                     //   onClick={() => setSelectedImg(tile)}
                     alt="Image"
                   ></Image>
                 ))}
-                <div className="group border hover:border-[#516756] ml-[10px] hover:bg-[#516756] relative z-[800] cursor-pointer border-black flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
+                <div className="group hidden border hover:border-[#516756] ml-[10px] hover:bg-[#516756] relative z-[800] cursor-pointer border-black lg:flex justify-center items-center h-[55px] w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px]">
                   {/* Black Remix (default state) */}
                   <Remix
                     size={40}
@@ -393,11 +418,11 @@ const page = () => {
                   />
                 </div>
               </div>
-              <p className=" normal-text text-sm md:text-xl mt-5 md:mt-[42px]">
+              <p className=" normal-text hidden lg:block text-sm md:text-xl mt-5 md:mt-[42px]">
                 Extra information +
               </p>
             </div>
-            <div className="">
+            <div className=" ">
               <div className=" hidden lg:flex gap-2 text-sm xl:text-base font-Inter font-semibold text-gray-500 mb-0 sm:mb-[48px]">
                 <p>DESIGNER TILES</p>
                 {">"}
@@ -405,18 +430,22 @@ const page = () => {
                 <p>VIRTUOSO</p>
                 {">"} <p className=" text-black">CONTEMPORARY TERRAZO</p>
               </div>
-              <p className=" font-Gloock text-lg sm:text-2xl md:text-4xl 3xl:text-[70px] 3xl:leading-[80px] lg:w-[150px]">
+              <p className=" font-Gloock text-3xl sm:text-2xl md:text-4xl 3xl:text-[70px] 3xl:leading-[80px] lg:w-[150px]">
                 {products.name}
               </p>
-              <div className=" flex items-center font-Inter font-medium text md:text-xl gap-2 sm:gap-5 mt-5 mb-5 md:mt-[37px] md:mb-[28px] lg:mb-[37px] lg:mt-[47]">
+              <div className=" flex items-center font-Inter font-medium md:text-xl gap-2 sm:gap-5 mt-7 mb-6 md:mt-[37px] md:mb-[28px] lg:mb-[37px] lg:mt-[47]">
                 <Image
                   src={products.tiles[3]}
                   alt="Image"
-                  className=" h-11 w-11 md:h-[60px] md:w-[60px] lg:h-[78px] lg:w-[78px] rounded-full"
+                  className=" h-[60px] object-cover border w-[60px] lg:h-[78px] lg:w-[78px] rounded-full"
                 ></Image>
                 Aniruddh Mehta
               </div>
-              <div className=" normal-text text-sm md:text-lg lg:text-base 2xl:text-base w-full  lg:w-[550px] 2xl:w-[658px]">
+              <div
+                className={` normal-text w-full transition-all duration-300 ease-in-out lg:h-fit  overflow-hidden text-ellipsis whitespace-pre-line ${
+                  productInfo && "h-[7.5rem] "
+                } lg:w-[550px] 2xl:w-[658px]`}
+              >
                 The classic Terrazzo tile is very reminiscent of Indian homes
                 and often associated with nostalgia of an old ‘Bombay’. The
                 reimagining of this tile in a modern and contemporary approach
@@ -429,9 +458,20 @@ const page = () => {
                 theme, suitable for a low-lit room or one which basks in the
                 sunlight
               </div>
-              <div className=" mt-6 md:mt-[50px] lg:mt-24 3xl:mt-[135px] pb-[20px]  lg:pb-[77px]">
-                <div className=" flex font-Inter gap-16">
-                  <p className="  md:text-lg max-w-[133px]">Color</p>
+              <div className=" flex text-sm font-semibold py-5 lg:hidden font-Inter items-center border-b-black justify-between border-b ">
+                READ MORE{" "}
+                <span
+                  className=" text-3xl font-normal"
+                  onClick={handelProductInfo}
+                >
+                  {productInfo ? "+" : "-"}
+                </span>
+              </div>
+              <div className=" mt-10 md:mt-[50px] lg:mt-24 3xl:mt-[135px] pb-14 sm:pb-[20px]  lg:pb-[77px]">
+                <div className=" flex flex-col sm:flex-row font-Inter  gap-3  sm:gap-16">
+                  <p className=" text-sm font-bold sm:font-normal h-9 sm:h-fit flex items-center   md:text-lg max-w-[133px]">
+                    Color
+                  </p>
                   <div className=" flex gap-5">
                     <div className=" h-[33px] w-[33px] rounded-full bg-red-400"></div>
                     <div className=" h-[33px] w-[33px] rounded-full bg-green-400"></div>
@@ -439,27 +479,32 @@ const page = () => {
                     <div className=" h-[33px] w-[33px] rounded-full bg-yellow-400"></div>
                   </div>
                 </div>
-                <div className=" flex gap-16  font-Inter mt-[15px] md:mt-[39px]">
-                  <p className=" md:text-lg max-w-[133px]">Tile size</p>
-                  <div className=" font-semibold text-lg md:text-xl">
+                <div className=" sm:flex gap-16  font-Inter mt-[33px] md:mt-[39px]">
+                  <p className=" text-sm font-bold sm:font-normal h-9 sm:h-fit flex items-center   md:text-lg max-w-[133px]">
+                    Tile size
+                  </p>
+                  <div className=" sm:font-semibold text-sm sm:text-lg md:text-xl">
                     20cm x 20cm
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className=" flex relative z-[150] pb-14 md:pb-24 lg:pb-[120px] xl:pb-[150px] 3xl:pb-[208px]">
+          <div className=" flex relative z-[150] pb-28 md:pb-24 lg:pb-[120px] xl:pb-[150px] 3xl:pb-[208px]">
             <div className="  hidden lg:block w-[33.3%] lg:h-[246px]  "></div>
-            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px] lg:h-48 3xl:h-[246px] flex items-center gap-[0.65rem]  lg:pl-[30px] 2xl:pl-[240px]">
+            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px] border lg:h-48 3xl:h-[246px] sm:flex items-center gap-[0.65rem]  lg:pl-[30px] 2xl:pl-[240px]">
               <button
                 onClick={() => {
                   openQuote();
                 }}
-                className=" h-[50px] cursor-pointer hover:bg-[#516756] sm:h-[64px] font-medium text-white normal-text  px-[15px] lg:px-[32px] flex justify-center text-sm md:text-xl items-center bg-[#2A2523]"
+                className=" w-full sm:w-fit cursor-pointer hover:bg-[#516756] h-[64px] font-medium text-white normal-text  px-[15px] lg:px-[32px] flex justify-center  md:text-xl items-center bg-[#2A2523]"
               >
                 Get a quote
               </button>
-              <button className="h-[50px] cursor-pointer hover:bg-[#516756] hover:text-white group  sm:h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 hover:border-[#516756] border-black text-sm md:text-xl items-center ">
+              <button
+                onClick={ViewOnWorkShop}
+                className="w-full sm:w-fit cursor-pointer hover:bg-[#516756] hover:text-white group h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 hover:border-[#516756] border-black  md:text-xl items-center "
+              >
                 Remix in Workbench{" "}
                 <Remix
                   size={31}
@@ -475,16 +520,16 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-row items-center gap-3 md:gap-7 px-5 mb-14 md:mb-24 lg:mb-[150px] xl:mb-[233px] lg:px-[100px]">
+        <div className=" flex flex-col sm:flex-row items-center gap-3 md:gap-7 px-5 mb-14 md:mb-24 lg:mb-[150px] xl:mb-[233px] lg:px-[100px]">
           <Image
             alt="Image"
             src={kitchen}
-            className=" h-[250px] md:h-[450px] lg:h-[650px] xl:h-[884px] w-[50%] object-cover"
+            className=" h-[370px] md:h-[450px] lg:h-[650px] xl:h-[884px] w-full sm:w-[50%] object-cover"
           ></Image>
           <Image
             alt="Image"
             src={kitchen}
-            className=" h-[120px] md:h-[250px] lg:h-[360px] xl:h-[512px] w-[50%] object-cover"
+            className=" h-[219px] md:h-[250px] lg:h-[360px] xl:h-[512px] w-full sm:w-[50%] object-cover"
           ></Image>
         </div>
         <ImageGallery2 images={imgArray} />
@@ -492,9 +537,11 @@ const page = () => {
           <p className=" mt-16 md:mt-44 mb-12 text-3xl sm:text-[45px] xl:text-[70px] heading-gloock">
             COMPLEMENTING PATTERNS
           </p>
-          <div className=" grid z-[100] relative grid-cols-1 place-content-center md:grid-cols-2 xl:grid-cols-3   pb-[200px]  w-full">
+          <div className="flex gap-3 overflow-x-auto sm:grid z-[100] relative grid-cols-1 place-content-center md:grid-cols-2 xl:grid-cols-3 pb-[200px] w-full snap-x snap-mandatory">
             {productsArray.map((prd, i) => (
-              <ProductCard key={i} Product={prd} />
+              <div key={i} className="snap-start min-w-[80%] sm:min-w-0">
+                <ProductCard Product={prd} />
+              </div>
             ))}
           </div>
         </div>

@@ -1,28 +1,43 @@
 import { useFloorStore } from "./../store/floor.store";
 import React, { useEffect } from "react";
 import FloorSecondSvgComponent from "./FloorSecondSvgComponent";
-
+import grainEffect from "../../public/images/tiles/grains.png"
 export default function FloorSecond() {
   const gridLayout = useFloorStore((state) => state.gridLayout);
 
   return (
     <div className="relative">
-      <div>
+      <div className="">
         {gridLayout.map((row, rowIndex) => (
           <div key={rowIndex} style={{ display: "flex" }}>
             {row.map((tile, colIndex) => {
               if (tile && "svgString" in tile) {
                 return (
-                  <FloorSecondSvgComponent
-                    key={`${rowIndex}-${colIndex}`}
-                    svgString={tile.svgString}
-                    height={tile.height} // Adjust the height and width as needed
-                    width={tile.width}
-                    color={tile.color}
-                    rotation={tile.rotation}
-                    indexRow={rowIndex}
-                    indexCol={colIndex}
-                  />
+                  <div  key={`${rowIndex}-${colIndex}-${JSON.stringify(tile.color)}`} className="relative" >
+
+                  <FloorSecondSvgComponent  
+                  svgString={tile.svgString}
+                  height={tile.height} 
+                  width={tile.width}
+                  color={tile.color}
+                  rotation={tile.rotation}
+                  indexRow={rowIndex}
+                  indexCol={colIndex}
+                    />
+                    
+                     {/* Global Grain Effect Overlay */}
+      <div
+        className="absolute top-0 left-0 w-full opacity-60 h-full "
+        style={{
+          backgroundImage: `url('${grainEffect?.src}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          // mixBlendMode: "multiply",
+          mixBlendMode: "luminosity",
+          zIndex: 10,
+        }}/>
+                    
+                  </div>
                 );
               }
               return (
@@ -39,6 +54,8 @@ export default function FloorSecond() {
           </div>
         ))}
       </div>
+    
     </div>
+
   );
 }

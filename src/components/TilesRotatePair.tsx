@@ -58,8 +58,62 @@ export default function TilesPair({ svgString }: TilesPairProps) {
   };
 
   return (
-    <div className=" flex flex-col items-stretch justify-center">
+    <div className=" ">
    
+   <div className=" flex 3xl:hidden flex-col items-stretch justify-center">
+
+      
+<div className="flex relative justify-center">
+  <SvgRotateComponent
+    svgString={svgString}
+    height={134}
+    width={134}
+    position="topLeft"
+    color={manipulatedResults["topLeft"].color}
+    rotation={manipulatedResults["topLeft"].rotation}
+    onClick={(event) => handleElementClick(event, "topLeft")}
+  />
+  <SvgRotateComponent
+    svgString={svgString}
+    height={134}
+    width={134}
+    position="topRight"
+    color={manipulatedResults["topRight"].color}
+    rotation={manipulatedResults["topRight"].rotation}
+    onClick={(event) => handleElementClick(event, "topRight")}
+          />
+<div className="flex absolute w-full  h-[175px] top-0 left-0  justify-between">
+              <div  onClick={() => rotateTile("topLeft")} className=" cursor-pointer w-[174px] h-full"></div>
+              <div onClick={() => rotateTile("topRight")}  className="w-[174px] cursor-pointer h-full"></div>
+</div>
+</div>
+<div className="flex relative justify-center">
+  <SvgRotateComponent
+    svgString={svgString}
+    height={134}
+    width={134}
+    position="bottomLeft"
+    color={manipulatedResults["bottomLeft"].color}
+    rotation={manipulatedResults["bottomLeft"].rotation}
+    onClick={(event) => handleElementClick(event, "bottomLeft")}
+  />
+  <SvgRotateComponent
+    svgString={svgString}
+    height={134}
+    width={134}
+    position="bottomRight"
+    color={manipulatedResults["bottomRight"].color}
+    rotation={manipulatedResults["bottomRight"].rotation}
+    onClick={(event) => handleElementClick(event, "bottomRight")}
+          />
+          <div className="flex absolute w-full h-[175px] top-0 left-0  justify-between">
+              <div  onClick={() => rotateTile("bottomLeft")} className="cursor-pointer w-[174px] h-full"></div>
+              <div onClick={() => rotateTile("bottomRight")}  className=" cursor-pointer w-[174px] h-full"></div>
+</div>
+</div>
+</div>
+      <div className=" hidden 3xl:flex flex-col items-stretch justify-center">
+
       
         <div className="flex relative justify-center">
           <SvgRotateComponent
@@ -109,7 +163,7 @@ export default function TilesPair({ svgString }: TilesPairProps) {
                       <div onClick={() => rotateTile("bottomRight")}  className=" cursor-pointer w-[174px] h-full"></div>
       </div>
         </div>
-
+        </div>
      
     </div>
   );

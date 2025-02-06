@@ -1,9 +1,7 @@
-import Image from "next/image";
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
-import { LuImagePlus } from "react-icons/lu";
-
-const SideBar = ({ rooms, handelRoomVisual, handleVisualizeClick }) => {
+const SideBar = ({ handelRoomVisual, handleVisualizeClick }) => {
   const [visualizerInfo, setvisualizerInfo] = useState(true);
   const handelVisualizerInfo = () => {
     if (visualizerInfo) {
@@ -15,6 +13,43 @@ const SideBar = ({ rooms, handelRoomVisual, handleVisualizeClick }) => {
   const setSelectedRoom = useFloorVisualizerStore(
     (state) => state.setSelectedRoom
   );
+  const [roomsData, setRoomsData] = useState([]);
+
+  const transformRoomData = (oldData) => {
+    return {
+      id: oldData?.id,
+      image: oldData?.thumbImg,
+      layer: oldData?.layerImg,
+      name: oldData?.name,
+      sizes: [
+        {
+          size: oldData.size,
+          properties: {
+            top: parseFloat(oldData.top),
+            left: parseFloat(oldData.left),
+            perspective: parseFloat(oldData.perspective),
+            rotateX: parseFloat(oldData.rotateX),
+            scale: parseFloat(oldData.scale),
+          },
+        },
+      ],
+    };
+  };
+
+  async function getAllRoomsFun() {
+    const res = await fetch(
+      "https://dev-projects-bft-data-entry-service.hph94m.easypanel.host/product/rooms"
+    );
+    const result = await res.json();
+
+    setRoomsData(result);
+    console.log("res", result);
+    console.log("formate data", transformRoomData(...result));
+  }
+  useEffect(() => {
+    getAllRoomsFun();
+  }, []);
+
   return (
     <div className=" rounded flex items-center h-full w-fit mr-28 absolute top-0 right-0">
       <div className=" h-fit mt-[-100px] w-72 3xl:w-[335px] relative p-5 bg-white">
@@ -33,24 +68,45 @@ const SideBar = ({ rooms, handelRoomVisual, handleVisualizeClick }) => {
         >
           ?
         </div>
-
-        {rooms?.slice(0, 3)?.map((rm) => (
-          <div
-            key={rm.id}
-            className=" flex cursor-pointer rounded w-[100%]  h-28 3xl:h-[165px] 3xl:w-[293px] overflow-hidden items-center gap-2 mb-4"
-          >
-            <Image
-              onClick={() => {
-                setSelectedRoom(rm);
-                handelRoomVisual(true);
-                handleVisualizeClick();
-              }}
-              alt="image"
-              src={rm?.image}
-              className="hover:scale-110 object-cover  duration-100 ease-linear transition-all"
-            ></Image>
+        {roomsData?.length === 0 ? (
+          <div className=" flex cursor-pointer rounded w-[100%]  h-28 3xl:h-[165px] 3xl:w-[293px] overflow-hidden items-center gap-2 mb-4">
+            <div class="flex items-center justify-center w-full h-full bg-gray-300 rounded-sm dark:bg-gray-100">
+              <svg
+                class="w-10 h-10 text-gray-200 dark:text-gray-600"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 18"
+              >
+                <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+              </svg>
+            </div>
           </div>
-        ))}
+        ) : (
+          <>
+            {roomsData?.slice(0, 3).map((rm) => (
+              <div
+                key={rm.id}
+                className=" flex cursor-pointer rounded w-[100%]  h-28 3xl:h-[165px] 3xl:w-[293px] overflow-hidden items-center gap-2 mb-4"
+              >
+                <img
+                  onClick={() => {
+                    setSelectedRoom(transformRoomData(rm));
+                    handelRoomVisual(true);
+                    handleVisualizeClick();
+                  }}
+                  width={100}
+                  height={100}
+                  alt="image"
+                  loading="lazy"
+                  src={rm?.thumbImg}
+                  className="hover:scale-110 object-cover h-full w-full  duration-100 ease-linear transition-all"
+                ></img>
+              </div>
+            ))}
+          </>
+        )}
+
         <div className="h-28 3xl:h-[165px] cursor-pointer font-Inter text-sm font-medium text-[#979797] border-dashed border-2 border-[#C7C7C7] flex items-center justify-center flex-col gap-3 rounded overflow-hidden 3xl:w-[293px] bg-[#F6F6F6]">
           <svg
             className=" h-[28px] 3xl:h-full"

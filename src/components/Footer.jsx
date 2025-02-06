@@ -139,7 +139,7 @@ const Footer = () => {
         ))}
       </div>
       <p className=" h-[107px] md:h-[67px] px-5 lg:px-[6.3rem] mb-14 md:mb-0 m-0 p-0 ">
-        Copyright - Bharat Floorings and Tiles © 2024{" "}
+        Copyright - Bharat Floorings and Tiles © 2024
         <br className=" md:hidden" /> All images and text are copyrighted unless
         otherwise specified.
       </p>

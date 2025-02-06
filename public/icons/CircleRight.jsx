@@ -10,8 +10,8 @@ const CircleRight = ({ color = "white", className }) => {
     >
       <path
         d="M11.1141 22L2 12.8545L4.98264 9.8243L11.1138 15.9944L25.0174 2L28 5.00322L11.1141 22Z"
-        fill="white"
-        stroke={color}
+        fill={color}
+        stroke="#2A2523"
         stroke-width="1.5"
       />
     </svg>

@@ -28,7 +28,7 @@
 }
 
 .link-el {
-  @apply 2xl:text-base xl:text-sm text-xs flex gap-1 items-center 2xl:h-14 h-8 xl:h-11 lg:h-9 font-Inter leading-[35.4px];
+  @apply text-base  flex gap-2 items-center h-14 font-Inter leading-[35.4px];
 }
 
 .para-big {
@@ -149,4 +149,12 @@
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: #e5e7eb;
   /* Light gray track */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
 }

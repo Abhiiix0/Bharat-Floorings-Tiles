@@ -1,30 +1,71 @@
 import { Tile, TileProperties } from "../store/floor.store";
 import { createCanvas, loadImage } from "canvas";
-
+import grainsEffect from "../../public/images/tiles/grains.png"
 // svg manupulation
 export const addDataConnectToSvg = (
   svgString: string,
   height: number,
   width: number,
   rotation: number,
-  colors: { [id: number]: string }
+  colors: { [id: number]: string },
 ) => {
-  console.log(svgString, height, width)
+  console.log(svgString, height, width);
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgString, "image/svg+xml");
   const svg = doc.querySelector("svg");
-
-  // Set the height and width attributes
-  if (svg) {
-    svg.setAttribute("height", height.toString());
-    svg.setAttribute("width", width.toString());
-    svg.setAttribute("style", `transform: rotate(${rotation}deg);`);
-  }
 
   if (!svg) {
     throw new Error("Invalid SVG");
   }
 
+  // ✅ Set the height and width attributes
+  svg.setAttribute("height", height.toString());
+  svg.setAttribute("width", width.toString());
+  svg.setAttribute("style", `transform: rotate(${rotation}deg);`);
+
+  // ✅ Create a <defs> section for patterns if not exists
+  let defs = svg.querySelector("defs");
+  if (!defs) {
+    defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    svg.prepend(defs);
+  }
+
+  // ✅ Create a <pattern> for the grains effect
+  const patternId = "grainTexture";
+  const pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+  pattern.setAttribute("id", patternId);
+  pattern.setAttribute("patternUnits", "objectBoundingBox"); // Ensures scaling
+  pattern.setAttribute("width", "1"); // Adjust width and height for the grain texture
+  pattern.setAttribute("height", "1");
+
+  // ✅ Add the grains.png image inside the pattern
+  const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+  image.setAttribute("href", grainsEffect?.src); // Path or Base64 Data URL to grainsEffect.png
+  image.setAttribute("x", "0");
+  image.setAttribute("y", "0");
+  image.setAttribute("width", "100%"); // Adjust to fit the element
+  image.setAttribute("height", "100%");
+  image.setAttribute("preserveAspectRatio", "xMidYMid slice"); // Ensure proper scaling
+  image.setAttribute("opacity", "0.8"); // Adjust opacity for realism
+
+  pattern.appendChild(image);
+  defs.appendChild(pattern);
+
+  // ✅ Overlay grain effect on the entire SVG
+  let grainOverlay = svg.querySelector("#grainOverlay");
+  if (!grainOverlay) {
+    grainOverlay = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    grainOverlay.setAttribute("id", "grainOverlay");
+    grainOverlay.setAttribute("x", "0");
+    grainOverlay.setAttribute("y", "0");
+    grainOverlay.setAttribute("width", "100%");
+    grainOverlay.setAttribute("height", "100%");
+    grainOverlay.setAttribute("fill", `url(#${patternId})`);
+    grainOverlay.setAttribute("pointer-events", "none"); // Don't block interactions
+    svg.appendChild(grainOverlay);
+  }
+
+  // ✅ Process each fillable element without breaking colors
   const elements = svg.querySelectorAll("[fill]");
   const colorMap = new Map();
   let idCounter = 1;
@@ -36,7 +77,6 @@ export const addDataConnectToSvg = (
     }
 
     const dataConnectId = colorMap.get(fill);
-
     element.setAttribute("data-connect", dataConnectId);
 
     if (colors[dataConnectId]) {
@@ -46,14 +86,21 @@ export const addDataConnectToSvg = (
 
   return new XMLSerializer().serializeToString(svg);
 };
-export const addDataConnectToSvgWithGrains = (
+
+export const addDataConnectToSvgWithGrainEffect = (
   svgString: string,
   height: number,
   width: number,
   rotation: number,
-  colors: { [id: number]: string }
+  colors: { [id: number]: string },
+  grainsEffect:any
 ) => {
-  console.log(svgString, height, width);
+  console.log("tileData", svgString,
+    height,
+    width,
+    rotation,
+    colors,
+    grainsEffect)
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgString, "image/svg+xml");
   const svg = doc.querySelector("svg");
@@ -62,55 +109,77 @@ export const addDataConnectToSvgWithGrains = (
     throw new Error("Invalid SVG");
   }
 
-  // Set SVG size and rotation
+  // ✅ Set the height and width attributes
   svg.setAttribute("height", height.toString());
   svg.setAttribute("width", width.toString());
   svg.setAttribute("style", `transform: rotate(${rotation}deg);`);
 
-  // Ensure <defs> exists
+  // ✅ Create a <defs> section for patterns if not exists
   let defs = svg.querySelector("defs");
   if (!defs) {
     defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
     svg.prepend(defs);
   }
 
-  // ✅ Add original elements inside a <g> to keep them unchanged
-  const originalGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-  originalGroup.innerHTML = svg.innerHTML; // Keep original SVG contents
-  svg.innerHTML = ""; // Clear and add elements manually
-  svg.appendChild(originalGroup);
-
-  // ✅ Create a grain texture pattern
+  // ✅ Create a <pattern> for the grains effect
   const patternId = "grainTexture";
   const pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
   pattern.setAttribute("id", patternId);
-  pattern.setAttribute("patternUnits", "objectBoundingBox");
-  pattern.setAttribute("width", "0.1");
-  pattern.setAttribute("height", "0.1");
+  pattern.setAttribute("patternUnits", "objectBoundingBox"); // Ensures scaling
+  pattern.setAttribute("width", "1"); // Adjust width and height for the grain texture
+  pattern.setAttribute("height", "1");
 
+  // ✅ Add the grains.png image inside the pattern
   const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
-  image.setAttribute("href"," grainsImg?.src"); // Ensure this image is available
+  image.setAttribute("href", grainsEffect?.src); // Path or Base64 Data URL to grainsEffect.png
   image.setAttribute("x", "0");
   image.setAttribute("y", "0");
-  image.setAttribute("width", "100%");
+  image.setAttribute("width", "100%"); // Adjust to fit the element
   image.setAttribute("height", "100%");
+  image.setAttribute("preserveAspectRatio", "xMidYMid slice"); // Ensure proper scaling
+  image.setAttribute("opacity", "0.8"); // Adjust opacity for realism
+
   pattern.appendChild(image);
   defs.appendChild(pattern);
 
-  // ✅ Create a grain overlay rectangle that covers the whole SVG
-  const grainOverlay = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-  grainOverlay.setAttribute("x", "0");
-  grainOverlay.setAttribute("y", "0");
-  grainOverlay.setAttribute("width", "100%");
-  grainOverlay.setAttribute("height", "100%");
-  grainOverlay.setAttribute("fill", `url(#${patternId})`);
-  grainOverlay.setAttribute("opacity", "0.99"); // Adjust opacity to control grain visibility
+  // ✅ Overlay grain effect on the entire SVG
+  let grainOverlay = svg.querySelector("#grainOverlay");
+  if (!grainOverlay) {
+    grainOverlay = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    grainOverlay.setAttribute("id", "grainOverlay");
+    grainOverlay.setAttribute("x", "0");
+    grainOverlay.setAttribute("y", "0");
+    grainOverlay.setAttribute("width", "100%");
+    grainOverlay.setAttribute("height", "100%");
+    grainOverlay.setAttribute("fill", `url(#${patternId})`);
+    grainOverlay.setAttribute("pointer-events", "none"); // Don't block interactions
+    svg.appendChild(grainOverlay);
+  }
 
-  // ✅ Add the grain overlay **above** the original SVG content
-  svg.appendChild(grainOverlay);
+  // ✅ Process each fillable element without breaking colors
+  const elements = svg.querySelectorAll("[fill]");
+  const colorMap = new Map();
+  let idCounter = 1;
+
+  elements.forEach((element) => {
+    const fill = element.getAttribute("fill");
+    if (!colorMap.has(fill)) {
+      colorMap.set(fill, idCounter++);
+    }
+
+    const dataConnectId = colorMap.get(fill);
+    element.setAttribute("data-connect", dataConnectId);
+
+    if (colors[dataConnectId]) {
+      element.setAttribute("fill", colors[dataConnectId]);
+    }
+  });
 
   return new XMLSerializer().serializeToString(svg);
 };
+
+
+
 // canvas gridlayout
 function getInnerTiles(
   gridLayout: (TileProperties | {})[][]
@@ -144,8 +213,7 @@ export async function createPngFromGridLayout(
 ): Promise<string> {
   const innerTiles = getInnerTiles(gridLayout);
 
-  // Calculate the canvas size based on the number of inner tiles
-  // Calculate the high-resolution canvas size
+  // Calculate high-resolution canvas size
   const canvasWidth = innerTiles[0].length * tileWidth * scaleFactor;
   const canvasHeight = innerTiles.length * tileHeight * scaleFactor;
 
@@ -154,150 +222,74 @@ export async function createPngFromGridLayout(
   canvas.height = canvasHeight;
   const ctx = canvas.getContext("2d");
 
-  if (ctx) {
-    // Apply high-quality rendering settings
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
-    // Draw each inner tile on the canvas
-    innerTiles.forEach((row, rowIndex) => {
-      row.forEach((tile, colIndex) => {
-        const x = colIndex * tileWidth * scaleFactor;
-        const y = rowIndex * tileHeight * scaleFactor;
+  if (!ctx) throw new Error("Canvas rendering context is not available");
 
-        const img = new Image();
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
 
-        const modifiedSvgString = addDataConnectToSvg(
-          tile.svgString,
-          tile.height,
-          tile.width,
-          tile.rotation,
-          tile.color
-        );
+  // Load graining texture
+  const texture = await loadImage2(grainsEffect.src);
 
-        img.src = `data:image/svg+xml;base64,${btoa(modifiedSvgString)}`;
+  // Draw each inner tile on the canvas
+  await Promise.all(
+    innerTiles.map((row, rowIndex) =>
+      Promise.all(
+        row.map(async (tile, colIndex) => {
+          const x = colIndex * tileWidth * scaleFactor;
+          const y = rowIndex * tileHeight * scaleFactor;
 
-        img.onload = () => {
-          // Save the current context state
+          const img = await loadSvgAsImage(tile);
+
           ctx.save();
-          // Move the context origin to the tile's position
-          ctx.translate(x + (tileWidth * scaleFactor) / 2, y + (tileHeight * scaleFactor) / 2);
           
-          // Draw the image centered at the origin
-          ctx.drawImage(
-            img,
-            -((tileWidth * scaleFactor) / 2),
-            -((tileHeight * scaleFactor) / 2),
-            tileWidth * scaleFactor,
-            tileHeight * scaleFactor
-          );
-          // Restore the context state
+          // Draw the tile image
+          ctx.drawImage(img, x, y, tileWidth * scaleFactor, tileHeight * scaleFactor);
+
+          // Apply texture **per tile**
+          ctx.globalAlpha = 0.8; // Adjust transparency (0.3 = subtle effect, increase if needed)
+          ctx.drawImage(texture, x, y, tileWidth * scaleFactor, tileHeight * scaleFactor);
+          ctx.globalAlpha = 1; // Reset alpha after applying texture
+
           ctx.restore();
-        };
-      });
-    });
-
-    // Wait for all images to load before returning the PNG
-    await Promise.all(
-      innerTiles.flat().map(
-        (tile) =>
-          new Promise((resolve) => {
-            const img = new Image();
-            img.src = `data:image/svg+xml;base64,${btoa(tile.svgString)}`;
-            img.onload = resolve;
-          })
+        })
       )
-    );
+    )
+  );
 
-    return canvas.toDataURL("image/png");
-  }
-
-  throw new Error("Canvas rendering context is not available");
+  return canvas.toDataURL("image/png");
 }
 
-// filtering out the border tiles
-// function getInnerTiles(
-//   gridLayout: (TileProperties | {})[][]
-// ): TileProperties[] {
-//   const innerTiles: TileProperties[] = [];
+/**
+ * Loads an image from a given URL
+ */
+async function loadImage2(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.crossOrigin = "anonymous"; // Fix CORS issues if needed
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+  });
+}
 
-//   const rows = gridLayout.length;
-//   const cols = gridLayout[0].length;
+/**
+ * Converts an SVG string into an Image element
+ */
+async function loadSvgAsImage(tile: TileProperties): Promise<HTMLImageElement> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    const modifiedSvgString = addDataConnectToSvg(
+      tile.svgString,
+      tile.height,
+      tile.width,
+      tile.rotation,
+      tile.color
+    );
+    img.src = `data:image/svg+xml;base64,${btoa(modifiedSvgString)}`;
+    img.onload = () => resolve(img);
+  });
+}
 
-//   for (let i = 1; i < rows - 1; i++) {
-//     for (let j = 1; j < cols - 1; j++) {
-//       if (gridLayout[i][j]) {
-//         innerTiles.push(gridLayout[i][j] as TileProperties);
-//       }
-//     }
-//   }
-
-//   return innerTiles;
-// }
-
-// export async function createPngFromGridLayout(
-//   gridLayout: (TileProperties | {})[][]
-// ): Promise<string> {
-//   const innerTiles = getInnerTiles(gridLayout);
-
-//   // Assuming each tile is the same size (width and height)
-//   const tileWidth = 100; // Example tile width
-//   const tileHeight = 100; // Example tile height
-
-//   // Calculate the canvas size based on the number of inner tiles
-//   const canvasWidth = (gridLayout[0].length - 2) * tileWidth;
-//   const canvasHeight = (gridLayout.length - 2) * tileHeight;
-
-//   const canvas = document.createElement("canvas");
-//   canvas.width = canvasWidth;
-//   canvas.height = canvasHeight;
-//   const ctx = canvas.getContext("2d");
-
-//   if (ctx) {
-//     // Draw each inner tile on the canvas
-//     innerTiles.forEach((tile, index) => {
-//       const x = (index % (gridLayout[0].length - 2)) * tileWidth;
-//       const y = Math.floor(index / (gridLayout[0].length - 2)) * tileHeight;
-
-//       const img = new Image();
-//       img.src = `data:image/svg+xml;base64,${btoa(tile.svgString)}`;
-
-//       img.onload = () => {
-//         // Save the current context state
-//         ctx.save();
-//         // Move the context origin to the tile's position
-//         ctx.translate(x + tileWidth / 2, y + tileHeight / 2);
-//         // Rotate the context
-//         ctx.rotate((tile.rotation * Math.PI) / 180);
-//         // Draw the image centered at the origin
-//         ctx.drawImage(
-//           img,
-//           -tileWidth / 2,
-//           -tileHeight / 2,
-//           tileWidth,
-//           tileHeight
-//         );
-//         // Restore the context state
-//         ctx.restore();
-//       };
-//     });
-
-//     // Wait for all images to load before returning the PNG
-//     await Promise.all(
-//       innerTiles.map(
-//         (tile) =>
-//           new Promise((resolve) => {
-//             const img = new Image();
-//             img.src = `data:image/svg+xml;base64,${btoa(tile.svgString)}`;
-//             img.onload = resolve;
-//           })
-//       )
-//     );
-
-//     return canvas.toDataURL("image/png");
-//   }
-
-//   throw new Error("Canvas rendering context is not available");
-// }
 
 // canvas
 const cornerTileCanvas = async (

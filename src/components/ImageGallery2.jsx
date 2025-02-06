@@ -22,7 +22,7 @@ const ImageGallery2 = ({ images }) => {
             key={index}
             src={img}
             alt={`Thumbnail ${index + 1}`}
-            className={` w-[100vw] h-[15.6rem] sm:h-[18rem] lg:w-44 lg:h-[133px] xl:w-[18.5rem] xl:h-[180px] object-cover cursor-pointer ${
+            className={` w-[100vw] h-[14rem] sm:h-[18rem] lg:w-44 lg:h-[133px] xl:w-[18.5rem] xl:h-[180px] object-cover cursor-pointer ${
               img === selectedImage ? "lg:grayscale-0" : "lg:grayscale"
             }`}
             onClick={() => setSelectedImage(img)}

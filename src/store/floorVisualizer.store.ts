@@ -29,6 +29,9 @@ interface FloorVisualizerStore {
   floor: string | StaticImageData;
   setSelectedRoom: (room: Room) => void;
   setFloor: (floor: string) => void;
+  tileData: object,
+  setTileData:any
+  
 }
 
 export const useFloorVisualizerStore = create<FloorVisualizerStore>((set) => ({
@@ -114,6 +117,10 @@ export const useFloorVisualizerStore = create<FloorVisualizerStore>((set) => ({
   //   },
   // ],
   floor: "",
+  tileData: {},
+  setTileData: (tileData) => {
+    set((state)=>({...state, tileData}))
+  },
   setSelectedRoom: (room) => set((state) => ({ ...state, selectedRoom: room })),
   setFloor: (floor: string | StaticImageData) =>
     set((state) => ({ ...state, floor })),

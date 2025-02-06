@@ -1,9 +1,9 @@
 import { useFloorStore } from "./../store/floor.store";
 import { TilePosition } from "./../store/tiles.store";
-import { addDataConnectToSvg } from "../fllor-it-utils";
+import { addDataConnectToSvg, addDataConnectToSvgWithGrainEffect } from "../fllor-it-utils";
 import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
-
+import grainsEffect from "../../public/images/tiles/grains.svg"
 interface FloorSecondSvgComponentProps {
   svgString: string;
   height: number;
@@ -29,12 +29,13 @@ export default function FloorSecondSvgComponent({
   const updateTileAtIndex = useFloorStore((state) => state.updateTileAtIndex);
   const gridLayout = useFloorStore((state) => state.gridLayout);
 
-  const modifiedSvgString = addDataConnectToSvg(
+  const modifiedSvgString = addDataConnectToSvgWithGrainEffect(
     svgString,
     height,
     width,
     rotation,
-    color
+    color,
+    grainsEffect
   );
 
   const [{ isOver }, drop] = useDrop({
@@ -45,14 +46,18 @@ export default function FloorSecondSvgComponent({
       };
       rotation: number;
     }) => {
-      //   saveTileProperty(index, position, {
-      //     rotation: item.rotation,
-      //     color: item.color,
-      //   });
+      const updatedSvgString = addDataConnectToSvgWithGrainEffect(
+        svgString,
+        height,
+        width,
+        rotation,
+        item.color,
+        grainsEffect // Ensure grainsEffect is applied
+      );
       updateTileAtIndex(
         indexRow,
         indexCol,
-        modifiedSvgString,
+        updatedSvgString,
         item.rotation,
         item.color
       );
@@ -61,12 +66,6 @@ export default function FloorSecondSvgComponent({
       isOver: !!monitor.isOver(),
     }),
   });
-
-  // console.log(
-  //   `gridLayout ${indexRow} ${indexCol}`,
-  //   gridLayout[indexRow][indexCol]
-  // );
-
   const ref = useRef<HTMLDivElement>(null);
   drop(ref);
 

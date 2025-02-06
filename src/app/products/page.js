@@ -5,9 +5,10 @@ import Image from "next/image";
 import bgImg from "../../../public/images/products/headerbg.jpg";
 import RightArrow from "../../../public/icons/RightArrow";
 import ProductCard from "../../components/products/ProductCard";
-import PImage from "../../../public/images/products/product.jpg";
-import tiles1 from "../../../public/images/products/Stiles1.png";
-import tiles2 from "../../../public/images/products/Stiles2.jpg";
+import PImage from "../../../public/svgs/design-3.svg";
+import tiles1 from "../../../public/svgs/tile1.svg";
+import tiles2 from "../../../public/svgs/tile2.svg";
+import LoadingUi from "../../components/LoadingUi";
 const Page = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [hoveredSubLink, setHoveredSubLink] = useState(null);
@@ -131,25 +132,29 @@ const Page = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className=" 3xl:h-[435px] h-[360px]"
+        className=" 3xl:h-[435px] h-[237px] xl:h-[360px] flex flex-col justify-between w-full"
       >
         <Header textColor="text-white" />
+        <p className="  text-[40px] text-white px-5 md:hidden heading-gloock  mb-7">
+          Designer Tiles
+        </p>
       </section>
+
       <section className="relative">
-        <div className="absolute hidden lg:flex w-full h-full px-[20px] lg:px-[88px] top-0 left-0 justify-between">
-          <div className="w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
-          <div className="w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
-          <div className="w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
+        <div className="absolute hidden xl:flex w-full h-full px-[20px] lg:px-[88px] top-0 left-0 justify-between">
+          <div className="w-full xl:border-l border-[#2A2523] opacity-[0.1] h-full"></div>
+          <div className="w-full xl:border border-[#2A2523] opacity-[0.1] h-full"></div>
+          <div className="w-full xl:border-r border-[#2A2523] opacity-[0.1] h-full"></div>
         </div>
         <div className="flex flex-col  px-[20px] lg:px-[88px]  relative z-[20]">
-          <div className=" border-b w-full h-[455px] flex lg:px-[12px]">
-            <div className=" w-[33.3%] border-t pt-[120px] ">
-              <p className=" text-[80px] 3xl:text-[100px] heading-gloock leading-[100px]">
+          <div className=" xl:border-b w-full md:h-[455px] flex flex-col xl:flex-row lg:px-[12px]">
+            <div className=" hidden md:block w-full  xl:w-[33.3%] xl:border-t md:pt-[120px] ">
+              <p className="  text-[40px] md:text-[80px] 3xl:text-[100px] heading-gloock leading-[100px]">
                 Designer Tiles
               </p>
             </div>
-            <div className=" w-[64.6%]  pt-[120px] pl-[68px]">
-              <p className="max-w-[648px] font-Inter font-medium text-xl w-[648px] 3xl:max-w-[848px] 3xl:w-[848px]">
+            <div className=" w-full xl:w-[64.6%] pt-14 xl:pt-[120px] xl:pl-[68px]">
+              <p className=" xl:max-w-[648px] font-Inter md:font-medium text-base md:text-xl w-full xl:w-[648px] 3xl:max-w-[848px] 3xl:w-[848px]">
                 For over a century, Bharat Floorings & Tiles has been the
                 epitome of quality in handmade tile manufacturers in India. Our
                 dedicated commitment to innovation ensures you&apos;re choosing
@@ -163,13 +168,13 @@ const Page = () => {
           </div>
           <div className="flex relative z-[20] ">
             {/* Left Sidebar */}
-            <div className=" w-[33.3%] sticky top-4 z-[99] h-fit  border-red-400">
+            <div className=" w-[33.3%] sticky hidden xl:block top-4 z-[99] h-fit  border-red-400">
               <p className="font-Inter text-[13px]  lg:pl-[12px] flex items-center  h-[121px]">
                 COLLECTIONS
               </p>
               <div className=" w-[310px] 3xl:w-[412px] mt 3xl:mt-[45px]  lg:ml-[12px]">
                 {titles.map((t, i) => (
-                  <div key={i} className="border-b-2 border-black">
+                  <div key={i} className="xl:border-b-2 border-black">
                     <p
                       onClick={() => toggleLinks(i)}
                       className=" h-[50px] 3xl:h-[70px] flex uppercase justify-between items-center cursor-pointer font-Inter text-xl font-semibold"
@@ -222,14 +227,17 @@ const Page = () => {
             </div>
 
             {/* Right Section */}
-            <div className="w-[66.6%] grid grid-cols-2  border-red-400">
-              <div className="h-[122px] col-span-2 border-y flex items-center px-[6%] 3xl:px-[8%]">
+            <div className=" w-full xl:w-[66.6%] sm:grid sm:grid-cols-2 gap-x-2 md:gap-x-0  border-red-400">
+              <div className=" h-[135px] border-t border-black md:border-gray-300 md:border-t-0 mt-14 md:mt-0  md:h-[122px] col-span-2 xl:border-y flex items-center xl:px-[6%] 3xl:px-[8%]">
                 <p className="text-[13px] font-semibold normal-text tracking-wide">
                   DESIGNER TILES
                 </p>
               </div>
+
               {products.map((prd, i) => (
-                <ProductCard key={i} Product={prd} />
+                <div key={i} className=" w-fit h-fit mb-12  md:mb-0">
+                  <ProductCard Product={prd} />
+                </div>
               ))}
             </div>
           </div>

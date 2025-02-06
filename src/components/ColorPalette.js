@@ -100,25 +100,25 @@ export default function ColorPalette() {
     },
   ];
   return (
-    <div className=" items-start px-3 flex justify-center">
-      <div className=" grid grid-cols-9 gap-1 3xl:gap-3">
+    <div className=" items-start px-3 flex justify-between 3xl:justify-center">
+      <div className=" grid grid-cols-9 gap-1 ">
         {colorCodes?.map((color, i) => (
           <button
             onClick={() => setSelectedColor(color?.Ccode)}
             style={{ backgroundColor: color.Ccode }}
             key={i}
-            className={` h-6 w-6  3xl:h-8 border 3xl:w-8 rounded-full`}
+            className={` h-[18px] w-[18px] border 3xl:h-6 3xl:w-6  rounded-full`}
           ></button>
         ))}
       </div>
-      <div className=" ml-8 h-full flex items-start ">
+      <div className=" 3xl:ml-7 h-full flex items-start ">
         <div
           className=""
           style={{
             backgroundColor: selectedColor,
           }}
         >
-          <Remix className="remix-color h-8 w-8 3xl:h-11 w-3xl:11"></Remix>
+          <Remix className="remix-color  3xl:h-8 3xl:w-8"></Remix>
         </div>
       </div>
     </div>

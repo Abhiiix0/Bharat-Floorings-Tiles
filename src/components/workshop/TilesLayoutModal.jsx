@@ -108,19 +108,14 @@ const TilesLayout = ({ tile, closeModal, open }) => {
     };
     calculateGridLayout(borderSVGs, newManupulatedresults);
   };
-  // const handleVisualizeClick = async () => {
-  //   if (!gridLayout) return;
-  //   const floorImageUrl = await createPngFromGridLayout(gridLayout, 100, 100);
-  //   setFloor(floorImageUrl);
-  // };
 
   return (
     <div
-      className={`absolute top-0 left-0 h-full grid place-content-center z-[50] w-full ${
-        open ? " scale-100" : " scale-0"
-      } transition-all duration-300 ease-in-out`}
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-300 bg-black/50 ${
+        open ? "scale-100 opacity-100" : "scale-0 opacity-0"
+      }`}
     >
-      <div className=" rounded-lg bg-white w-52 h-fit p-4 flex flex-col gap-2">
+      <div className=" rounded-lg relative bg-white w-52 h-fit p-4 flex flex-col gap-2">
         <div className=" flex gap-1 flex-col">
           <label htmlFor="rows" className=" text-sm">
             Rows

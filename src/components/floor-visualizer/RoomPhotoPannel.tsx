@@ -2,21 +2,15 @@ import {
   SizeItem,
   useFloorVisualizerStore,
 } from "../../store/floorVisualizer.store";
-import Image, { StaticImageData } from "next/image";
-import FloorImage from "../../components/images/floor/floorCanvas.png";
-import FloorImageMiddleDesign from "../../components/images/floor/Mediamodifier-Design.svg";
+import Image from "next/image";
 import { useTilesStore } from "../../store/tiles.store";
 import CircleClose from "../../../public/icons/CircleClose";
 import { LuImageDown } from "react-icons/lu";
 import { FiUpload } from "react-icons/fi";
-import FloorSecondSvgComponent from "../FloorSecondSvgComponent";
-import { useFloorStore } from "../../store/floor.store";
-import tilesfloors from "./../../app/workspace/tiles.jpg"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
-export default function RoomPhotoPannel({handelRoomVisual, handleVisualizeClick}) {
+export default function RoomPhotoPannel({ handelRoomVisual }) {
+  const setFloor = useFloorVisualizerStore((state) => state.setFloor);
   const floor = useFloorVisualizerStore((state) => state.floor); // image
   const selectedRoom = useFloorVisualizerStore((state) => state.selectedRoom);
-  const gridLayout = useFloorStore((state) => state.gridLayout); // gris
   const tileSize = useTilesStore((state) => state.tileSize);
   const { layer, sizes } = selectedRoom;
 
@@ -28,78 +22,21 @@ export default function RoomPhotoPannel({handelRoomVisual, handleVisualizeClick}
   }
 
   const CSSProperty = filterBySize(sizes, tileSize);
-  // console.log("CSSProperty", CSSProperty)
-  const floorRow = useFloorStore((state) => state.floorRow);
-  const floorColumn = useFloorStore((state) => state.floorColumn);
-  const handleRowChange = (value) => {
-    console.log("row", value)
-    setFloorRow(parseInt(value));
-    // handleVisualizeClick()
-  }
-  const handleColumnChange = (value) => {
-    setFloorColumn(parseInt(value));
-    // handleVisualizeClick()
-  }
-  const setFloorColumn = useFloorStore((state) => state.setFloorColumn);
-  const setFloorRow = useFloorStore((state) => state.setFloorRow);
   return (
     <div className="h-[calc(100vh] flex justify-center items-center p-2">
       <div className="w-[1000px] h-[562px] relative overflow-hidden">
+      {
+        floor ?  <>
         <div className=" absolute top-6 z-[1002] flex gap-2 items-center right-6">
-        {/* <div className="flex items-center justify-center gap-10 relative z-[2008]">
-        <select
-              value={floorRow.toString()}
-              onChange={(e)=>handleRowChange(e.target.value)}
-                      // onValueChange={handleRowChange}
-                    >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-                    </select>
-                    <Select
-                      value={floorColumn.toString()}
-                      onValueChange={handleColumnChange}
-                    >
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Select column" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>Column</SelectLabel>
-                          <SelectItem value="4">4</SelectItem>
-                          <SelectItem value="5">5</SelectItem>
-                          <SelectItem value="6">6</SelectItem>
-                          <SelectItem value="7">7</SelectItem>
-                          <SelectItem value="8">8</SelectItem>
-                          <SelectItem value="9">9</SelectItem>
-                          <SelectItem value="10">10</SelectItem>
-                          <SelectItem value="11">11</SelectItem>
-                          <SelectItem value="12">12</SelectItem>
-                          <SelectItem value="13">13</SelectItem>
-                          <SelectItem value="14">14</SelectItem>
-                          <SelectItem value="15">15</SelectItem>
-                          <SelectItem value="16">16</SelectItem>
-                          <SelectItem value="30">30</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                  </div> */}
           <div onClick={() => handelRoomVisual()} className=" cursor-pointer rounded-full h-16 w-16 border-[5px] grid place-content-center border-white bg-black hover:opacity-100 transition-opacity duration-200 ease-in-out opacity-40"><FiUpload  size={24} color="white" /></div>
           <div onClick={()=>handelRoomVisual()} className=" cursor-pointer rounded-full h-16 w-16 border-[5px] grid place-content-center border-white bg-black hover:opacity-100 transition-opacity duration-200 ease-in-out opacity-40"><LuImageDown size={24} color="white" /></div>
-          <div onClick={()=>handelRoomVisual()} className=" cursor-pointer rounded-full h-16 w-16 border-[5px] grid place-content-center border-white bg-black hover:opacity-100 transition-opacity duration-200 ease-in-out opacity-40"><CircleClose size={24} color="white" className=""/></div>
+              <div onClick={() => { handelRoomVisual(false)}} className=" cursor-pointer rounded-full h-16 w-16 border-[5px] grid place-content-center border-white bg-black hover:opacity-100 transition-opacity duration-200 ease-in-out opacity-40"><CircleClose size={24} color="white" className=""/></div>
         </div>
-        <Image src={layer} fill alt="" style={{zIndex:9}} className="object-cover  " />
+        <Image src={layer} fill alt="layer" style={{zIndex:9}} className="object-cover  " />
         <Image
           src={floor}
           fill
-          alt=""
+          alt="floor"
           className="z-1  object-contain absolute"
           style={{
             transform: `perspective(${CSSProperty?.properties.perspective}px) rotateX(${CSSProperty?.properties.rotateX}deg) translateZ(0)`,
@@ -112,10 +49,18 @@ export default function RoomPhotoPannel({handelRoomVisual, handleVisualizeClick}
             // imageRendering: "pixelated",
             // imageRendering: "auto", // Fixes pixelation for images
           }}
-          unoptimized
         />
          
-      </div>
+        </> :
+        <div className="flex items-center animate-pulse justify-center w-full h-[562px] bg-gray-300 rounded-sm dark:bg-gray-300">
+        <svg className="w-40 h-30 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+              </svg>
+              
+    </div>
+     
+      }
+     </div> 
     </div>
   );
 }
