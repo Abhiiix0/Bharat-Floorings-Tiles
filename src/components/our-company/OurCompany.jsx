@@ -65,17 +65,19 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
         <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
         <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
       </div>
-      <div className="lg:px-[100px] px-[20px] py-10 bg-[#fefef2] relative">
-        <Intro intro1={"Who we are"} intro3={"100 years old"} />
-        <h1 className="2xl:text-[100px] 2xl:leading-[100px] md:text-5xl text-4xl xl:text-7xl lg:text-6xl font-Gloock font-normal 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-10">
+      <div className="lg:px-[100px] px-[20px] 2xl:pt-[59px] 2xl:pb-44 bg-[#fefef2] relative">
+      <div className='lg:flex hidden justify-between items-center font-Inter'>
+          <span>Who we are</span> <span>100 years old</span>
+        </div>
+        <h1 className="2xl:text-[100px] 2xl:leading-[100px] md:text-5xl text-4xl xl:text-7xl lg:text-6xl font-Gloock font-normal 2xl:mt-[121px] xl:mt-16 lg:mt-14 md:mt-10">
           Our Journey
         </h1>
-        <p className="para-big xl:mt-10 lg:mb-16 lg:mt-8 mb-10 mt-6  xl:leading-[42px] 2xl:w-[60%] xl:w-[70%] lg:font-2xl lg:w-4/5 md:text-xl md:leading-[34px] md:w-full">
+        <p className="2xl:text-[30px] font-Inter font-medium xl:mt-10 lg:mb-16 lg:mt-8 mb-10 mt-6  xl:leading-[42px] 2xl:w-[50%] xl:w-[70%] lg:font-2xl lg:w-4/5 md:text-xl md:leading-[34px] md:w-full">
           For over a century, Bharat Floorings & Tiles has been the epitome of
           quality in handmade tile manufacturers in India.
         </p>
-        <div className="flex lg:flex-row flex-col justify-between 2xl:gap-10 xl:gap-8 lg:gap-6 gap-5  xl:mb-40 lg:mb-32 mb-20">
-          <p className="para-medium">
+        <div className="flex lg:flex-row flex-col justify-between 2xl:gap-[77px] xl:gap-8 lg:gap-6 gap-5 xl:mb-40 lg:mb-32 mb-20">
+          <p className="para-medium 3xl:w-[32%] 3xl:pr-3 w-auto pr-0">
             The Bharat Floorings Group, an ISO 9001:2015 Certified Company,
             boasts a century-long legacy as the foremost provider of top-tier
             cement floorings. Our journey commenced in 1922 when Bharat
@@ -84,7 +86,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             mission: to produce world-class tiles that could replace imports and
             meet the highest international standards.
           </p>
-          <p className="para-medium">
+          <p className="para-medium 3xl:w-[32%] 3xl:pr-4 w-auto pr-0">
             To fulfill this vision, we harnessed the best European technologies,
             tailoring them to suit the unique demands of Indian conditions. We
             realized that the key to exceptional flooring lay not only in
@@ -93,7 +95,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             specializing in high-quality flooring installation, civil work,
             floor maintenance, and general cleaning.
           </p>
-          <p className="para-medium">
+          <p className="para-medium 3xl:w-[36%] 3xl:pr-20 w-auto pr-0">
             Throughout the decades, Bharat has left its indelible mark by
             installing some of the most iconic floors in India's architectural
             landscape. Our craftsmanship graces the palaces of Maharajas, Raj
@@ -214,14 +216,12 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
         </div>
       </div>
       <div className="bg-[#F4F4F4] lg:pl-[100px] px-[20px] py-10">
-        <div className="lg:pr-[100px]">
-          <Intro
-            intro1={"6 awards"}
-            intro2={"DNA EDIDA UNESCO"}
-            intro3={"2013 2014 2015 2017"}
-          />
+        <div className="lg:pr-[100px] md:flex justify-between items-center font-Inter">
+         <span>6 awards</span>
+         <span>DNA EDIDA UNESCO</span>
+         <span>2013 2014 2015 2017</span>
         </div>
-        <h1 className="small-heading 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-10 text-center 2xl:pr-[10%] pr-[15%]">
+        <h1 className="small-heading 2xl:mt-[119px] xl:mt-16 lg:mt-14 md:mt-10 text-center 2xl:pr-[10%] pr-[15%]">
           Awards
         </h1>
         <div className="flex overflow-x-scroll 2xl:gap-[27px] xl:gap-6 lg:gap-5 gap-4 scroll xl:my-16 lg:y-12 md:my-9 my-7">

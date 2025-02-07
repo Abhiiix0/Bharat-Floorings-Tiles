@@ -39,7 +39,7 @@ const OurClientsGridComp = ({
   return (
     <motion.div
       ref={containerRef}
-      className={`relative h-[200px] sm:h-[274px]  group`}
+      className={`relative h-[188px] sm:h-[274px]  group`}
       layoutId="modal"
     >
       {/* Image and Click Handler */}
@@ -90,11 +90,11 @@ const OurClientsGridComp = ({
                 // onClick={() => handleClickOutside()}
                 className=" w-[50%] gap-3 md:gap-9 flex justify-center p-3 md:px-7 flex-col h-[200px] sm:h-[274px]"
               >
-                <h3 className="font-bold text-[11px] md:text-base">
+                <h3 className="font-bold text-[13px] md:text-base font-Inter">
                   {industryName} <sup>{tradeMark}</sup> {industry} ({domain})
                 </h3>
-                <p className=" text-[12px] md:text-lg">{clientName}</p>
-                <Link href="/product-details" className="font-bold underline">
+                <p className=" text-[13px] md:text-lg font-Inter mb-5 md:mt-0">{clientName}</p>
+                <Link href="/product-details" className="font-bold underline font-Inter md:text-base text-[13px]">
                   View tile detail
                 </Link>
               </div>
@@ -103,7 +103,7 @@ const OurClientsGridComp = ({
                 height={100}
                 alt="img"
                 src={productImg.src}
-                className=" w-[50%] h-[150px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
+                className="w-36 sm:w-[50%] h-[123px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
               ></Image>
             </div>
           </motion.div>

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { RiArrowRightLine } from "react-icons/ri";
 
 const OurServicesCard = ({ image, designType, designInfo }) => {

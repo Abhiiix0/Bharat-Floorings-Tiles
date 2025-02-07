@@ -6,7 +6,7 @@ import React from "react";
 const GalleryPageCards = ({ designerImg, galleryImg }) => {
   const router = useRouter();
   return (
-    <div className="min-h-64 min-w-64 sm:h-[600px] lg:h-auto relative">
+    <div className="min-h-64 min-w-64 sm:h-[600px] lg:h-auto 3xl:min-h-[618px] relative">
       <img alt="gallery image" src={galleryImg.src} className="h-full w-full" />
       <div className="absolute top-[85%] lg:top-[90%] left-[10%] flex w-full gap-4">
         {designerImg.map((imgss, i) => (
