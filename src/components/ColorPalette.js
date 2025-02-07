@@ -100,18 +100,21 @@ export default function ColorPalette() {
     },
   ];
   return (
-    <div className=" items-start px-3 flex justify-between 3xl:justify-center">
-      <div className=" grid grid-cols-9 gap-1 ">
+    <div className=" items-start md:px-3  flex justify-between 3xl:justify-center">
+      <div className=" grid grid-cols-9 gap-2 gap-y-3 md:gap-y-1 md:gap-1 ">
         {colorCodes?.map((color, i) => (
           <button
             onClick={() => setSelectedColor(color?.Ccode)}
             style={{ backgroundColor: color.Ccode }}
             key={i}
-            className={` h-[18px] w-[18px] border 3xl:h-6 3xl:w-6  rounded-full`}
+            className={` ${
+              selectedColor === color.Ccode &&
+              " border-blue-500 md:border-gray-100"
+            } h-5 w-5 md:h-[18px] md:w-[18px] border-2 md:border 3xl:h-6 3xl:w-6  rounded-full`}
           ></button>
         ))}
       </div>
-      <div className=" 3xl:ml-7 h-full flex items-start ">
+      <div className=" hidden  3xl:ml-7 h-full md:flex items-start ">
         <div
           className=""
           style={{

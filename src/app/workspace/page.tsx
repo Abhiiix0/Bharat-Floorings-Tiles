@@ -31,6 +31,11 @@ import WorkSpaceSideBar from "./../../components/WorkSpaceSideBar"
 import TilesRotatePair from "../../components/TilesRotatePair";
 import { toPng } from "html-to-image";
 import TilesLayoutModal from "../../components/workshop/TilesLayoutModal"
+import Remix from "../../../public/icons/remix";
+import VisualiseIcon from "../../../public/icons/VisualiseIcon";
+import RotateIcon from "../../../public/icons/RotateIcon"
+import QuoteIcon from "../../../public/icons/QuoteIcon"
+import { LuImageDown } from "react-icons/lu";
 export default function Home() {
   const [browser,setBrowser] = useState(false);
   const [tile, settile] = useState(Tiles[0])
@@ -45,8 +50,6 @@ export default function Home() {
   const manipulatedResults = useTilesStore((state) => state.manipulatedResults);
   
   const setTileSize = useTilesStore((state) => state.setTileSize);  
-  const setFloorRow = useFloorStore((state) => state.setFloorRow);
-  const setFloorColumn = useFloorStore((state) => state.setFloorColumn);
   const showFloor = useFloorStore((state) => state.showFloor);
   const setShowFloor = useFloorStore((state) => state.setShowFloor);
   const isTilesVisualizer = useComponentStore(
@@ -219,7 +222,15 @@ export default function Home() {
    } else {
     setVisulazationModal(true)
    }
- }
+  }
+  
+  const handelOpenClose = (value, setValue) => {
+    if (value) {
+      setValue(false)
+    }else{
+      setValue(true)
+    }
+  }
   return (
    
 
@@ -230,7 +241,15 @@ export default function Home() {
 
          
           {/* sidebar button */}
-          <Image onClick={()=>setsideBarCloseOpenBtn(true)} src={svgAsDataUri} width={100} height={100} className="filter border-[6px] border-white grayscale contrast-200 cursor-pointer h-16 w-16 absolute top-12 left-0 z-[111]" alt="tile"></Image>
+          <Image onClick={() => setsideBarCloseOpenBtn(true)} src={svgAsDataUri} width={100} height={100} className="filter border-[6px] border-white grayscale contrast-200 cursor-pointer h-12 w-12 md:h-16 md:w-16 absolute top-5 left-5 md:top-12 md:left-0 z-[111]" alt="tile"></Image>
+          <span className="z-[110] text-white absolute top-6 right-5 md:hidden bg-white rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <circle cx="24" cy="24" r="24" fill="white"/>
+  <line x1="12" y1="31.5" x2="36" y2="31.5" stroke="#2A2523"/>
+  <line x1="12" y1="24.5" x2="36" y2="24.5" stroke="#2A2523"/>
+  <line x1="12" y1="17.5" x2="36" y2="17.5" stroke="#2A2523"/>
+</svg>
+            </span>
           <WorkSpaceSideBar open={sideBarCloseOpenBtn} selectTiles={selectTiles} close={setsideBarCloseOpenBtn}/>
         
           
@@ -241,7 +260,7 @@ export default function Home() {
       }`}>
           
             <div className=" gap-5 w-fit  rounded-md h-fit px-0 overflow-hidden">
-              <div className=" bg-white pb-3 p-2  rounded-md  h-fit flex flex-col justify-between">
+              <div className=" bg-[#2A2523] md:bg-white pb-3 p-2  rounded-md  h-fit flex flex-col justify-between">
               <div className=" 3xl:hidden">
 
 <SingleTile height={250} width={250} svgString={tile.image} />
@@ -250,12 +269,13 @@ export default function Home() {
 
                   <SingleTile height={332} width={332} svgString={tile.image} />
               </div>
-              <div className=" mt-1">
+              <div className=" mt-1 relative">
 
-            <ColorPalette />
+                  <ColorPalette />
+                  <button onClick={() => handleButtonClickGrid(tile.image, tile.size)} className=" bg-blue-400 absolute md:hidden bottom-0 right-2 z-[150] px-2 py-[2px] text-[11px] rounded-sm text-white">Save</button>
                 </div>
                 </div>
-              <div className=" flex mt-2 3xl:mt-6 gap-3">
+              <div className=" hidden md:flex mt-2 3xl:mt-6 gap-3">
               <button   onClick={() => handleButtonClickGrid(tile.image, tile.size)} className="border-[4px] 3xl:border-[5px] h-12 w-12 3xl:h-20 3xl:w-20 rounded-full border-white transition-all duration-200 ease-in-out hover:bg-[#35502F] bg-[#2A2523] flex justify-center items-center">
 
 <CircleRight  color="white"  className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
@@ -304,21 +324,22 @@ export default function Home() {
           </div>
 
           {/* bottom bar  */}
-          <div className=" h-[100px] shadow-md w-full z-50   absolute bottom-0 left-0">
-            <div className=" h-[87px] flex justify-between rounded-md mx-28 bg-white border">
-              <div className=" flex items-center gap-[60px] ml-12">
-                <button  onClick={()=>setRotateModal(true)}>Rotate</button>
-                <button onClick={() => setTileColorPannelBtn(true)}>Colors</button>
-                <button onClick={()=>settilesLayoutModal(true)}>Tiles Layout</button>
-                <span className=" flex gap-2 items-center">Zoom
+          <div className=" h-[100px] shadow-md w-full z-[150] lg:z-50   absolute bottom-0 left-0">
+            <div className=" h-full xl:h-[87px] flex justify-between xl:rounded-md xl:mx-28 bg-white border">
+              <div className=" flex items-center gap-5 lg:gap-9 xl:gap-[60px] ml-5 lg:ml-12">
+                <button className=" "  onClick={()=>handelOpenClose(RotateModal, setRotateModal)}><RotateIcon size={31} color={ RotateModal ? "black" : "gray"} className=" lg:hidden "/> <span className="hidden lg:block">Rotate</span></button>
+                <button className=" " onClick={() => handelOpenClose(TileColorPannelBtn,setTileColorPannelBtn)}><Remix className=" lg:hidden " color={ TileColorPannelBtn ? "black" : "gray"}  size={44} /> <span className="hidden lg:block">Colors</span></button>
+                <LuImageDown size={36} color="gray" className=" lg:hidden" />
+                <button className=" hidden lg:block" onClick={()=>handelOpenClose( tilesLayoutModal,settilesLayoutModal)}>Tiles Layout</button>
+                <span className=" hidden lg:flex gap-2 items-center">Zoom
                   <button onClick={handleZoomOut} className="  border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">-</button>
                   <button onClick={handleZoomIn} className=" border-2 border-black h-8 w-8 rounded-full flex justify-center items-center ">+</button>
                 </span>
               </div>
-              <div className=" h-full flex items-center mr-3">
-                <button  onClick={handleDownloadImage} className=" py-4 px-8  ">Save image</button>
-                <button onClick={()=>    handelRoomSideBar()} className=" py-4 px-8 border border-black ">Visualise</button>
-                <button className=" py-4 px-8 border border-black text-white bg-black">Get a quote</button>
+              <div className=" h-full flex gap-5 lg:gap-0 items-center mr-5 lg:mr-3">
+                {/* <button  onClick={handleDownloadImage} className=" py-4 px-8 Visualise ">Save image</button> */}
+                <button onClick={() => handelOpenClose(VisulazationModal, setVisulazationModal)} className=" lg:py-4  lg:px-8 lg:border lg:border-black "><VisualiseIcon color={ VisulazationModal ? "black" : "gray"} className=" lg:hidden" size={44} /><span className=" hidden lg:block">Visualise</span></button>
+                <button className=" lg:py-4 lg:px-8 lg:border bg-transparent lg:border-black lg:text-white lg:bg-black"><QuoteIcon className=" lg:hidden" color="gray"/> <span className=" hidden lg:block">Get a quote </span></button>
               </div>
  </div>
           </div>
@@ -347,7 +368,7 @@ export default function Home() {
           )}
 
           { VisulazationModal &&
-            <SideBar handleVisualizeClick={handleVisualizeClick} handelRoomVisual={setIsTilesVisualizer} />
+            <SideBar close={setVisulazationModal} handleVisualizeClick={handleVisualizeClick} handelRoomVisual={setIsTilesVisualizer} />
         }
          
          
