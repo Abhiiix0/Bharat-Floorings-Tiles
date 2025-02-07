@@ -11,15 +11,10 @@ export default function FloorVisuaizer() {
   const router = useRouter();
 
   const floor = useFloorVisualizerStore((state) => state.floor);
-
-  // if (!floor) {
-  //   router.push("/");
-  // }
-
   return (
     <div className="h-screen w-full ">
       <TopBar rooms={rooms} />
-      <RoomPhotoPannel handelRoomVisual={undefined} handleVisualizeClick={undefined} />
+      <RoomPhotoPannel handelRoomVisual={undefined} />
     </div>
   );
 }
