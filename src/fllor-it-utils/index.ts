@@ -156,7 +156,7 @@ export const addDataConnectToSvgWithGrainEffect = (
     svg.appendChild(grainOverlay);
   }
 
-  // ✅ Process each fillable element without breaking colors
+  //  Process each fillable element without breaking colors
   const elements = svg.querySelectorAll("[fill]");
   const colorMap = new Map();
   let idCounter = 1;
@@ -224,7 +224,9 @@ export async function createPngFromGridLayout(
 
   if (!ctx) throw new Error("Canvas rendering context is not available");
 
-  ctx.imageSmoothingEnabled = true;
+  // set scale 
+  const scaleFix = 1.056;
+  ctx.imageSmoothingEnabled = false;
   ctx.imageSmoothingQuality = "high";
 
   // Load graining texture
@@ -235,14 +237,24 @@ export async function createPngFromGridLayout(
     innerTiles.map((row, rowIndex) =>
       Promise.all(
         row.map(async (tile, colIndex) => {
+          if (!("svgString" in tile)) return; // Skip empty tiles
+
           const x = colIndex * tileWidth * scaleFactor;
           const y = rowIndex * tileHeight * scaleFactor;
 
           const img = await loadSvgAsImage(tile);
 
           ctx.save();
+
+          // Move to the tile's center before scaling
+          const centerX = x + (tileWidth * scaleFactor) / 2;
+          const centerY = y + (tileHeight * scaleFactor) / 2;
           
-          // Draw the tile image
+          ctx.translate(centerX, centerY); // Move context to center
+          ctx.scale(scaleFix, scaleFix); // Apply scaling
+          ctx.translate(-centerX, -centerY); // Move back to original position
+
+          // Draw the tile image with scaling applied
           ctx.drawImage(img, x, y, tileWidth * scaleFactor, tileHeight * scaleFactor);
 
           // Apply texture **per tile**

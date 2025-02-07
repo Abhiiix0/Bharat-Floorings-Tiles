@@ -68,10 +68,10 @@ export default function FloorSecondSvgComponent({
   });
   const ref = useRef<HTMLDivElement>(null);
   drop(ref);
-
+//added scale to fill the gap 
   return (
-    <div ref={ref} >
-      <div dangerouslySetInnerHTML={{ __html: modifiedSvgString }} />
+    <div ref={ref} className="">
+      <div className=" scale-[1.058]" dangerouslySetInnerHTML={{ __html: modifiedSvgString }} />
     </div>
   );
 }
