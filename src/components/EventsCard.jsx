@@ -1,7 +1,7 @@
 import eventsShare from '../../public/svgs/eventsShare.svg'
 const EventsCard = ({ eventName, eventDate, eventInfo, website, eventImage,eventPlace }) => {
   return (
-    <div className='3xl:h-[1220px] 3xl:min-w-[1362px] min-w-[80%] 2xl:h-[950px] lg:h-[800px] h-[600px] bg-[#2A2523] rounded-xl flex sm:flex-row flex-col text-white overflow-hidden'>
+    <div className='3xl:h-[1220px] 3xl:min-w-[1362px] lg:min-w-[80%] min-w-full 2xl:h-[950px] lg:h-[800px] h-auto bg-[#2A2523] rounded-xl flex sm:flex-row flex-col text-white overflow-hidden'>
       <div
         className='3xl:pt-[139px] 3xl:pl-14 3xl:pr-14 xl:pt-14 xl:pl-8 xl:pr-12 lg:py-20 lg:pl-9 lg:pr-14 md:py-14 md:pl-7 md:pr-20 py-10 pl-5 pr-14 relative'>
             <img src={eventsShare.src} alt="share button" className='absolute 3xl:top-14 3xl:right-16 top-8 right-8 cursor-pointer' />
