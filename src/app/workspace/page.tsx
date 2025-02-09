@@ -38,14 +38,14 @@ import QuoteIcon from "../../../public/icons/QuoteIcon"
 import { LuImageDown } from "react-icons/lu";
 export default function Home() {
   const [browser,setBrowser] = useState(false);
-  const [tile, settile] = useState(Tiles[0])
+  const [tile, settile] = useState(Tiles[1])
   const selectTiles = (data:any) => {
   settile(data)
   }
   
   useEffect(() => {
     setBrowser(true)
-    selectTiles(Tiles[0])
+    selectTiles(Tiles[1])
   }, [])
   const manipulatedResults = useTilesStore((state) => state.manipulatedResults);
   

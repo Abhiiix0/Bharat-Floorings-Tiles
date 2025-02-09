@@ -286,7 +286,7 @@ const page = () => {
                 alt="img"
               ></Image>
             </div>
-            <div className="  md:p-4 xl:pl-[50px] flex md:block justify-between items-center 3xl:pl-[80px] xl:w-[860px] normal-text   xl:pr-[60px] 3xl:pr-[103px] h-full">
+            <div className="   md:p-4 xl:pl-[50px] 3xl:pl-[80px] flex md:block justify-between items-center  xl:w-[860px] normal-text   xl:pr-[60px] 3xl:pr-[103px] h-full">
               <div className=" hidden md:flex gap-16 justify-between xl:mt-[121px]">
                 <p>Anulom (Type D)</p>
                 <p className=" w-[389px]">
@@ -299,19 +299,22 @@ const page = () => {
               <Image
                 src={workbench2}
                 alt="img"
-                className=" md:mt-10 md:mx-auto h-[150px] w-[150px] md:w-fit md:h-[572px]"
+                className=" md:mt-10  h-[150px] w-[150px] object-cover lg:w-fit lg:h-[572px]"
               ></Image>
               <div className="hidden md:flex justify-between xl:justify-start mt-14 gap-44">
-                <p>
-                  Size <br /> 20 cm x 20 cm
+                <p className="flex flex-col gap-4">
+                  Size
+                  <span>20 cm x 20 cm</span>
                 </p>
-                <p>
-                  Thickness <br /> Flooring - 23mm - 25mm <br /> Cladding - 16mm
-                  - 18mm
+                <p className=" flex flex-col gap-4">
+                  Thickness
+                  <span>Flooring - 23mm - 25mm</span>
+                  <span>Cladding - 16mm - 18mm</span>
                 </p>
               </div>
               <p className=" md:hidden normal-font font-medium text-sm sm:text-base mr-5 flex items-center justify-end gap-3">
-                Continue on Workshop <RightArrow color="black"></RightArrow>
+                Continue on Workshop{" "}
+                <RightArrow size={16} color="black"></RightArrow>
               </p>
             </div>
           </div>

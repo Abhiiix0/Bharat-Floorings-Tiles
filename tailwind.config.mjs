@@ -26,6 +26,7 @@ export default {
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
         Gloock: ["Gloock", "sans-serif"],
+        BentonSans: ["BentonSans", "sans-serif"],
       },
       colors: {
         primaryTextColor: "#2A2523", // Define a custom text color

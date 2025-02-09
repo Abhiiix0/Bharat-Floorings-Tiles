@@ -26,8 +26,6 @@ const OurClientsGridComp = ({
   }, [isExpanded]);
 
   const handleClickOutside = (event) => {
-    // if (containerRef.current && !containerRef.current.contains(event.target)) {
-    // }
     setIsExpanded(false);
   };
 
@@ -39,15 +37,16 @@ const OurClientsGridComp = ({
   return (
     <motion.div
       ref={containerRef}
-      className={`relative h-[200px] sm:h-[274px]  group`}
+      className={`relative h-[188px] sm:h-[274px]  group`}
       layoutId="modal"
     >
       {/* Image and Click Handler */}
       <motion.div
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={() => {
+          setIsExpanded(!isExpanded);
+          console.log("hi");
+        }}
         className="relative h-full w-full cursor-pointer overflow-hidden"
-        // whileHover={{ scale: 1.1 }}
-        // animate={isExpanded ? { scale: 1.2 } : { scale: 1 }}
         transition={{ duration: 0.3 }}
       >
         <div className="group relative h-full w-full cursor-pointer overflow-hidden">
@@ -60,8 +59,9 @@ const OurClientsGridComp = ({
           />
         </div>
         <div
-          className={`absolute top-0 left-0 w-full h-full bg-black/30 ${isExpanded ? "opacity-70" : "opacity-0 group-hover:opacity-30"
-            }`}
+          className={`absolute top-0 left-0 w-full h-full bg-black/30 ${
+            isExpanded ? "opacity-70" : "opacity-0 group-hover:opacity-30"
+          }`}
         />
       </motion.div>
 
@@ -79,8 +79,9 @@ const OurClientsGridComp = ({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: expandLeft ? 48 : -48 }}
             transition={{ duration: 0.5 }}
-            className={`absolute top-0 ${expandLeft ? "right-0" : "left-0"
-              } w-[200%] z-[2500] h-[200px] sm:h-[274px]  text-white `}
+            className={`absolute top-[188px] sm:top-0 ${
+              expandLeft ? "right-0" : "left-0"
+            } w-[200%] z-[2500] h-[188px] sm:h-[274px]  text-white `}
           >
             <div
               onClick={() => handleClickOutside()}
@@ -88,12 +89,14 @@ const OurClientsGridComp = ({
             >
               <div
                 // onClick={() => handleClickOutside()}
-                className=" w-[50%] gap-3 md:gap-9 flex justify-center p-3 md:px-7 flex-col h-[200px] sm:h-[274px]"
+                className=" w-[50%] gap-3 md:gap-9 flex justify-between p-3 md:px-7 flex-col h-[188px] sm:h-[274px]"
               >
                 <h3 className="font-bold text-[11px] md:text-base">
                   {industryName} <sup>{tradeMark}</sup> {industry} ({domain})
                 </h3>
-                <p className=" text-[12px] md:text-lg">{clientName}</p>
+                <p className=" text-[12px] md:text-lg h-full md:h-fit">
+                  {clientName}
+                </p>
                 <Link href="/product-details" className="font-bold underline">
                   View tile detail
                 </Link>
@@ -103,7 +106,7 @@ const OurClientsGridComp = ({
                 height={100}
                 alt="img"
                 src={productImg.src}
-                className=" w-[50%] h-[150px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
+                className=" w-[124px] md:w-[50%] h-[124px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover ml-10 md:ml-3  md:m-3"
               ></Image>
             </div>
           </motion.div>

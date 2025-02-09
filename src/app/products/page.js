@@ -169,7 +169,7 @@ const Page = () => {
           <div className="flex relative z-[20] ">
             {/* Left Sidebar */}
             <div className=" w-[33.3%] sticky hidden xl:block top-4 z-[99] h-fit  border-red-400">
-              <p className="font-Inter text-[13px]  lg:pl-[12px] flex items-center  h-[121px]">
+              <p className="font-Inter text-[13px] font-semibold  lg:pl-[12px] flex items-center  h-[121px]">
                 COLLECTIONS
               </p>
               <div className=" w-[310px] 3xl:w-[412px] mt 3xl:mt-[45px]  lg:ml-[12px]">

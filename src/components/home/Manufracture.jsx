@@ -83,13 +83,8 @@ export default function Manufacture() {
         <div
           style={{}}
           className=" rounded-t-[20px] xl:rounded-t-[80px] bg-[#2A2523] manufractureImg  w-full h-full pt-[46px]
-          px-5 xl:px-[104px] pb-3 xl:pb-[100px] flex flex-col justify-end xl:justify-between"
+          px-5 xl:px-[104px] pb-3 xl:pb-[100px] flex flex-col justify-end "
         >
-          <div className=" hidden xl:flex text-[#F6F5EC] justify-between">
-            <p>6 steps</p>
-            <p>4 hours</p>
-            <p>Handmade</p>
-          </div>
           <p className="font-Gloock  m-0 p-0 text-[2.5rem] xl:text-[80px] text-[#F6F5EC] flex items-center  gap-5 xl:gap-11">
             BFT Home{" "}
             <BigArrowRight

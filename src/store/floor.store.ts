@@ -50,13 +50,6 @@ interface FloorState {
     position: TilePosition,
     property: Partial<TileCorner>
   ) => void;
-  // calculateGridLayoutFirst: (
-  //   svgString: string,
-  //   manipulatedResults: TilesStore["manipulatedResults"],
-  //   floorRow: number,
-  //   floorColumn: number
-  // ) => void;
-
   calculateGridLayout: (
     borderSVGs: {
       corner: BorderProperties;
@@ -67,8 +60,6 @@ interface FloorState {
       TilePosition,
       Omit<TileProperties, "width" | "height">
     >
-    // floorRow: number,
-    // floorColumn: number
   ) => void;
 
   updateTileAtIndex: (
@@ -111,7 +102,6 @@ export const useFloorStore = create<FloorState>((set) => ({
   borderCorner: { color: {} },
   borderLeftRight: { color: {} },
   borderTopBottom: { color: {} },
-  // setFloorRow: (row) => set((state) => ({ ...state, floorRow: row })),
   setFloorRow: (row) => {
     console.log("setFloorRow called with:", row);
     set((state) => {
@@ -137,41 +127,9 @@ export const useFloorStore = create<FloorState>((set) => ({
       };
       return { ...state, tiles: updatedTiles };
     }),
-  // calculateGridLayoutFirst: (svgString, manipulatedResults) =>
-  //   set((state) => {
-  //     const newGridLayout = Array.from({ length: state.floorRow }, () =>
-  //       Array.from({ length: state.floorColumn }, () => ({}))
-  //     );
-
-  //     const topTiles: TilePosition[] = ["topLeft", "topRight"];
-  //     const bottomTiles: TilePosition[] = ["bottomLeft", "bottomRight"];
-
-  //     for (let i = 0; i < state.floorRow; i++) {
-  //       for (let j = 0; j < state.floorColumn; j++) {
-  //         let tilePosition: TilePosition;
-  //         if (i % 2 === 0) {
-  //           // For even rows (0, 2, 4,...), use top tiles
-  //           tilePosition = topTiles[j % topTiles.length];
-  //         } else {
-  //           // For odd rows (1, 3, 5,...), use bottom tiles
-  //           tilePosition = bottomTiles[j % bottomTiles.length];
-  //         }
-  //         const tileProps = manipulatedResults[tilePosition];
-  //         newGridLayout[i][j] = {
-  //           rotation: tileProps.rotation,
-  //           color: tileProps.color,
-  //           svgString: svgString,
-  //         };
-  //       }
-  //     }
-
-  //     return { gridLayout: newGridLayout };
-  //   }),
   calculateGridLayout: (
     borderSVGs,
     manipulatedResults
-    // floorRow,
-    // floorColumn
   ) =>
     set((state) => {
       const { floorRow, floorColumn } = state;

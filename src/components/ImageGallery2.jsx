@@ -11,7 +11,7 @@ const ImageGallery2 = ({ images }) => {
         <img
           src={selectedImage}
           alt="Selected"
-          className="max-w-full h-full object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
 

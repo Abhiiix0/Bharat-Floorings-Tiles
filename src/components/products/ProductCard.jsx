@@ -6,7 +6,7 @@ import Remix from "../../../public/icons/remix";
 import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
 import { useRouter } from "next/navigation";
 import LoadingUi from "../LoadingUi";
-const ProductCard = ({ Product }) => {
+const ProductCard = ({ Product, border = true }) => {
   const router = useRouter();
   const [whoInfo, setwhoInfo] = useState(false);
   const [loading, setloading] = useState(false);
@@ -26,7 +26,11 @@ const ProductCard = ({ Product }) => {
     setloading(false);
   };
   return (
-    <div className=" relative md:border md:border-b-[1px] md:px-[5%] lg:px-[12%]  3xl:px-[15%] 3xl:h-[931px] flex flex-col-reverse md:flex-col ">
+    <div
+      className={` relative ${
+        border && "xl:border-b-[1px] border"
+      }   md:px-[5%] lg:px-[12%]  3xl:px-[15%] 3xl:h-[931px] flex flex-col-reverse md:flex-col `}
+    >
       <LoadingUi LoadingUi={loading} />
       <p className=" pt-6 relative z-20 bg-white  md:mt-6 md:mb-[18px] text-xl normal-text font-semibold md:font-medium tracking-[0.4px]">
         BFT + Designer 2
@@ -35,7 +39,7 @@ const ProductCard = ({ Product }) => {
         <Image
           alt="img"
           onClick={() => setwhoInfo(true)}
-          className=" w-[650px] h-full border  object-cover"
+          className=" w-[650px] h-full  object-cover"
           src={selectImg}
         />
       </div>

@@ -13,7 +13,7 @@ export default function FloorSecond() {
             {row.map((tile, colIndex) => {
               if (tile && "svgString" in tile) {
                 return (
-                  <div  key={`${rowIndex}-${colIndex}-${JSON.stringify(tile.color)}`} className="relative   bg-red-400" >
+                  <div  key={`${rowIndex}-${colIndex}-${JSON.stringify(tile.color)}`} className="relative" >
 
                   <FloorSecondSvgComponent  
                   svgString={tile.svgString}

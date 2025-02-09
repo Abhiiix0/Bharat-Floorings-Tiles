@@ -492,7 +492,7 @@ const page = () => {
           </div>
           <div className=" flex relative z-[150] pb-28 md:pb-24 lg:pb-[120px] xl:pb-[150px] 3xl:pb-[208px]">
             <div className="  hidden lg:block w-[33.3%] lg:h-[246px]  "></div>
-            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px] border lg:h-48 3xl:h-[246px] sm:flex items-center gap-[0.65rem]  lg:pl-[30px] 2xl:pl-[240px]">
+            <div className=" w-full lg:w-[66.6%] lg:border  h-fit sm:h-[150px]  lg:h-48 3xl:h-[246px] sm:flex items-center gap-[0.65rem]  lg:pl-[30px] 2xl:pl-[240px]">
               <button
                 onClick={() => {
                   openQuote();
@@ -502,8 +502,16 @@ const page = () => {
                 Get a quote
               </button>
               <button
+                onClick={() => {
+                  openQuote();
+                }}
+                className=" w-full sm:w-fit cursor-pointer hover:bg-[#516756] h-[64px] font-medium border normal-text  px-[15px] lg:px-[32px] flex justify-center border-black  md:text-xl items-center"
+              >
+                Get a sample
+              </button>
+              <button
                 onClick={ViewOnWorkShop}
-                className="w-full sm:w-fit cursor-pointer hover:bg-[#516756] hover:text-white group h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center border-2 hover:border-[#516756] border-black  md:text-xl items-center "
+                className="w-full sm:w-fit cursor-pointer  hover:text-white group h-[64px] normal-text px-[15px] lg:px-[32px] flex gap-2 justify-center  md:text-xl items-center "
               >
                 Remix in Workbench{" "}
                 <Remix
@@ -540,7 +548,7 @@ const page = () => {
           <div className="flex gap-3 overflow-x-auto sm:grid z-[100] relative grid-cols-1 place-content-center md:grid-cols-2 xl:grid-cols-3 pb-[200px] w-full snap-x snap-mandatory">
             {productsArray.map((prd, i) => (
               <div key={i} className="snap-start min-w-[80%] sm:min-w-0">
-                <ProductCard Product={prd} />
+                <ProductCard border={false} Product={prd} />
               </div>
             ))}
           </div>
