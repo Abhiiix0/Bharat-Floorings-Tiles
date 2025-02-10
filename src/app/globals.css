@@ -21,7 +21,7 @@
 }
 
 .big-heading {
-  @apply 2xl:text-[143px] xl:text-9xl lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-Gloock font-normal;
+  @apply 2xl:text-[143px] xl:text-9xl lg:text-8xl md:text-7xl sm:text-6xl text-[40px] font-Gloock font-normal;
 }
 
 .small-heading {

@@ -9,10 +9,10 @@ const Careers = ({ jobs }) => {
     <section className='max-w-[1920px] mx-auto relative overflow-hidden'>
       <LinesComp />
       <div className='relative xl:mb-56 lg:mb-48 md:mb-40 mb-32 2xl:mb-[245px] 2xl:mt-[59px] xl:mt-14 lg:mt-12 md:mt-10 mt-8  '>
-        <div className='lg:px-[100px] px-[20px]'>
-          <Intro intro1={'Who we are'} intro3={'100 years old'} />
+        <div className='lg:flex hidden px-[100px] justify-between items-center font-Inter'>
+          <span>Who we are</span> <span>100 years old</span>
         </div>
-        <div className='flex lg:flex-row flex-col md:gap-10 lg:gap-14 2xl:gap-[78px] 2xl:my-20 xl:my-16 lg:my-14 md:my-10 my-8 lg:pr-0 lg:pl-[100px] px-[20px]'>
+        <div className='flex lg:flex-row flex-col md:gap-10 lg:gap-14 2xl:gap-[78px] 2xl:mt-20 2xl:mb-[68px] xl:my-16 lg:my-14 md:my-10 my-8 lg:pr-0 lg:pl-[100px] px-[20px]'>
           <div className='font-Inter'>
             <h1 className='2xl:text-[100px] 2xl:leading-[100px] md:text-5xl text-4xl xl:text-7xl lg:text-6xl font-Gloock font-normal 2xl:mb-14 lg:mb-11 md:mb-9 mb-8'>
               Join us to make the world even better

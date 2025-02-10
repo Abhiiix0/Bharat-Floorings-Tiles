@@ -14,7 +14,7 @@ const OurServices = () => {
         <h1 className="big-heading 3xl:mt-[275.4px] 3xl:mb-[82px] 2xl:mt-52 2xl:mb-16 xl:mt-40 xl:mb-14 lg:mb-12 md:mt-28 md:mb-10 mt-20 mb-10">
           Our Services
         </h1>
-        <div className=" rounded-t-md lg:rounded-none  grid-cols-1 lg:grid-cols-3 bg-[#EBEBEB] h-10 cursor-pointer relative grid">
+        <div className="hidden grid-cols-3 bg-[#EBEBEB] h-10 cursor-pointer relative lg:grid font-Inter">
           <div
             className={`effect hidden xl:block absolute bg-black w-1/3 z-0 h-full ${
               layout.designType === "CUSTOM TILE DESIGN"
@@ -74,7 +74,10 @@ const OurServices = () => {
               expertise
             </p>
             {layout.designInfo.map((el) => (
-              <p key={el.id} className="para-medium lg:pr-28">
+              <p
+                key={el.id}
+                className="para-medium 3xl:pr-48 2xl:pr-32 xl:pr-20"
+              >
                 {el.info}
               </p>
             ))}

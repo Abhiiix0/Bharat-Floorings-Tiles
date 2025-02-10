@@ -11,7 +11,7 @@ const ProjectsCard = ({ image, publicity, designer1, designer2, designerImage })
         alt={`${publicity} image`}
         className='md:h-[415px] lg:h-[520px] xl:h-[620px] 3xl:h-[780px] 2xl:min-h-[600px] mb-5 lg:mb-6 xl:mb-8 w-full 2xl:mb-10'
       />
-      <div className='flex items-center lg:mb-4 xl:mb-5 justify-between 2xl:mb-7 lg:text-base sm:text-sm text-xs'>
+      <div className='flex items-center justify-between mb-2 lg:text-base sm:text-sm text-xs'>
         <p>
           {publicity}
         </p>

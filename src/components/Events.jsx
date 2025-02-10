@@ -16,16 +16,16 @@ const Events = ({ upcomingEvents, tags, events, years, loctaion, pastEvents }) =
           UPCOMING EVENTS
           <span className='absolute text-xs font-semibold'>2</span>
         </div>
-        <div className='xl:px-7 lg:px-6 md:px-5 px-4 overflow-x-scroll scroll flex gap-9'>
+        <div className='xl:px-7 lg:px-6 md:px-5 px-4 overflow-x-scroll scroll flex gap-[21px]'>
           {
             upcomingEvents.map((res) => (
-              <EventsCard key={res.id} eventName={res.eventName} eventDate={res.eventDate} eventInfo={res.eventInfo} website={res.website} eventImage={res.eventImage} />
+              <EventsCard key={res.id} eventName={res.eventName} eventDate={res.eventDate} eventInfo={res.eventInfo} website={res.website} eventImage={res.eventImage} eventPlace={res.eventPlace} />
             ))
           }
         </div>
         <div className='lg:px-[100px] px-[20px]'>
-          <div className='2xl:mt-24 2xl:mb-36 xl:mt-20 xl:mb-32 lg:mt-16 md:mt-12 mt-8 lg:mb-24 md:mb-16 mb-12 font-semibold flex sm:flex-row flex-col sm:gap-0 gap-4'>
-            <div className='relative 2xl:my-16 2xl:text-xl w-2/3'>
+          <div className='2xl:mt-7 2xl:mb-36 xl:mt-20 xl:mb-32 lg:mt-16 md:mt-12 mt-8 lg:mb-24 md:mb-16 mb-12 font-semibold flex sm:flex-row flex-col sm:gap-0 gap-4'>
+            <div className='relative 2xl:my-16 2xl:text-xl w-2/3 font-Inter xl:text-xl text-base'>
               PAST EVENTS
               <span className='absolute text-xs'>
                 57

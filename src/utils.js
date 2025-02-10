@@ -161,8 +161,12 @@ export const OUR_SERVICES_PAGE = [
       },
       {
         id: 2,
-        info: `Our in-house designers are ready to collaborate on color choices and layouts. Can't visit us? Simply email your drawings, and our skilled team will guide you through the layout process. Once you're delighted with the design, we seamlessly integrate it into Autocad, and you can place your order. While this meticulous process takes time, plan accordingly for your project timelines.`,
+        info: `Our in-house designers are ready to collaborate on color choices and layouts. Can't visit us? Simply email your drawings, and our skilled team will guide you through the layout process.`,
       },
+      {
+        id: 3,
+        info: `Once you're delighted with the design, we seamlessly integrate it into Autocad, and you can place your order. While this meticulous process takes time, plan accordingly for your project timelines.`
+      }
     ],
   },
   {
@@ -282,6 +286,7 @@ export const UPCOMING_EVENTS = [
   {
     id: 1,
     eventName: "India Design 2025",
+    eventPlace: "Taj Palace Hotel, New Delhi, India",
     eventDate: "March 15-17, 2025",
     website: "www.indiadesign2025.com/tickets",
     eventImage: eventImage1,
@@ -293,6 +298,24 @@ export const UPCOMING_EVENTS = [
       {
         id: 2,
         info: `Spread the word and invite your friends and colleagues to experience the best in tile innovation. Share the event on social media with the hashtag #IndiaDesign2025 and be part of the design revolution!`,
+      },
+    ],
+  },
+  {
+    id: 2,
+    eventName: "Tile Expo 2025",
+    eventDate: "June 5-7, 2025",
+    eventPlace: "International Exhibition Centre, Mumbai, India",
+    website: "www.tileexpo2025.com/tickets",
+    eventImage: eventImage1,
+    eventInfo: [
+      {
+        id: 1,
+        info: `Tile Expo 2025 is the must-attend event for designers, architects, and industry professionals seeking inspiration from the best in premium tile design. With a focus on innovation, sustainability, and craftsmanship, this year’s edition brings together leading tile manufacturers and design experts to showcase the latest trends in ceramic, porcelain, and stone tiles. Whether you're working on residential, commercial, or industrial projects, Tile Expo 2025 is the perfect platform to discover cutting-edge solutions that will elevate your design vision.`,
+      },
+      {
+        id: 2,
+        info: `Don't miss out on the chance to explore the future of tile design! Share the event with your network and use #TileExpo2025 to join the conversation on social media.`,
       },
     ],
   },
@@ -551,6 +574,443 @@ export const HERITAGE_RESTUARANTS = [
     ],
   },
 ];
+export const HERITAGE_RELIGIOUS_INSTITUTE = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "RELIGIOUS INSTITUTIONS",
+    domainName: [
+      { id: 1, name: `Badrimahal - Mumbai` },
+      { id: 2, name: "Holy Name Cathedral - Mumbai" },
+      { id: 3, name: "St Thomas Cathedral - Mumbai" },
+      { id: 4, name: "Muruganar Mandiram - Ramanathapuram" },
+      { id: 5, name: "Shri Ramanashraman - Tiruvanamalai" },
+    ],
+  }
+]
+
+export const HERITAGE_HOUSING_SOCIETIES = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "HOUSING SOCIETIES",
+    domainName: [
+      { id: 1, name: `Cosmos CHS Ltd` },
+      { id: 2, name: "Mayfair Housing" },
+      { id: 3, name: "New Shangrilla CHS" },
+      { id: 4, name: "Sea Bird Housing Society" },
+    ],
+  }
+]
+
+export const HERITAGE_HOSPITALS = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "HOSPITALS",
+    domainName: [
+      { id: 1, name: `Tata Memorial Hospital - Mumbai` },
+      { id: 2, name: "Venu Eye Centre - Gurgaon" },
+    ],
+  }
+]
+
+export const HERITAGE_EDUCATIONAL_INSTITUTIONS =[
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "EDUCATIONAL INSTITUTIONS",
+    domainName: [
+      { id: 1, name: `Phorzeshah Mehta Bhavan, Mumbai University - Mumbai` },
+      { id: 2, name: "Cathedral and John Connon High School - Mumbai" },
+      { id: 3, name: "Pt. Hari Prasad Chaurasia's Gurukul - Mumbai" },
+      { id: 4, name: "St Annes High School - Mumbai" },
+      { id: 5, name: "Patuck Technical High School and Jr.College - Mumbai" },
+      { id: 6, name: "AMM School - Chennai" },
+      { id: 7, name: "Woodstock School - Mussoorie" },
+      { id: 8, name: "SOS Village - Faridabad" },
+    ],
+  }
+]
+
+export const HERITAGE_CORPORATE_GUEST_HOUSE = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "CORPORATE GUEST HOUSE",
+    domainName: [
+      { id: 1, name: `United Phosphorus - Mumbai` },
+      { id: 2, name: "Jindal Iron and Steel - Vasind" },
+      { id: 3, name: "Reliance Petroleum - Jamnagar" },
+      { id: 4, name: "PWD Guest House - Nashik" },
+    ],
+  }
+]
+
+export const HERITAGE_CORPORATE_ORGINISATIONS = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "CORPORATE ORGINISATIONS",
+    domainName: [
+      { id: 1, name: `Thomas Cook - Mumbai` },
+      { id: 2, name: "Idea Spice Design - Mumbai" },
+      { id: 3, name: "Trilegal - Mumbai" },
+      { id: 4, name: "IIIies Engineering - Mumbai" },
+      { id: 5, name: "Air India Maharaja Lounge - Mumbai" },
+      { id: 6, name: "Western Railway Headquarters" },
+      { id: 7, name: "Lokmat Press - Pune" },
+      { id: 8, name: "Sakti Sugars Ltd - Coimbatore" },
+      { id: 9, name: "Global Telesystems" },
+      { id: 10, name: "Ambatur Clothing Ltd - Ooty" },
+      { id: 11, name: "Chimco Bio-Medical Engg Co" },
+      { id: 12, name: "Meera Mahadevia" },
+      { id: 13, name: "Alcon Victor Group - Goa" },
+      { id: 14, name: "Garrison Engineers - Hyderabad" },
+    ],
+  }
+]
+
+export const HERITAGE_OLD_AGE_HOME = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "OLD-AGE HOME",
+    domainName: [
+      { id: 1, name: `Wallace Bungalow - Lonavala` },
+    ],
+  }
+]
+
+export const HERITAGE_RESIDENCES = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "RESIDENCES",
+    domainName: [
+      { id: 1, name: `Dame Indira Patel - Goai` },
+      { id: 2, name: "Lara Dutta - Goa" },
+      { id: 3, name: "The Library House - Bangalore" },
+      { id: 4, name: "Mr.Kantaraju - Bangalore" },
+      { id: 5, name: "Pali Bhavan - Mumbai" },
+      { id: 6, name: "Kangana Ranaut - Mumbai" },
+      { id: 7, name: "Lutyens Bungalow - New Delhi" },
+      { id: 8, name: "Andreas Ritter - Germany" },
+      { id: 9, name: "Noshir Gobhai - Pune" },
+      { id: 10, name: "Pradeep Guha - Madh" },
+      { id: 11, name: "Richard Kosarech - Alibaug" },
+      { id: 12, name: "Salecha Industries - Jalgaon" },
+      { id: 13, name: "Dr Vinchurkar -Nasik" },
+      { id: 14, name: "Limji Nanabhoy - Mumbai" },
+      { id: 15, name: "Gvk Residency - Hyderabad" },
+    ],
+  }
+]
+
+export const HERITAGE_CLUBS = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "CLUBS",
+    domainName: [
+      { id: 1, name: `Royal Bombay Yacht Club` },
+      { id: 2, name: "Mahabaleshwar Club" },
+      { id: 3, name: "Bombay Gymkhana" },
+      { id: 4, name: "Secunderabad Club" },
+      { id: 5, name: "Kasuli Club" },
+      { id: 6, name: "Mysore Sport Club" },
+      { id: 7, name: "Banagalore Club" },
+      { id: 8, name: "Kamala Vihar Sport Club - Mumbai" },
+    ],
+  }
+]
+
+export const HERITAGE_PUBLIC_BUILDINGS = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "PUBLIC BUILDINGS",
+    domainName: [
+      { id: 1, name: `Salarjung Museum - Hyderabad` },
+      { id: 2, name: "Petit Library - Mumbai" },
+      { id: 3, name: "Poddar Chambers - Mumbai" }
+    ],
+  }
+]
+
+export const HERITAGE_NGOS = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "NGOs",
+    domainName: [
+      { id: 1, name: `Bombay Natural History Society - Mumbai` },
+    ],
+  }
+]
+
+export const HERITAGE_BUILDERS = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "BUILDERS",
+    domainName: [
+      { id: 1, name: `Mahindra Gesco` },
+      { id: 2, name: "Neelkanth Group" },
+      { id: 3, name: "Soham Real Estate" },
+      { id: 4, name: "Eveready Builders" },
+      { id: 5, name: "Hiranandani" },
+      { id: 6, name: "Isaprava" },
+      { id: 7, name: "Lodha" },
+    ],
+  }
+]
+
+export const HERITAGE_GOVERNMENT = [
+  {
+    id: 1,
+    clientName: "Heritage",
+    ClientWork: "tiles",
+    tradeMark: "TM",
+    domain: "GOVERNMENT",
+    domainName: [
+      { id: 1, name: `Brihanmumbai Municipal Corporation` },
+      { id: 2, name: "High Court - Mumbai" },
+      { id: 3, name: "Mussoorie Dehradun Development Authority" },
+      { id: 4, name: "AOI Extension Sagarmatha" }
+    ],
+  }
+]
+
+export const BHARAT_TERRAZZO = [
+  {
+    id: 1,
+    clientName: "Bharat's Terrazzo",
+    domainName: [
+      { id: 1, name: `RMT International School, Chennai` },
+      { id: 2, name: "Eddie's Bistro at Bandra" },
+      { id: 3, name: "Spire Edge, Manesar" },
+      { id: 4, name: "A.N. Buildwell Pvt. Ltd - Gurgaon" },
+      { id: 5, name: "Inorbit Mall - Malad" },
+      { id: 6, name: "Anya Hotels - Gurgaon" },
+      { id: 7, name: "Harbour Heights - Colaba" },
+      { id: 8, name: "Smoke House Room - Delhi" },
+      { id: 9, name: "TCS - Hinjewadi" },
+      { id: 10, name: "Hotel Leela Venture Pvt. Ltd - Kovalam" },
+      { id: 11, name: "Rashmi Building - Carmicheal Road" },
+      { id: 12, name: "Vidya Mandir School - Dahisar" },
+      { id: 13, name: "Global Projects and Aviation Pvt.Ltd" },
+    ],
+  }
+]
+
+export const STILAN_CHEMICAL = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'CHEMICAL',
+    domainName: [
+      { id: 1, name: 'Raychem RPG Ltd' },
+      { id: 2, name: "Bombay Carbon Dioxide Gas Corp" },
+      { id: 3, name: "Pidilite Industries" },
+      { id: 4, name: "Suma Plastic Manufacturing C" },
+      { id: 5, name: "Sunrise Chemical Industries" },
+      { id: 6, name: "Asian Paints" },
+      { id: 7, name: "Gharda Chemicals Ltd" },
+      { id: 8, name: "Mosil Lubricants Pvt Ltd" },
+      { id: 9, name: "Rinku Plastic Products" },
+      { id: 10, name: "Techno Plastic Products" },
+      { id: 11, name: "Zenith Rubber and Plastic Works" },
+    ],
+  }
+]
+
+export const STILAN_CORPORATE_OFFICES = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'CORPORATE OFFICES',
+    domainName: [
+      { id: 1, name: 'Shipping Corp Od India' },
+      { id: 2, name: "Wockhardt Ltd" },
+    ],
+  }
+]
+
+export const STILAN_TEXTILES = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'TEXTILES',
+    domainName: [
+      { id: 1, name: 'Raymond Woollen Mills' },
+      { id: 2, name: "Bombay Dyeing" },
+      { id: 3, name: "Caprihans India Ltd" },
+      { id: 4, name: "Just Textiles" },
+      { id: 5, name: "Century Textiles" },
+      { id: 6, name: "Century Mobus Fabrics Ltd" },
+      { id: 7, name: "Century Enka Ltd" },
+      { id: 8, name: "Century Rayon" },
+      { id: 9, name: "Levino Kapur Cottons Ltd" },
+      { id: 10, name: "Nirlon Ltd The Phoenix Mills Ltd" },
+    ],
+  }
+]
+
+export const STILAN_POWER_TRANSMISSION = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'POWER TRANSMISSION',
+    domainName: [
+      { id: 1, name: 'BESE' },
+      { id: 2, name: "NTPC" },
+      { id: 3, name: "Power Grid Corporation" },
+      { id: 4, name: "Jindal Iron and Steel" }
+    ],
+  }
+]
+
+export const STILAN_GOVERNMENT = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'GOVERNMENT',
+    domainName: [
+      { id: 1, name: 'DOORDARSHAN KENDRA' },
+      { id: 2, name: "BEST" },
+      { id: 3, name: "Sainak Armghar Naval Dockyard" },
+      { id: 4, name: "Reserve Bank of India" },
+      { id: 5, name: "RBI Staff Quarters" },
+      { id: 6, name: "Delhi Metro Rail" },
+      { id: 7, name: "BARC" },
+    ],
+  }
+]
+
+export const STILAN_AUTOMOBILE_WORKSHOPS = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'AUTOMOBILE_WORKSHOPS',
+    domainName: [
+      { id: 1, name: 'Sai Service Station' },
+      { id: 2, name: "Spectra Motors Ltd" },
+      { id: 3, name: "Kwick Care Centre" },
+      { id: 4, name: "Vitesse Ltd" },
+    ],
+  }
+]
+
+export const STILAN_FACTORIES = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'FACTORIES/WAREHOUSES',
+    domainName: [
+      { id: 1, name: 'Daman Ganga Papers Ltd' },
+      { id: 2, name: "Reliance Patalganga" },
+      { id: 3, name: "Astral Glass" },
+      { id: 4, name: "Hindustan Lever Ltd - Orai" },
+      { id: 5, name: "Moonrich Foods Pvt Ltd" },
+      { id: 6, name: "Zeba Home Pvt Ltd" },
+      { id: 7, name: "Naveen Ice and Cold Storage" },
+      { id: 8, name: "GTC Industries" },
+      { id: 9, name: "Sheryas Commercial Printers" },
+    ],
+  }
+]
+
+export const STILAN_HOUSING_SOCIETIES = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'HOUSING SOCIETIES',
+    domainName: [
+      { id: 1, name: 'Walkeshwar Mangankunj CHS' },
+      { id: 2, name: "Anupam CHS" },
+    ],
+  }
+]
+
+export const STILAN_PUBLIC = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'PUBLIC/PRIVATE INSTITUTE',
+    domainName: [
+      { id: 1, name: 'Oval Maidan' },
+      { id: 2, name: "Alexanders Girls High School" },
+      { id: 3, name: "GuruNanak College" },
+      { id: 4, name: "Sheetal India" },
+      { id: 5, name: "Sun and Sand Hotel P L" },
+      { id: 6, name: "Petit School" },
+      { id: 7, name: "Mahindra Construction Co Ltd" }
+    ],
+  }
+]
+
+export const STILAN_ENGINEERING = [
+  {
+    id: 1,
+    clientName: "Stilan",
+    clientWork: 'tiles',
+    tradeMark: '®',
+    domain: 'ENGINEERING',
+    domainName: [
+      { id: 1, name: 'Larsen and Toubro - Gould' },
+      { id: 2, name: "FAG Precision Bearing" },
+      { id: 3, name: "Godrej and Boyce Mfg Co" },
+      { id: 4, name: "JB Engineering" },
+      { id: 5, name: "Quality Machine Tools" },
+      { id: 6, name: "Top Brass Manufacturing Ltd (Locks)" },
+      { id: 7, name: "Duncal India Pvt Ltd" },
+    ],
+  }
+]
+
 
 export const RESOURCES = [
   {
