@@ -36,7 +36,9 @@ import VisualiseIcon from "../../../public/icons/VisualiseIcon";
 import RotateIcon from "../../../public/icons/RotateIcon"
 import QuoteIcon from "../../../public/icons/QuoteIcon"
 import { LuImageDown } from "react-icons/lu";
+import { Switch } from "antd";
 export default function Home() {
+  const [borderHide, setborderHide] = useState(true)
   const [browser,setBrowser] = useState(false);
   const [tile, settile] = useState(Tiles[1])
   const selectTiles = (data:any) => {
@@ -62,7 +64,9 @@ export default function Home() {
   const calculateGridLayout = useFloorStore(
     (state) => state.calculateGridLayout
   );
-
+const calculateGridLayoutWithBorder = useFloorStore(
+  (state) => state.calculateGridLayoutWithBorder
+);
   const floor = useFloorVisualizerStore((state) => state.floor);
   const setFloor = useFloorVisualizerStore((state) => state.setFloor);
   const gridLayout = useFloorStore((state) => state.gridLayout);
@@ -152,9 +156,10 @@ export default function Home() {
     };
 
 
-    calculateGridLayout(
+    calculateGridLayoutWithBorder(
       borderSVGs,
-      newManupulatedresults
+      newManupulatedresults,
+      borderHide
     );
   };
   const divRef = useRef(null);
@@ -169,7 +174,7 @@ export default function Home() {
   useEffect(() => {
     handleButtonClickGrid(tile?.image, tile?.size)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tile])
+  }, [tile, borderHide])
   
 
   const [TileColorPannelBtn, setTileColorPannelBtn] = useState(false)
@@ -231,6 +236,11 @@ export default function Home() {
       setValue(true)
     }
   }
+
+  const onChange = (checked) => {
+    console.log(`switch to ${checked}`);
+    setborderHide(checked)
+  };
   return (
    
 
@@ -324,7 +334,7 @@ export default function Home() {
           </div>
 
           {/* bottom bar  */}
-          <div className=" h-[100px] shadow-md w-full z-[150] lg:z-50   absolute bottom-0 left-0">
+          <div className=" h-[100px] shadow-md w-full z-[150] lg:z-[126]   absolute bottom-0 left-0">
             <div className=" h-full xl:h-[87px] flex justify-between xl:rounded-md xl:mx-28 bg-white border">
               <div className=" flex items-center gap-5 lg:gap-9 xl:gap-[60px] ml-5 lg:ml-12">
                 <button className=" "  onClick={()=>handelOpenClose(RotateModal, setRotateModal)}><RotateIcon size={31} color={ RotateModal ? "black" : "gray"} className=" lg:hidden "/> <span className="hidden lg:block">Rotate</span></button>
@@ -337,8 +347,15 @@ export default function Home() {
                 </span>
               </div>
               <div className=" h-full flex gap-5 lg:gap-0 items-center mr-5 lg:mr-3">
+                <div className=" flex flex-col mr-4">
+<label htmlFor="border">border</label>
+              <Switch defaultChecked onChange={onChange} />
+                </div>
                 {/* <button  onClick={handleDownloadImage} className=" py-4 px-8 Visualise ">Save image</button> */}
+                <div className="  border-red-400 relative">
+<div className={` ${ borderHide && "hidden"} absolute top-0 left-0 backdrop-blur-sm w-full h-full`}></div>
                 <button onClick={() => handelOpenClose(VisulazationModal, setVisulazationModal)} className=" lg:py-4  lg:px-8 lg:border lg:border-black "><VisualiseIcon color={ VisulazationModal ? "black" : "gray"} className=" lg:hidden" size={44} /><span className=" hidden lg:block">Visualise</span></button>
+                </div>
                 <button className=" lg:py-4 lg:px-8 lg:border bg-transparent lg:border-black lg:text-white lg:bg-black"><QuoteIcon className=" lg:hidden" color="gray"/> <span className=" hidden lg:block">Get a quote </span></button>
               </div>
  </div>

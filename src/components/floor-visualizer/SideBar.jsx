@@ -51,7 +51,7 @@ const SideBar = ({ close, handelRoomVisual, handleVisualizeClick }) => {
   }, []);
 
   return (
-    <div className=" rounded flex items-center h-full w-fit md:mr-20 lg:mr-28 z-[125] absolute top-0 right-0">
+    <div className=" rounded bg-red-400 flex items-center h-full w-fit md:mr-20 lg:mr-28 z-[125] absolute top-0 right-0">
       <div className=" h-full md:h-fit md:mt-[-100px] w-[100vw] md:w-72 3xl:w-[335px] relative p-5 bg-white">
         <button onClick={() => close(false)} className=" ml-[-5px] md:hidden">
           {" "}

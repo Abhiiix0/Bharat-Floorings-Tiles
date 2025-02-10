@@ -227,6 +227,111 @@ export const useFloorStore = create<FloorState>((set) => ({
 
       return { gridLayout: newGridLayout };
     }),
+    calculateGridLayoutWithBorder:(borderSVGs:any, manipulatedResults:any, border = true) =>
+    set((state) => {
+      const { floorRow, floorColumn } = state;
+  
+      const newGridLayout = Array.from({ length: floorRow }, () =>
+        Array.from({ length: floorColumn }, () => ({} as TileProperties))
+      );
+  
+      for (let i = 0; i < floorRow; i++) {
+        for (let j = 0; j < floorColumn; j++) {
+          if (
+            border && // Only add borders if `border === true`
+            (i === 0 || i === floorRow - 1 || j === 0 || j === floorColumn - 1)
+          ) {
+            // Borders logic
+            if (i === 0 && (j === 0 || j === floorColumn - 1)) {
+              // Top corners
+              newGridLayout[i][j] = {
+                rotation: j === 0 ? 0 : 90,
+                color: borderSVGs.corner.color,
+                svgString: borderSVGs.corner.svgString,
+                height: 25,
+                width: 25,
+              };
+            } else if (i === floorRow - 1 && (j === 0 || j === floorColumn - 1)) {
+              // Bottom corners
+              newGridLayout[i][j] = {
+                rotation: j === 0 ? 270 : 180,
+                color: borderSVGs.corner.color,
+                svgString: borderSVGs.corner.svgString,
+                height: 25,
+                width: 25,
+              };
+            } else if (i === 0) {
+              // Top row excluding corners
+              newGridLayout[i][j] = {
+                rotation: 0,
+                color: borderSVGs.top.color,
+                svgString: borderSVGs.top.svgString,
+                height: 25,
+                width: 50,
+              };
+            } else if (i === floorRow - 1) {
+              // Bottom row excluding corners
+              newGridLayout[i][j] = {
+                rotation: 180,
+                color: borderSVGs.top.color,
+                svgString: borderSVGs.top.svgString,
+                height: 25,
+                width: 50,
+              };
+            } else if (j === 0) {
+              // Left column excluding corners
+              newGridLayout[i][j] = {
+                rotation: 0,
+                color: borderSVGs.side.color,
+                svgString: borderSVGs.side.svgString,
+                height: 50,
+                width: 25,
+              };
+            } else if (j === floorColumn - 1) {
+              // Right column excluding corners
+              newGridLayout[i][j] = {
+                rotation: 180,
+                color: borderSVGs.side.color,
+                svgString: borderSVGs.side.svgString,
+                height: 50,
+                width: 25,
+              };
+            }
+          } else if (!border || (i > 0 && i < floorRow - 1 && j > 0 && j < floorColumn - 1)) {
+            // Inner tiles (Only floors when border = false)
+            const topTiles: TilePosition[] = ["topLeft", "topRight"];
+            const bottomTiles: TilePosition[] = ["bottomLeft", "bottomRight"];
+            let tilePosition: TilePosition;
+  
+            if (i % 2 === 0) {
+              // Even rows (0, 2, 4,...) use top tiles
+              tilePosition = topTiles[j % topTiles.length];
+            } else {
+              // Odd rows (1, 3, 5,...) use bottom tiles
+              tilePosition = bottomTiles[j % bottomTiles.length];
+            }
+  
+            const tileProps = manipulatedResults[tilePosition];
+            newGridLayout[i][j] = {
+              rotation: tileProps.rotation,
+              color: tileProps.color,
+              svgString: tileProps.svgString,
+              height: 50,
+              width: 50,
+            };
+          }
+        }
+      }
+  
+      console.log(
+        "newGridLayoutRow",
+        newGridLayout.length,
+        "newGridLayoutCol",
+        newGridLayout[0].length
+      );
+  
+      return { gridLayout: newGridLayout };
+    }),
   updateTileAtIndex: (i, j, svgString, rotation, color) =>
     set((state) => {
       const newGridLayout = [...state.gridLayout];
