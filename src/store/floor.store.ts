@@ -61,7 +61,11 @@ interface FloorState {
       Omit<TileProperties, "width" | "height">
     >
   ) => void;
-
+  calculateGridLayoutWithBorder: (
+    borderSVGs: any,
+    manipulatedResults: any,
+    border?: boolean
+  ) => void;
   updateTileAtIndex: (
     i: number,
     j: number,

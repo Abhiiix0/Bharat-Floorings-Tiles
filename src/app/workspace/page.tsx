@@ -65,7 +65,7 @@ export default function Home() {
     (state) => state.calculateGridLayout
   );
 const calculateGridLayoutWithBorder = useFloorStore(
-  (state) => state.calculateGridLayoutWithBorder
+  (state) => state?.calculateGridLayoutWithBorder
 );
   const floor = useFloorVisualizerStore((state) => state.floor);
   const setFloor = useFloorVisualizerStore((state) => state.setFloor);
