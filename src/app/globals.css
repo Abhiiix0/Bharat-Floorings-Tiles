@@ -20,11 +20,14 @@
 }
 
 .small-heading {
-  @apply 2xl:text-[100px] 2xl:leading-[100px] md:text-5xl sm:text-4xl text-3xl xl:text-7xl lg:text-6xl font-Gloock font-normal
+  @apply 3xl:text-[100px] 3xl:leading-[100px] md:text-6xl sm:text-5xl text-[40px] xl:text-[90px] lg:text-7xl font-Gloock font-normal
 }
 
 .para-medium {
   @apply sm:text-sm sm:leading-[26px] text-xs leading-[20px] md:text-base md:leading-[28px] xl:text-lg xl:leading-[30px] 2xl:text-xl 2xl:leading-[32px] font-Inter;
+}
+.para-small{
+  @apply text-base leading-[25.6px] md:text-lg md:leading-[30px] xl:text-xl xl:leading-[32px] font-Inter;
 }
 
 .link-el {

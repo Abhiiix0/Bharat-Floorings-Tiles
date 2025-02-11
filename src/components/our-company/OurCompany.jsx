@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import Intro from "../Intro";
 import OurJourneyCard from "../our-company/OurJourneyCard";
 import ManagementCard from "./ManagementCard";
 import AwardsCard from "./AwardsCard";
-import PastEventsCard from "../PastEventsCard";
 import Link from "next/link";
 import { RiArrowRightLine } from "react-icons/ri";
-import PressReleasesCard from "../PressReleasesCard";
+import PressCard from './PressCard'
+import LatestEvents from './LatestEvents'
+
 
 const OurCompany = ({ journey, management, awards, press, events }) => {
   const [currentYearIndex, setCurrentYearIndex] = useState(0);
@@ -65,19 +65,19 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
         <div className=" w-full border border-[#2A2523] opacity-[0.1] h-full"></div>
         <div className=" w-full border-r border-[#2A2523] opacity-[0.1] h-full"></div>
       </div>
-      <div className="lg:px-[100px] px-[20px] 2xl:pt-[59px] 2xl:pb-44 bg-[#fefef2] relative">
+      <div className="lg:px-[100px] px-[20px] lg:pt-[59px] lg:pb-44 pt-16 pb-8 bg-[#fefef2] relative">
       <div className='lg:flex hidden justify-between items-center font-Inter'>
           <span>Who we are</span> <span>100 years old</span>
         </div>
-        <h1 className="2xl:text-[100px] 2xl:leading-[100px] md:text-5xl text-4xl xl:text-7xl lg:text-6xl font-Gloock font-normal 2xl:mt-[121px] xl:mt-16 lg:mt-14 md:mt-10">
+        <h1 className="2xl:text-[100px] 2xl:leading-[100px] md:text-5xl sm:text-4xl text-[34px] xl:text-7xl lg:text-6xl font-Gloock font-normal 2xl:mt-[121px] xl:mt-16 lg:mt-14 md:mt-10">
           Our Journey
         </h1>
-        <p className="2xl:text-[30px] font-Inter font-medium xl:mt-10 lg:mb-16 lg:mt-8 mb-10 mt-6  xl:leading-[42px] 2xl:w-[50%] xl:w-[70%] lg:font-2xl lg:w-4/5 md:text-xl md:leading-[34px] md:w-full">
+        <p className="2xl:text-[30px] font-Inter font-medium xl:mt-10 lg:mb-16 lg:mt-8 mb-6 mt-4  xl:leading-[42px] 2xl:w-[50%] xl:w-[70%] lg:font-2xl lg:w-4/5 md:text-xl md:leading-[34px] md:w-full sm:pr-0 pr-16">
           For over a century, Bharat Floorings & Tiles has been the epitome of
           quality in handmade tile manufacturers in India.
         </p>
-        <div className="flex lg:flex-row flex-col justify-between 2xl:gap-[77px] xl:gap-8 lg:gap-6 gap-5 xl:mb-40 lg:mb-32 mb-20">
-          <p className="para-medium 3xl:w-[32%] 3xl:pr-3 w-auto pr-0">
+        <div className="flex lg:flex-row flex-col justify-between 2xl:gap-[77px] xl:gap-8 lg:gap-6 gap-0 xl:mb-40 lg:mb-32 mb-20">
+          <p className="para-small 3xl:w-[32%] 3xl:pr-3 w-auto pr-0">
             The Bharat Floorings Group, an ISO 9001:2015 Certified Company,
             boasts a century-long legacy as the foremost provider of top-tier
             cement floorings. Our journey commenced in 1922 when Bharat
@@ -86,7 +86,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             mission: to produce world-class tiles that could replace imports and
             meet the highest international standards.
           </p>
-          <p className="para-medium 3xl:w-[32%] 3xl:pr-4 w-auto pr-0">
+          <p className="para-small 3xl:w-[32%] 3xl:pr-4 w-auto pr-0">
             To fulfill this vision, we harnessed the best European technologies,
             tailoring them to suit the unique demands of Indian conditions. We
             realized that the key to exceptional flooring lay not only in
@@ -95,7 +95,7 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
             specializing in high-quality flooring installation, civil work,
             floor maintenance, and general cleaning.
           </p>
-          <p className="para-medium 3xl:w-[36%] 3xl:pr-20 w-auto pr-0">
+          <p className="para-small 3xl:w-[36%] 3xl:pr-20 w-auto pr-0">
             Throughout the decades, Bharat has left its indelible mark by
             installing some of the most iconic floors in India's architectural
             landscape. Our craftsmanship graces the palaces of Maharajas, Raj
@@ -198,12 +198,16 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
           </div>
         </div>
       </div>
-      <div className="lg:px-[100px] px-[20px]  bg-[#fefef2]">
-        <Intro intro1={"Chairperson"} intro2={"vice Chairman"} intro3={"CEO"} />
-        <h1 className="2xl:text-[100px] 2xl:leading-[100px] text-2xl  h-[181px] lg:text-5xl font-Gloock font-normal xl:text-7xl   md:text-6xl ">
+      <div className="lg:px-[100px] pl-[20px] pr-0 bg-[#fefef2] 3xl:pt-11 lg:pt-9 md:pt-7 sm:pt-28 pt-24 3xl:pb-[195px] xl:pb-44 lg:pb-40 md:pb-32 pb-28">
+       <div className="md:flex items-center justify-between hidden">
+       <span>Chairperson</span>
+       <span>Vice Chairman</span>
+       <span>CEO</span>
+       </div>
+        <h1 className="small-heading 2xl:mt-[119px] lg:mt-24 md:mt-20 mt-0 2xl:mb-24 lg:mb-20 md:mb-16 sm:mb-14 mb-12">
           Management
         </h1>
-        <div className="grid md:grid-cols-3 md:gap-x-9 gap-y-10 pb-[195px]  pt-[18px]">
+        <div className="flex 2xl:gap-6 xl:gap-5 md:gap-5 sm:gap gap-[14px] lg:overflow-hidden overflow-x-scroll scroll">
           {management.map((res) => (
             <ManagementCard
               key={res.id}
@@ -215,16 +219,16 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
           ))}
         </div>
       </div>
-      <div className="bg-[#F4F4F4] lg:pl-[100px] px-[20px] py-10">
-        <div className="lg:pr-[100px] md:flex justify-between items-center font-Inter">
+      <div className="bg-[#F4F4F4] lg:pl-[100px] px-[20px] 3xl:pt-[46px] 3xl:pb-60 xl:pt-10 xl:pb-52 lg:pt-9 lg:pb-40 md:pt-7 md:pb-32 sm:pt-6 sm:pb-24 pt-5 pb-20">
+        <div className="lg:pr-[100px] lg:flex hidden justify-between items-center font-Inter">
          <span>6 awards</span>
          <span>DNA EDIDA UNESCO</span>
          <span>2013 2014 2015 2017</span>
         </div>
-        <h1 className="small-heading 2xl:mt-[119px] xl:mt-16 lg:mt-14 md:mt-10 text-center 2xl:pr-[10%] pr-[15%]">
+        <h1 className="small-heading 3xl:mt-[119px] 3xl:mb-28 xl:mt-24 xl:my-20 lg:mt-20 lg:mb-16 md:mt-16 md:mb-12 sm:mt-14 sm:mb-7 mt-11 mb-5 text-center 2xl:pr-[10%] pr-[15%]">
           Awards
         </h1>
-        <div className="flex overflow-x-scroll 2xl:gap-[27px] xl:gap-6 lg:gap-5 gap-4 scroll xl:my-16 lg:y-12 md:my-9 my-7">
+        <div className="flex overflow-x-scroll 2xl:gap-[27px] xl:gap-6 lg:gap-5 gap-4 scroll">
           {awards.map((res) => (
             <AwardsCard
               key={res.id}
@@ -245,101 +249,60 @@ const OurCompany = ({ journey, management, awards, press, events }) => {
           ))}
         </div>
       </div>
-      <div className="lg:px-[100px] px-[20px]">
-        <Intro intro1={'ELLE'} intro3={'Dec 2023'} />
-        <div className="flex sm:flex-row flex-col items-center justify-between">
+      <div className="relative lg:px-[100px] pl-[20px] pr-0 3xl:pt-[46px] 3xl:pb-60 xl:pt-10 xl:pb-52 lg:pt-9 lg:pb-40 md:pt-7 md:pb-32 sm:pt-6 sm:pb-24 pt-5 pb-[60px]">
+       <div className="flex items-center justify-between font-Inter">
+        <span>ELLE</span>
+        <span>DEC 2023</span>
+       </div>
+        <div className="flex sm:flex-row flex-col lg:items-center justify-between 3xl:mt-[119px] 3xl:mb-28 xl:mt-24 xl:my-20 lg:mt-20 lg:mb-16 md:mt-16 md:mb-12 sm:mt-14 sm:mb-7 mt-11 mb-5">
           <h1 className="small-heading">
             Latest press releases
           </h1>
-          <div className=" flex justify-end sm:w-auto w-full">
+          <div className="lg:relative absolute bottom-16 left-5 flex justify-end">
             <Link
               href="/press"
-              className="link-el border-black border-[1px] w-[175px] xl:w-[200px] 2xl:w-56 xl:pl-3 pl-2 link"
+              className="border-black border-[1px] w-[239px] h-[59px] px-5 font-Inter flex items-center gap-2"
             >
               View all press releases
               <RiArrowRightLine className="arrow" />
             </Link>
           </div>
         </div>
-        <div className="xl:mt-20 xl:mb-36 lg:mt-16 lg:mb-28 md:mt-12 md:mb-20 mt-10 mb-16">
-          <div className="hidden xl:grid xl:grid-cols-4 gap-4">
+        <div className="flex lg:gap-6 gap-5 3xl:mb-24 lg:mb-20 mb-[73px] lg:overflow-hidden overflow-x-scroll scroll">
             {press.slice(0, 4).map((res) => (
-              <PressReleasesCard
+              <PressCard
                 key={res.id}
                 pressImg={res.pressImg}
                 pressDate={res.pressDate}
                 pressName={res.pressName}
               />
             ))}
-          </div>
-          <div className="xl:hidden lg:grid hidden grid-cols-3 gap-4">
-            {press.slice(0, 3).map((res) => (
-              <PressReleasesCard
-                key={res.id}
-                pressImg={res.pressImg}
-                pressDate={res.pressDate}
-                pressName={res.pressName}
-              />
-            ))}
-          </div>
-          <div className="lg:hidden grid grid-cols-2 gap-4">
-            {press.slice(0, 2).map((res) => (
-              <PressReleasesCard
-                key={res.id}
-                pressImg={res.pressImg}
-                pressDate={res.pressDate}
-                pressName={res.pressName}
-              />
-            ))}
-          </div>
         </div>
       </div>
-      <div className="2xl:py-44 xl:py-36 lg:py-28 py-24 lg:px-[100px] px-[20px] bg-[#304941] text-white">
+      <div className="relative 3xl:pt-[201px] 3xl:pb-[276px] xl:pt-40 xl:pb-56  lg:pt-32 lg:pb-44 md:pt-24 md:pb-36 sm:pt-16 sm:pb-24 pt-12 pb-[59px] lg:px-[100px] px-[20px] bg-[#304941] text-white">
         <div className="flex sm:flex-row flex-col items-center justify-between">
-          <div className="2xl:my-6 flex justify-start sm:w-auto w-full">
+          <div className="flex justify-start sm:w-auto w-full">
             <h1 className="small-heading">Latest events</h1>
           </div>
-          <div className=" flex justify-end sm:w-auto w-full">
+          <div className="flex justify-end sm:w-auto w-full">
             <Link
               href="events"
-              className="link-el border-white border-[1px] w-[132px] xl:h-11 xl:w-[150px] 2xl:w-[179px] xl:pl-3 pl-3 2xl:pl-7 link"
+              className="lg:relative absolute bottom-[59px] left-5 border-white border-[1px] w-[179px] px-5 font-Inter flex items-center h-14 gap-2"
             >
               View all events
               <RiArrowRightLine className="arrow" />
             </Link>
           </div>
         </div>
-        <div className="2xl:mt-14 xl:mt-12 lg:mt-10 mt-8 xl:mb-16 lg:mb-14 mb-12">
-          <div className="hidden xl:grid xl:grid-cols-4 gap-4">
+        <div className="flex lg:gap-6 gap-5  lg:overflow-hidden overflow-x-scroll 2xl:mt-14 xl:mt-12 lg:mt-10 mt-8 xl:mb-16 lg:mb-14 mb-12 scroll">
             {events.slice(0, 4).map((res) => (
-              <PastEventsCard
+              <LatestEvents
                 key={res.id}
                 eventDate={res.eventDate}
                 eventImg={res.eventImg}
                 eventName={res.eventName}
               />
             ))}
-          </div>
-          <div className="xl:hidden lg:grid hidden grid-cols-3 gap-4">
-            {events.slice(0, 3).map((res) => (
-              <PastEventsCard
-                key={res.id}
-                eventDate={res.eventDate}
-                eventImg={res.eventImg}
-                eventName={res.eventName}
-              />
-            ))}
-          </div>
-          <div className="lg:hidden grid grid-cols-2 gap-4">
-            {events.slice(0, 2).map((res) => (
-              <PastEventsCard
-                key={res.id}
-                eventDate={res.eventDate}
-                eventImg={res.eventImg}
-                eventName={res.eventName}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>

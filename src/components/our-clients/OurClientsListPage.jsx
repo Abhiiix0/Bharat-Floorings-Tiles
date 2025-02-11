@@ -4,8 +4,8 @@ import { BHARAT_TERRAZZO, HERITAGE_BUILDERS, HERITAGE_CLUBS, HERITAGE_CORPORATE_
 
 const OurClientsListPage = () => {
   return (
-    <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-y-8 xl:mt-14 items-start lg:mt-11 md:mt-8 mt-6 xl:mb-80 lg:mb-60 md:mb-48 mb- justify-between">
-       <div className="flex flex-col gap-8">
+    <div className="md:grid xl:grid-cols-3 md:grid-cols-2 gap-y-8 xl:mt-14 items-start lg:mt-11 md:mt-8 mt-6 xl:mb-80 lg:mb-60 md:mb-48 mb- justify-between">
+       <div className="flex flex-col md:gap-8 gap-0">
       {HERITAGE_HOTELS.map((res) => (
         <OurClientsListComp
           key={res.id}

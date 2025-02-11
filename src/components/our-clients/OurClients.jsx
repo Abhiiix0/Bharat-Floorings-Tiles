@@ -17,7 +17,7 @@ const OurClients = ({ resturants, hotels, resource }) => {
         <div className='relative'>
           <div className='lg:px-[100px] px-[20px] xl:my-14 lg:my-11 md:my-9 my-8'>
           <div className="flex items-center justify-between">
-      <din className="flex lg:gap-0 gap-16 flex-row w-full lg:justify-between lg:w-1/5">
+      <div className="flex lg:gap-[60px] gap-16 flex-row w-full">
         <div className="effect gap-2 flex relative ">
           <div
             className={`absolute effect h-9 w-[38px] z-0 mt-[2px] ${changeView ? "bg-[#949291]" : "bg-[#2A2523]"
@@ -36,13 +36,12 @@ const OurClients = ({ resturants, hotels, resource }) => {
             <LinesLogo color={`${changeView ? "#fff" : "#000"}`} />
           </div>
         </div>
-        <div className="w-2/4">
+        <div className="w-2/5">
           <DropDowns section={"Client type"} subsection={allCleints} color="#949291" />
         </div>
-      </din>
-      <div className="lg:text-base text-xs font-Inter md:block hidden">Showing 299 clients</div>
+      </div>
+      <div className="xl:text-base text-sm font-Inter md:block hidden min-w-fit">Showing 299 clients</div>
     </div>
-            {/* <ClientFilter changeView={changeView} setChangeView={setChangeView} /> */}
           </div>
           <div>
             {

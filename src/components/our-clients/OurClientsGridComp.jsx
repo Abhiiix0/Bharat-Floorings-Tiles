@@ -103,7 +103,7 @@ const OurClientsGridComp = ({
                 height={100}
                 alt="img"
                 src={productImg.src}
-                className="w-36 sm:w-[50%] h-[123px] my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
+                className="w-36 sm:w-[50%] h-[123px] sm:h-auto my-auto md:h-[220px] 2xl:h-[250px] text-[11px] md:text-base object-cover m-2 md:m-3"
               ></Image>
             </div>
           </motion.div>
