@@ -66,7 +66,7 @@ export default function Manufacture() {
                   a period of 3-4 hours to produce the final colours.
                 </p>
               </div>
-              <div className="bg-[#2A2523] ps-[68.1px] shrink-0">
+              <div className="bg-[#2A2523] hidden ps-[68.1px] shrink-0">
                 <Image
                   src={manufracture1}
                   alt="manufracture1"
@@ -79,7 +79,7 @@ export default function Manufacture() {
           ))}
         </div>
       </div>
-      <div className="w-full  pt-[105px] xl:pt-0  h-[505px] xl:h-[1086px] bg-[#2A2523] xl:absolute bottom-0">
+      <div className="w-full  pt-[105px] hidden xl:pt-0  h-[505px] xl:h-[1086px] bg-[#2A2523] xl:absolute bottom-0">
         <div
           style={{}}
           className=" rounded-t-[20px] xl:rounded-t-[80px] bg-[#2A2523] manufractureImg  w-full h-full pt-[46px]

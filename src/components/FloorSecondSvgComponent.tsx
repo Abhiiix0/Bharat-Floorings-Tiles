@@ -38,40 +38,10 @@ export default function FloorSecondSvgComponent({
     grainsEffect
   );
 
-  const [{ isOver }, drop] = useDrop({
-    accept: "tiles", // Specify which item types can be dropped here
-    drop: (item: {
-      color: {
-        [id: number]: string;
-      };
-      rotation: number;
-    }) => {
-      const updatedSvgString = addDataConnectToSvgWithGrainEffect(
-        svgString,
-        height,
-        width,
-        rotation,
-        item.color,
-        grainsEffect // Ensure grainsEffect is applied
-      );
-      updateTileAtIndex(
-        indexRow,
-        indexCol,
-        updatedSvgString,
-        item.rotation,
-        item.color
-      );
-    },
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
-  });
-  const ref = useRef<HTMLDivElement>(null);
-  drop(ref);
 //added scale to fill the gap 
   return (
-    <div ref={ref} className="">
-      <div className=" scale-[1.058]" dangerouslySetInnerHTML={{ __html: modifiedSvgString }} />
+    <div className="">
+      <div className=" scale-[1.020]" dangerouslySetInnerHTML={{ __html: modifiedSvgString }} />
     </div>
   );
 }

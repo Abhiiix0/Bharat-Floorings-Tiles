@@ -1,7 +1,8 @@
 import Image from "next/image";
 import whiteLogo from "../../public/svgs/bftLogoWhite.svg";
 import blackLogo from "../../public/svgs/bftLogoBlack.svg";
-
+import manufracture1 from "../../public/images/home/manufracture.jpg";
+import BigArrowRight from "../../public/icons/BigArrowRIght.jsx";
 const Footer = () => {
   const colorPalettes = [
     { colorCode: "#f0e7dc", colorName: "White", textColor: "#aaa196" },
@@ -84,66 +85,86 @@ const Footer = () => {
     ],
   ];
   return (
-    <footer className="max-w-[1920px] font-Inter relative  mx-auto">
-      <div className=" h-[1rem] md:h-[22rem] w-full flex">
-        {colorPalettes.map((cPalettes) => (
-          <div
-            key={cPalettes.colorCode}
-            style={{
-              backgroundColor: cPalettes.colorCode,
-              color: cPalettes.textColor,
-            }}
-            className={`bg-[#b4d2c4] text-[${cPalettes.textColor}] group flex items-start justify-center w-full `}
-          >
-            <p className="  pt-5 w-fit hidden md:group-hover:flex vertical-text">
-              {cPalettes.colorName
-                .split("")
-                .reverse()
-                .map((letter, index) => (
-                  <span
-                    key={index}
-                    className="w-fit m-0 p-0  rotate-[180deg] font-medium"
-                  >
-                    {letter}
-                  </span>
-                ))}
-            </p>
-          </div>
-        ))}
-      </div>
-      <div className=" pt-[4.65rem] pb-[5.4rem] md:pb-[4.46rem] px-5 lg:px-[6.3rem] text-sm md:text-base leading-7 flex-col md:flex-row flex flex-wrap gap-2 md:gap-10 md:items-start justify-between">
-        <div className=" mb-[3.15rem] md:absolute top-[231px]">
-          <Image
-            src={whiteLogo}
-            alt="Bft white logo"
-            className=" block md:hidden h-[3.8rem]"
-          />
-          <Image
-            src={blackLogo}
-            alt="Bft black logo"
-            className=" hidden md:block w-[102px]"
-          />
+    <>
+      <div className="bg-[#2A2523] pt-[115px]">
+        <div
+          style={{
+            backgroundImage: `url(${manufracture1.src})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+          className=" bg-red-500 px-6 flex items-end pb-7 h-[505px] max-w-[1920px] mx-auto  w-full rounded-t-[20px]"
+        >
+          <p className="font-Gloock  m-0 p-0 text-[2.5rem] xl:text-[80px] text-[#F6F5EC] flex items-center  gap-5 xl:gap-11">
+            BFT Home{" "}
+            <BigArrowRight
+              size={108}
+              className=" h-10 w-10 xl:h-[105px] xl:w-[105px]"
+            />
+          </p>
         </div>
-        {footerLinks.map((links, index) => (
-          <div key={index} className="flex flex-col gap-2">
-            {links.map((link, index) => (
-              <a
-                key={index}
-                href={link.link}
-                className=" hover:opacity-80  uppercase font-medium leading-6 transition-colors duration"
-              >
-                {link.text}
-              </a>
-            ))}
-          </div>
-        ))}
       </div>
-      <p className=" h-[107px] md:h-[67px] px-5 lg:px-[6.3rem] mb-14 md:mb-0 m-0 p-0 ">
-        Copyright - Bharat Floorings and Tiles © 2024
-        <br className=" md:hidden" /> All images and text are copyrighted unless
-        otherwise specified.
-      </p>
-    </footer>
+      <footer className="max-w-[1920px] font-Inter relative  mx-auto">
+        <div className=" h-[1rem] md:h-[22rem] w-full flex">
+          {colorPalettes.map((cPalettes) => (
+            <div
+              key={cPalettes.colorCode}
+              style={{
+                backgroundColor: cPalettes.colorCode,
+                color: cPalettes.textColor,
+              }}
+              className={`bg-[#b4d2c4] text-[${cPalettes.textColor}] group flex items-start justify-center w-full `}
+            >
+              <p className="  pt-5 w-fit hidden md:group-hover:flex vertical-text">
+                {cPalettes.colorName
+                  .split("")
+                  .reverse()
+                  .map((letter, index) => (
+                    <span
+                      key={index}
+                      className="w-fit m-0 p-0  rotate-[180deg] font-medium"
+                    >
+                      {letter}
+                    </span>
+                  ))}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className=" pt-[4.65rem] pb-[5.4rem] md:pb-[4.46rem] px-5 lg:px-[6.3rem] text-sm md:text-base leading-7 flex-col md:flex-row flex flex-wrap gap-2 md:gap-10 md:items-start justify-between">
+          <div className=" mb-[3.15rem] md:absolute top-[231px]">
+            <Image
+              src={whiteLogo}
+              alt="Bft white logo"
+              className=" block md:hidden h-[3.8rem]"
+            />
+            <Image
+              src={blackLogo}
+              alt="Bft black logo"
+              className=" hidden md:block w-[102px]"
+            />
+          </div>
+          {footerLinks.map((links, index) => (
+            <div key={index} className="flex flex-col gap-2">
+              {links.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.link}
+                  className=" hover:opacity-80  uppercase font-medium leading-6 transition-colors duration"
+                >
+                  {link.text}
+                </a>
+              ))}
+            </div>
+          ))}
+        </div>
+        <p className=" h-[107px] md:h-[67px] px-5 lg:px-[6.3rem] mb-14 md:mb-0 m-0 p-0 ">
+          Copyright - Bharat Floorings and Tiles © 2024
+          <br className=" md:hidden" /> All images and text are copyrighted
+          unless otherwise specified.
+        </p>
+      </footer>
+    </>
   );
 };
 

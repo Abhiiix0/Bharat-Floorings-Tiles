@@ -37,6 +37,7 @@ import RotateIcon from "../../../public/icons/RotateIcon"
 import QuoteIcon from "../../../public/icons/QuoteIcon"
 import { LuImageDown } from "react-icons/lu";
 import { Switch } from "antd";
+import GetAQuery from "../../components/GetAQuery";
 export default function Home() {
   const [borderHide, setborderHide] = useState(true)
   const [browser,setBrowser] = useState(false);
@@ -156,10 +157,9 @@ const calculateGridLayoutWithBorder = useFloorStore(
     };
 
 
-    calculateGridLayoutWithBorder(
+    calculateGridLayout(
       borderSVGs,
-      newManupulatedresults,
-      borderHide
+      newManupulatedresults
     );
   };
   const divRef = useRef(null);
@@ -241,6 +241,7 @@ const calculateGridLayoutWithBorder = useFloorStore(
     console.log(`switch to ${checked}`);
     setborderHide(checked)
   };
+  const [Inquery, setInquery] = useState(true);
   return (
    
 
@@ -356,7 +357,7 @@ const calculateGridLayoutWithBorder = useFloorStore(
 <div className={` ${ borderHide && "hidden"} absolute top-0 left-0 backdrop-blur-sm w-full h-full`}></div>
                 <button onClick={() => handelOpenClose(VisulazationModal, setVisulazationModal)} className=" lg:py-4  lg:px-8 lg:border lg:border-black "><VisualiseIcon color={ VisulazationModal ? "black" : "gray"} className=" lg:hidden" size={44} /><span className=" hidden lg:block">Visualise</span></button>
                 </div>
-                <button className=" lg:py-4 lg:px-8 lg:border bg-transparent lg:border-black lg:text-white lg:bg-black"><QuoteIcon className=" lg:hidden" color="gray"/> <span className=" hidden lg:block">Get a quote </span></button>
+                <button onClick={() => { setInquery(true);  console.log("hi")}} className=" lg:py-4 lg:px-8 lg:border bg-transparent lg:border-black lg:text-white lg:bg-black"><QuoteIcon className=" lg:hidden" color="gray"/> <span className=" hidden lg:block">Get a quote </span></button>
               </div>
  </div>
           </div>
@@ -393,7 +394,13 @@ const calculateGridLayoutWithBorder = useFloorStore(
             <div className={` z-[1002] transition-all grid place-content-center overflow-hidden duration-300 ease-in-out h-screen  w-full fixed top-0  bg-red-100 ${isTilesVisualizer ? "right-0" :  " right-[-100%]"}`}>
               <RoomPhotoPannel  handelRoomVisual={setIsTilesVisualizer} />
             </div>
-         
+          {/* <div className=" bg-red-400"> */}
+            <GetAQuery
+          open={Inquery}
+          onClose={setInquery}
+          tilsDesign=""
+          />
+          {/* </div> */}
         </main>
       }
       </DndProvider>
