@@ -1,14 +1,13 @@
 "use client";
-import { DESIGNER_IMAGES } from "../utils";
+import { DESIGNER_IMAGES } from "../../utils";
 import Link from "next/link";
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
-import tajLogo from "../../public/svgs/tajLogo.svg";
-import bftLogoX from  '../../public/svgs/bftLogo-x.svg'
-import design1 from '../../public/svgs/design-1.svg'
-import design3 from '../../public/svgs/design-3.svg'
-import Intro from "./Intro";
-import product from "../../public/images/gallery/galleryImg-1.jpg";
-import LinesComp from "./LinesComp";
+import tajLogo from "../../../public/svgs/tajLogo.svg";
+import bftLogoX from  '../../../public/svgs/bftLogo-x.svg'
+import design1 from '../../../public/svgs/design-1.svg'
+import design3 from '../../../public/svgs/design-3.svg'
+import product from "../../../public/images/gallery/galleryImg-1.jpg";
+import LinesComp from "../LinesComp";
 
 const ProjectsDetail = () => {
   return (
@@ -65,12 +64,10 @@ const ProjectsDetail = () => {
         <img src={tajLogo.src} alt="Taj logo" className="h-full lg:w-12  3xl:w-[66px] w-10 xl:w-14 " />
        </div>
        </div>
-      <div className="lg:px-[100px] px-[20px] 2xl:mt-[58px] xl:mt-12 lg:mt-10 mt-8 2xl:mb-[33px] xl:mb-7 mb-6">
-        <Intro
-          intro1={"1998"}
-          intro2={"3 products"}
-          intro3={"client TAJ HOTELS"}
-        />
+      <div className="lg:flex hidden justify-between items-center lg:px-[100px] px-[20px] 2xl:mt-[58px] xl:mt-12 lg:mt-10 mt-8 2xl:mb-[33px] xl:mb-7 mb-6">
+        <span>1998</span>
+        <span>3 products</span>
+        <span>client Taj HOTELS</span>
       </div>
 
       <div

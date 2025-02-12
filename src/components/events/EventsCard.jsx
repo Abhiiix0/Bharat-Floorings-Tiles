@@ -1,4 +1,4 @@
-import eventsShare from '../../public/svgs/eventsShare.svg'
+import eventsShare from '../../../public/svgs/eventsShare.svg'
 const EventsCard = ({ eventName, eventDate, eventInfo, website, eventImage,eventPlace }) => {
   return (
     <div className='3xl:h-[1220px] 3xl:min-w-[1362px] lg:min-w-[80%] min-w-full 2xl:h-[950px] lg:h-[800px] h-auto bg-[#2A2523] rounded-xl flex sm:flex-row flex-col text-white overflow-hidden'>

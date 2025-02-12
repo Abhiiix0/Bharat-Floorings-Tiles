@@ -1,5 +1,5 @@
 import Header from '../../../components/Header'
-import Resource from '../../../components/Resource'
+import Resource from '../../../components/resource/Resource'
 import {RESOURCES} from '../../../utils'
 import resourcesPageIMage from "../../../../public/images/resources/resource_image.jpg";
 

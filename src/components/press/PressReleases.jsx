@@ -1,5 +1,5 @@
 import PressReleasesCard from './PressReleasesCard'
-import LinesComp from './LinesComp'
+import LinesComp from '../LinesComp'
 
 const PressReleases = ({ press }) => {
   return (

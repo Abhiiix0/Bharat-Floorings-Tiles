@@ -1,4 +1,4 @@
-import GalleryPage from '../../../components/GalleryPage'
+import GalleryPage from '../../../components/gallery-page/GalleryPage'
 import Header from "../../../components/Header";
 import { GALLERY_PAGE_IMAGES } from "../../../utils";
 const page = () => {

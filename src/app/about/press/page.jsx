@@ -1,5 +1,5 @@
 import Header from '../../../components/Header';
-import PressReleases from '../../../components/PressReleases'
+import PressReleases from '../../../components/press/PressReleases'
 import pressPageImage from "../../../../public/images/press/press_releases.jpg";
 import {PRESS_RELEASES} from '../../../utils'
 

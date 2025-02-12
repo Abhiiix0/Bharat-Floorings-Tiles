@@ -4,9 +4,9 @@ import OurClientsListPage from './OurClientsListPage'
 import OurClientsGridPage from './OurClientsGridPage'
 import LinesComp from '../LinesComp'
 import GridLogo from "../../../public/icons/gridLogo.jsx";
-import DropDowns from "../DropDowns";
+import DropDowns from "../ui/DropDowns";
 import LinesLogo from "../../../public/icons/LinesLogo.jsx";
-const allCleints = [{ id: 1, subs: "ALL CLIENTS" }];
+import {ALL_CLIENTS} from '../../utils'
 
 const OurClients = ({ resturants, hotels, resource }) => {
   const [changeView, setChangeView] = useState(false)
@@ -17,7 +17,7 @@ const OurClients = ({ resturants, hotels, resource }) => {
         <div className='relative'>
           <div className='lg:px-[100px] px-[20px] xl:my-14 lg:my-11 md:my-9 my-8'>
           <div className="flex items-center justify-between">
-      <div className="flex lg:gap-[60px] gap-16 flex-row w-full">
+      <div className="flex lg:gap-[60px] gap-14 flex-row w-full">
         <div className="effect gap-2 flex relative ">
           <div
             className={`absolute effect h-9 w-[38px] z-0 mt-[2px] ${changeView ? "bg-[#949291]" : "bg-[#2A2523]"
@@ -36,8 +36,8 @@ const OurClients = ({ resturants, hotels, resource }) => {
             <LinesLogo color={`${changeView ? "#fff" : "#000"}`} />
           </div>
         </div>
-        <div className="w-2/5">
-          <DropDowns section={"Client type"} subsection={allCleints} color="#949291" />
+        <div>
+          <DropDowns section={"Client type"} subsection={ALL_CLIENTS} color="#949291" />
         </div>
       </div>
       <div className="xl:text-base text-sm font-Inter md:block hidden min-w-fit">Showing 299 clients</div>

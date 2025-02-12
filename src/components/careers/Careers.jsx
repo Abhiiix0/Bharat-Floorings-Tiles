@@ -1,8 +1,6 @@
-import React from 'react'
-import careerImg from '../../public/images/career_page_image.jpg'
-import Intro from './Intro'
+import careerImg from '../../../public/images/career_page_image.jpg'
 import JobsCard from './JobsCard'
-import LinesComp from './LinesComp'
+import LinesComp from '../LinesComp'
 
 const Careers = ({ jobs }) => {
   return (

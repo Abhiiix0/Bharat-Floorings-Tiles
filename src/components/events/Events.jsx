@@ -1,10 +1,9 @@
 'use client'
 import EventsCard from './EventsCard'
-import DropDowns from './DropDowns'
+import DropDowns from '../ui/DropDowns'
 import PastEventsCard from './PastEventsCard'
-import LinesComp from './LinesComp'
+import LinesComp from '../LinesComp'
 import { useState } from 'react'
-import ImageClickModal from './ImageClickModal'
 
 const Events = ({ upcomingEvents, tags, events, years, loctaion, pastEvents }) => {
   const [close, setClose] = useState(false)
@@ -25,13 +24,13 @@ const Events = ({ upcomingEvents, tags, events, years, loctaion, pastEvents }) =
         </div>
         <div className='lg:px-[100px] px-[20px]'>
           <div className='2xl:mt-7 2xl:mb-36 xl:mt-20 xl:mb-32 lg:mt-16 md:mt-12 mt-8 lg:mb-24 md:mb-16 mb-12 font-semibold flex sm:flex-row flex-col sm:gap-0 gap-4'>
-            <div className='relative 2xl:my-16 2xl:text-xl w-2/3 font-Inter xl:text-xl text-base'>
+            <div className='relative 2xl:my-16 2xl:text-xl 3xl:w-2/3 lg:w-[30%] font-Inter xl:text-xl text-base'>
               PAST EVENTS
               <span className='absolute text-xs'>
                 57
               </span>
             </div>
-            <div className='flex items-center justify-between xl:w-1/3 lg:w-2/3 w-full'>
+            <div className='flex items-center justify-between 3xl:w-2/4 lg:w-[70%] w-full'>
 
               <div>
                 {

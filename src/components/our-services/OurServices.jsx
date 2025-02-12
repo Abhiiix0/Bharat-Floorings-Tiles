@@ -1,9 +1,9 @@
 "use client";
-import { OUR_SERVICES_PAGE } from "../utils";
+import { OUR_SERVICES_PAGE } from "../../utils";
 import Link from "next/link";
 import { useState } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
-import LinesComp from "./LinesComp";
+import LinesComp from "../LinesComp";
 
 const OurServices = () => {
   const [layout, setLayout] = useState(OUR_SERVICES_PAGE[0]);

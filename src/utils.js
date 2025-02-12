@@ -79,7 +79,9 @@ import ceo from "../public/images/our-company/Faiyaz_Mukhtiar.jpg";
 import dnaAward from "../public/images/our-company/award_dna.jpg";
 import edidaAward from "../public/images/our-company/award_edida.jpg";
 import unescoAward from "../public/images/our-company/award_unesco.jpg";
-
+import awardsModal1 from '../public/images/awards-modal-1.jpg'
+import awardsModal2 from '../public/images/awards-modal-2.jpg'
+ 
 export const GALLERY_PAGE_IMAGES = [
   { id: 1, galleryImg: gallery1 },
   { id: 2, galleryImg: gallery2 },
@@ -517,6 +519,17 @@ export const PRESS_RELEASES = [
     pressName: `Spotlight Trends CW Interiors featured BFT's Geometric pattern`,
   },
 ];
+
+export const ALL_CLIENTS =[
+  {id:1, subs: 'ALL CLIENTS'},
+  {id:2, subs: 'Restaurants'},
+  {id:3, subs: 'Hotels'},
+  {id:4, subs: 'Offices'},
+  {id:5, subs: 'Government'},
+  {id:6, subs: 'Religious'},
+  {id:7, subs: 'Residences'},
+  {id:8, subs: 'Educational'},
+]
 
 export const HERITAGE_HOTELS = [
   {
@@ -1967,3 +1980,7 @@ export const ABOUT_CONTACTS = [
     mailId: "rahul.raj@bharatfloorings.com",
   },
 ];
+ export const AWARDS_IMAGES = [
+  {id: 1, image: awardsModal1},
+  {id: 2, image: awardsModal2}
+ ]

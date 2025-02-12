@@ -1,5 +1,5 @@
 import Header from '../../../components/Header'
-import ProjectsPage from '../../../components/ProjectsPage'
+import ProjectsPage from '../../../components/projects/ProjectsPage'
 import {PROJECT_PAGE_IMAGES} from '../../../utils'
 
 const page = () => {

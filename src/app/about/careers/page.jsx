@@ -1,5 +1,5 @@
 import careerPageIMage from "../../../../public/images/career_page.jpg";
-import Careers from '../../../components/Careers'
+import Careers from '../../../components/careers/Careers'
 import Header from '../../../components/Header'
 import {ALL_JOBS} from '../../../utils'
 

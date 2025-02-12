@@ -1,5 +1,5 @@
 import ResourcesPageCard from './ResourcesPageCard'
-import LinesComp from './LinesComp'
+import LinesComp from '../LinesComp'
 
 const Resource = ({ resource }) => {
   return (

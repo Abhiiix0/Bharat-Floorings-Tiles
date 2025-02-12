@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import OurServices from "../../components/OurServices";
+import OurServices from "../../components/our-services/OurServices";
 
 const page = () => {
   return (

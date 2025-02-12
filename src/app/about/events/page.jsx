@@ -1,4 +1,4 @@
-import Events from '../../../components/Events'
+import Events from '../../../components/events/Events'
 import {
   EVENT_SECTION,
   EVENTS_SUB_SECTION,

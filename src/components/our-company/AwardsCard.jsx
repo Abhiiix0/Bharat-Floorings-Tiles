@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import AwardsModal from './AwardsModal'
+import ImageModal from '../ui/ImageModal'
+import { AWARDS_IMAGES } from '../../utils'
 
 const AwardsCard = ({ image, date, awardedFor, awardName }) => {
   const [close, setClose] = useState(false)
   return (
     <div onClick={() => setClose(true)} className='xl:h-[397px] xl:min-w-[555px] md:h-[360px] md:min-w-96  min-w-[316px] h-[325px] flex flex-col xl:gap-7 md:gap-6 gap-[22px] xl:p-10 lg:p-8 md:p-6 p-5 bg-white  '>
-      {close && <AwardsModal close={close} setClose={setClose} />}
+      {close && <ImageModal close={close} setClose={setClose} modalImages={AWARDS_IMAGES} />}
       <img alt={`${awardedFor} image`} src={image.src} className='h-24 w-24 rounded-full' />
       <div className='flex md:flex-row flex-col md:items-center md:justify-between xl:text-base xl:leading-[25.6px] text-[13px] leading-[35.4px] font-Inter'>
         <span>{date}</span>
