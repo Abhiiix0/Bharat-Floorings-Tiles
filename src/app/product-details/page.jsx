@@ -15,6 +15,8 @@ import { useRouter } from "next/navigation";
 import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
 import GetAQuery from "../../components/GetAQuery";
 import GetASample from "../../components/GetASample";
+import imagess from "../../../public/images/products/headerbg.jpg";
+import CustomHeader from "../../components/CustomHeader";
 
 const page = () => {
   const products = {
@@ -144,7 +146,7 @@ const page = () => {
   const [menuBtn, setmenuBtn] = useState(false);
   const [Inquery, setInquery] = useState(true);
   const [productInfo, setproductInfo] = useState(false);
-  const [SampleSider, setSampleSider] = useState(false);
+  const [SampleSider, setSampleSider] = useState(true);
   const handelProductInfo = () => {
     if (productInfo) {
       setproductInfo(false);
@@ -170,7 +172,10 @@ const page = () => {
   return (
     <div>
       <section className=" relative">
-        <Header textColor="text-black" iconsColor="black"></Header>
+        <CustomHeader title="Designer Tiles" bgImg={imagess?.src}>
+          <Header textColor="text-white" />
+        </CustomHeader>
+        {/* <Header textColor="text-black" iconsColor="black"></Header> */}
         <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[-1]  top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-x border-[#2A2523] opacity-[0.1] h-full"></div>
@@ -373,7 +378,7 @@ const page = () => {
                 onClick={() => {
                   openSample();
                 }}
-                className=" w-full sm:w-fit cursor-pointer hover:bg-[#516756] h-[64px] font-medium border normal-text  px-[15px] lg:px-[32px] flex justify-center border-black  md:text-xl items-center"
+                className=" w-full sm:w-fit cursor-pointer hover:bg-[#516756] h-[64px] font-medium border normal-text  px-[15px] lg:px-[32px] flex justify-center border-black  3xl:text-xl items-center"
               >
                 Get a sample
               </button>

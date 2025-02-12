@@ -23,7 +23,7 @@ export default function RotatingText({ words }) {
           exit={{ y: "-100%", opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           // className="text-4xl font-bold"
-          className=" text-[26px] sm:text-[2.5rem] absolute  md:text-[7vw] 3xl:text-[142px] font-Gloock uppercase"
+          className=" text-[26px] sm:text-[2.5rem] absolute  md:text-[80px] 3xl:text-[142px] font-Gloock uppercase"
         >
           {words[index]}
         </motion.div>
