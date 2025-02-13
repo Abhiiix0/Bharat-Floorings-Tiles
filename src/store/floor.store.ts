@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { TilesStore } from "./tiles.store";
-
+import {boorderTilesSvg} from "../data/borders"
 export type TilePosition =
   | "topLeft"
   | "topRight"
@@ -41,6 +41,10 @@ interface FloorState {
   borderTopBottom: { color: { [id: number]: string } };
   tiles: Tile[]; // 5x5 grid of tiles, each containing Corner properties
   gridLayout: (TileProperties | {})[][];
+  corner: string;
+  topBottom: string;
+  leftRight: string;
+  setBorderTiles: (corner: string, topBottom: string, leftRight: string) => void;
   setFloorRow: (row: number) => void;
   setFloorColumn: (column: number) => void;
   setShowFloor: (show: boolean) => void;
@@ -106,6 +110,10 @@ export const useFloorStore = create<FloorState>((set) => ({
   borderCorner: { color: {} },
   borderLeftRight: { color: {} },
   borderTopBottom: { color: {} },
+  corner: boorderTilesSvg.corner,
+  topBottom: boorderTilesSvg.topBottom,
+  leftRight: boorderTilesSvg.leftRight,
+  setBorderTiles: (corner, topBottom, leftRight) => set({ corner, topBottom, leftRight }),
   setFloorRow: (row) => {
     console.log("setFloorRow called with:", row);
     set((state) => {

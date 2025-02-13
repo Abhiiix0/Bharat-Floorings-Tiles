@@ -97,7 +97,6 @@ const Map = () => {
       email: " vatsal.parekh@bharatfloorings.com",
     },
   ];
-
   const dealer = [
     {
       id: 1,
@@ -119,7 +118,6 @@ const Map = () => {
       email: "raghavendra.bande@bharatfloorings.com",
     },
   ];
-
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY, // Replace with your API key
   });

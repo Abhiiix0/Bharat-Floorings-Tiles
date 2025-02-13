@@ -36,8 +36,10 @@ import VisualiseIcon from "../../../public/icons/VisualiseIcon";
 import RotateIcon from "../../../public/icons/RotateIcon"
 import QuoteIcon from "../../../public/icons/QuoteIcon"
 import { LuImageDown } from "react-icons/lu";
-import { Switch } from "antd";
+import { Modal, Switch } from "antd";
 import GetAQuery from "../../components/GetAQuery";
+import tile11 from "../../../public/bordersSvg/Tile1-Horizontal.svg"
+import BorderTilesPair from "../../components/border/BorderTilesPair";
 export default function Home() {
   const [borderHide, setborderHide] = useState(true)
   const [browser,setBrowser] = useState(false);
@@ -45,13 +47,19 @@ export default function Home() {
   const selectTiles = (data:any) => {
   settile(data)
   }
-  
+
   useEffect(() => {
     setBrowser(true)
     selectTiles(Tiles[1])
   }, [])
+
+  
   const manipulatedResults = useTilesStore((state) => state.manipulatedResults);
   
+  const borderTilesCorner = useFloorStore((state) => state.corner); 
+  const borderTilesTopBottom = useFloorStore((state) => state.topBottom); 
+  const borderTilesLeftRight = useFloorStore((state) => state.leftRight); 
+
   const setTileSize = useTilesStore((state) => state.setTileSize);  
   const showFloor = useFloorStore((state) => state.showFloor);
   const setShowFloor = useFloorStore((state) => state.setShowFloor);
@@ -87,15 +95,15 @@ const calculateGridLayoutWithBorder = useFloorStore(
     const borderSVGs = {
       corner: {
         color: borderCorner.color,
-        svgString: boorderTilesSvg.corner,
+        svgString: borderTilesCorner,
       },
       top: {
-        color: borderLeftRight.color,
-        svgString: boorderTilesSvg.topBottom,
+        color: borderTopBottom.color,
+        svgString:borderTilesTopBottom,
       },
       side: {
-        color: borderTopBottom.color,
-        svgString: boorderTilesSvg.leftRight,
+        color: borderLeftRight.color,
+        svgString:borderTilesLeftRight,
       },
     };
 
@@ -174,8 +182,9 @@ const calculateGridLayoutWithBorder = useFloorStore(
   useEffect(() => {
     handleButtonClickGrid(tile?.image, tile?.size)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tile, borderHide])
+  }, [tile, borderHide, borderTilesCorner])
   
+  // const corersTiles = useFloorStore((state) => state.);
 
   const [TileColorPannelBtn, setTileColorPannelBtn] = useState(false)
   const [scale, setScale] = useState(1.7);
@@ -236,7 +245,7 @@ const calculateGridLayoutWithBorder = useFloorStore(
       setValue(true)
     }
   }
-
+const [borderColorModal, setborderColorModal] = useState(false)
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
     setborderHide(checked)
@@ -262,7 +271,17 @@ const calculateGridLayoutWithBorder = useFloorStore(
 </svg>
             </span>
           <WorkSpaceSideBar open={sideBarCloseOpenBtn} selectTiles={selectTiles} close={setsideBarCloseOpenBtn}/>
-        
+          <Modal open={borderColorModal} onCancel={() => setborderColorModal(!borderColorModal)}>
+            <div className=" scale-150 ml-[50px]   mb-[100px]">
+
+          <BorderTilesPair
+                    svgStringCorner={borderTilesCorner}
+                    svgStringTopBottom={ borderTilesTopBottom}
+                    svgStringLeftRight={borderTilesLeftRight}
+                    />
+                    </div>
+             <ColorPalette />
+        </Modal>
           
 
           {/* ColorPalate */}
@@ -339,7 +358,8 @@ const calculateGridLayoutWithBorder = useFloorStore(
             <div className=" h-full xl:h-[87px] flex justify-between xl:rounded-md xl:mx-28 bg-white border">
               <div className=" flex items-center gap-5 lg:gap-9 xl:gap-[60px] ml-5 lg:ml-12">
                 <button className=" "  onClick={()=>handelOpenClose(RotateModal, setRotateModal)}><RotateIcon size={31} color={ RotateModal ? "black" : "gray"} className=" lg:hidden "/> <span className="hidden lg:block">Rotate</span></button>
-                <button className=" " onClick={() => handelOpenClose(TileColorPannelBtn,setTileColorPannelBtn)}><Remix className=" lg:hidden " color={ TileColorPannelBtn ? "black" : "gray"}  size={44} /> <span className="hidden lg:block">Colors</span></button>
+                <button className=" " onClick={() => handelOpenClose(TileColorPannelBtn, setTileColorPannelBtn)}><Remix className=" lg:hidden " color={TileColorPannelBtn ? "black" : "gray"} size={44} /> <span className="hidden lg:block">Colors</span></button>
+                <button className=" " onClick={() => setborderColorModal(!borderColorModal)}><Remix className=" lg:hidden " color={ TileColorPannelBtn ? "black" : "gray"}  size={44} /> <span className="hidden lg:block">Border Colors</span></button>
                 <LuImageDown size={36} color="gray" className=" lg:hidden" />
                 <button className=" hidden lg:block" onClick={()=>handelOpenClose( tilesLayoutModal,settilesLayoutModal)}>Tiles Layout</button>
                 <span className=" hidden lg:flex gap-2 items-center">Zoom
@@ -348,6 +368,7 @@ const calculateGridLayoutWithBorder = useFloorStore(
                 </span>
               </div>
               <div className=" h-full flex gap-5 lg:gap-0 items-center mr-5 lg:mr-3">
+           
                 <div className=" flex flex-col mr-4">
 <label htmlFor="border">border</label>
               <Switch defaultChecked onChange={onChange} />
