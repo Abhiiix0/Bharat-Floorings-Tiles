@@ -5,11 +5,11 @@ import Menu from "../../public/icons/menu";
 import BftLogo from "../../public/icons/bftLogo";
 import PlusIcon from "../../public/icons/PlusIcon";
 import MinusIcon from "../../public/icons/MinusIcon";
-import headerImg from "../../public/images/header/headerlinkimg1.jpg";
 import { useState } from "react";
 import LinesComp from "./LinesComp";
 import { Drawer } from "antd";
 import CircleClose from "../../public/icons/CircleClose";
+import { AnimatePresence } from "framer-motion";
 const Header = ({ textColor, iconsColor, lines }) => {
   const navlinks = [
     {
@@ -137,7 +137,6 @@ const Header = ({ textColor, iconsColor, lines }) => {
       {isOverlayVisible && (
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-[500]"
-          // src={require("../../public/videos/headerBgVd.mp4")}
           autoPlay
           muted
           loop
@@ -221,6 +220,7 @@ const Header = ({ textColor, iconsColor, lines }) => {
                                           console.log(sublink?.img);
                                           sethoverLinkImg(sublink?.img || "");
                                         }}
+                                        onMouseLeave={() => sethoverLinkImg("")}
                                       >
                                         <a
                                           href={sublink.link}
@@ -276,7 +276,14 @@ const Header = ({ textColor, iconsColor, lines }) => {
             </div>
           </div>
         )}
-
+        {isOverlayVisible && (
+          <span
+            className=" cursor-pointer z-[2503] fixed top-2 right-2"
+            onClick={hideOverlay}
+          >
+            <CircleClose />
+          </span>
+        )}
         <nav className=" flex justify-between">
           <div
             className={` lg:bg-black w-fit ${

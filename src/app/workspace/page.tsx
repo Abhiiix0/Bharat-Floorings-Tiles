@@ -400,6 +400,7 @@ const calculateGridLayoutWithBorder = useFloorStore(
           onClose={setInquery}
           tilsDesign=""
           />
+          
           {/* </div> */}
         </main>
       }
@@ -419,6 +420,6 @@ const Tiles = [
     id: 1,
     name: "Tiles Two",
     image: Tiles2,
-    size: "12*12",
+    size: "10*10",
   },
 ];

@@ -2,12 +2,31 @@
 import React, { useState } from "react";
 import { TilesData } from "./../data/TilesData.js";
 import Image from "next/image.js";
+import borderTiles1 from "../../public/borderSvg/border1.svg";
+import borderTiles2 from "../../public/borderSvg/border2.svg";
+import borderTiles3 from "../../public/borderSvg/border3.svg";
+import { useRouter } from "next/navigation.js";
+import { useFloorVisualizerStore } from "../store/floorVisualizer.store";
+// import { useFloorVisualizerStore } from "../store/floorVisualizer.store.js";
 const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
   const [tilesBorderBtn, settilesBorderBtn] = useState("tiles");
   const HandelSelectTileBorder = (type) => {
     settilesBorderBtn(type);
   };
-
+  const setTileData = useFloorVisualizerStore((state) => state.setTileData);
+  const router = useRouter();
+  const [selectedBorder, setselectedBorder] = useState("");
+  const ViewOnWorkShop = async () => {
+    const response = await fetch(selectedBorder?.src); // Adjust path as needed
+    const svgText = await response.text();
+    setTileData({
+      id: 0,
+      name: "Tiles One",
+      image: svgText,
+      size: "10*10",
+    });
+    // router.push("/workspace");
+  };
   const [levelOne, setlevelOne] = useState("");
   const [levelTwo, setlevelTwo] = useState("");
   const [levelThree, setlevelThree] = useState("");
@@ -15,6 +34,17 @@ const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
   function SvgToImg(data) {
     return `data:image/svg+xml;base64,${btoa(data)}`;
   }
+  const borders = [
+    borderTiles1,
+    borderTiles2,
+    borderTiles3,
+    borderTiles1,
+    borderTiles2,
+    borderTiles3,
+    borderTiles1,
+    borderTiles2,
+    borderTiles3,
+  ];
   return (
     <div>
       <div
@@ -24,7 +54,7 @@ const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
       >
         <div className=" bg-white h-full md:h-[550px] 3xl:h-[70vh] md:mt-12 md:rounded-tr-md md:rounded-br-md w-[100vw] md:w-[25rem]  3xl:w-[529px]">
           <button
-            className=" mx-3 mt-4 md:px-5 flex justify-between items-center md:pt-6"
+            className=" mx-3 mt-4 md:px-5  flex justify-between items-center md:pt-6 lg:pb-2 lg:pt-0 lg:px-0"
             onClick={() => close(false)}
           >
             {" "}
@@ -127,6 +157,21 @@ const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
                       </div>
                     )}
                   </div>
+                ))}
+              </div>
+            )}
+            {tilesBorderBtn === "borders" && (
+              <div className=" flex flex-wrap justify-center gap-6">
+                {borders?.map((b, i) => (
+                  <Image
+                    onClick={() => {
+                      setselectedBorder(b);
+                      ViewOnWorkShop();
+                    }}
+                    className=" cursor-pointer h-24 w-24 object-cover"
+                    src={b}
+                    key={i}
+                  />
                 ))}
               </div>
             )}

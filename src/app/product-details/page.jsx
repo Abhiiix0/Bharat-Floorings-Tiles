@@ -169,6 +169,8 @@ const page = () => {
     });
     router.push("/workspace");
   };
+  const [extraInfo, setextraInfo] = useState(false);
+
   return (
     <div>
       <section className=" relative">
@@ -291,8 +293,14 @@ const page = () => {
                   />
                 </div>
               </div>
-              <p className=" normal-text hidden lg:block text-sm md:text-xl mt-5 md:mt-[42px]">
-                Extra information +
+              <p
+                onClick={() => setextraInfo(!extraInfo)}
+                className={`  cursor-pointer normal-text hidden lg:block text-sm md:text-xl mt-5 md:mt-[42px]`}
+              >
+                Extra information{" "}
+                <span className=" rounded-full overflow-hidden ">
+                  {!extraInfo ? "+" : "-"}
+                </span>
               </p>
             </div>
             <div className=" ">
@@ -317,7 +325,7 @@ const page = () => {
               <div
                 className={` normal-text w-full transition-all duration-300 ease-in-out lg:h-fit  overflow-hidden text-ellipsis whitespace-pre-line ${
                   productInfo && "h-[7.5rem] "
-                } lg:w-[550px] 2xl:w-[658px]`}
+                } lg:max-w-[660px] 2xl:w-[658px]`}
               >
                 The classic Terrazzo tile is very reminiscent of Indian homes
                 and often associated with nostalgia of an old ‘Bombay’. The
@@ -339,6 +347,66 @@ const page = () => {
                 >
                   {productInfo ? "+" : "-"}
                 </span>
+              </div>
+              <div className=" flex uppercase text-sm font-semibold py-5 lg:hidden font-Inter items-center border-b-black justify-between border-b ">
+                Extra Information{" "}
+                <span
+                  className=" text-3xl font-normal"
+                  onClick={() => setextraInfo(!extraInfo)}
+                >
+                  {!extraInfo ? "+" : "-"}
+                </span>
+              </div>
+              <div
+                //
+                className={` ${
+                  !extraInfo ? " hidden opacity-0 " : " block opacity-100"
+                }   lg:absolute lg:top-[896px] xl:top-[1026px] 2xl:top-[1236px] left-[99px] 2xl:left-[184px]  3xl:top-[1306px] 3xl:left-[240px]  font-inter  duration-200 transition-all ease-in-out rounded-md w-full mt-5 lg:mt-0 lg:w-[350px] xl:w-[370px] 3xl:max-w-[430px] `}
+              >
+                <p className=" font-Inter font-medium">Material</p>
+                <div className=" font-Inter lg:text-sm 3xl:text-base">
+                  <p>Topping - Topping - White or grey cement, pigment,</p>
+                  <p>filler, marble, stone and glass chips</p>
+                  <p>Backing - Backing - Grey cement, Stone grit/ Dust</p>
+                </div>
+                <div className=" flex flex-col gap-4 lg:gap-6 3xl:gap-8 items-start mt-6 lg:mt-9 3xl:mt-12">
+                  <div>
+                    <p className=" font-Inter font-medium">
+                      Wet Transverse Strength
+                    </p>
+                    <p>Above 3N/ mm2</p>
+                  </div>
+                  <div>
+                    <p className=" font-Inter font-medium">
+                      Wet Transverse Strength
+                    </p>
+                    <p>Above 3N/ mm2</p>
+                  </div>
+                  <div>
+                    <p className=" font-Inter font-medium">
+                      Wet Transverse Strength
+                    </p>
+                    <p>Above 3N/ mm2</p>
+                  </div>
+                  <div>
+                    <p className=" font-Inter font-medium">
+                      Wet Transverse Strength
+                    </p>
+                    <p>Above 3N/ mm2</p>
+                  </div>
+                  <div>
+                    <p className=" font-Inter font-medium">
+                      Wet Transverse Strength
+                    </p>
+                    <p>Above 3N/ mm2</p>
+                  </div>
+                  <div>
+                    <p className=" font-Inter font-medium">
+                      Wet Transverse Strength
+                    </p>
+                    <p>Above 3N/ mm2</p>
+                  </div>
+                </div>
               </div>
               <div className=" mt-10 md:mt-[50px] lg:mt-24 3xl:mt-[135px] pb-14 sm:pb-[20px]  lg:pb-[77px]">
                 <div className=" flex flex-col sm:flex-row font-Inter  gap-3  sm:gap-16">
@@ -378,7 +446,7 @@ const page = () => {
                 onClick={() => {
                   openSample();
                 }}
-                className=" w-full sm:w-fit cursor-pointer hover:bg-[#516756] h-[64px] font-medium border normal-text  px-[15px] lg:px-[32px] flex justify-center border-black  3xl:text-xl items-center"
+                className=" w-full sm:w-fit cursor-pointer hover:bg-[#516756] h-[64px] font-medium border normal-text  px-[15px] lg:px-[32px] flex justify-center hover:text-white border-black  3xl:text-xl items-center"
               >
                 Get a sample
               </button>
@@ -401,7 +469,11 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col sm:flex-row items-center gap-3 md:gap-7 px-5 mb-14 md:mb-24 lg:mb-[150px] xl:mb-[233px] lg:px-[100px]">
+        <div
+          className={` ${
+            extraInfo && " 2xl:mt-[139px] 3xl:mt-16"
+          } flex flex-col sm:flex-row transition-all duration-200 ease-in-out items-center gap-3 md:gap-7 px-5 mb-14 md:mb-24 lg:mb-[150px] xl:mb-[233px] lg:px-[100px]`}
+        >
           <Image
             alt="Image"
             src={kitchen}

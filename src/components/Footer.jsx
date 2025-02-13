@@ -86,7 +86,7 @@ const Footer = () => {
   ];
   return (
     <>
-      <div className="bg-[#2A2523] rounded-t-2xl">
+      <div className="bg-[#2A2523] lg:hidden rounded-t-2xl">
         <div
           style={{
             backgroundImage: `url(${manufracture1.src})`,

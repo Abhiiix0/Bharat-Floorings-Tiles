@@ -11,7 +11,7 @@ import Phone from "../../../public/icons/phone";
 import Mail from "../../../public/icons/Mail";
 import { BsPerson } from "react-icons/bs";
 import BFTMapPin from "../../../public/icons/BFTMapPin";
-
+import map from "../../../public/svgs/bftIcon.svg";
 // Map options
 const mapOptions = {
   disableDefaultUI: true, // Hides all default UI elements
@@ -220,12 +220,43 @@ const Map = () => {
   const zoomIn = () => {
     if (map) map.setZoom(map.getZoom() + 1);
   };
+  const [bftIconss, setbftIconss] = useState(null);
+  const fetchSvg = async () => {
+    const response = await fetch("../../../public/svgs/bftIcon.svg"); // Adjust path as needed
+    const svgText = await response.text();
+    setbftIconss(svgText);
+  };
+  useEffect(() => {
+    fetchSvg();
+  }, []);
 
+  const customMarkerIcon = {
+    path: bftIconss, // Example of custom SVG path
+    fillColor: "#20699C", // Custom color for the marker
+    fillOpacity: 1,
+    strokeColor: "#000000",
+    strokeWeight: 2,
+    scale: 10, // Adjust size
+  };
   const zoomOut = () => {
     if (map) map.setZoom(map.getZoom() - 1);
   };
+  // Customize the marker cluster appearance
+  const clusterOptions = {
+    styles: [
+      {
+        url: "/svgs/Cluster.svg", // Custom cluster icon (you can change it)
+        width: 50,
+        height: 50,
+        textColor: "#ffffff",
+        textSize: 14,
+        fontWeight: "bold",
+        backgroundColor: "#20699C",
+      },
+    ],
+  };
   return isLoaded ? (
-    <div className="relative h-screen max-h-[600px] 3xl:h-[1469px] w-full">
+    <div className="relative h-[600px] md:h-screen xl:h-[99vh] 3xl:h-[1469px] w-full">
       <div
         className={` fixed h-full xl:h-fit xl:absolute z-50 top-0 ${
           mapDataDrawer ? " right-0" : " right-[-100%]"
@@ -361,25 +392,18 @@ const Map = () => {
         zoom={5}
         center={mapCenter} // Dynamic map center
       >
-        {/* {geocodedStores.map((store) => (
-          <OverlayView
-            key={store.id}
-            position={{ lat: store.lat, lng: store.lng }}
-            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-          >
-          <div style={{ transform: "translate(-50%, -100%)" }}>
-          <BFTMapPin />
-          </div>
-          </OverlayView>
-          ))} */}
-
-        <MarkerClusterer>
+        <MarkerClusterer options={clusterOptions}>
           {(clusterer) =>
             geocodedStores.map((store) => (
               <Marker
                 key={store.id}
                 position={{ lat: store.lat, lng: store.lng }}
                 clusterer={clusterer}
+                icon={{
+                  url: "/svgs/bftIcon.svg", // Path to your custom SVG
+                  scaledSize: new google.maps.Size(40, 40), // Adjust size as needed
+                  anchor: new google.maps.Point(20, 20), // Anchor the icon at its center
+                }}
                 onClick={() => handleStoreClick(store)}
               />
             ))
@@ -387,7 +411,7 @@ const Map = () => {
         </MarkerClusterer>
       </GoogleMap>
 
-      <div className="absolute z-30   bottom-5 left-5 flex gap-1 flex-col h-[100px] w-fit bg-white p-2 rounded shadow-lg">
+      <div className="absolute z-30 hidden    bottom-5 right-5 xl:flex gap-1 flex-col h-[100px] w-fit bg-white p-2 rounded shadow-lg">
         <button
           onClick={zoomIn}
           className="px-2 py-1 text-2xl bg-gray-300 rounded"
