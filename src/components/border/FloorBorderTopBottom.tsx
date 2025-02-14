@@ -1,4 +1,3 @@
-import React from "react";
 import BorderSvgComponent from "./BorderSvgComponent";
 import { useTilesBorderStore } from "../../store/tilesBorder.store";
 

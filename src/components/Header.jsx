@@ -137,7 +137,6 @@ const Header = ({ textColor, iconsColor, lines }) => {
       {isOverlayVisible && (
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-[500]"
-          // src={require("../../public/videos/headerBgVd.mp4")}
           autoPlay
           muted
           loop

@@ -1,5 +1,4 @@
 import { useTilesBorderStore } from "../../store/tilesBorder.store";
-import React from "react";
 import BorderSvgComponent from "./BorderSvgComponent";
 
 interface FloorBorderCornerProps {

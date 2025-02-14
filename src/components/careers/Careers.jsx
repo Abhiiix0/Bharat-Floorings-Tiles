@@ -1,8 +1,6 @@
-import React from "react";
-import careerImg from "../../public/images/career_page_image.jpg";
-import Intro from "./Intro";
+import careerImg from "../../../public/images/career_page_image.jpg";
 import JobsCard from "./JobsCard";
-import LinesComp from "./LinesComp";
+import LinesComp from "../LinesComp";
 
 const Careers = ({ jobs }) => {
   return (
@@ -76,7 +74,6 @@ const Careers = ({ jobs }) => {
                 Happy place with happy people
               </h3>
             </div>
-            {/* <div className="bg-black h-[1.5px]" /> */}
             <div className="flex md:flex-row flex-col text-xl font-medium md:gap-0 justify-between items-center 2xl:mb-8 xl:mb-9 mb-20 ">
               <h3 className="md:w-[30%] py-6 border-b-2 border-black w-full ">
                 Value driven and design centric company
@@ -93,7 +90,7 @@ const Careers = ({ jobs }) => {
         <div className="title-el 2xl:mb-[137px] 2xl:mt-11 xl:mb-32 xl:mt-9 lg:mb-24 md:mb-20 md:mt-8 mb-[69px] mt-[48px] lg:px-[100px] px-[20px]">
           Open Positions <sup className="text-[13px] font-medium">6</sup>
         </div>
-        <div className=" w-full overflow-x-auto">
+        <div className=" w-full overflow-x-auto scroll">
           <div className=" flex md:grid lg:grid-cols-3 w-full 2xl:gap-6 xl:gap-5 lg:gap-4 gap-3 md:grid-cols-2 lg:px-[100px] px-[20px]">
             {jobs.map((res) => (
               <div className=" w-fit md:w-full">

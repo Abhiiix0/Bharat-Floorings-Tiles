@@ -6,10 +6,8 @@ import tiles2 from "../../../public/svgs/tile2.svg";
 import Image from "next/image";
 import { useState } from "react";
 import Remix from "../../../public/icons/remix";
-import ImageGallery from "../../components/ImageGallery";
 import ImageGallery2 from "../../components/ImageGallery2";
 import ProductCard from "../../components/products/ProductCard";
-import tilsDesign from "../../../public/images/product-details/tiles.png";
 import kitchen from "../../../public/images/product-details/kitchen.jpg";
 import { useRouter } from "next/navigation";
 import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
@@ -175,7 +173,6 @@ const page = () => {
         <CustomHeader title="Designer Tiles" bgImg={imagess?.src}>
           <Header textColor="text-white" />
         </CustomHeader>
-        {/* <Header textColor="text-black" iconsColor="black"></Header> */}
         <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[-1]  top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-x border-[#2A2523] opacity-[0.1] h-full"></div>
@@ -272,7 +269,6 @@ const page = () => {
                     className=" w-[25%] sm:h-[55px]  z-[20] cursor-pointer sm:w-[55px] lg:w-[45px] lg:h-[45px] 2xl:h-[85px] 2xl:w-[85px] object-cover"
                     src={tile}
                     onClick={() => setSelectedImg(tile)}
-                    //   onClick={() => setSelectedImg(tile)}
                     alt="Image"
                   ></Image>
                 ))}
@@ -392,11 +388,6 @@ const page = () => {
                   color="black"
                   className="h-4 w-4  md:h-8 md:w-8"
                 />
-                {/* <Remix
-                  size={31}
-                  color="white"
-                  className="h-4 w-4 md:h-8 md:w-8"
-                /> */}
               </button>
             </div>
           </div>

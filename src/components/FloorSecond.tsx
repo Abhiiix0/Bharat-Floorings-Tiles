@@ -32,7 +32,6 @@ export default function FloorSecond() {
           backgroundImage: `url('${grainEffect?.src}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          // mixBlendMode: "multiply",
           mixBlendMode: "luminosity",
           zIndex: 10,
         }}/>

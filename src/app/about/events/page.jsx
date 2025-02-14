@@ -1,4 +1,4 @@
-import Events from '../../../components/Events'
+import Events from '../../../components/events/Events'
 import {
   EVENT_SECTION,
   EVENTS_SUB_SECTION,
@@ -9,23 +9,18 @@ import {
 } from "../../../utils";
 import eventsPageImage from "../../../../public/images/events/events_image.jpg";
 import Header from "../../../components/Header";
+import CustomHeader from '../../../components/CustomHeader';
 
 const page = () => {
   return (
     <div>
-      <div
-        style={{
-          backgroundImage: `url(${eventsPageImage.src})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        className="3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative"
+      <CustomHeader
+        level2={true}
+        title="Events"
+        bgImg={eventsPageImage?.src}
       >
         <Header textColor="text-white" />
-        <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
-          <h1 className="big-heading text-white">Events</h1>
-        </div>
-      </div>
+      </CustomHeader>
       <Events
         upcomingEvents={UPCOMING_EVENTS}
         tags={TAG_SECTION}

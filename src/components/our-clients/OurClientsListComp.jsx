@@ -4,10 +4,10 @@ import { useState } from "react"
 const OurClientsListComp = ({clientName, domain, tradeMark, clientWork, domainName}) => {
   const [selected, setSelcted] = useState(false)
   return (
-  <div className='font-Inter'>
-      <div className="md:block hidden">
+  <div className='font-Inter w-full'>
+      <div className="md:block hidden 3xl:mb-12 2xl:mb-10 xl:mb-8 lg:mb-6 md:mb-5">
         <div className="xl:text-lg md:text-base text-sm font-Inter font-bold">
-        {clientName}<sup className='text-xs font-bold'>{tradeMark}</sup> &nbsp;{clientWork} ({domain})
+        {clientName}<sup className='text-xs font-bold'>{tradeMark}</sup> &nbsp;{clientWork} {domain && `(${domain})`}
         </div>
       <ul>
        {
@@ -19,7 +19,7 @@ const OurClientsListComp = ({clientName, domain, tradeMark, clientWork, domainNa
     </div>
    <div className="md:hidden block min-w-full">
    <div className='border-b-2 border-black px-1 effect min-w-full'>
-    <div onClick={() => setSelcted(!selected)} className='effect flex items-center justify-between sm:py-5 py-4'>
+    <div onClick={() => setSelcted(!selected)} className='effect flex items-center justify-between sm:py-5 py-4 min-w-full'>
     <div className='text-base font-Inter font-semibold'>
     {clientName}<sup className='text-xs'>{tradeMark}</sup>&nbsp;{clientWork} ({domain})
      </div>

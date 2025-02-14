@@ -2,7 +2,7 @@ import OurClientsGridComp from "./OurClientsGridComp";
 
 const OurClientsGridPage = ({ resource }) => {
   return (
-    <div className="grid 2xl:grid-cols-7 overflow-hidden lg:grid-cols-5 md:grid-cols-4 grid-cols-2">
+    <div className="grid 2xl:grid-cols-7 overflow-hidden lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
       {resource.map((res, i) => (
         <div onClick={() => console.log(i)} key={i}>
           <OurClientsGridComp

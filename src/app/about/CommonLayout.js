@@ -1,7 +1,4 @@
 import "../../app/globals.css";
-// import Footer from "./components/Footer.js";
-// import Header from "./components/Header";
-// import bgImgs from "../../public/images/image.jpg";
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 export const metadata = {

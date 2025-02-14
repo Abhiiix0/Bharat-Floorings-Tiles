@@ -1,24 +1,19 @@
 import careerPageIMage from "../../../../public/images/career_page.jpg";
-import Careers from '../../../components/Careers'
+import Careers from '../../../components/careers/Careers'
 import Header from '../../../components/Header'
 import {ALL_JOBS} from '../../../utils'
+import CustomHeader from "../../../components/CustomHeader";
 
 const page = () => {
   return (
     <div>
-      <div
-        style={{
-          backgroundImage: `url(${careerPageIMage.src})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        className="3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative"
+        <CustomHeader
+        level2={true}
+        title="Careers"
+        bgImg={careerPageIMage?.src}
       >
         <Header textColor="text-white" />
-        <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
-          <h1 className="big-heading text-white">Careers</h1>
-        </div>
-      </div>
+      </CustomHeader>
       <Careers jobs={ALL_JOBS} />
     </div>
   );

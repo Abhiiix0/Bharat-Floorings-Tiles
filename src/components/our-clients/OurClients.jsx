@@ -1,23 +1,24 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import OurClientsListPage from './OurClientsListPage'
 import OurClientsGridPage from './OurClientsGridPage'
 import LinesComp from '../LinesComp'
 import GridLogo from "../../../public/icons/gridLogo.jsx";
-import DropDowns from "../DropDowns";
+import DropDowns from "../ui/DropDowns";
 import LinesLogo from "../../../public/icons/LinesLogo.jsx";
-const allCleints = [{ id: 1, subs: "ALL CLIENTS" }];
+import {ALL_CLIENTS} from '../../utils'
 
 const OurClients = ({ resturants, hotels, resource }) => {
   const [changeView, setChangeView] = useState(false)
+  const [selected, setSelected] = useState('Choose an option')
   return (
     <section className='max-w-[1920] mx-auto md:mb-0 sm:mb-24 mb-[82px] relative'>
       <div className='overflow-hidden'>
         <LinesComp />
         <div className='relative'>
-          <div className='lg:px-[100px] px-[20px] xl:my-14 lg:my-11 md:my-9 my-8'>
+          <div className='lg:px-[100px] px-[20px] 3xl:my-14 xl:my-12 md:my-10 sm:my-9 my-8'>
           <div className="flex items-center justify-between">
-      <din className="flex lg:gap-0 gap-16 flex-row w-full lg:justify-between lg:w-1/5">
+      <div className="flex lg:gap-[60px] gap-14 flex-row w-full">
         <div className="effect gap-2 flex relative ">
           <div
             className={`absolute effect h-9 w-[38px] z-0 mt-[2px] ${changeView ? "bg-[#949291]" : "bg-[#2A2523]"
@@ -36,17 +37,16 @@ const OurClients = ({ resturants, hotels, resource }) => {
             <LinesLogo color={`${changeView ? "#fff" : "#000"}`} />
           </div>
         </div>
-        <div className="w-2/4">
-          <DropDowns section={"Client type"} subsection={allCleints} color="#949291" />
+        <div>
+          <DropDowns section={"Client type"} subsection={ALL_CLIENTS} selected={selected} setSelected={setSelected} />
         </div>
-      </din>
-      <div className="lg:text-base text-xs font-Inter md:block hidden">Showing 299 clients</div>
+      </div>
+      <div className="xl:text-base text-sm font-Inter md:block hidden min-w-fit">Showing 299 clients</div>
     </div>
-            {/* <ClientFilter changeView={changeView} setChangeView={setChangeView} /> */}
           </div>
           <div>
             {
-              changeView ? <div className='lg:px-[100px] px-[20px]'><OurClientsListPage resturants={resturants} hotels={hotels} /> </div> : <OurClientsGridPage resource={resource} />
+              changeView ? <div className='lg:px-[100px] px-[20px]'><OurClientsListPage resturants={resturants} hotels={hotels} selected={selected} /> </div> : <OurClientsGridPage resource={resource} />
             }
           </div>
         </div>

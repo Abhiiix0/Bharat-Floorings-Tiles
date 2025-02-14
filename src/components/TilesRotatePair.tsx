@@ -1,6 +1,5 @@
 "use client";
 import { TilePosition, useTilesStore } from "./../store/tiles.store";
-import React from "react";
 import RotateButton from "./RotationButton";
 import SvgComponent from "./SvgComponent";
 import SvgRotateComponent from "./SvgRotateComponent";

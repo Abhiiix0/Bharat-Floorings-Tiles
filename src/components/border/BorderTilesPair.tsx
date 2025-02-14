@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import BorderSvgComponent from "../../components/border/BorderSvgComponent";
 import { boorderTilesSvg } from "../../data/borders";
 import { useTilesBorderStore } from "../../store/tilesBorder.store";

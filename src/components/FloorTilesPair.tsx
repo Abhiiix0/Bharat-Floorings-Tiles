@@ -1,4 +1,3 @@
-import React from "react";
 import FloorSvgComponent from "./FloorSvgComponent";
 import { TilePosition } from "./../store/tiles.store";
 

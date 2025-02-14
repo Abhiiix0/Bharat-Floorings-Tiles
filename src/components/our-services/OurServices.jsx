@@ -1,9 +1,9 @@
 "use client";
-import { OUR_SERVICES_PAGE } from "../utils";
+import { OUR_SERVICES_PAGE } from "../../utils";
 import Link from "next/link";
 import { useState } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
-import LinesComp from "./LinesComp";
+import LinesComp from "../LinesComp";
 
 const OurServices = () => {
   const [layout, setLayout] = useState(OUR_SERVICES_PAGE[0]);
@@ -11,7 +11,7 @@ const OurServices = () => {
     <section className="relative overflow-hidden">
       <LinesComp />
       <div className="relative lg:px-[100px] px-[20px]">
-        <h1 className="big-heading 3xl:mt-[275.4px] 3xl:mb-[82px] 2xl:mt-52 2xl:mb-16 xl:mt-40 xl:mb-14 lg:mb-12 md:mt-28 md:mb-10 mt-20 mb-10">
+        <h1 className="big-heading 3xl:mt-36 3xl:mb-72 2xl:mt-52 2xl:mb-52 xl:mt-40 xl:mb-40 lg:mt-32 lg:mb-32 md:mt-28 sm:mb-16 md:mb-10 mt-24 mb-10">
           Our Services
         </h1>
         <div className="hidden grid-cols-3 bg-[#EBEBEB] h-10 cursor-pointer relative lg:grid font-Inter">

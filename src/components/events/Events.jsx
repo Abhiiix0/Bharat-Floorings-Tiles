@@ -1,10 +1,9 @@
 "use client";
 import EventsCard from "./EventsCard";
-import DropDowns from "./DropDowns";
+import DropDowns from "../ui/DropDowns";
 import PastEventsCard from "./PastEventsCard";
-import LinesComp from "./LinesComp";
+import LinesComp from "../LinesComp";
 import { useState } from "react";
-import ImageClickModal from "./ImageClickModal";
 
 const Events = ({
   upcomingEvents,
@@ -49,7 +48,7 @@ const Events = ({
         <div
           className={` ${
             BtnValue !== "upcoming" && " hidden sm:flex "
-          } xl:px-7 lg:px-6 md:px-5 px-4 overflow-x-scroll flex flex-col sm:flex-row gap-9 mb-[125px] sm:mb-0 md:gap-[21px]`}
+          } xl:px-7 lg:px-6 md:px-5 px-4 overflow-x-scroll flex flex-col sm:flex-row gap-9 mb-[125px] sm:mb-0 md:gap-[21px] scroll`}
         >
           {upcomingEvents.map((res) => (
             <EventsCard

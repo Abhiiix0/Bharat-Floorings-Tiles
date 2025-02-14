@@ -46,8 +46,6 @@ export default function RoomPhotoPannel({ handelRoomVisual }) {
             backfaceVisibility: "hidden",
             willChange: "transform",
             imageRendering:"crisp-edges", // Fixes pixelation for images
-            // imageRendering: "pixelated",
-            // imageRendering: "auto", // Fixes pixelation for images
           }}
         />
          

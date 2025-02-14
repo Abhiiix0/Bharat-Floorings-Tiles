@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import Remix from "../../public/icons/remix";
 import tils from "../../public/images/product-details/tiles.png";
 

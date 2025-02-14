@@ -1,4 +1,4 @@
-import eventsShare from "../../public/svgs/eventsShare.svg";
+import eventsShare from "../../../public/svgs/eventsShare.svg";
 const EventsCard = ({
   eventName,
   eventDate,

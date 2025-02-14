@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ImageModal from '../ui/ImageModal'
+import { AWARDS_IMAGES } from '../../utils'
 
 const AwardsCard = ({ image, date, awardedFor, awardName }) => {
+  const [close, setClose] = useState(false)
   return (
-    <div className='small-heading xl:p-10 lg:p-8 p-6 bg-white 2xl:h-[397px] 3xl:min-w-[555px] xl:min-w-[420px] md:h-[350px] lg:w-[450px] min-w-96 '>
-      <img alt={`${awardedFor} image`} src={image.src} className='h-24 rounded-full' />
-      <div className='flex items-center justify-between xl:text-base xl:leading-[25.6px] text-sm leading-[23px] xl:my-7 lg:my-6 my-5'>
+    <div onClick={() => setClose(true)} className='xl:h-[397px] xl:min-w-[555px] md:h-[360px] md:min-w-96  min-w-[316px] h-[325px] flex flex-col xl:gap-7 md:gap-6 gap-[22px] xl:p-10 lg:p-8 md:p-6 p-5 bg-white  '>
+      {close && <ImageModal close={close} setClose={setClose} modalImages={AWARDS_IMAGES} />}
+      <img alt={`${awardedFor} image`} src={image.src} className='h-24 w-24 rounded-full' />
+      <div className='flex md:flex-row flex-col md:items-center md:justify-between xl:text-base xl:leading-[25.6px] text-[13px] leading-[35.4px] font-Inter'>
         <span>{date}</span>
         <span>{awardedFor}</span>
       </div>
-      <p className='para-big xl:my-6 lg:my-5 my-4'>
+      <p className='xl:text-3xl xl:leading-[42px] md:text-2xl md:leading-9 text-xl leading-7 font-Inter font-medium pr-5'>
         {awardName}
       </p>
     </div>

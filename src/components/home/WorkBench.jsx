@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import workbench1 from "../../../public/images/home/workbench1.jpg";
 import workbench2 from "../../../public/images/home/workbench2.jpg";
 import RightArrow from "../../../public/icons/RightArrow";

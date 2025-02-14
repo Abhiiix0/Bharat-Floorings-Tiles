@@ -1,26 +1,21 @@
 import Header from '../../../components/Header'
-import Resource from '../../../components/Resource'
+import Resource from '../../../components/resource/Resource'
 import {RESOURCES} from '../../../utils'
 import resourcesPageIMage from "../../../../public/images/resources/resource_image.jpg";
+import CustomHeader from '../../../components/CustomHeader';
 
 const page = () => {
   return (
-    <>
-      <div
-        style={{
-          backgroundImage: `url(${resourcesPageIMage.src})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        className="3xl:h-[727px] 2xl:h-[600px] lg:h-[450px] h-[40vh] relative"
+    <div>
+      <CustomHeader
+        level2={true}
+        title="Resources"
+        bgImg={resourcesPageIMage?.src}
       >
         <Header textColor="text-white" />
-        <div className="absolute 3xl:top-[55%] top-[70%] lg:px-[100px] px-[20px]">
-          <h1 className="big-heading text-white">Resources</h1>
-        </div>
-      </div>
+      </CustomHeader>
       <Resource resource={RESOURCES} />
-    </>
+    </div>
   );
 };
 

@@ -127,19 +127,6 @@ const Page = () => {
 
   return (
     <div>
-      {/* <section
-        style={{
-          backgroundImage: `url(${bgImg.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        className=" 3xl:h-[435px] h-[237px] xl:h-[360px] flex flex-col justify-between w-full"
-      >
-        <p className="  text-[40px] text-white px-5 md:hidden heading-gloock  mb-7">
-          
-        </p>
-      </section> */}
-
       <CustomHeader title="Designer Tiles" bgImg={bgImg?.src}>
         <Header textColor="text-white" />
       </CustomHeader>

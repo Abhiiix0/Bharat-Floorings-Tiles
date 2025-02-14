@@ -17,10 +17,6 @@ import ProductCard from "../components/home/ProductCard";
 import Manufacture from "../components/home/Manufracture";
 import RotatingTextEffect from "../components/home/RotatingTextEffect";
 
-// Manufracture
-// import manufracture1 from "../../public/images/home/manufracture.jpg";
-// import Manufacture from "./components/home/Manufracture";
-// import RotatingTextEffect from "./components/home/RotatingTextEffect";
 const page = () => {
   const project = {
     year: "100 years of",
@@ -191,8 +187,6 @@ const page = () => {
                   className=" w-full lg:max-w-[859px]"
                 ></Image>
                 <PlayBtn
-                  // color="black"
-                  // size={61}
                   className=" h-[61px] w-[61px] md:w-9 md:h-9 absolute bottom-[42%] left-[42%] md:bottom-[30px]  md:left-[30px]"
                 />
                 <p className=" hidden md:block absolute bottom-0 left-20 text-white  text-[0.85rem] text-left h-[57px]  font-medium">

@@ -1,5 +1,5 @@
 import ResourcesPageCard from './ResourcesPageCard'
-import LinesComp from './LinesComp'
+import LinesComp from '../LinesComp'
 
 const Resource = ({ resource }) => {
   return (
@@ -7,37 +7,37 @@ const Resource = ({ resource }) => {
       <div className='overflow-hidden'>
         <LinesComp />
       </div>
-      <div className='lg:px-[100px] px-[20px] xl:my-14 md:my-10 sm:my-7 my-5'>
-        <div className='flex items-center justify-end xl:mb-16 md:mb-12 sm:mb-9 mb-7 font-Inter xl:text-base md:text-sm text-xs'>
+      <div className='lg:px-[100px] px-[20px] 2xl:pt-[59px] md:pt-14 pt-[68px] pb-[235px]'>
+        <div className='md:flex hidden items-center justify-end font-Inter xl:text-base md:text-sm text-xs'>
           Showing 55 of 55 releases
         </div>
-        <div className='flex gap-4 xl:mb-40 md:flex-row flex-col lg:mb-32 md:mb-24 mb-16 items-start shrink-0 relative'>
-          <div className='xl:w-[25%] md:w-[30%] md:sticky relative top-0 w-full xl:text-base text-sm'>
+        <div className='flex gap-4 2xl:mt-24 md:flex-row flex-col lg:mt-20 md:mt-16 mt-0 items-start shrink-0 relative'>
+          <div className='xl:w-[25%] md:w-[30%] md:sticky relative top-0 w-full md:mb-0 sm:mb-20 mb-16'>
             <div>
               <u>
-                <h3 className='mb-6 title-el font-semibold'>
+                <h3 className='mb-6 lg:text-base text-[13px] font-semibold font-Inter'>
                   ALL RESOURCES <sup className='text-xs'>64</sup>
                 </h3>
               </u>
-              <h3 className='title-el mb-3 font-semibold'>
-                BLACK BOOK DOWNLOAD <sup className='text-xs mb-1 font-semibold'>64</sup>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
+                BLACK BOOK DOWNLOAD <sup className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>64</sup>
               </h3>
-              <h3 className='title-el mb-3 font-semibold'>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
                 CATALOGUE DOWNLOADS <sup className='text-xs mb-1'>64</sup>
               </h3>
-              <h3 className='title-el mb-3 font-semibold'>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
                 FIXING & POLISHING <sup className='text-xs'>64</sup>
               </h3>
-              <h3 className='title-el mb-3 font-semibold'>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
                 MADE IN INDIA <sup className='text-xs'>64</sup>
               </h3>
-              <h3 className='title-el mb-3 font-semibold'>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
                 TECHNICAL SPECIFICATION <sup className='text-xs'>64</sup>
               </h3>
-              <h3 className='title-el mb-3 font-semibold'>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
                 HERITAGE & UNITINTA TILES <sup className='text-xs'>64</sup>
               </h3>
-              <h3 className='title-el mb-3 font-semibold'>
+              <h3 className='mb-3 lg:text-base text-[13px] font-semibold font-Inter'>
                 TILE CLEANING  AND MAINTAINANCE <sup className='text-xs'>64</sup>
               </h3>
             </div>

@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -37,7 +36,7 @@ const OurClientsGridComp = ({
   return (
     <motion.div
       ref={containerRef}
-      className={`relative h-[188px] sm:h-[274px]  group`}
+      className={`relative h-[188px] sm:h-[274px] group`}
       layoutId="modal"
     >
       {/* Image and Click Handler */}
@@ -88,7 +87,6 @@ const OurClientsGridComp = ({
               className="flex bg-black/50"
             >
               <div
-                // onClick={() => handleClickOutside()}
                 className=" w-[50%] gap-3 md:gap-9 flex justify-between p-3 md:px-7 flex-col h-[188px] sm:h-[274px]"
               >
                 <h3 className="font-bold text-[13px] md:text-base font-Inter">

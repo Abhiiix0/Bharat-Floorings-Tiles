@@ -118,7 +118,6 @@ const calculateGridLayoutWithBorder = useFloorStore(
       topRight: {
         rotation: topRight.rotation,
         color: topRight.color,
-        // svgString: Tiles1,
         svgString: addDataConnectToSvgWithGrainEffect(
           svgString,
           100,
@@ -131,7 +130,6 @@ const calculateGridLayoutWithBorder = useFloorStore(
       bottomLeft: {
         rotation: bottomLeft.rotation,
         color: bottomLeft.color,
-        // svgString: Tiles1,
         svgString: addDataConnectToSvgWithGrainEffect(
           svgString,
           100,
@@ -144,7 +142,6 @@ const calculateGridLayoutWithBorder = useFloorStore(
       bottomRight: {
         rotation: bottomRight.rotation,
         color: bottomRight.color,
-        // svgString: Tiles1,
         svgString: addDataConnectToSvgWithGrainEffect(
           svgString,
           100,
@@ -394,13 +391,11 @@ const calculateGridLayoutWithBorder = useFloorStore(
             <div className={` z-[1002] transition-all grid place-content-center overflow-hidden duration-300 ease-in-out h-screen  w-full fixed top-0  bg-red-100 ${isTilesVisualizer ? "right-0" :  " right-[-100%]"}`}>
               <RoomPhotoPannel  handelRoomVisual={setIsTilesVisualizer} />
             </div>
-          {/* <div className=" bg-red-400"> */}
             <GetAQuery
           open={Inquery}
           onClose={setInquery}
           tilsDesign=""
           />
-          {/* </div> */}
         </main>
       }
       </DndProvider>
