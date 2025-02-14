@@ -63,59 +63,6 @@ export const useFloorVisualizerStore = create<FloorVisualizerStore>((set) => ({
       },
     ],
   },
-  // RoomCSSProperties: [
-  //   {
-  //     roomId: 1,
-  //     sizes: [
-  //       {
-  //         size: "10*10",
-  //         properties: {
-  //           top: 1,
-  //           left: 1,
-  //           perspective: "100px",
-  //           rotateX: 180,
-  //           scale: 2.1,
-  //         },
-  //       },
-  //       {
-  //         size: "12*12",
-  //         properties: {
-  //           top: 1,
-  //           left: 1,
-  //           perspective: "100px",
-  //           rotateX: 180,
-  //           scale: 2.1,
-  //         },
-  //       },
-  //     ],
-  //   },
-  //   ,
-  //   {
-  //     roomId: 2,
-  //     sizes: [
-  //       {
-  //         size: "10*10",
-  //         properties: {
-  //           top: 1,
-  //           left: 1,
-  //           perspective: "100px",
-  //           rotateX: 180,
-  //           scale: 2.1,
-  //         },
-  //       },
-  //       {
-  //         size: "12*12",
-  //         properties: {
-  //           top: 1,
-  //           left: 1,
-  //           perspective: "100px",
-  //           rotateX: 180,
-  //           scale: 2.1,
-  //         },
-  //       },
-  //     ],
-  //   },
-  // ],
   floor: "",
   tileData: {},
   setTileData: (tileData) => {

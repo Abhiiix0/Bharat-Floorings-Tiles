@@ -7,11 +7,11 @@ const ImageGallery = ({ images }) => {
   return (
     <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between">
       {/* Left side: Selected image */}
-      <div className="flex-1 hidden lg:flex h-[800px] xl:h-[1083px] justify-center">
+      <div className="flex-1 hidden lg:flex h-[800px]  3xl:h-[1083px] justify-center">
         <img
           src={selectedImage}
           alt="Selected"
-          className="max-w-full h-full object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -22,7 +22,7 @@ const ImageGallery = ({ images }) => {
             key={index}
             src={img}
             alt={`Thumbnail ${index + 1}`}
-            className={` w-[100vw] h-[15.6rem] sm:h-[18rem] lg:w-44 lg:h-[267px] xl:w-[18.5rem] xl:h-[361px] object-cover cursor-pointer ${
+            className={` w-[100vw] h-[15.6rem] sm:h-[18rem] lg:w-44 lg:h-[267px] xl:w-[18.5rem] 3xl:h-[361px] object-cover cursor-pointer ${
               img === selectedImage ? "lg:grayscale-0" : "lg:grayscale"
             }`}
             onClick={() => setSelectedImage(img)}

@@ -4,14 +4,12 @@ import {
   GoogleMap,
   Marker,
   MarkerClusterer,
-  OverlayView,
   useJsApiLoader,
 } from "@react-google-maps/api";
 import Phone from "../../../public/icons/phone";
 import Mail from "../../../public/icons/Mail";
 import { BsPerson } from "react-icons/bs";
-import BFTMapPin from "../../../public/icons/BFTMapPin";
-import map from "../../../public/svgs/bftIcon.svg";
+
 // Map options
 const mapOptions = {
   disableDefaultUI: true, // Hides all default UI elements
@@ -39,64 +37,73 @@ const mapOptions = {
 };
 
 const indiaCenter = { lat: 22.5, lng: 80.0 }; // Center of India
+const showrooms = [
+  {
+    id: 1,
+    name: "NEW DELHI SHOWROOM",
+    address:
+      "Bharat Floorings & Tiles, 86/B, 2nd floor, Village Shahpur Jat, New Delhi - 110049",
+    storePerson: "Rahul Raj",
+    PhoneNumber: ["91 70427 54670"],
+    email: " rahul.raj@bharatfloorings.com",
+  },
+  {
+    id: 2,
+    name: "MUMBAI : HEAD OFFICE",
+    address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd
+32, Mumbai Samachar Marg,
+Ground Floor, Next to Stock Exchange,
+Fort, Mumbai - 400 023
+    `,
+    storePerson: "Ankush Gawai",
+    PhoneNumber: ["91 81697 41134"],
+    email: "ankush.gawai@bharatfloorings.com",
+  },
 
+  {
+    id: 3,
+    name: "GOA SHOWROOM",
+    address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
+Shop No. GF 1/2, Block 8, Techno Park,
+Chogam Road, Porvorim,
+Bardez, Goa - 403521`,
+    storePerson: "Jawahar Naik",
+    PhoneNumber: ["91 98224 23211"],
+    email: "jawahar.naik@bharatfloorings.com",
+  },
+  {
+    id: 4,
+    name: "BENGALURU : BRANCH OFFICE",
+    address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
+D-15, 2nd Floor, Devatha Plaza,
+Residency Road, Bengaluru -560025
+Landmark: Opp. Bishop Cotton School`,
+    storePerson: "Mr. Raghavendra Bande",
+    PhoneNumber: ["91 98459 96206"],
+    email: "raghavendra.bande@bharatfloorings.com",
+  },
+  {
+    id: 5,
+    name: "AHMEDABAD SHOWROOM",
+    address: `F004 S.G.Business Hub,
+Near. Gota Overbridge, Next to Bhagwat Vidhyapith, S.G.Highway
+Ahmedabad-380060`,
+    storePerson: "Vatsal Parekh",
+    PhoneNumber: ["91 93219 41024"],
+    email: " vatsal.parekh@bharatfloorings.com",
+  },
+];
 const Map = () => {
-  const showrooms = [
-    {
-      id: 1,
-      name: "NEW DELHI SHOWROOM",
-      address:
-        "Bharat Floorings & Tiles, 86/B, 2nd floor, Village Shahpur Jat, New Delhi - 110049",
-      storePerson: "Rahul Raj",
-      PhoneNumber: ["91 70427 54670"],
-      email: " rahul.raj@bharatfloorings.com",
-    },
-    {
-      id: 2,
-      name: "MUMBAI : HEAD OFFICE",
-      address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd
-  32, Mumbai Samachar Marg,
-  Ground Floor, Next to Stock Exchange,
-  Fort, Mumbai - 400 023
-      `,
-      storePerson: "Ankush Gawai",
-      PhoneNumber: ["91 81697 41134"],
-      email: "ankush.gawai@bharatfloorings.com",
-    },
+  const [mapDatas, setmapDatas] = useState(showrooms);
+  const [map, setMap] = useState(null);
+  const [visibleStores, setVisibleStores] = useState([]);
+  const [geocodedStores, setGeocodedStores] = useState([]);
+  const [mapCenter, setMapCenter] = useState(indiaCenter); // Default to India center
+  const [mapDataDrawer, setmapDataDrawer] = useState(false);
+  const [openStore, setOpenStore] = useState(0);
+  const [storeType, setStoreType] = useState("showroom");
+  const [bftIconss, setbftIconss] = useState(null);
 
-    {
-      id: 3,
-      name: "GOA SHOWROOM",
-      address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
-  Shop No. GF 1/2, Block 8, Techno Park,
-  Chogam Road, Porvorim,
-  Bardez, Goa - 403521`,
-      storePerson: "Jawahar Naik",
-      PhoneNumber: ["91 98224 23211"],
-      email: "jawahar.naik@bharatfloorings.com",
-    },
-    {
-      id: 4,
-      name: "BENGALURU : BRANCH OFFICE",
-      address: `Bharat Floorings & Tiles (Mumbai) Pvt. Ltd.
-  D-15, 2nd Floor, Devatha Plaza,
-  Residency Road, Bengaluru -560025
-  Landmark: Opp. Bishop Cotton School`,
-      storePerson: "Mr. Raghavendra Bande",
-      PhoneNumber: ["91 98459 96206"],
-      email: "raghavendra.bande@bharatfloorings.com",
-    },
-    {
-      id: 5,
-      name: "AHMEDABAD SHOWROOM",
-      address: `F004 S.G.Business Hub,
-  Near. Gota Overbridge, Next to Bhagwat Vidhyapith, S.G.Highway
-  Ahmedabad-380060`,
-      storePerson: "Vatsal Parekh",
-      PhoneNumber: ["91 93219 41024"],
-      email: " vatsal.parekh@bharatfloorings.com",
-    },
-  ];
   const dealer = [
     {
       id: 1,
@@ -121,12 +128,6 @@ const Map = () => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY, // Replace with your API key
   });
-
-  const [mapDatas, setmapDatas] = useState(showrooms);
-  const [map, setMap] = useState(null);
-  const [visibleStores, setVisibleStores] = useState([]);
-  const [geocodedStores, setGeocodedStores] = useState([]);
-  const [mapCenter, setMapCenter] = useState(indiaCenter); // Default to India center
 
   const geocodeAddress = useCallback((address) => {
     const geocoder = new window.google.maps.Geocoder();
@@ -193,9 +194,6 @@ const Map = () => {
     }
   }, [map, handleBoundsChange]);
 
-  const [openStore, setOpenStore] = useState(0);
-  const [storeType, setStoreType] = useState("showroom");
-
   const selectBtnType = (type) => {
     if (type === "dealer") {
       setmapDatas(dealer);
@@ -212,13 +210,10 @@ const Map = () => {
       setOpenStore(index);
     }
   };
-  const [mapDataDrawer, setmapDataDrawer] = useState(false);
-  // const [maps, setMaps] = useState(null);
-
   const zoomIn = () => {
     if (map) map.setZoom(map.getZoom() + 1);
   };
-  const [bftIconss, setbftIconss] = useState(null);
+
   const fetchSvg = async () => {
     const response = await fetch("../../../public/svgs/bftIcon.svg"); // Adjust path as needed
     const svgText = await response.text();
@@ -228,14 +223,6 @@ const Map = () => {
     fetchSvg();
   }, []);
 
-  const customMarkerIcon = {
-    path: bftIconss, // Example of custom SVG path
-    fillColor: "#20699C", // Custom color for the marker
-    fillOpacity: 1,
-    strokeColor: "#000000",
-    strokeWeight: 2,
-    scale: 10, // Adjust size
-  };
   const zoomOut = () => {
     if (map) map.setZoom(map.getZoom() - 1);
   };

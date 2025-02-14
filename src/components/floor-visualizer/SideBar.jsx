@@ -41,10 +41,7 @@ const SideBar = ({ close, handelRoomVisual, handleVisualizeClick }) => {
       "https://dev-projects-bft-data-entry-service.hph94m.easypanel.host/product/rooms"
     );
     const result = await res.json();
-
     setRoomsData(result);
-    console.log("res", result);
-    console.log("formate data", transformRoomData(...result));
   }
   useEffect(() => {
     getAllRoomsFun();

@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { TilesStore } from "./tiles.store";
 import {boorderTilesSvg} from "../data/borders"
 export type TilePosition =
   | "topLeft"
@@ -84,20 +83,14 @@ interface FloorState {
   applyCornerBorders: (
     svgString: string,
     color: { [id: number]: string }
-    // floorRow: number,
-    // floorColumn: number
   ) => void;
   applyLeftRightBorders: (
     svgString: string,
     color: { [id: number]: string }
-    // floorRow: number,
-    // floorColumn: number
   ) => void;
   applyTopBottomBorders: (
     svgString: string,
     color: { [id: number]: string }
-    // floorRow: number,
-    // floorColumn: number
   ) => void;
 }
 
@@ -115,11 +108,8 @@ export const useFloorStore = create<FloorState>((set) => ({
   leftRight: boorderTilesSvg.leftRight,
   setBorderTiles: (corner, topBottom, leftRight) => set({ corner, topBottom, leftRight }),
   setFloorRow: (row) => {
-    console.log("setFloorRow called with:", row);
     set((state) => {
-      console.log("Previous floorRow:", state.floorRow);
       const newState = { ...state, floorRow: row };
-      console.log("New state:", newState);
       return newState;
     });
   },
@@ -230,13 +220,6 @@ export const useFloorStore = create<FloorState>((set) => ({
         }
       }
 
-      console.log(
-        "newGridLayoutRow",
-        newGridLayout.length,
-        "newGridLayoutCol",
-        newGridLayout[0].length
-      );
-
       return { gridLayout: newGridLayout };
     }),
     calculateGridLayoutWithBorder:(borderSVGs:any, manipulatedResults:any, border = true) =>
@@ -334,14 +317,6 @@ export const useFloorStore = create<FloorState>((set) => ({
           }
         }
       }
-  
-      console.log(
-        "newGridLayoutRow",
-        newGridLayout.length,
-        "newGridLayoutCol",
-        newGridLayout[0].length
-      );
-  
       return { gridLayout: newGridLayout };
     }),
   updateTileAtIndex: (i, j, svgString, rotation, color) =>

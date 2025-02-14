@@ -6,10 +6,8 @@ import tiles2 from "../../../public/svgs/tile2.svg";
 import Image from "next/image";
 import { useState } from "react";
 import Remix from "../../../public/icons/remix";
-import ImageGallery from "../../components/ImageGallery";
 import ImageGallery2 from "../../components/ImageGallery2";
 import ProductCard from "../../components/products/ProductCard";
-import tilsDesign from "../../../public/images/product-details/tiles.png";
 import kitchen from "../../../public/images/product-details/kitchen.jpg";
 import { useRouter } from "next/navigation";
 import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
@@ -19,6 +17,18 @@ import imagess from "../../../public/images/products/headerbg.jpg";
 import CustomHeader from "../../components/CustomHeader";
 
 const page = () => {
+  const [menuBtn, setmenuBtn] = useState(false);
+  const [Inquery, setInquery] = useState(true);
+  const [productInfo, setproductInfo] = useState(false);
+  const [SampleSider, setSampleSider] = useState(true);
+  const [openIndex, setOpenIndex] = useState(null);
+  const [hoveredSubLink, setHoveredSubLink] = useState(null);
+  const [extraInfo, setextraInfo] = useState(false);
+
+  const [SelectedImg, setSelectedImg] = useState(products?.tiles[0]);
+  const setTileData = useFloorVisualizerStore((state) => state.setTileData);
+  const router = useRouter();
+
   const products = {
     name: "Contemporary Terrazo ",
     link: "",
@@ -49,11 +59,6 @@ const page = () => {
     "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://plus.unsplash.com/premium_photo-1684508638760-72ad80c0055f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
-  const [SelectedImg, setSelectedImg] = useState(products?.tiles[0]);
-
-  const [openIndex, setOpenIndex] = useState(null);
-  const [hoveredSubLink, setHoveredSubLink] = useState(null);
-
   const titles = [
     {
       name: "Designer tiles 7",
@@ -143,21 +148,10 @@ const page = () => {
     bodyDiv[0].style.overflow = "hidden";
   };
 
-  const [menuBtn, setmenuBtn] = useState(false);
-  const [Inquery, setInquery] = useState(true);
-  const [productInfo, setproductInfo] = useState(false);
-  const [SampleSider, setSampleSider] = useState(true);
   const handelProductInfo = () => {
-    if (productInfo) {
-      setproductInfo(false);
-    } else {
-      setproductInfo(true);
-    }
+    setproductInfo(!productInfo);
   };
-  const router = useRouter();
-  const [whoInfo, setwhoInfo] = useState(false);
-  const [loading, setloading] = useState(false);
-  const setTileData = useFloorVisualizerStore((state) => state.setTileData);
+
   const ViewOnWorkShop = async () => {
     const response = await fetch(SelectedImg?.src); // Adjust path as needed
     const svgText = await response.text();
@@ -169,7 +163,6 @@ const page = () => {
     });
     router.push("/workspace");
   };
-  const [extraInfo, setextraInfo] = useState(false);
 
   return (
     <div>
@@ -177,7 +170,6 @@ const page = () => {
         <CustomHeader title="Designer Tiles" bgImg={imagess?.src}>
           <Header textColor="text-white" />
         </CustomHeader>
-        {/* <Header textColor="text-black" iconsColor="black"></Header> */}
         <div className="absolute hidden lg:flex w-full h-full px-[4px] lg:px-[88px] z-[-1]  top-0 left-0  justify-between">
           <div className=" w-full border-l border-[#2A2523] opacity-[0.1] h-full"></div>
           <div className=" w-full border-x border-[#2A2523] opacity-[0.1] h-full"></div>
@@ -460,11 +452,6 @@ const page = () => {
                   color="black"
                   className="h-4 w-4  md:h-8 md:w-8"
                 />
-                {/* <Remix
-                  size={31}
-                  color="white"
-                  className="h-4 w-4 md:h-8 md:w-8"
-                /> */}
               </button>
             </div>
           </div>

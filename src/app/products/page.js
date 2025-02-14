@@ -1,14 +1,11 @@
 "use client";
 import { useState } from "react";
 import Header from "../../components/Header";
-import Image from "next/image";
 import bgImg from "../../../public/images/products/headerbg.jpg";
-import RightArrow from "../../../public/icons/RightArrow";
 import ProductCard from "../../components/products/ProductCard";
 import PImage from "../../../public/svgs/design-3.svg";
 import tiles1 from "../../../public/svgs/tile1.svg";
 import tiles2 from "../../../public/svgs/tile2.svg";
-import LoadingUi from "../../components/LoadingUi";
 import CustomHeader from "../../components/CustomHeader";
 const Page = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -127,19 +124,6 @@ const Page = () => {
 
   return (
     <div>
-      {/* <section
-        style={{
-          backgroundImage: `url(${bgImg.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        className=" 3xl:h-[435px] h-[237px] xl:h-[360px] flex flex-col justify-between w-full"
-      >
-        <p className="  text-[40px] text-white px-5 md:hidden heading-gloock  mb-7">
-          
-        </p>
-      </section> */}
-
       <CustomHeader title="Designer Tiles" bgImg={bgImg?.src}>
         <Header textColor="text-white" />
       </CustomHeader>

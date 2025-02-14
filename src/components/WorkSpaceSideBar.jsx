@@ -2,125 +2,100 @@
 import React, { useState } from "react";
 import { TilesData } from "./../data/TilesData.js";
 import Image from "next/image.js";
-import borderTiles1 from "../../public/borderSvg/border1.svg";
-import borderTiles2 from "../../public/borderSvg/border2.svg";
-import borderTiles3 from "../../public/borderSvg/border3.svg";
-import { useRouter } from "next/navigation.js";
-import { useFloorVisualizerStore } from "../store/floorVisualizer.store";
 import cornerT from "../../public/bordersSvg/Tile1-Corner.svg";
 import cornerlr from "../../public/bordersSvg/Tile1-Horizontal.svg";
 import cornerTb from "../../public/bordersSvg/Tile1-Vertical.svg";
 import corner2T from "../../public/bordersSvg/Tile2-Corner.svg";
 import corner2lr from "../../public/bordersSvg/Tile2-Horizontal.svg";
 import corner2Tb from "../../public/bordersSvg/Tile2-Vertical.svg";
-
 import { useFloorStore } from "../store/floor.store";
-// import { useFloorVisualizerStore } from "../store/floorVisualizer.store.js";
+const borders = [
+  {
+    thumbnail: cornerT,
+    tilesPath: {
+      corner: "/bordersSvg/Tile1-Corner.svg",
+      TopBottom: "/bordersSvg/Tile1-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: cornerlr,
+    tilesPath: {
+      corner: "/bordersSvg/Tile1-Corner.svg",
+      TopBottom: "/bordersSvg/Tile1-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: cornerTb,
+    tilesPath: {
+      corner: "/bordersSvg/Tile1-Corner.svg",
+      TopBottom: "/bordersSvg/Tile1-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: corner2T,
+    tilesPath: {
+      corner: "/bordersSvg/Tile2-Corner.svg",
+      TopBottom: "/bordersSvg/Tile2-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile2-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: corner2lr,
+    tilesPath: {
+      corner: "/bordersSvg/Tile2-Corner.svg",
+      TopBottom: "/bordersSvg/Tile2-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile2-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: corner2Tb,
+    tilesPath: {
+      corner: "/bordersSvg/Tile2-Corner.svg",
+      TopBottom: "/bordersSvg/Tile2-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile2-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: cornerT,
+    tilesPath: {
+      corner: "/bordersSvg/Tile1-Corner.svg",
+      TopBottom: "/bordersSvg/Tile1-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: cornerlr,
+    tilesPath: {
+      corner: "/bordersSvg/Tile1-Corner.svg",
+      TopBottom: "/bordersSvg/Tile1-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
+    },
+  },
+  {
+    thumbnail: cornerTb,
+    tilesPath: {
+      corner: "/bordersSvg/Tile1-Corner.svg",
+      TopBottom: "/bordersSvg/Tile1-Vertical.svg",
+      LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
+    },
+  },
+];
 const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
+  console.log("workspace");
   const [tilesBorderBtn, settilesBorderBtn] = useState("tiles");
-  const HandelSelectTileBorder = (type) => {
-    settilesBorderBtn(type);
-  };
-  const extractSvgPath = (filePath) => {
-    const startIndex = filePath.indexOf("/bordersSvg");
-    return startIndex !== -1 ? filePath.substring(startIndex) : filePath;
-  };
-  const setBorderTiles = useFloorStore((state) => state.setBorderTiles);
-  const setTileData = useFloorVisualizerStore((state) => state.setTileData);
-  const router = useRouter();
-  const [selectedBorder, setselectedBorder] = useState("");
-  const ViewOnWorkShop = async () => {
-    const response = await fetch(selectedBorder?.src); // Adjust path as needed
-    const svgText = await response.text();
-    setTileData({
-      id: 0,
-      name: "Tiles One",
-      image: svgText,
-      size: "10*10",
-    });
-    // router.push("/workspace");
-  };
   const [levelOne, setlevelOne] = useState("");
   const [levelTwo, setlevelTwo] = useState("");
   const [levelThree, setlevelThree] = useState("");
-
+  const HandelSelectTileBorder = (type) => {
+    settilesBorderBtn(type);
+  };
+  const setBorderTiles = useFloorStore((state) => state.setBorderTiles);
   function SvgToImg(data) {
     return `data:image/svg+xml;base64,${btoa(data)}`;
   }
-  const borders = [
-    {
-      thumbnail: cornerT,
-      tilesPath: {
-        corner: "/bordersSvg/Tile1-Corner.svg",
-        TopBottom: "/bordersSvg/Tile1-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: cornerlr,
-      tilesPath: {
-        corner: "/bordersSvg/Tile1-Corner.svg",
-        TopBottom: "/bordersSvg/Tile1-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: cornerTb,
-      tilesPath: {
-        corner: "/bordersSvg/Tile1-Corner.svg",
-        TopBottom: "/bordersSvg/Tile1-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: corner2T,
-      tilesPath: {
-        corner: "/bordersSvg/Tile2-Corner.svg",
-        TopBottom: "/bordersSvg/Tile2-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile2-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: corner2lr,
-      tilesPath: {
-        corner: "/bordersSvg/Tile2-Corner.svg",
-        TopBottom: "/bordersSvg/Tile2-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile2-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: corner2Tb,
-      tilesPath: {
-        corner: "/bordersSvg/Tile2-Corner.svg",
-        TopBottom: "/bordersSvg/Tile2-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile2-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: cornerT,
-      tilesPath: {
-        corner: "/bordersSvg/Tile1-Corner.svg",
-        TopBottom: "/bordersSvg/Tile1-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: cornerlr,
-      tilesPath: {
-        corner: "/bordersSvg/Tile1-Corner.svg",
-        TopBottom: "/bordersSvg/Tile1-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
-      },
-    },
-    {
-      thumbnail: cornerTb,
-      tilesPath: {
-        corner: "/bordersSvg/Tile1-Corner.svg",
-        TopBottom: "/bordersSvg/Tile1-Vertical.svg",
-        LeftRight: "/bordersSvg/Tile1-Horizontal.svg",
-      },
-    },
-  ];
 
   const fetchData = async (data) => {
     const resp = await fetch(data); // Adjust path as needed
@@ -129,11 +104,9 @@ const WorkSpaceSideBar = ({ open, close, selectTiles }) => {
   };
   const fetchSvgStringAndSet = async (corner, topBottom, leftRight) => {
     try {
-      console.log(corner, topBottom, leftRight);
       const co = await fetchData(corner);
       const TB = await fetchData(topBottom);
       const LR = await fetchData(leftRight);
-      console.log("LR ", LR);
       setBorderTiles(co, LR, TB);
     } catch (error) {
       console.log("error", error);

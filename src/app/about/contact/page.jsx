@@ -17,7 +17,6 @@ const page = () => {
           <h1 className="big-heading text-white">Contact</h1>
         </div>
       </div>
-      {/* <Contact /> */}
       <Map></Map>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 import { Tiles1, Tiles2 } from "../../data/svg";
-import { Tile, useFloorStore } from "../../store/floor.store";
-import { Room, useFloorVisualizerStore } from "../../store/floorVisualizer.store";
+import {  useFloorStore } from "../../store/floor.store";
+import { useFloorVisualizerStore } from "../../store/floorVisualizer.store";
 import { useTilesStore } from "../../store/tiles.store";
 import {
   addDataConnectToSvg,
@@ -10,10 +10,8 @@ import {
 } from "../../fllor-it-utils";
 import grainsEffect from "../../../public/images/tiles/grains.png"
 import SideBar from "../../components/floor-visualizer/SideBar"
-import { useRouter } from "next/navigation";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { boorderTilesSvg } from "../../data/borders";
 import { useCallback, useEffect, useRef, useState } from "react";
 import FloorSecond from "../../components/FloorSecond";
 import { useTilesBorderStore } from "../../store/tilesBorder.store";
@@ -38,15 +36,18 @@ import QuoteIcon from "../../../public/icons/QuoteIcon"
 import { LuImageDown } from "react-icons/lu";
 import { Modal, Switch } from "antd";
 import GetAQuery from "../../components/GetAQuery";
-import tile11 from "../../../public/bordersSvg/Tile1-Horizontal.svg"
 import BorderTilesPair from "../../components/border/BorderTilesPair";
+import {useShallow} from "zustand/shallow"
 export default function Home() {
   const [borderHide, setborderHide] = useState(true)
   const [browser,setBrowser] = useState(false);
   const [tile, settile] = useState(Tiles[1])
-  const selectTiles = (data:any) => {
-  settile(data)
-  }
+  const [sideBarCloseOpenBtn, setsideBarCloseOpenBtn] = useState(false)
+  const [RotateModal, setRotateModal] = useState(false)
+ const [tilesLayoutModal, settilesLayoutModal] = useState(false)
+  const [VisulazationModal, setVisulazationModal] = useState(false)
+  const [borderColorModal, setborderColorModal] = useState(false)
+  const [Inquery, setInquery] = useState(true);
 
   useEffect(() => {
     setBrowser(true)
@@ -55,14 +56,8 @@ export default function Home() {
 
   
   const manipulatedResults = useTilesStore((state) => state.manipulatedResults);
-  
-  const borderTilesCorner = useFloorStore((state) => state.corner); 
-  const borderTilesTopBottom = useFloorStore((state) => state.topBottom); 
-  const borderTilesLeftRight = useFloorStore((state) => state.leftRight); 
-
   const setTileSize = useTilesStore((state) => state.setTileSize);  
-  const showFloor = useFloorStore((state) => state.showFloor);
-  const setShowFloor = useFloorStore((state) => state.setShowFloor);
+
   const isTilesVisualizer = useComponentStore(
     (state) => state.isTilesVisualizer
   );
@@ -70,24 +65,25 @@ export default function Home() {
     (state) => state.setIsTilesVisualizer
   );
 
-  const calculateGridLayout = useFloorStore(
-    (state) => state.calculateGridLayout
-  );
-const calculateGridLayoutWithBorder = useFloorStore(
-  (state) => state?.calculateGridLayoutWithBorder
-);
-  const floor = useFloorVisualizerStore((state) => state.floor);
   const setFloor = useFloorVisualizerStore((state) => state.setFloor);
-  const gridLayout = useFloorStore((state) => state.gridLayout);
-
   const borderCorner = useTilesBorderStore((state) => state.borderCorner);
   const borderLeftRight = useTilesBorderStore((state) => state.borderLeftRight);
   const borderTopBottom = useTilesBorderStore((state) => state.borderTopBottom);
-  const tilesData = useFloorVisualizerStore((state) => state.tileData);
-  const setTileData = useFloorVisualizerStore((state) => state.setTileData);
   
+  const { showFloor, setShowFloor, calculateGridLayout, gridLayout,borderTilesCorner, borderTilesTopBottom,borderTilesLeftRight } = useFloorStore(
+    useShallow((state) => ({
+      showFloor: state.showFloor,
+      setShowFloor: state.setShowFloor,
+      calculateGridLayout: state.calculateGridLayout,
+      gridLayout: state.gridLayout,
+      borderTilesCorner: state.corner,
+      borderTilesTopBottom: state.topBottom,
+      borderTilesLeftRight: state.leftRight
+    }))
+  );
 
-  const handleButtonClickGrid = (svgString: string, size: string) => {
+
+  const handleButtonClickGrid = useCallback((svgString: string, size: string) => {
     setShowFloor(true);
 
     setTileSize(size);
@@ -99,11 +95,11 @@ const calculateGridLayoutWithBorder = useFloorStore(
       },
       top: {
         color: borderTopBottom.color,
-        svgString:borderTilesTopBottom,
+        svgString: borderTilesTopBottom,
       },
       side: {
         color: borderLeftRight.color,
-        svgString:borderTilesLeftRight,
+        svgString: borderTilesLeftRight,
       },
     };
 
@@ -113,7 +109,6 @@ const calculateGridLayoutWithBorder = useFloorStore(
       topLeft: {
         rotation: topLeft.rotation,
         color: topLeft.color,
-        // svgString: Tiles1,
         svgString: addDataConnectToSvgWithGrainEffect(
           svgString,
           100,
@@ -168,12 +163,13 @@ const calculateGridLayoutWithBorder = useFloorStore(
     calculateGridLayout(
       borderSVGs,
       newManupulatedresults
-    );
-  };
+    )
+  },
+    [borderCorner, borderLeftRight, borderTopBottom, manipulatedResults, setShowFloor, setTileSize, calculateGridLayout]
+  );
   const divRef = useRef(null);
   const handleVisualizeClick = async () => {
     if (!gridLayout) return;
-    // const dataUrl = await toPng(divRef.current);
     const floorImageUrl = await createPngFromGridLayout(gridLayout, 100, 100, 5);
     setFloor(floorImageUrl);
     setIsTilesVisualizer(true);
@@ -184,8 +180,6 @@ const calculateGridLayoutWithBorder = useFloorStore(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tile, borderHide, borderTilesCorner])
   
-  // const corersTiles = useFloorStore((state) => state.);
-
   const [TileColorPannelBtn, setTileColorPannelBtn] = useState(false)
   const [scale, setScale] = useState(1.7);
 
@@ -194,49 +188,21 @@ const calculateGridLayoutWithBorder = useFloorStore(
   const handleZoomOut = () => setScale((prev) => Math.max(prev - 0.1, 0.5)); // Limit zoom-out to 0.5x
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const width = typeof window !== "undefined" ? window.innerWidth : 0;
   const height = typeof window !== "undefined" ? window.innerHeight : 0;
-
   const wrapX = useTransform(x, (value) => {
     if (value > width / 2) return -width / 2;
     if (value < -width / 2) return width / 2;
     return value;
   });
-
   const wrapY = useTransform(y, (value) => {
     if (value > height / 2) return -height / 2;
     if (value < -height / 2) return height / 2;
     return value;
   });
   const svgAsDataUri = `data:image/svg+xml;base64,${btoa(tile?.image)}`;
-  const [sideBarCloseOpenBtn, setsideBarCloseOpenBtn] = useState(false)
+ 
 
-  const [RotateModal, setRotateModal] = useState(false)
-
- const [tilesLayoutModal, settilesLayoutModal] = useState(false)
-
-  const handleDownloadImage = async () => {
-    if (divRef.current) {
-      try {
-        const dataUrl = await toPng(divRef.current);
-        const link = document.createElement("a");
-        link.href = dataUrl;
-        link.download = "Tiles.jpg";
-        link.click();
-      } catch (error) {
-        console.error("Error generating image:", error);
-      }
-    }
-  };
-  const [VisulazationModal, setVisulazationModal] = useState(false)
-  const handelRoomSideBar = () => {
-   if (VisulazationModal) {
-    setVisulazationModal(false)
-   } else {
-    setVisulazationModal(true)
-   }
-  }
   
   const handelOpenClose = (value, setValue) => {
     if (value) {
@@ -245,12 +211,12 @@ const calculateGridLayoutWithBorder = useFloorStore(
       setValue(true)
     }
   }
-const [borderColorModal, setborderColorModal] = useState(false)
   const onChange = (checked) => {
-    console.log(`switch to ${checked}`);
     setborderHide(checked)
   };
-  const [Inquery, setInquery] = useState(true);
+  const selectTiles = (data:any) => {
+    settile(data)
+    }
   return (
    
 
@@ -270,7 +236,10 @@ const [borderColorModal, setborderColorModal] = useState(false)
   <line x1="12" y1="17.5" x2="36" y2="17.5" stroke="#2A2523"/>
 </svg>
             </span>
-          <WorkSpaceSideBar open={sideBarCloseOpenBtn} selectTiles={selectTiles} close={setsideBarCloseOpenBtn}/>
+          <WorkSpaceSideBar open={sideBarCloseOpenBtn} selectTiles={selectTiles} close={setsideBarCloseOpenBtn} />
+          
+
+          {/* border color */}
           <Modal open={borderColorModal} onCancel={() => setborderColorModal(!borderColorModal)}>
             <div className=" scale-150 ml-[50px]   mb-[100px]">
 
@@ -310,10 +279,6 @@ const [borderColorModal, setborderColorModal] = useState(false)
 
 <CircleRight  color="white"  className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
                 </button>
-                <button className=" border-[4px] 3xl:border-[5px] h-12 w-12 3xl:h-20 3xl:w-20 rounded-full border-white flex justify-center items-center transition-all duration-200 ease-in-out hover:bg-black bg-[#2A2523]">
-
-<CircleBack color="white"  className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
-  </button>
                 <button onClick={()=>setTileColorPannelBtn(false)} className=" border-[4px] 3xl:border-[5px] h-12 w-12 3xl:h-20 3xl:w-20 rounded-full border-white transition-all duration-200 ease-in-out hover:bg-black bg-[#2A2523] flex justify-center items-center">
 
               <CircleClose color="white" className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
@@ -325,28 +290,16 @@ const [borderColorModal, setborderColorModal] = useState(false)
           {/* Rotate modal */}
           <div   className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-300 bg-black/50 ${
         RotateModal ? "scale-100 opacity-100" : "scale-0 opacity-0"
-      }`}>
-
-        
+      }`}>    
            <div className="gap-5 w-fit  rounded-md flex flex-col justify-between  ">
               <div className=" bg-white rounded-md p-2">
-                
               <TilesRotatePair svgString={tile.image} /> 
              </div>
-             
-        
-
               <div className=" flex mt-2 3xl:mt-6 gap-3">
               <button   onClick={() => handleButtonClickGrid(tile.image, tile.size)} className="border-[4px] 3xl:border-[5px] h-12 w-12 3xl:h-20 3xl:w-20 rounded-full border-white transition-all duration-200 ease-in-out hover:bg-[#35502F] bg-[#2A2523] flex justify-center items-center">
-
 <CircleRight  color="white"  className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
                 </button>
-                <button className=" border-[4px] 3xl:border-[5px] h-12 w-12 3xl:h-20 3xl:w-20 rounded-full border-white flex justify-center items-center transition-all duration-200 ease-in-out hover:bg-black bg-[#2A2523]">
-
-<CircleBack color="white"  className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
-  </button>
                 <button onClick={()=>setRotateModal(false)} className=" border-[4px] 3xl:border-[5px] h-12 w-12 3xl:h-20 3xl:w-20 rounded-full border-white transition-all duration-200 ease-in-out hover:bg-black bg-[#2A2523] flex justify-center items-center">
-
               <CircleClose color="white" className=" h-6 w-6 3xl:h-9 3xl:w-9"/>
                 </button>
               </div>
@@ -359,7 +312,7 @@ const [borderColorModal, setborderColorModal] = useState(false)
               <div className=" flex items-center gap-5 lg:gap-9 xl:gap-[60px] ml-5 lg:ml-12">
                 <button className=" "  onClick={()=>handelOpenClose(RotateModal, setRotateModal)}><RotateIcon size={31} color={ RotateModal ? "black" : "gray"} className=" lg:hidden "/> <span className="hidden lg:block">Rotate</span></button>
                 <button className=" " onClick={() => handelOpenClose(TileColorPannelBtn, setTileColorPannelBtn)}><Remix className=" lg:hidden " color={TileColorPannelBtn ? "black" : "gray"} size={44} /> <span className="hidden lg:block">Colors</span></button>
-                <button className=" " onClick={() => setborderColorModal(!borderColorModal)}><Remix className=" lg:hidden " color={ TileColorPannelBtn ? "black" : "gray"}  size={44} /> <span className="hidden lg:block">Border Colors</span></button>
+                <button className=" hidden md:block" onClick={() => setborderColorModal(!borderColorModal)}><Remix className=" lg:hidden " color={ TileColorPannelBtn ? "black" : "gray"}  size={44} /> <span className="hidden lg:block">Border Colors</span></button>
                 <LuImageDown size={36} color="gray" className=" lg:hidden" />
                 <button className=" hidden lg:block" onClick={()=>handelOpenClose( tilesLayoutModal,settilesLayoutModal)}>Tiles Layout</button>
                 <span className=" hidden lg:flex gap-2 items-center">Zoom
@@ -378,7 +331,7 @@ const [borderColorModal, setborderColorModal] = useState(false)
 <div className={` ${ borderHide && "hidden"} absolute top-0 left-0 backdrop-blur-sm w-full h-full`}></div>
                 <button onClick={() => handelOpenClose(VisulazationModal, setVisulazationModal)} className=" lg:py-4  lg:px-8 lg:border lg:border-black "><VisualiseIcon color={ VisulazationModal ? "black" : "gray"} className=" lg:hidden" size={44} /><span className=" hidden lg:block">Visualise</span></button>
                 </div>
-                <button onClick={() => { setInquery(true);  console.log("hi")}} className=" lg:py-4 lg:px-8 lg:border bg-transparent lg:border-black lg:text-white lg:bg-black"><QuoteIcon className=" lg:hidden" color="gray"/> <span className=" hidden lg:block">Get a quote </span></button>
+                <button onClick={() => { setInquery(true)}} className=" lg:py-4 lg:px-8 lg:border bg-transparent lg:border-black lg:text-white lg:bg-black"><QuoteIcon className=" lg:hidden" color="gray"/> <span className=" hidden lg:block">Get a quote </span></button>
               </div>
  </div>
           </div>
@@ -444,3 +397,5 @@ const Tiles = [
     size: "10*10",
   },
 ];
+
+

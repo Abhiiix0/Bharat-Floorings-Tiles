@@ -79,7 +79,7 @@ import ceo from "../public/images/our-company/Faiyaz_Mukhtiar.jpg";
 import dnaAward from "../public/images/our-company/award_dna.jpg";
 import edidaAward from "../public/images/our-company/award_edida.jpg";
 import unescoAward from "../public/images/our-company/award_unesco.jpg";
-
+import product1 from "../public/images/home/product1.jpg";
 export const GALLERY_PAGE_IMAGES = [
   { id: 1, galleryImg: gallery1 },
   { id: 2, galleryImg: gallery2 },
@@ -165,8 +165,8 @@ export const OUR_SERVICES_PAGE = [
       },
       {
         id: 3,
-        info: `Once you're delighted with the design, we seamlessly integrate it into Autocad, and you can place your order. While this meticulous process takes time, plan accordingly for your project timelines.`
-      }
+        info: `Once you're delighted with the design, we seamlessly integrate it into Autocad, and you can place your order. While this meticulous process takes time, plan accordingly for your project timelines.`,
+      },
     ],
   },
   {
@@ -588,8 +588,8 @@ export const HERITAGE_RELIGIOUS_INSTITUTE = [
       { id: 4, name: "Muruganar Mandiram - Ramanathapuram" },
       { id: 5, name: "Shri Ramanashraman - Tiruvanamalai" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_HOUSING_SOCIETIES = [
   {
@@ -604,8 +604,8 @@ export const HERITAGE_HOUSING_SOCIETIES = [
       { id: 3, name: "New Shangrilla CHS" },
       { id: 4, name: "Sea Bird Housing Society" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_HOSPITALS = [
   {
@@ -618,10 +618,10 @@ export const HERITAGE_HOSPITALS = [
       { id: 1, name: `Tata Memorial Hospital - Mumbai` },
       { id: 2, name: "Venu Eye Centre - Gurgaon" },
     ],
-  }
-]
+  },
+];
 
-export const HERITAGE_EDUCATIONAL_INSTITUTIONS =[
+export const HERITAGE_EDUCATIONAL_INSTITUTIONS = [
   {
     id: 1,
     clientName: "Heritage",
@@ -638,8 +638,8 @@ export const HERITAGE_EDUCATIONAL_INSTITUTIONS =[
       { id: 7, name: "Woodstock School - Mussoorie" },
       { id: 8, name: "SOS Village - Faridabad" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_CORPORATE_GUEST_HOUSE = [
   {
@@ -654,8 +654,8 @@ export const HERITAGE_CORPORATE_GUEST_HOUSE = [
       { id: 3, name: "Reliance Petroleum - Jamnagar" },
       { id: 4, name: "PWD Guest House - Nashik" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_CORPORATE_ORGINISATIONS = [
   {
@@ -680,8 +680,8 @@ export const HERITAGE_CORPORATE_ORGINISATIONS = [
       { id: 13, name: "Alcon Victor Group - Goa" },
       { id: 14, name: "Garrison Engineers - Hyderabad" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_OLD_AGE_HOME = [
   {
@@ -690,11 +690,9 @@ export const HERITAGE_OLD_AGE_HOME = [
     ClientWork: "tiles",
     tradeMark: "TM",
     domain: "OLD-AGE HOME",
-    domainName: [
-      { id: 1, name: `Wallace Bungalow - Lonavala` },
-    ],
-  }
-]
+    domainName: [{ id: 1, name: `Wallace Bungalow - Lonavala` }],
+  },
+];
 
 export const HERITAGE_RESIDENCES = [
   {
@@ -720,8 +718,8 @@ export const HERITAGE_RESIDENCES = [
       { id: 14, name: "Limji Nanabhoy - Mumbai" },
       { id: 15, name: "Gvk Residency - Hyderabad" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_CLUBS = [
   {
@@ -740,8 +738,8 @@ export const HERITAGE_CLUBS = [
       { id: 7, name: "Banagalore Club" },
       { id: 8, name: "Kamala Vihar Sport Club - Mumbai" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_PUBLIC_BUILDINGS = [
   {
@@ -753,10 +751,10 @@ export const HERITAGE_PUBLIC_BUILDINGS = [
     domainName: [
       { id: 1, name: `Salarjung Museum - Hyderabad` },
       { id: 2, name: "Petit Library - Mumbai" },
-      { id: 3, name: "Poddar Chambers - Mumbai" }
+      { id: 3, name: "Poddar Chambers - Mumbai" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_NGOS = [
   {
@@ -765,11 +763,9 @@ export const HERITAGE_NGOS = [
     ClientWork: "tiles",
     tradeMark: "TM",
     domain: "NGOs",
-    domainName: [
-      { id: 1, name: `Bombay Natural History Society - Mumbai` },
-    ],
-  }
-]
+    domainName: [{ id: 1, name: `Bombay Natural History Society - Mumbai` }],
+  },
+];
 
 export const HERITAGE_BUILDERS = [
   {
@@ -787,8 +783,8 @@ export const HERITAGE_BUILDERS = [
       { id: 6, name: "Isaprava" },
       { id: 7, name: "Lodha" },
     ],
-  }
-]
+  },
+];
 
 export const HERITAGE_GOVERNMENT = [
   {
@@ -801,10 +797,10 @@ export const HERITAGE_GOVERNMENT = [
       { id: 1, name: `Brihanmumbai Municipal Corporation` },
       { id: 2, name: "High Court - Mumbai" },
       { id: 3, name: "Mussoorie Dehradun Development Authority" },
-      { id: 4, name: "AOI Extension Sagarmatha" }
+      { id: 4, name: "AOI Extension Sagarmatha" },
     ],
-  }
-]
+  },
+];
 
 export const BHARAT_TERRAZZO = [
   {
@@ -825,18 +821,18 @@ export const BHARAT_TERRAZZO = [
       { id: 12, name: "Vidya Mandir School - Dahisar" },
       { id: 13, name: "Global Projects and Aviation Pvt.Ltd" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_CHEMICAL = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'CHEMICAL',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "CHEMICAL",
     domainName: [
-      { id: 1, name: 'Raychem RPG Ltd' },
+      { id: 1, name: "Raychem RPG Ltd" },
       { id: 2, name: "Bombay Carbon Dioxide Gas Corp" },
       { id: 3, name: "Pidilite Industries" },
       { id: 4, name: "Suma Plastic Manufacturing C" },
@@ -848,32 +844,32 @@ export const STILAN_CHEMICAL = [
       { id: 10, name: "Techno Plastic Products" },
       { id: 11, name: "Zenith Rubber and Plastic Works" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_CORPORATE_OFFICES = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'CORPORATE OFFICES',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "CORPORATE OFFICES",
     domainName: [
-      { id: 1, name: 'Shipping Corp Od India' },
+      { id: 1, name: "Shipping Corp Od India" },
       { id: 2, name: "Wockhardt Ltd" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_TEXTILES = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'TEXTILES',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "TEXTILES",
     domainName: [
-      { id: 1, name: 'Raymond Woollen Mills' },
+      { id: 1, name: "Raymond Woollen Mills" },
       { id: 2, name: "Bombay Dyeing" },
       { id: 3, name: "Caprihans India Ltd" },
       { id: 4, name: "Just Textiles" },
@@ -884,34 +880,34 @@ export const STILAN_TEXTILES = [
       { id: 9, name: "Levino Kapur Cottons Ltd" },
       { id: 10, name: "Nirlon Ltd The Phoenix Mills Ltd" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_POWER_TRANSMISSION = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'POWER TRANSMISSION',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "POWER TRANSMISSION",
     domainName: [
-      { id: 1, name: 'BESE' },
+      { id: 1, name: "BESE" },
       { id: 2, name: "NTPC" },
       { id: 3, name: "Power Grid Corporation" },
-      { id: 4, name: "Jindal Iron and Steel" }
+      { id: 4, name: "Jindal Iron and Steel" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_GOVERNMENT = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'GOVERNMENT',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "GOVERNMENT",
     domainName: [
-      { id: 1, name: 'DOORDARSHAN KENDRA' },
+      { id: 1, name: "DOORDARSHAN KENDRA" },
       { id: 2, name: "BEST" },
       { id: 3, name: "Sainak Armghar Naval Dockyard" },
       { id: 4, name: "Reserve Bank of India" },
@@ -919,34 +915,34 @@ export const STILAN_GOVERNMENT = [
       { id: 6, name: "Delhi Metro Rail" },
       { id: 7, name: "BARC" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_AUTOMOBILE_WORKSHOPS = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'AUTOMOBILE_WORKSHOPS',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "AUTOMOBILE_WORKSHOPS",
     domainName: [
-      { id: 1, name: 'Sai Service Station' },
+      { id: 1, name: "Sai Service Station" },
       { id: 2, name: "Spectra Motors Ltd" },
       { id: 3, name: "Kwick Care Centre" },
       { id: 4, name: "Vitesse Ltd" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_FACTORIES = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'FACTORIES/WAREHOUSES',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "FACTORIES/WAREHOUSES",
     domainName: [
-      { id: 1, name: 'Daman Ganga Papers Ltd' },
+      { id: 1, name: "Daman Ganga Papers Ltd" },
       { id: 2, name: "Reliance Patalganga" },
       { id: 3, name: "Astral Glass" },
       { id: 4, name: "Hindustan Lever Ltd - Orai" },
@@ -956,51 +952,51 @@ export const STILAN_FACTORIES = [
       { id: 8, name: "GTC Industries" },
       { id: 9, name: "Sheryas Commercial Printers" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_HOUSING_SOCIETIES = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'HOUSING SOCIETIES',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "HOUSING SOCIETIES",
     domainName: [
-      { id: 1, name: 'Walkeshwar Mangankunj CHS' },
+      { id: 1, name: "Walkeshwar Mangankunj CHS" },
       { id: 2, name: "Anupam CHS" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_PUBLIC = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'PUBLIC/PRIVATE INSTITUTE',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "PUBLIC/PRIVATE INSTITUTE",
     domainName: [
-      { id: 1, name: 'Oval Maidan' },
+      { id: 1, name: "Oval Maidan" },
       { id: 2, name: "Alexanders Girls High School" },
       { id: 3, name: "GuruNanak College" },
       { id: 4, name: "Sheetal India" },
       { id: 5, name: "Sun and Sand Hotel P L" },
       { id: 6, name: "Petit School" },
-      { id: 7, name: "Mahindra Construction Co Ltd" }
+      { id: 7, name: "Mahindra Construction Co Ltd" },
     ],
-  }
-]
+  },
+];
 
 export const STILAN_ENGINEERING = [
   {
     id: 1,
     clientName: "Stilan",
-    clientWork: 'tiles',
-    tradeMark: '®',
-    domain: 'ENGINEERING',
+    clientWork: "tiles",
+    tradeMark: "®",
+    domain: "ENGINEERING",
     domainName: [
-      { id: 1, name: 'Larsen and Toubro - Gould' },
+      { id: 1, name: "Larsen and Toubro - Gould" },
       { id: 2, name: "FAG Precision Bearing" },
       { id: 3, name: "Godrej and Boyce Mfg Co" },
       { id: 4, name: "JB Engineering" },
@@ -1008,9 +1004,8 @@ export const STILAN_ENGINEERING = [
       { id: 6, name: "Top Brass Manufacturing Ltd (Locks)" },
       { id: 7, name: "Duncal India Pvt Ltd" },
     ],
-  }
-]
-
+  },
+];
 
 export const RESOURCES = [
   {
@@ -1719,8 +1714,8 @@ export const OUR_JOURNEY = [
     heading: "Recreating beauty. Winnig Awards",
     para: `The UNESCO and EDIDA Awards were received for The Yacht Club (Arch. Vikas Dilawari) and The Library House (Arch. Sanjeev Khosla)`,
     image: ourJourney2013,
-    top: '5%',
-    left: '35%'
+    top: "5%",
+    left: "35%",
   },
   {
     id: 12,
@@ -1740,8 +1735,8 @@ export const OUR_JOURNEY = [
     heading: "Cutting edge innovations",
     para: `Bharat is ever young in design and innovation.3D and Micro Topping are its latest offerings.`,
     image: ourJourney2015,
-    top: '5%',
-    left: '35%'
+    top: "5%",
+    left: "35%",
   },
   {
     id: 14,
@@ -1965,5 +1960,64 @@ export const ABOUT_CONTACTS = [
     dealerName: "Rahul Raj",
     contact: "+91 95997 66305, +91 70427 54670",
     mailId: "rahul.raj@bharatfloorings.com",
+  },
+];
+
+export const products = [
+  {
+    id: 1,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 2,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 3,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 4,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 5,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 6,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 7,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
+  },
+  {
+    id: 8,
+    name: "Designer",
+    color: 20,
+    designs: 10,
+    image: product1,
   },
 ];

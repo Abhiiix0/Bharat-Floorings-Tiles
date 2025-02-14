@@ -9,7 +9,6 @@ export const addDataConnectToSvg = (
   rotation: number,
   colors: { [id: number]: string },
 ) => {
-  console.log(svgString, height, width);
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgString, "image/svg+xml");
   const svg = doc.querySelector("svg");
@@ -95,12 +94,6 @@ export const addDataConnectToSvgWithGrainEffect = (
   colors: { [id: number]: string },
   grainsEffect:any
 ) => {
-  console.log("tileData", svgString,
-    height,
-    width,
-    rotation,
-    colors,
-    grainsEffect)
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgString, "image/svg+xml");
   const svg = doc.querySelector("svg");
@@ -189,8 +182,6 @@ function getInnerTiles(
   const rows = gridLayout.length;
   const cols = gridLayout[0].length;
 
-  console.log("gridLayout.length", gridLayout.length);
-  console.log("gridLayout[0].length", gridLayout[0].length);
 
   for (let i = 1; i < rows - 1; i++) {
     const row: TileProperties[] = [];
@@ -503,9 +494,6 @@ const combineCornerTilesToSvg = (
     cornerSize,
     0.1
   );
-
-  console.log("combinedSvg.outerHTML", combinedSvg.outerHTML);
-
   return combinedSvg.outerHTML;
 };
 

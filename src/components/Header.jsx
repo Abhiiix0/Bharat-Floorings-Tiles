@@ -332,12 +332,12 @@ const Header = ({ textColor, iconsColor, lines }) => {
             {!open && (
               <div
                 onClick={showDrawer}
-                className=" mt-[2.36rem] relative z-50 md:mt-10 xl:hidden"
+                className=" mt-[2.36rem]  relative z-50 md:mt-10 xl:hidden"
               >
                 <Menu
                   color={iconsColor}
                   size={40}
-                  className=" w-[24px] h-[24px]  mr-5 md:w-[40px] md:h-[40px]"
+                  className=" w-[24px] h-[24px]  mr-5 lg:mr-[100px] md:w-[40px] md:h-[40px]"
                 ></Menu>
               </div>
             )}

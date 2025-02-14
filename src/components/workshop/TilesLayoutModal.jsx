@@ -15,13 +15,9 @@ const TilesLayout = ({ tile, closeModal, open }) => {
   const setFloorRow = useFloorStore((state) => state.setFloorRow);
   const setFloorColumn = useFloorStore((state) => state.setFloorColumn);
 
-  const gridLayout = useFloorStore((state) => state.gridLayout);
-  const setFloor = useFloorVisualizerStore((state) => state.setFloor);
   // function to handel the select
   const handleRowChange = (value) => {
-    console.log("g", floorRow);
     setFloorRow(parseInt(value));
-    console.log(parseInt(value));
   };
   const handleColumnChange = (value) => {
     setFloorColumn(parseInt(value));
